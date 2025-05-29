@@ -5,40 +5,45 @@ import re
 import requests
 import feedparser
 
-# Feed URL for Framework
-FEED_URL = 'https://www.tbs-sct.canada.ca/pol/rssfeeds-filsrss-eng.aspx?feed=1&type=79'
-TARGET_DIR = os.path.join('data', 'Framework')
-
-# Make sure the target directory exists
-os.makedirs(TARGET_DIR, exist_ok=True)
-
-# Fetch and parse the feed
-feed = feedparser.parse(FEED_URL)
+# Feeds and corresponding target directories
+feeds = {
+    "Framework": "https://www.tbs-sct.canada.ca/pol/rssfeeds-filsrss-eng.aspx?feed=1&type=79",
+    "Policy": "https://www.tbs-sct.canada.ca/pol/rssfeeds-filsrss-eng.aspx?feed=1&type=27",
+    "Directive": "https://www.tbs-sct.canada.ca/pol/rssfeeds-filsrss-eng.aspx?feed=1&type=73",
+    "Standard": "https://www.tbs-sct.canada.ca/pol/rssfeeds-filsrss-eng.aspx?feed=1&type=36",
+    "Guideline": "https://www.tbs-sct.canada.ca/pol/rssfeeds-filsrss-eng.aspx?feed=1&type=37"  # placeholder if needed
+}
 
 def sanitize_filename(filename):
-    # Remove/replace characters invalid in filenames
     return re.sub(r'[^a-zA-Z0-9_-]', '_', filename)
 
-for entry in feed.entries:
-    # Construct XML download URL with HTTPS
-    xml_url = entry.link.replace("http://", "https://") + "&section=xml"
-    
-    # Compose filename
-    title = entry.title
-    guid = entry.id if 'id' in entry else entry.guid
-    filename = f"{sanitize_filename(title)}_{sanitize_filename(guid)}.xml"
-    filepath = os.path.join(TARGET_DIR, filename)
+for dir_name, feed_url in feeds.items():
+    target_dir = os.path.join('data', dir_name)
+    os.makedirs(target_dir, exist_ok=True)
+    print(f"Processing {dir_name} feed...")
 
-    # Skip if already downloaded
-    if os.path.exists(filepath):
-        print(f"Already downloaded: {filename}")
-        continue
+    feed = feedparser.parse(feed_url)
 
-    # Download the XML content
-    resp = requests.get(xml_url)
-    if resp.status_code == 200:
-        with open(filepath, 'wb') as f:
-            f.write(resp.content)
-        print(f"Downloaded: {filename}")
-    else:
-        print(f"Failed to download: {xml_url} (status: {resp.status_code})")
+    for entry in feed.entries:
+        # Fix link to HTTPS and add &section=xml
+        xml_url = entry.link.replace("http://", "https://") + "&section=xml"
+
+        title = entry.title
+        guid = entry.id if 'id' in entry else entry.guid
+        filename = f"{sanitize_filename(title)}_{sanitize_filename(guid)}.xml"
+        filepath = os.path.join(target_dir, filename)
+
+        if os.path.exists(filepath):
+            print(f"Already downloaded: {filepath}")
+            continue
+
+        try:
+            resp = requests.get(xml_url)
+            if resp.status_code == 200:
+                with open(filepath, 'wb') as f:
+                    f.write(resp.content)
+                print(f"Downloaded: {filepath}")
+            else:
+                print(f"Failed: {xml_url} (status: {resp.status_code})")
+        except Exception as e:
+            print(f"Error downloading {xml_url}: {e}")
