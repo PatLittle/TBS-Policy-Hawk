@@ -5,8 +5,31 @@ This repository automates fetching the TBS Policy Suite RSS feed and will create
 
 Updates over time are added to `items.csv` along with the GUID assigned, so a digest of change history will accure overtime.  [![Static Badge](https://img.shields.io/badge/Open%20in%20Flatdata%20Viewer-FF00E8?style=for-the-badge&logo=github&logoColor=black)](https://flatgithub.com/PatLittle/TBS-Policy-Hawk/data/items.csv)
 
+---
 
-.
+## Features
+
+✅ Fetch and parse the RSS feed for new policy items  
+✅ Append new items to `data/items.csv`  
+✅ Create GitHub Issues for new items  
+✅ Archive XML documents for **Framework**, **Policy**, **Directive**, **Standard**, and **Guideline** categories
+
+---
+
+## To Do:
+- [ ] download the xml version of the new or updated policy document, then store it in the correct directory based on the xml <category>
+- [ ] generate a narrative summary of different versions of a updated documents, and add that to the issue
+
+
+## Usage
+1. Configure a GitHub Action (pre-built in `.github/workflows/fetch_rss.yml`).
+2. Ensure `secrets.GITHUB_TOKEN` is available.
+
+The workflow runs on a schedule to:
+- Fetch the RSS feed.
+- Append new items to `data/items.csv`.
+- Create a GitHub Issue for each newly detected item.
+```
 ├── README.md
 ├── data/
 │ ├── Framework/
@@ -28,12 +51,5 @@ Updates over time are added to `items.csv` along with the GUID assigned, so a di
 │ └── workflows/
 │ ├── fetch_rss.yml
 │ ├── init_framework_xml.yml 
+```
 
-## Usage
-1. Configure a GitHub Action (pre-built in `.github/workflows/fetch_rss.yml`).
-2. Ensure `secrets.GITHUB_TOKEN` is available.
-
-The workflow runs on a schedule to:
-- Fetch the RSS feed.
-- Append new items to `data/items.csv`.
-- Create a GitHub Issue for each newly discovered item.
