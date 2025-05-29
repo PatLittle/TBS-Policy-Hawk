@@ -1,4 +1,7 @@
 name: Fetch RSS Feed
+permissions:
+  contents: write
+  issues: write
 on:
   workflow_dispatch:
   schedule:
@@ -7,6 +10,9 @@ on:
 jobs:
   update:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
     steps:
       - uses: actions/checkout@v3
         with:
@@ -18,13 +24,24 @@ jobs:
           python-version: '3.x'
 
       - name: Install dependencies
-        run: |
-          pip install feedparser requests
+        run: pip install feedparser
 
-      - name: Fetch and process feed
+      - name: Fetch feed and update CSV
         run: python scripts/fetch_feed.py
 
-      - name: Commit changes
+      - name: Create GitHub issues for new items
+        run: |
+          if [ -f data/new_items.csv ]; then
+            tail -n +2 data/new_items.csv | while IFS=, read -r title link description category guid pubDate; do
+              gh issue create \
+                --title "New RSS Item: $title" \
+                --body "**Published:** $pubDate\n**Link:** $link\n**Category:** $category\n**GUID:** $guid\n\n$description"
+            done
+          fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Commit CSV updates
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
