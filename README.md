@@ -5,6 +5,11 @@ This repository automates fetching the TBS Policy Suite RSS feed and will create
 
 Updates over time are added to `items.csv` along with the GUID assigned, so a digest of change history will accure overtime.  [![Static Badge](https://img.shields.io/badge/Open%20in%20Flatdata%20Viewer-FF00E8?style=for-the-badge&logo=github&logoColor=black)](https://flatgithub.com/PatLittle/TBS-Policy-Hawk/data/items.csv)
 
+## Want Notifications?
+- If you want to recieve notifications for updates to the TBS Policy suite you can:
+   * "watch" this repo and set notifications to "issues" or
+   * subscribe to the RSS feed https://www.tbs-sct.canada.ca/pol/rssfeeds-filsrss-eng.aspx?feed=2&count=25 
+
 ---
 
 ## Features
