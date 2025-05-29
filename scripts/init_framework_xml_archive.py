@@ -20,8 +20,8 @@ def sanitize_filename(filename):
     return re.sub(r'[^a-zA-Z0-9_-]', '_', filename)
 
 for entry in feed.entries:
-    # Construct XML download URL
-    xml_url = f"{entry.link}&section=xml"
+    # Construct XML download URL with HTTPS
+    xml_url = entry.link.replace("http://", "https://") + "&section=xml"
     
     # Compose filename
     title = entry.title
