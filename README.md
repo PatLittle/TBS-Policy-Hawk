@@ -1,9 +1,12 @@
 [![Fetch RSS Feed](https://github.com/PatLittle/TBS-Policy-Hawk/actions/workflows/fetch_rss.yml/badge.svg?branch=main)](https://github.com/PatLittle/TBS-Policy-Hawk/actions/workflows/fetch_rss.yml)
-# TBS Policy Suite RSS Feed Watcher
+# TBS Policy Hawk - Hawk-Eyed for Every Update.
+<img src="https://github.com/user-attachments/assets/2cade396-76a8-474a-8c17-f0f7ed1e69ab" width="300" height="300">
 
 This repository automates fetching the TBS Policy Suite RSS feed and will create issues when policy docs are added or updated.
 
-Updates over time are added to `items.csv` along with the GUID assigned, so a digest of change history will accure overtime.  [![Static Badge](https://img.shields.io/badge/Open%20in%20Flatdata%20Viewer-FF00E8?style=for-the-badge&logo=github&logoColor=black)](https://flatgithub.com/PatLittle/TBS-Policy-Hawk/data/items.csv)
+Updates over time are added to `items.csv` along with the GUID assigned, so a digest of change history will accure overtime. 
+
+ [![Static Badge](https://img.shields.io/badge/Open%20in%20Flatdata%20Viewer-FF00E8?style=for-the-badge&logo=github&logoColor=black)](https://flatgithub.com/PatLittle/TBS-Policy-Hawk/data/items.csv)
 
 ## Want Notifications?
 - If you want to recieve notifications for updates to the TBS Policy suite you can:
