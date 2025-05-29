@@ -2,7 +2,6 @@ import os
 import csv
 import feedparser
 import requests
-from datetime import datetime
 
 # Configuration
 FEED_URL = 'https://www.tbs-sct.canada.ca/pol/rssfeeds-filsrss-eng.aspx?feed=2&count=25'
@@ -11,7 +10,7 @@ GITHUB_API = 'https://api.github.com'
 REPO = os.getenv('GITHUB_REPOSITORY')  # e.g., 'owner/name'
 TOKEN = os.getenv('GITHUB_TOKEN')
 
-# Load existing items
+# Load existing items (by link)
 existing = set()
 if os.path.exists(CSV_PATH):
     with open(CSV_PATH, newline='', encoding='utf-8') as f:
@@ -32,15 +31,26 @@ if new_items:
     with open(CSV_PATH, 'a', newline='', encoding='utf-8') as f:
         writer = csv.writer(f)
         for e in new_items:
-            published = e.get('published', '')
-            writer.writerow([e.title, e.link, published, e.get('summary', '')])
+            title = e.get('title', '')
+            link = e.get('link', '')
+            description = e.get('description', '') or e.get('summary', '')
+            category = e.get('category', '')
+            guid = e.get('id', '')
+            pubDate = e.get('published', '')
+            writer.writerow([title, link, description, category, guid, pubDate])
 
     # Create GitHub Issues
     headers = {'Authorization': f'token {TOKEN}'}
     for e in new_items:
         issue = {
-            'title': f"New RSS Item: {e.title}",
-            'body': f"**Published:** {e.get('published', '')}\n**Link:** {e.link}\n\n{e.get('summary', '')}"
+            'title': f"New RSS Item: {e.get('title', '')}",
+            'body': (
+                f"**Published:** {e.get('published', '')}\n"
+                f"**Link:** {e.get('link', '')}\n"
+                f"**Category:** {e.get('category', '')}\n"
+                f"**GUID:** {e.get('id', '')}\n\n"
+                f"{e.get('description', '') or e.get('summary', '')}"
+            )
         }
         url = f"{GITHUB_API}/repos/{REPO}/issues"
         resp = requests.post(url, json=issue, headers=headers)
