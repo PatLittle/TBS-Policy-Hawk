@@ -52,7 +52,7 @@ def xml_diff_summary(file1, file2):
     input_text = preamble + diff_text
     # HuggingFace models have a limit on input length, so we truncate if necessary
     input_text = input_text[:1024]
-    summary = summarizer(input_text, max_length=120, min_length=30, do_sample=False)[0]['summary_text']
+    summary = summarizer(input_text, max_length=120, min_length=50, do_sample=False)[0]['summary_text']
     return summary
 
 output = []
