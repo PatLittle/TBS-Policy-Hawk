@@ -6,7 +6,9 @@ from azure.core.credentials import AzureKeyCredential
 endpoint = "https://models.github.ai/inference"
 model = "xai/grok-3-mini"
 token = os.environ["GITHUB_TOKEN"]
-input = "./pairs.json"
+
+with open("pairs.json") as f:
+    pairs_text = f.read()
 
 client = ChatCompletionsClient(
     endpoint=endpoint,
@@ -17,11 +19,11 @@ response = client.complete(
     messages=[
         SystemMessage("You are a helpful assistant that summarizes the changes between versions of a document."),
       UserMessage(
-    input + " is a list of pair of 2 versions of the same file to compare. "
+    pairs_text + "\n \n  is a list of pair of 2 versions of the same file to compare. "
     "Summarize the difference between the content in the versions, and give "
     "first an executive summary, then detailed changes referring to which "
     "sections each change is in, show previous wording and new wording where "
-    "useful. This is for a policy wonk audience. Generate the output as a markdown document"
+    "useful. This is for a policy wonk audience. use markdown in your output"
 ),
     ],
     temperature=1.0,
