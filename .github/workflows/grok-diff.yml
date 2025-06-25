@@ -1,0 +1,43 @@
+name: Run grok-diff
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'scripts/grok-diff.py'
+      - 'requirements.txt'
+
+jobs:
+  run-grok-diff:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+      - name: Run grok-diff.py
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/grok-diff.py
+
+      - name: Configure git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Commit and push grok-diff.md
+        run: |
+          git add grok-diff.md
+          git commit -m "Add/update grok-diff.md output [skip ci]" || echo "No changes to commit"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
