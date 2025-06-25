@@ -22,20 +22,16 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Install Python/Node dependencies
-        run: |
-          pip install feedparser requests
-          npm install -g playwright
-          playwright install --with-deps
+      - name: Install Python dependencies
+        run: pip install feedparser requests
 
       - name: Fetch feed and update CSV
         run: python scripts/fetch_feed.py
 
-      - name: Create GitHub issues for new items with screenshots (single gist)
+      - name: Create GitHub issues for new items
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          python scripts/create_issues_with_screenshots.py
+        run: python scripts/create_issues.py
 
       - name: Commit CSV updates
         run: |
