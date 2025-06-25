@@ -8,19 +8,20 @@ BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
 ITEMS_CSV = os.path.join(BASE_DIR, 'data', 'items.csv')
 NEW_CSV = os.path.join(BASE_DIR, 'data', 'new_items.csv')
 
-# Load existing links
+# Load existing GUIDs
 existing = set()
 if os.path.exists(ITEMS_CSV):
     with open(ITEMS_CSV, newline='', encoding='utf-8') as f:
         reader = csv.DictReader(f)
         for row in reader:
-            existing.add(row['link'])
+            existing.add(row['guid'])  # Changed from 'link' to 'guid'
 
 # Fetch feed
 feed = feedparser.parse(FEED_URL)
 new_entries = []
 for e in feed.entries:
-    if e.link not in existing:
+    guid = e.get('id', '')  # 'id' in feedparser maps to guid in RSS
+    if guid and guid not in existing:
         new_entries.append(e)
 
 # Write new_items.csv
@@ -33,7 +34,7 @@ with open(NEW_CSV, 'w', newline='', encoding='utf-8') as f:
             e.get('link',''),
             e.get('description','') or e.get('summary',''),
             e.get('category',''),
-            e.get('id',''),
+            e.get('id',''),      # Write guid here
             e.get('published','')
         ])
 
@@ -46,6 +47,6 @@ with open(ITEMS_CSV, 'a', newline='', encoding='utf-8') as f:
             e.get('link',''),
             e.get('description','') or e.get('summary',''),
             e.get('category',''),
-            e.get('id',''),
+            e.get('id',''),      # Write guid here
             e.get('published','')
         ])
