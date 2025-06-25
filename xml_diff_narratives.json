@@ -1,0 +1,12 @@
+[
+  {
+    "file1": "data/Directive/Automated_Decision-Making__Directive_on_32592_2025-06-24.xml",
+    "file2": "data/Directive/Automated_Decision-Making__Directive_on_32592_2023-04-25.xml",
+    "summary": " Automated_Decision-Making_Directive_on_32592_2023-04-25.xml is a diff between two XML files . The differences in plain language for a non-technical reader are the key differences ."
+  },
+  {
+    "file1": "data/Directive/Official_Languages_for_People_Management__Directive_on_26168_2025-06-20.xml",
+    "file2": "data/Directive/Official_Languages_for_People_Management__Directive_on_26168_2024-10-21.xml",
+    "summary": " Official_Languages_for_People_Management__Directive_on_26168_2025-06-20.xml is a diff between two XML files . Managers and supervisors are responsible for providing employees with work instruments and electronic systems in both official languages ."
+  }
+]
