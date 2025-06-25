@@ -6,6 +6,7 @@ import os
 import hashlib
 import requests
 import json
+from urllib.parse import urlparse
 
 GITHUB_TOKEN = os.environ['GITHUB_TOKEN']
 GITHUB_API = 'https://api.github.com'
@@ -14,10 +15,22 @@ HEADERS = {'Authorization': f'token {GITHUB_TOKEN}'}
 def safe_filename(s):
     return hashlib.sha256(s.encode()).hexdigest()[:16] + '.png'
 
+def is_valid_url(url):
+    try:
+        result = urlparse(url)
+        return result.scheme in ('http', 'https') and result.netloc
+    except Exception:
+        return False
+
 def take_screenshot(url, out_path):
-    subprocess.run([
-        'playwright', 'screenshot', 'url', url, out_path
-    ], check=True)
+    try:
+        subprocess.run([
+            'playwright', 'screenshot', 'url', url, out_path
+        ], check=True)
+    except subprocess.CalledProcessError as e:
+        print(f"Failed to screenshot {url}: {e}", file=sys.stderr)
+        return False
+    return True
 
 def main():
     new_items_csv = 'data/new_items.csv'
@@ -34,11 +47,17 @@ def main():
             if not row or all(not cell.strip() for cell in row):
                 continue
             title, link, description, category, guid, pubDate = (row + ['']*6)[:6]
+            link = link.strip()
+            if not is_valid_url(link):
+                print(f"Skipping invalid URL: {link!r}", file=sys.stderr)
+                continue
             screenshot_file = os.path.join('screenshots', safe_filename(link))
-            take_screenshot(link.strip(), screenshot_file)
+            if not take_screenshot(link, screenshot_file):
+                print(f"Skipping item due to screenshot failure: {link!r}", file=sys.stderr)
+                continue
             items.append({
                 'title': title.strip(),
-                'link': link.strip(),
+                'link': link,
                 'description': description.strip(),
                 'category': category.strip(),
                 'guid': guid.strip(),
@@ -55,6 +74,7 @@ def main():
     for item in items:
         with open(item['screenshot_file'], 'rb') as f:
             content = f.read()
+        # Gist API expects text; decode as latin1 to preserve binary data
         files[os.path.basename(item['screenshot_file'])] = {'content': content.decode('latin1')}
     gist_payload = {
         'description': 'Screenshots for new RSS items',
@@ -80,11 +100,14 @@ def main():
             f'![Screenshot]({raw_url})'
         )
         print(f'Creating issue: {issue_title}')
-        subprocess.run([
-            'gh', 'issue', 'create',
-            '--title', issue_title,
-            '--body', body
-        ], check=True)
+        try:
+            subprocess.run([
+                'gh', 'issue', 'create',
+                '--title', issue_title,
+                '--body', body
+            ], check=True)
+        except subprocess.CalledProcessError as e:
+            print(f"Failed to create issue for {item['link']}: {e}", file=sys.stderr)
 
 if __name__ == '__main__':
     main()
