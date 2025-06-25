@@ -1,3 +1,4 @@
 lxml
 transformers
 torch
+azure-ai-inference
