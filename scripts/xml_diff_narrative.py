@@ -46,21 +46,32 @@ def xml_diff_summary(file1, file2):
         lineterm=''
     ))
     diff_text = "\n".join(diff)
+    # Enhanced prompt for clarity and grouping
     preamble = (
-        f"Here is a diff between two XML files. Briefly summarize the key differences in plain language for a non-technical reader:\n"
+        f"Below is a unified diff between two XML files. As an expert policy analyst, "
+        f"write a concise, clear narrative for policy or technical stakeholders explaining the MAIN changes in content, structure, or meaning. "
+        f"Highlight what was added, removed, or changed, grouping similar changes, and note any potential impact or significance. "
+        f"Avoid technical jargon and present the analysis in plain language, focusing on practical implications.\n"
+        f"Unified diff:\n"
     )
     input_text = preamble + diff_text
     # HuggingFace models have a limit on input length, so we truncate if necessary
     input_text = input_text[:1024]
-    summary = summarizer(input_text, max_length=120, min_length=50, do_sample=False)[0]['summary_text']
-    return summary
+    summary = summarizer(
+        input_text,
+        max_length=180,
+        min_length=60,
+        do_sample=False
+    )[0]['summary_text'].strip()
+    return diff_text, summary
 
 output = []
 for file1, file2 in pairs:
-    summary = xml_diff_summary(file1, file2)
+    diff_text, summary = xml_diff_summary(file1, file2)
     output.append({
         "file1": file1,
         "file2": file2,
+        "diff": diff_text,
         "summary": summary
     })
 
