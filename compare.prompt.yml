@@ -5,7 +5,7 @@ messages:
       of a document
   - role: user
     content: >-
-      pairs.json is a list of pair of 2 versions of the same file to compare.
+      {{input_json}}is a list of pair of 2 versions of the same file to compare.
       Summarize the difference between the content in the versions, and give
       first an executive summary, then detailed changes. This is for a policy
       wonk audience
