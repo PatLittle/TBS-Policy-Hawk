@@ -52,8 +52,8 @@ for pair in pairs:
     )
 
     summary = response.choices[0].message.content
-    all_outputs += f"# Comparison for {os.path.basename(pair[0])} and {os.path.basename(pair[1])}\n\n"
-    all_outputs += AI Generated summary + "\n\n---\n\n"
+    all_outputs += f"# AI Generated Comparison for {os.path.basename(pair[0])} and {os.path.basename(pair[1])}\n\n"
+    all_outputs += summary + "\n\n---\n\n"
 
 with open("./grok-diff.md", "w", encoding="utf-8") as f:
     f.write(all_outputs)
