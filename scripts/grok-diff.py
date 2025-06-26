@@ -8,7 +8,12 @@ endpoint = "https://models.github.ai/inference"
 model = "xai/grok-3-mini"
 token = os.environ["GITHUB_TOKEN"]
 
-# Load file pairs
+# Helper function to trim content to N characters (adjust as needed)
+def trim_content(content, max_chars=1500):
+    if len(content) > max_chars:
+        return content[:max_chars//2] + "\n...\n" + content[-max_chars//2:]
+    return content
+
 with open("pairs.json") as f:
     pairs = json.load(f)
 
@@ -25,6 +30,7 @@ for pair in pairs:
         filename = os.path.basename(file_path)
         with open(file_path, encoding="utf-8") as infile:
             content = infile.read().strip()
+        content = trim_content(content)  # Trim to avoid token overflow
         message += f"**{filename}**\n```\n{content}\n```\n\n"
 
     message += (
