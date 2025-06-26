@@ -5,11 +5,11 @@ from azure.ai.inference.models import SystemMessage, UserMessage
 from azure.core.credentials import AzureKeyCredential
 
 endpoint = "https://models.github.ai/inference"
-model = "xai/grok-3-mini"
+model = "xai/grok-3"
 token = os.environ["GITHUB_TOKEN"]
 
 # Helper function to trim content to N characters (adjust as needed)
-def trim_content(content, max_chars=1500):
+def trim_content(content, max_chars=2500):
     if len(content) > max_chars:
         return content[:max_chars//2] + "\n...\n" + content[-max_chars//2:]
     return content
@@ -35,8 +35,8 @@ for pair in pairs:
 
     message += (
         "These are two versions of the same file to compare. "
-        "Summarize the difference between the content in the versions, and give "
-        "first an executive summary, then detailed changes referring to which "
+        "Summarize the changes to content in the versions, focus on the substance of the document not the xml layout or markup. give "
+        "first an executive summary describing the theme of the changes and major changes to requirements, then detailed changes referring to which "
         "sections each change is in, show previous wording and new wording where "
         "useful. This is for a policy wonk audience. Generate the output as a markdown document."
     )
