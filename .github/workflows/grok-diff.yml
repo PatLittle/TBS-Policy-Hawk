@@ -5,7 +5,7 @@ on:
   push:
     paths:
       - 'scripts/grok-diff.py'
-      - 'requirements.txt'
+      - 'pairs.json'
 
 jobs:
   run-grok-diff:
