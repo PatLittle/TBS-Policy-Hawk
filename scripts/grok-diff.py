@@ -5,7 +5,7 @@ from azure.ai.inference.models import SystemMessage, UserMessage
 from azure.core.credentials import AzureKeyCredential
 
 endpoint = "https://models.github.ai/inference"
-model = "xai/grok-3-mini"
+model = "xai/grok-3"
 token = os.environ["GITHUB_TOKEN"]
 
 # Load file pairs
