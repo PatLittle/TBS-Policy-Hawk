@@ -53,9 +53,34 @@ for pair in pairs:
 
     summary = response.choices[0].message.content
     all_outputs += f"# Comparison for {os.path.basename(pair[0])} and {os.path.basename(pair[1])}\n\n"
-    all_outputs += summary + "\n\n---\n\n"
+    all_outputs += AI Generated summary + "\n\n---\n\n"
 
 with open("./grok-diff.md", "w", encoding="utf-8") as f:
     f.write(all_outputs)
 
 print("Output saved as grok-diff.md")
+
+import re
+
+README_FILE = "README.md"
+MARKER_START = "<!-- BEGIN GROK DIFF -->"
+MARKER_END = "<!-- END GROK DIFF -->"
+
+with open(README_FILE, "r", encoding="utf-8") as f:
+    readme_contents = f.read()
+
+# Build the new section content
+new_section = f"{MARKER_START}\n{all_outputs}\n{MARKER_END}"
+
+# Replace the section between the markers
+pattern = re.compile(
+    rf"{MARKER_START}.*?{MARKER_END}", re.DOTALL
+)
+if pattern.search(readme_contents):
+    new_readme = pattern.sub(new_section, readme_contents)
+else:
+    # If section doesn't exist, append at the end
+    new_readme = readme_contents.strip() + "\n\n" + new_section
+
+with open(README_FILE, "w", encoding="utf-8") as f:
+    f.write(new_readme)
