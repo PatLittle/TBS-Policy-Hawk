@@ -1,0 +1,1030 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" title="Directive on the Management of Materiel" documentID="32690" versionID="2" language="en" space="preserve" xsi:noNamespaceSchemaLocation="G:\web\xml\pols\PolicyInstrumentSchema.HTML5.xsd">
+  <notetoreader>
+    <p>
+      Effective July 11, 2023, the 
+      <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=32690">
+        <em>Directive on the Management of Materiel</em>
+      </a>
+       has been amended to include new and modified requirements to Appendix A: Mandatory Procedures for Land Vehicle Fleet Management in support of the federal Greening Government Strategy and the commitment to electrify the entire federal fleet of light duty vehicles by 2030.
+    </p>
+    <p>The following sections have been amended or added: </p>
+    <ul>
+      <li>
+            Sections A.2.3.1.4, A.2.3.1.5, A.2.3.1.6, and A.2.3.1.14 relating to internal controls, planning, acquisitions and information management for all land vehicles. 
+        </li>
+      <li>
+            Sections A.2.3.6, A.2.3.7, A.2.3.8, A.2.3.10, and A.2.3.12 relating exclusively to executive vehicles. 
+        </li>
+    </ul>
+  </notetoreader>
+  <chapters>
+    <chapter anchor="1" title="Effective date">
+      <clauses>
+        <clause anchor="1.1">
+          This directive takes effect on 
+          <time datetime="2021-05-13" class="nowrap">May 13, 2021</time>
+          .
+        </clause>
+        <clause anchor="1.2">
+          <p>This directive replaces the following Treasury Board policy instruments:</p>
+          <ul>
+            <li>
+              <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=12062">
+                <em>Policy on Management of Materiel</em>
+              </a>
+               (
+              <time datetime="2006-11-01" class="nowrap">November 1, 2006</time>
+              )
+            </li>
+            <li>
+              <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=12063">
+                <em>Controlled Goods Directive</em>
+              </a>
+               (
+              <time datetime="2006-11-01" class="nowrap">November 1, 2006</time>
+              )
+            </li>
+            <li>
+              <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=12066">
+                <em>Directive on Disposal of Surplus Materiel</em>
+              </a>
+               (
+              <time datetime="2006-11-01" class="nowrap">November 1, 2006</time>
+              )
+            </li>
+            <li>
+              <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=12065">
+                <em>Directive on Fleet Management: Light Duty Vehicles</em>
+              </a>
+               (
+              <time datetime="2006-11-01" class="nowrap">November 1, 2006</time>
+              )
+            </li>
+            <li>
+              <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=12064">
+                <em>Directive on Fleet Management: Executive Vehicles</em>
+              </a>
+               (
+              <time datetime="2018-08-09" class="nowrap">August 9, 2018</time>
+              )
+            </li>
+          </ul>
+        </clause>
+        <clause anchor="1.3">Departments have 12 months to transition to this directive.</clause>
+      </clauses>
+    </chapter>
+    <chapter anchor="2" title="Authorities">
+      <clauses>
+        <clause anchor="2.1">
+          This directive is issued pursuant to the same authorities indicated in Section 2 of the 
+          <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=32593">
+            <em>Policy on the Planning and Management of Investments</em>
+          </a>
+          .
+        </clause>
+      </clauses>
+    </chapter>
+    <chapter anchor="3" title="Objectives and expected results">
+      <clauses>
+        <clause anchor="3.1">The objective of this directive is that materiel is planned, acquired, operated, maintained and divested in a manner that supports the delivery of programs and services to Canadians, while ensuring best value to the Crown.</clause>
+        <clause anchor="3.2">
+          <p>The expected results of this directive are as follows:</p>
+          <clauses>
+            <clause anchor="3.2.1">Materiel is managed in a manner that enables operational outcomes, demonstrates sound stewardship and best value consistent with the Government of Canada’s socio-economic, security and environmental objectives;</clause>
+            <clause anchor="3.2.2">Materiel management decisions are based on risk management practices, performance information and an assessment of full life-cycle costs;</clause>
+            <clause anchor="3.2.3">Effective governance and oversight mechanisms are in place to support the management of materiel;</clause>
+            <clause anchor="3.2.4">Opportunities for collaboration are considered in materiel management decisions;</clause>
+            <clause anchor="3.2.5">Workforce capacity for materiel management is developed and maintained commensurate with organizational need; and</clause>
+            <clause anchor="3.2.6">Transactions related to materiel management are fair, open and transparent, and demonstrate due diligence.</clause>
+          </clauses>
+        </clause>
+      </clauses>
+    </chapter>
+    <chapter anchor="4" title="Requirements">
+      <section>
+        <h3>Senior designated official(s) for the management of materiel</h3>
+        <clauses>
+          <clause anchor="4.1">
+            <p>The senior designated official(s) for the management of materiel in a department is (are) responsible for the following:</p>
+            <clauses>
+              <clause anchor="4.1.1">
+                <p>Establishing, implementing and maintaining a department-wide materiel management framework consisting of processes, systems and controls that:</p>
+                <clauses>
+                  <clause anchor="4.1.1.1">Include oversight, planning and reporting mechanisms;</clause>
+                  <clause anchor="4.1.1.2">Incorporate performance results and lessons learned to inform materiel decision-making;</clause>
+                  <clause anchor="4.1.1.3">
+                    Contribute the materiel perspective to departmental planning functions, which includes ensuring that materiel inputs to the department’s Investment Plan are in accordance with the 
+                    <em>Policy on the Planning and Management of Investments</em>
+                    , Appendix A: Mandatory Procedures for Investment Plans; and
+                  </clause>
+                  <clause anchor="4.1.1.4">Facilitate collaboration between materiel management officials and program leads to enable informed materiel management decisions;</clause>
+                </clauses>
+              </clause>
+              <clause anchor="4.1.2">
+                <p>Providing advice to the deputy head on:</p>
+                <clauses>
+                  <clause anchor="4.1.2.1">The nature, structure and required resourcing of the department’s materiel management function;</clause>
+                  <clause anchor="4.1.2.2">Significant gaps in performance and issues of non-compliance with the requirements of this directive;</clause>
+                  <clause anchor="4.1.2.3">The departmental materiel management strategy;</clause>
+                  <clause anchor="4.1.2.4">Investments required to maintain the integrity of the department’s materiel and to optimize its operational efficiency and environmental performance;</clause>
+                </clauses>
+              </clause>
+              <clause anchor="4.1.3"> Identifying and addressing the department’s needs with respect to the necessary competencies, capacity and professional development in materiel management;</clause>
+              <clause anchor="4.1.4">
+                Managing, in cooperation with the chief security officer, controlled goods, as outlined in this directive’s 
+                <a href="#appB">Appendix B: Mandatory Procedures for the Management of Controlled Goods</a>
+                ;
+              </clause>
+              <clause anchor="4.1.5">Identifying and protecting all assets that have heritage value, including Indigenous artifacts and assets that have cultural significance to Canadians;</clause>
+              <clause anchor="4.1.6">Certifying annually to TBS the completeness and accuracy of the information submitted to the Centre for Greening Government Inventory; and</clause>
+              <clause anchor="4.1.7">
+                Facilitating the collection and reporting of accurate, timely and complete data for fleet management as described in 
+                <a href="#appA">Appendix A: Mandatory Procedures for Land Vehicle Fleet Management</a>
+                .
+              </clause>
+            </clauses>
+          </clause>
+        </clauses>
+      </section>
+      <section>
+        <h3>Materiel management practitioners</h3>
+        <clauses>
+          <clause anchor="4.2">
+            <p>Materiel management practitioners are responsible for the following:</p>
+            <section>
+              <h4>Planning and Governance</h4>
+              <clauses>
+                <clause anchor="4.2.1">
+                  <p>Ensuring that a materiel management information system is in place that:</p>
+                  <clauses>
+                    <clause anchor="4.2.1.1">Enables the timely collection and generation of comprehensive and accurate data on materiel holdings;</clause>
+                    <clause anchor="4.2.1.2">Links to departmental financial information systems and processes; and</clause>
+                    <clause anchor="4.2.1.3">Supports government-wide reporting requirements;</clause>
+                  </clauses>
+                </clause>
+                <clause anchor="4.2.2">
+                  <p>Ensuring that a strategy for life-cycle management of materiel is in place that:</p>
+                  <clauses>
+                    <clause anchor="4.2.2.1">Is developed in an integrated manner, in consultation with key departmental stakeholders, including procurement, real property, information technology, finance, human resources, security and other relevant stakeholders; and</clause>
+                    <clause anchor="4.2.2.2">Informs the department’s Investment Plan;</clause>
+                  </clauses>
+                </clause>
+                <clause anchor="4.2.3">
+                  <p>Ensuring that the strategy for life-cycle management includes:</p>
+                  <clauses>
+                    <clause anchor="4.2.3.1">A table on the expected life of all materiel administered;</clause>
+                    <clause anchor="4.2.3.2">Estimates of the full life-cycle cost of all materiel, including environmental implications;</clause>
+                    <clause anchor="4.2.3.3">Performance information on the functionality, utilization and environmental impact of all materiel, allowing for year-over-year comparison with government-wide benchmarks;</clause>
+                    <clause anchor="4.2.3.4">The physical condition and financial performance of capital assets over their life cycle, allowing for year-over-year comparison with government-wide benchmarks;</clause>
+                    <clause anchor="4.2.3.5">Options to acquire materiel in support of program needs, including the rationale for decisions; and</clause>
+                    <clause anchor="4.2.3.6">Identification, assessment and management of risks;</clause>
+                  </clauses>
+                </clause>
+              </clauses>
+            </section>
+            <section>
+              <h4>Acquisition</h4>
+              <clauses>
+                <clause anchor="4.2.4">Ensuring that acquisition decisions for materiel are taken in an integrated manner that includes consideration of operational requirements, usage, risks, investments and divestment;</clause>
+              </clauses>
+            </section>
+            <section>
+              <h4>Operation and maintenance</h4>
+              <clauses>
+                <clause anchor="4.2.5">
+                  <p>Implementing measures to minimize the risk of loss, damage and unauthorized access to or inappropriate use of materiel by:</p>
+                  <clauses>
+                    <clause anchor="4.2.5.1">Implementing risk-based stock-taking for materiel by regularly undertaking physical asset verification and reconciliation of the verification results with asset records;</clause>
+                    <clause anchor="4.2.5.2">Ensuring that the potential heritage value of materiel is assessed and that accurate information on the nature and condition of such materiel is kept; and</clause>
+                    <clause anchor="4.2.5.3">Providing direction on the personal use of materiel;</clause>
+                    <clause anchor="4.2.5.4">
+                      Ensuring that every loan of a materiel asset is made by way of a written contract that meets the legal requirements set out in the 
+                      <a href="https://laws-lois.justice.gc.ca/eng/regulations/SOR-92-745/">Public Property Loan Regulations</a>
+                      .
+                    </clause>
+                  </clauses>
+                </clause>
+                <clause anchor="4.2.6">Managing controlled goods in a manner that prevents unauthorized access throughout the asset’s life cycle; and</clause>
+                <clause anchor="4.2.7">Identifying materiel that is surplus to program requirements;</clause>
+              </clauses>
+            </section>
+            <section>
+              <h4>Divestiture</h4>
+              <clauses>
+                <clause anchor="4.2.8">Directing program leads to first consider the feasibility of the refit, repurpose and reuse of all materiel before divestiture through other options;</clause>
+                <clause anchor="4.2.9">
+                  <p>Documenting the analysis and rationale used to justify divestiture decisions, including a valuation for materiel that has not exceeded its expected life;</p>
+                  <clauses>
+                    <clause anchor="4.2.9.1">For capital assets, ensure that the valuation is done by GCSurplus or another a third party;</clause>
+                  </clauses>
+                </clause>
+                <clause anchor="4.2.10">Divesting of surplus materiel in a manner that is open, transparent and fair, and that results in best value or, if appropriate, the optimal balance of overall benefits to the Crown;</clause>
+                <clause anchor="4.2.11">Divesting of surplus materiel in an environmentally sustainable manner;</clause>
+                <clause anchor="4.2.12">Eliminating all official Government of Canada symbols as part of divestment, with the exception of transfers between departments, or the donation of heritage materiel as appropriate;</clause>
+                <clause anchor="4.2.13">
+                  <p>When spending the proceeds of sale, ensuring that:</p>
+                  <clauses>
+                    <clause anchor="4.2.13.1">To the maximum possible extent, proceeds are spent in the fiscal year in which they are recorded; where proceeds cannot be spent in the same fiscal year, they may be carried forward to the next, after which time any unused spending authority will lapse; and</clause>
+                    <clause anchor="4.2.13.2">Proceeds are used only for divestment, operation and capital expenditures and are not used for transfer payments;</clause>
+                  </clauses>
+                </clause>
+                <clause anchor="4.2.14">
+                  <p>Transferring surplus materiel, subject to the exceptions listed in subsections 4.2.15, 4.2.19 and 4.2.20:</p>
+                  <clauses>
+                    <clause anchor="4.2.14.1">If transfer is not possible, arrange for sale of the materiel;</clause>
+                    <clause anchor="4.2.14.2">If neither transfer nor sale is possible, pursue other means of divestiture, including donation; and</clause>
+                    <clause anchor="4.2.14.3">If no other means of divestment are possible, proceed with conversion to waste;</clause>
+                  </clauses>
+                </clause>
+              </clauses>
+              <section>
+                <h5>Divestment via transfer</h5>
+                <clauses>
+                  <clause anchor="4.2.15">Transferring between departments, where possible, all surplus unclassified digital devices;</clause>
+                  <clause anchor="4.2.16">Providing the right of first refusal, for materiel not transferred, of all unclassified digital devices in Canada to the Computers for Schools Program of Innovation, Science and Economic Development Canada;</clause>
+                </clauses>
+              </section>
+              <section>
+                <h5>Divestment via sale</h5>
+                <clauses>
+                  <clause anchor="4.2.17">
+                    <p>Using the services of GCSurplus, with the exception of departments that have legislative or Treasury Board authority for divestment of materiel;</p>
+                    <clauses>
+                      <clause anchor="4.2.17.1">When entities are granted authority to conduct sales directly, ensuring that an open, fair and transparent opportunity is made available to Canadians for the purchase of surplus materiel;</clause>
+                    </clauses>
+                  </clause>
+                  <clause anchor="4.2.18">When selling surplus materiel at sites outside Canada, departments are authorized to sell their surplus materiel directly or elect to use GCSurplus;</clause>
+                  <clause anchor="4.2.19">
+                    <p>Seeking ministerial approval, unless this authority has been delegated by the Minister to the deputy head, for the sale of materiel that is being sold at less than market value or to a limited market;</p>
+                    <clauses>
+                      <clause anchor="4.2.19.1">If a department directs GCSurplus to sell to a limited market, the originating department must obtain their minister’s approval; and</clause>
+                      <clause anchor="4.2.19.2">Such transactions must demonstrate that they will serve the public interest more than sale to the public at market value;</clause>
+                    </clauses>
+                  </clause>
+                </clauses>
+              </section>
+              <section>
+                <h5>Divestment via donation</h5>
+                <clauses>
+                  <clause anchor="4.2.20">Ensuring that materiel is only donated to other levels of government in Canada, Indigenous peoples, other national governments, treaty organizations of which Canada is a member, the United Nations, or charitable or non-profit organizations;</clause>
+                  <clause anchor="4.2.21">
+                    <p>Seeking ministerial approval, unless this authority has been delegated by the Minister to the deputy head, for the donation to a designated recipient of materiel that has market value greater than divestment cost, has not exceeded its expected life, or is being donated to an individual or for profit organization;</p>
+                    <clauses>
+                      <clause anchor="4.2.21.1">Such transactions must demonstrate that they will serve the public interest more than sale to the public at market value;</clause>
+                    </clauses>
+                  </clause>
+                  <clause anchor="4.2.22">
+                    Donating heritage materiel that is surplus to the department to federal institutions such as museums, other heritage organizations or institutions that have a mandate related to the item in question, or public authorities as defined in the 
+                    <a href="https://laws-lois.justice.gc.ca/eng/acts/c-51/">
+                      <em>Cultural Property Export and Import Act</em>
+                    </a>
+                    ;
+                  </clause>
+                </clauses>
+              </section>
+              <section>
+                <h5>Divestment via trade-in</h5>
+                <clauses>
+                  <clause anchor="4.2.23">Ensuring that, when trading in, surplus materiel is transacted as an integral part of the contracting process for the replacement materiel (applies only when a standing offer is not mandatory);</clause>
+                  <clause anchor="4.2.24">Ensuring that the market value of the materiel is used as the basis of contract negotiation for trade-ins and accounted for in the proceeds of divestment; and</clause>
+                  <clause anchor="4.2.25">Consulting with the original supplier of any controlled goods prior to trade-in;</clause>
+                </clauses>
+              </section>
+            </section>
+            <section>
+              <h4>Transfer of programs</h4>
+              <clauses>
+                <clause anchor="4.2.26">
+                  <p>When transferring programs between departments, ensuring that:</p>
+                  <clauses>
+                    <clause anchor="4.2.26.1">Materiel follows the program for which it was acquired, wherever possible;</clause>
+                    <clause anchor="4.2.26.2">Any materiel not transferred with the program is treated as surplus, with the exception of materiel that can be refitted, repurposed or reused, as outlined in subsection 4.2.8;</clause>
+                    <clause anchor="4.2.26.3">The transfer of materiel is captured in the department’s information systems; and</clause>
+                    <clause anchor="4.2.26.4">Transfer agreements include comprehensive information on the roles and responsibilities related to all materiel assigned to the program.</clause>
+                  </clauses>
+                </clause>
+              </clauses>
+            </section>
+          </clause>
+        </clauses>
+      </section>
+    </chapter>
+    <chapter anchor="5" title="Roles of other government organizations">
+      <clauses>
+        <clause anchor="5.1">
+          <p>This section identifies the roles of other key government organizations in relation to this directive. In and of itself, this section does not confer any authority.</p>
+          <clauses>
+            <clause anchor="5.1.1">
+              <p>Public Services and Procurement Canada (PSPC) is responsible for the following:</p>
+              <ul>
+                <li>Contracting for goods, services and construction;</li>
+                <li>Managing seized property, forensic accounting, industrial security and traffic;</li>
+                <li>Divesting of surplus goods, including controlled goods, through GCSurplus on behalf of departments;</li>
+                <li>Obtaining commercial insurance for vehicles for which the Government of Canada does not self-underwrite;</li>
+                <li>Providing strategic, procedural and technical advice on behalf of departments; and</li>
+                <li>
+                  Administering the Controlled Goods List contained in Schedule 35 to the 
+                  <a href="https://laws-lois.justice.gc.ca/eng/acts/d-1/">
+                    <em>Defence Production Act</em>
+                  </a>
+                  <em>.</em>
+                </li>
+              </ul>
+            </clause>
+            <clause anchor="5.1.2">PSPC and National Defence (DND) share responsibility for providing materiel identification and related services to departments.</clause>
+            <clause anchor="5.1.3">DND is responsible for administering and maintaining the Canadian arm of the NATO Codification System (Canadian Government Cataloguing System).</clause>
+            <clause anchor="5.1.4">
+              Global Affairs Canada is responsible for the procurement of materiel for Canadian missions abroad and the administration of the 
+              <a href="https://www.canada.ca/en/environment-climate-change/services/canadian-environmental-protection-act-registry/substances-list/export-control-list.html">
+                <em>Export Control List</em>
+              </a>
+               and all international trade treaties.
+            </clause>
+            <clause anchor="5.1.5">Parks Canada is the recognized Government of Canada authority for federal archaeology and is responsible for providing relevant advice and guidance to other federal departments on related topics.</clause>
+            <clause anchor="5.1.6">The Privy Council Office is responsible for maintaining a list of senior executives who are eligible to use executive vehicles.</clause>
+            <clause anchor="5.1.7">Innovation, Science and Economic Development Canada is responsible for the Computers for Schools Program and intellectual property.</clause>
+            <clause anchor="5.1.8">
+              <p>Shared Services Canada is the Common Service Provider responsible for the following:</p>
+              <clauses>
+                <clause anchor="5.1.8.1">Providing services related to email, data centres, networks and end user information technology to federal department and agencies;</clause>
+                <clause anchor="5.1.8.2">
+                  Planning, organizing and acquiring related goods and services pursuant to section 7 of the 
+                  <a href="https://laws.justice.gc.ca/eng/acts/S-8.9/page-1.html#h-446406">Shared Services Canada Act</a>
+                  .
+                </clause>
+              </clauses>
+            </clause>
+          </clauses>
+        </clause>
+      </clauses>
+    </chapter>
+    <chapter anchor="6" title="Application">
+      <clauses>
+        <clause anchor="6.1">
+          This directive applies to the organizations listed in section 6 of the 
+          <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=32593">
+            <em>Policy on the Planning and Management of Investments</em>
+          </a>
+          .
+        </clause>
+        <clause anchor="6.2">This directive also applies to ministers’ departmental headquarters offices and ministers’ regional offices but excludes offices on Parliament Hill and constituency offices that are administered under the House of Commons guidelines and budgets.</clause>
+        <clause anchor="6.3">
+          <p>Agents of Parliament:</p>
+          <clauses>
+            <clause anchor="6.3.1">
+              <p>The following organizations are considered agents of Parliament for the purposes of the directive:</p>
+              <ul>
+                <li>Office of the Auditor General</li>
+                <li>Office of the Chief Electoral Officer of Canada</li>
+                <li>Office of the Commissioner of Lobbying of Canada</li>
+                <li>Office of the Commissioner of Official Languages Canada</li>
+                <li>Office of the Information Commissioner of Canada</li>
+                <li>Office of the Privacy Commissioner of Canada</li>
+                <li>Office of the Public Sector Integrity Commissioner of Canada</li>
+              </ul>
+            </clause>
+            <clause anchor="6.3.2">In the event that any policy, procedure, process, guidance or best practice conflicts with a requirement or impedes on an Agent of Parliament’s independence or authority, the Agent of Parliament will have full discretion to make determinations over their application.</clause>
+          </clauses>
+        </clause>
+      </clauses>
+    </chapter>
+    <chapter anchor="7" title="References">
+      <p>This directive should be read in conjunction with the following legislation and policy instruments. Although items listed are considered the most relevant to departments’ and agencies’ ability to comply with the requirements in this directive, the list should not be considered exhaustive.</p>
+      <clauses>
+        <clause anchor="7.1">
+          <p>Legislation</p>
+          <ul>
+            <li>
+              <a href="https://laws-lois.justice.gc.ca/eng/acts/A-10.7/">
+                <em>Alternative Fuels Act</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://laws-lois.justice.gc.ca/eng/acts/C-51/">
+                <em>Cultural Property Import and Export Act</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://laws-lois.justice.gc.ca/eng/acts/d-1/">
+                <em>Defence Production Act</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://laws-lois.justice.gc.ca/eng/acts/E-19/">
+                <em>Export and Import Permits Act</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://laws-lois.justice.gc.ca/eng/acts/F-8.6/">
+                <em>Federal Sustainable Development Act</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://laws-lois.justice.gc.ca/eng/acts/f-11/">
+                <em>Financial Administration Act</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://laws-lois.justice.gc.ca/eng/acts/H-4/">
+                <em>Historic Sites and Monuments Act</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://laws-lois.justice.gc.ca/eng/acts/l-7.7/">
+                <em>Library and Archives Canada Act</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://laws-lois.justice.gc.ca/eng/acts/M-13.4/">
+                <em>Museums Act</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://laws-lois.justice.gc.ca/eng/acts/O-3.01/">
+                <em>Official Languages Act</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://laws-lois.justice.gc.ca/eng/acts/S-8.3/">
+                <em>Seized Property Management Act</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://laws-lois.justice.gc.ca/eng/acts/S-27/">
+                <em>Surplus Crown assets Act</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://laws-lois.justice.gc.ca/eng/regulations/SOR-96-453/">
+                <em>Alternative Fuels Regulations</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://laws-lois.justice.gc.ca/eng/regulations/SOR-2001-32/">
+                <em>Controlled Goods Regulations</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://laws-lois.justice.gc.ca/eng/regulations/SOR-92-745/">
+                <em>Public Property Loan Regulation</em>
+              </a>
+            </li>
+          </ul>
+        </clause>
+        <clause anchor="7.2">
+          <p>Related policy instruments</p>
+          <ul>
+            <li>
+              <a href="https://www.canada.ca/en/treasury-board-secretariat/services/policies-ministers-offices-january-2011.html">
+                <em>Policies for Ministers’ Offices</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=30683">
+                <em>Policy on Communications and Federal Identity</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=32603">
+                <em>Policy on Service and Digital</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=16578">
+                <em>Policy on Government Security</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=32573">
+                <em>Policy on Green Procurement</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=32495">
+                <em>Policy on Financial Management</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=13937">
+                <em>Policy on Legal Assistance and Indemnification</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=32593">
+                <em>Policy on the Planning and Management of Investments</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=13525">
+                <em>Policy on Transfer Payments</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=31300">
+                <em>Policy on Results</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=32499">
+                <em>Directive on Accounting Standards</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=32611">
+                <em>Directive on Security Management</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=32692">
+                <em>Directive on the Management of Procurement</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=32594">
+                <em>Directive on the Management of Projects and Programmes</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=32691">
+                <em>Directive on the Management of Real Property</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=32505">
+                <em>Directive on Public Money and Receivables</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.canada.ca/en/treasury-board-secretariat/services/innovation/greening-government/strategy.html">
+                <em>Greening Government Strategy</em>
+              </a>
+            </li>
+          </ul>
+        </clause>
+      </clauses>
+    </chapter>
+    <chapter anchor="8" title="Enquiries">
+      <clauses>
+        <clause anchor="8.1">
+          For interpretation of any aspect of this directive, contact 
+          <a href="https://www.canada.ca/en/treasury-board-secretariat/corporate/contact.html#toc02">Treasury Board of Canada Secretariat Public Enquiries</a>
+          .
+        </clause>
+      </clauses>
+    </chapter>
+  </chapters>
+  <appendices>
+    <appendix anchor="A" title="Appendix A: Mandatory Procedures for Land Vehicle Fleet Management">
+      <appendix anchor="A.1">
+        <title>Effective date</title>
+        <clauses>
+          <clause anchor="A.1.1">
+            These procedures take effect on 
+            <time datetime="2021-05-13" class="nowrap">May 13, 2021</time>
+            .
+          </clause>
+          <clause anchor="A.1.2">
+            <p>These procedures replace the following Treasury Board policy instruments:</p>
+            <ul>
+              <li>
+                <em>Directive on Fleet Management: Light Duty Vehicles</em>
+                 (
+                <time datetime="2006-11-01" class="nowrap">November 1, 2006</time>
+                )
+              </li>
+              <li>
+                <em>Directive on Fleet Management: Executive Vehicles</em>
+                 (
+                <time datetime="2018-08-09" class="nowrap">August 9, 2018</time>
+                )
+              </li>
+            </ul>
+          </clause>
+        </clauses>
+      </appendix>
+      <appendix anchor="A.2">
+        <title>Procedures</title>
+        <clauses>
+          <clause anchor="A.2.1">
+            These procedures provide details on the requirements set out in section 4 of the 
+            <em>Directive on the Management of Materiel</em>
+            .
+          </clause>
+          <clause anchor="A.2.2">These procedures apply to Government of Canada land vehicles registered in Canada.</clause>
+          <clause anchor="A.2.3">
+            <p>Mandatory procedures are as follows:</p>
+            <clauses>
+              <clause anchor="A.2.3.1">
+                <p>Materiel management practitioners are responsible for the following:</p>
+                <section>
+                  <h4>Planning</h4>
+                  <clauses>
+                    <clause anchor="A.2.3.1.1">Taking appropriate action to identify, assess and minimize risks associated with the acquisition, operation and divestment of vehicles.</clause>
+                    <clause anchor="A.2.3.1.2">Ensuring that a mechanism is in place to determine whether ongoing and new operational requirements can be met within the existing fleet or through the use of other options that are financially and environmentally responsible.</clause>
+                    <clause anchor="A.2.3.1.3">
+                      <p>Substantiating the requirement for the acquisition or replacement of government vehicles by:</p>
+                      <clauses>
+                        <clause anchor="A.2.3.1.3.1">Aligning the vehicle’s function with program requirements;</clause>
+                        <clause anchor="A.2.3.1.3.2">Assessing the need for a vehicle by taking into consideration the vehicle’s physical condition and financial, operational, environmental and accessibility criteria;</clause>
+                        <clause anchor="A.2.3.1.3.3">Rationalizing departmental fleet size;</clause>
+                        <clause anchor="A.2.3.1.3.4">Selecting the most appropriate and efficient vehicle class and type, with consideration for vehicle and engine size, that meets operational requirements, and</clause>
+                        <clause anchor="A.2.3.1.3.5">Incorporating manufacturers’ production lead times into the planning and replacement cycle for vehicle acquisitions;</clause>
+                      </clauses>
+                    </clause>
+                    <clause anchor="A.2.3.1.4">Establishing internal policies and controls to prioritize the procurement and use of zero-emission (ZEV) vehicles in the light-duty fleet;</clause>
+                    <clause anchor="A.2.3.1.5">For departments with a fleet of ten or more vehicles, developing and maintaining a long-term Strategic Fleet Greening Plan approved by the senior designated official that outlines the pathway to achieving the federal government’s targets for a green fleet. This plan must present multi-year costed projections for vehicle purchases, consider operational feasibility, and optimize fleet size and relevant supporting measures, policies or infrastructure. Departments must maintain rolling two-year purchase projections and budgets for vehicles;</clause>
+                  </clauses>
+                </section>
+                <section>
+                  <h4>Acquisition</h4>
+                  <clauses>
+                    <clause anchor="A.2.3.1.6">
+                      In accordance with subsection A.6.1 of Appendix A of the 
+                      <em>Directive on the Management of Procurement</em>
+                      , the use of Public Services and Procurement Canada’s (PSPC’s) standing offers and supply arrangement is mandatory for motor vehicles;
+                    </clause>
+                    <clause anchor="A.2.3.1.7">Ensuring, when rentals or leases are used, that the classes, engines, options and minimum features are consistent with those contained in PSPC’s established methods of supply;</clause>
+                    <clause anchor="A.2.3.1.8">
+                      <p>When delays are expected in the delivery of a new vehicle or emergencies occur, considering temporary arrangements in the following order:</p>
+                      <clauses>
+                        <clause anchor="A.2.3.1.8.1">Extending the use of the vehicle being replaced;</clause>
+                        <clause anchor="A.2.3.1.8.2">Using another departmental vehicle; or</clause>
+                        <clause anchor="A.2.3.1.8.3">Using a rental vehicle until the ordered vehicle is delivered by the manufacturer;</clause>
+                      </clauses>
+                    </clause>
+                  </clauses>
+                </section>
+                <section>
+                  <h4>Operation and maintenance</h4>
+                  <clauses>
+                    <clause anchor="A.2.3.1.9">Ensuring that government vehicles are used only for authorized government purposes and according to departmental policies;</clause>
+                    <clause anchor="A.2.3.1.10">Taking measures to reduce greenhouse gas emissions and modernize the fleet based on government requirements;</clause>
+                    <clause anchor="A.2.3.1.11">Purchasing premium fuel only when it is required by the vehicle manufacturer;</clause>
+                    <clause anchor="A.2.3.1.12">Ensuring that employees who have access to government land vehicles understand that the Government of Canada self-underwrites the risks associated with the use of such vehicles. As such, there is no requirement to purchase commercial insurance coverage, with the exceptions outlined in subsection A.2.3.1.13;</clause>
+                    <clause anchor="A.2.3.1.13">
+                      <p>Ensuring that appropriate commercial insurance coverage is arranged through PSPC for:</p>
+                      <clauses>
+                        <clause anchor="A.2.3.1.13.1">Land vehicles registered in Canada that are driven in the United States;</clause>
+                        <clause anchor="A.2.3.1.13.2">Vehicles used for government programs by operators who are not Crown servants; and</clause>
+                        <clause anchor="A.2.3.1.13.3">All executive vehicles;</clause>
+                      </clauses>
+                    </clause>
+                    <clause anchor="A.2.3.1.14">
+                      <p>Tracking and maintaining required information about the fleet using a fleet management information system and a fleet card, as required. The fleet management system must:</p>
+                      <clauses>
+                        <clause anchor="A.2.3.1.14.1">Capture all mandatory data fields outlined in subsection A.2.3.1.18 through manual entry, automatic population and the collection of data from the fleet card;</clause>
+                        <clause anchor="A.2.3.1.14.2">Generate a single, coherent, department-wide view of all vehicle maintenance, operating and repair costs related to fleet management;</clause>
+                        <clause anchor="A.2.3.1.14.3">Supply information to support planning and decision-making; and</clause>
+                        <clause anchor="A.2.3.1.14.4">Be kept up to date, complete and accurate;</clause>
+                      </clauses>
+                    </clause>
+                    <clause anchor="A.2.3.1.15">
+                      <p>Using the appropriate designated card for land vehicle fleets, where issued, to:</p>
+                      <clauses>
+                        <clause anchor="A.2.3.1.15.1">Pay for all operations and maintenance expenses of government vehicles registered in Canada; and</clause>
+                        <clause anchor="A.2.3.1.15.2">Ensure that expenses paid with a fleet card are limited to those needed for the operations and maintenance of the government vehicle or motorized equipment to which the fleet card is assigned, wherever possible;</clause>
+                      </clauses>
+                    </clause>
+                    <clause anchor="A.2.3.1.16">Reporting to the appropriate authority all expenditures on the operations and maintenance of government vehicles that were made without the use of a fleet card, for input into the fleet management database. Such expenditures include the use of other means of payment made to a vendor who refuses to accept the fleet card for payment; and</clause>
+                    <clause anchor="A.2.3.1.17">Ensuring that designated fleet cards are not used to pay for the purchase and installation of decals and equipment add-ons acquired as aftermarket improvements.</clause>
+                    <clause anchor="A.2.3.1.18">
+                      <p>Mandatory data collection fields for fleet land vehicles are as follows:</p>
+                      <section>
+                        <h5>Administrative information and identification information</h5>
+                        <ul>
+                          <li>Department name (or client code)</li>
+                          <li>Program name</li>
+                          <li>Ownership (leased or owned)</li>
+                          <li>Status of vehicle (active or inactive)</li>
+                          <li>Government fleet vehicle number</li>
+                          <li>Vehicle identification number (VIN)</li>
+                          <li>Associated fleet card number(s)</li>
+                          <li>Type of card (vehicle-specific, non-specific, dedicated second card, seasonal)</li>
+                          <li>Fleet card on-system date (date that the card is first connected to the fleet information system)</li>
+                          <li>Status of card (active or inactive)</li>
+                          <li>Card limit</li>
+                          <li>Cancellation date of card</li>
+                        </ul>
+                      </section>
+                      <section>
+                        <h5>Vehicle tombstone data</h5>
+                        <ul>
+                          <li>Model year</li>
+                          <li>Make</li>
+                          <li>Model</li>
+                          <li>Vehicle specification code used by PSPC (if available)</li>
+                          <li>Number of cylinders in engine (two digits)</li>
+                          <li>Size of engine by litres</li>
+                          <li>Transmission: automatic (A) or manual (M) and the number of gears (3, 4 or 5) or variable (V)</li>
+                          <li>Fuel type capability of the vehicle and grade requirement (where applicable)</li>
+                          <li>Fuel system</li>
+                          <li>Licence plate and province or territory</li>
+                          <li>Vehicle category and subcategory</li>
+                          <li>Assigned status (pooled, driver assigned, etc.)</li>
+                        </ul>
+                      </section>
+                      <section>
+                        <h5>Vehicle location and billing information</h5>
+                        <ul>
+                          <li>Physical location: street address, city, province/territory and postal code</li>
+                          <li>Billing address: street address, city, province/territory and postal code</li>
+                        </ul>
+                      </section>
+                      <section>
+                        <h5>Utilization statistics</h5>
+                        <ul>
+                          <li>On-road or taken-on-strength date (including leased or rented vehicles)</li>
+                          <li>On-system date (if different from taken-on-strength date)</li>
+                          <li>Out-of-service or sale date of vehicle</li>
+                          <li>Current odometer reading in kilometres</li>
+                          <li>Current odometer date</li>
+                          <li>Days of use</li>
+                        </ul>
+                      </section>
+                      <section>
+                        <h5>Vehicle costing and life-cycle information</h5>
+                        <ul>
+                          <li>Capital cost of vehicle</li>
+                          <li>Vehicle maintenance and repair costs (for both internal and external maintenance and repair, including warranty work if notified)</li>
+                          <li>Vehicle maintenance and repair service dates (for both internal and external maintenance and repair, including warranty work if notified)</li>
+                        </ul>
+                      </section>
+                      <section>
+                        <h5>Fuel</h5>
+                        <ul>
+                          <li>Bulk or retail fuel or electricity purchase</li>
+                          <li>Date of purchase</li>
+                          <li>Total units of purchase, by specific fuel type and grade</li>
+                          <li>Name and location of supplier or owner of bulk facility, if applicable</li>
+                          <li>Unit cost of fuel or electricity purchased</li>
+                          <li>Total purchase cost</li>
+                        </ul>
+                      </section>
+                    </clause>
+                  </clauses>
+                </section>
+              </clause>
+              <clause anchor="A.2.3.2">
+                <p>In addition to the above requirements, the following requirements apply only to executive fleet vehicles:</p>
+                <clauses>
+                  <clause anchor="A.2.3.2.1">Executive vehicles are authorized only for ministers and eligible senior officials. Authorized users of executive vehicles are Cabinet ministers, ministers of state, secretaries of state, deputy ministers of the Crown, and eligible senior officials who are entitled to make use of an executive vehicle.</clause>
+                  <clause anchor="A.2.3.2.2">
+                    <p>Eligible senior officials are those who meet all the following requirements:</p>
+                    <ul>
+                      <li>Are Government in Council appointees;</li>
+                      <li>Hold a full-time position with a personal classification equivalent to the DM 2 level (GC 9-10 or GCQ 9-10) or above;</li>
+                      <li>Are deputy heads; and</li>
+                      <li>Occupy the most senior position in the organization.</li>
+                    </ul>
+                  </clause>
+                  <clause anchor="A.2.3.2.3">The authorized maximum price limit for executive vehicles is established by the Comptroller General of Canada and communicated annually to PSPC and the Privy Council Office.</clause>
+                  <clause anchor="A.2.3.2.4">The actual total price paid for an executive vehicle, excluding taxes and aftermarket equipment or accessories installed in an executive vehicle for reasons of security and efficient government business, must fall within the applicable limit and includes the cost of all factory-installed equipment and accessories and all preparation and delivery charges.</clause>
+                </clauses>
+              </clause>
+              <clause anchor="A.2.3.3">
+                <p>Authorities and exceptions are as follows:</p>
+                <clauses>
+                  <clause anchor="A.2.3.3.1">The Comptroller General of Canada has the authority to determine the most appropriate method of procurement for executive vehicles.</clause>
+                  <clause anchor="A.2.3.3.2">The Treasury Board must approve exceptions to the authorized maximum price limit, executive vehicle standards and selection of executive vehicles.</clause>
+                </clauses>
+              </clause>
+              <clause anchor="A.2.3.4">Ministers, eligible senior officials, and persons related to these authorized users are allowed to make personal use of their assigned executive vehicles when these vehicles are not required for official use.</clause>
+              <clause anchor="A.2.3.5">
+                <p>
+                  Personal use of executive vehicles is considered a taxable benefit under the 
+                  <em>Income Tax Act</em>
+                   and must be reported as income in accordance with the Canada Revenue Agency’s guidance on taxable benefits.
+                </p>
+              </clause>
+              <clause anchor="A.2.3.6">The list of authorized executive vehicles is established annually by PSPC based on the Comptroller General of Canada’s authorized maximum price limit. PSPC’s established methods of supply are communicated to the Treasury Board of Canada Secretariat and the Privy Council Office and must be used by organizations when selecting their executive vehicles.</clause>
+              <clause anchor="A.2.3.7">As of January 1, 2025, executive vehicle acquisitions must be ZEVs.</clause>
+              <clause anchor="A.2.3.8">
+                When transferring a vehicle from the light-duty fleet to the executive fleet, the vehicle must be consistent with the criteria for eligible executive vehicles according to the 
+                <em>Directive on the Management of Materiel</em>
+                .
+              </clause>
+              <clause anchor="A.2.3.9">An executive vehicle must meet executive business requirements, authorized user needs and, where possible, the personal preference of the authorized user.</clause>
+              <clause anchor="A.2.3.10">
+                <p>An executive vehicle is eligible for replacement once it has reached six years or 150,000 km. However, the vehicle may be replaced:</p>
+                <clauses>
+                  <clause anchor="A.2.3.10.1">at any time if a gasoline-powered or hybrid-electric executive vehicle is replaced with a ZEV; or</clause>
+                  <clause anchor="A.2.3.10.2">at any time if the vehicle is transferred to the executive fleet of another department; or </clause>
+                  <clause anchor="A.2.3.10.3">after three years if the vehicle is transferred to the light-duty fleet, provided there is a documented operational need for the vehicle in the light-duty fleet.</clause>
+                </clauses>
+              </clause>
+              <clause anchor="A.2.3.11">Authorized price limits will be reduced by 25% if these conditions are not met.
+							</clause>
+              <clause anchor="A.2.3.12">If it is cost-effective, a surplus zero-emission executive vehicle can be transferred to another minister or eligible senior official in the department or agency, or it can be transferred to the departmental fleet.
+							</clause>
+              <clause anchor="A.2.3.13">
+                Executive vehicles must not bear external identification markings such as those identified in 
+                <a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/federal-identity-program/manual.html#toc31">subsection 3.1 of the Federal Identity Program Manual</a>
+                .
+              </clause>
+            </clauses>
+          </clause>
+        </clauses>
+      </appendix>
+    </appendix>
+    <appendix anchor="B" title="Appendix B: Mandatory Procedures for the Management of Controlled Goods">
+      <appendix anchor="B.1">
+        <title>Effective date</title>
+        <clauses>
+          <clause anchor="B.1.1">
+            These procedures take effect on 
+            <time datetime="2021-05-13" class="nowrap">May 13, 2021</time>
+            .
+          </clause>
+          <clause anchor="B.1.2">
+            These procedures replace the 
+            <em>Controlled Goods Directive</em>
+             (
+            <time datetime="2018-08-09" class="nowrap">November 1, 2006</time>
+            ).
+          </clause>
+        </clauses>
+      </appendix>
+      <appendix anchor="B.2">
+        <title>Procedures</title>
+        <clauses>
+          <clause anchor="B.2.1">
+            These procedures provide details on the requirements set out in section 4 of the 
+            <em>Directive on the Management of Materiel</em>
+            .
+          </clause>
+          <clause anchor="B.2.2">
+            These procedures apply to controlled goods as identified in the Schedule to the 
+            <em>Defence Production Act</em>
+            .
+          </clause>
+          <clause anchor="B.2.3">
+            <p>Mandatory procedures are as follows:</p>
+            <clauses>
+              <clause anchor="B.2.3.1">
+                <p>When controlled goods are transferred from Canada or are divested outside Canada, departments must liaise with the following:</p>
+                <clauses>
+                  <clause anchor="B.2.3.1.1">Global Affairs Canada (GAC) to determine applicable export restrictions and/or additional export requirements; and/or</clause>
+                  <clause anchor="B.2.3.1.2">
+                    The United States Department of State when goods are subject to the United States 
+                    <em>International Traffic in Arms Regulations</em>
+                     (ITAR), to determine applicable export restrictions and/or other export requirements.
+                  </clause>
+                </clauses>
+              </clause>
+              <clause anchor="B.2.3.2">
+                <p>The senior designated official for the management of materiel, in cooperation with the chief security officer, is responsible for the following:</p>
+                <section>
+                  <h4>Access to controlled goods</h4>
+                  <clauses>
+                    <clause anchor="B.2.3.2.1">
+                      <p>Ensuring that, prior to accessing controlled goods in Canada, a person is registered with the Controlled Goods Program of Public Services and Procurement Canada unless:</p>
+                      <clauses>
+                        <clause anchor="B.2.3.2.1.1">
+                          <a href="https://laws-lois.justice.gc.ca/eng/acts/D-1/page-4.html#h-171989">Excluded from registration</a>
+                          , for example, the person occupies a position in the federal public administration, including a position in a federal Crown corporation, or is employed by Her Majesty in right of a province, a public officer as defined in subsection 117.07(2) of the 
+                          <em>Criminal Code</em>
+                          , an elected or appointed official of the federal or a provincial government, or a member of a visiting force as defined in section 2 of the 
+                          <a href="https://laws-lois.justice.gc.ca/eng/acts/V-2/page-1.html#h-464053">Visiting Forces Act</a>
+                          , and acts in good faith in the course of their duties and employment (see section 36 of the 
+                          <em>Defence Production Act</em>
+                           and section 1.1 of the 
+                          <em>Controlled Goods Regulations</em>
+                          ); or
+                        </clause>
+                        <clause anchor="B.2.3.2.1.2">
+                          <a href="https://laws-lois.justice.gc.ca/eng/regulations/SOR-2001-32/page-2.html#h-672766">Exempted from registration by PSPC</a>
+                           upon provision of evidence to the Controlled Goods Program registrant of the individual’s status as a director, an officer or an employee of a person registered to access controlled goods under the ITAR, or an officer, employee or elected or appointed official of the United States federal government or of a state or territorial government of the United States, or an application by the designated official of a registrant (for a temporary worker, international student or visitor) to the Controlled Goods Program;
+                        </clause>
+                      </clauses>
+                    </clause>
+                    <clause anchor="B.2.3.2.2">
+                      <p>Ensuring that the department’s controlled goods are:</p>
+                      <clauses>
+                        <clause anchor="B.2.3.2.2.1">Examined, possessed or transferred only by persons who are excluded, registered or exempted from registration with the Controlled Goods Program; and</clause>
+                        <clause anchor="B.2.3.2.2.2">Addressed, as required, in their procurement, divestment and security plans;</clause>
+                      </clauses>
+                    </clause>
+                    <clause anchor="B.2.3.2.3">Ensuring that all federal government personnel in Canada and at Canadian government offices abroad, including personnel deployed overseas, have the appropriate security clearances for accessing controlled goods, and only on an as-required basis;</clause>
+                  </clauses>
+                </section>
+                <section>
+                  <h4>Identification of controlled goods</h4>
+                  <clauses>
+                    <clause anchor="B.2.3.2.4">
+                      <p>Identifying and/or defining potential controlled goods by consulting the following to determine whether materiel in their custody is considered controlled goods:</p>
+                      <ul>
+                        <li>
+                          The Controlled Goods List in the Schedule to the 
+                          <em>Defence Production Act</em>
+                          ;
+                        </li>
+                        <li>The accompanying Schedule Guide; and</li>
+                        <li>
+                          GAC’s 
+                          <em>A Guide to Canada’s Export Controls</em>
+                          ;
+                        </li>
+                      </ul>
+                    </clause>
+                    <clause anchor="B.2.3.2.5">
+                      <p>Consulting the following to determine the Schedule control of materiel that may be considered controlled goods:</p>
+                      <clauses>
+                        <clause anchor="B.2.3.2.5.1">
+                          The Controlled Goods List in the 
+                          <a href="https://laws-lois.justice.gc.ca/eng/acts/d-1/page-6.html#h-172110">
+                            Schedule to the 
+                            <em>Defence Production Act</em>
+                          </a>
+                          ;
+                        </clause>
+                        <clause anchor="B.2.3.2.5.2">The accompanying Schedule Guide; and</clause>
+                        <clause anchor="B.2.3.2.5.3">
+                          GAC’s 
+                          <em>A Guide to Canada’s Export Control</em>
+                          ;
+                        </clause>
+                      </clauses>
+                    </clause>
+                    <clause anchor="B.2.3.2.6">Identifying whether the controlled goods are subject to the controls of other governments, such as the United States ITAR. Departments with controlled goods that are “defense articles” controlled by the ITAR must also adhere to the provisions of the ITAR, including those provisions relating to third-party transfers and re-transfers of United States defense articles; and</clause>
+                    <clause anchor="B.2.3.2.7">Directing questions pertaining to the ITAR or to the ITAR control status of goods to the United States Department of State’s Directorate of Defense Trade Controls, Regional Security and Arms Transfers, or other foreign regulatory bodies, as appropriate;</clause>
+                  </clauses>
+                </section>
+                <section>
+                  <h4>Security plans, procedures and breaches</h4>
+                  <clauses>
+                    <clause anchor="B.2.3.2.8">Developing procedures for proper handling, storage, access, security and responsibility structures for assets determined to be controlled goods, and the reporting and investigation of breaches thereof;</clause>
+                    <clause anchor="B.2.3.2.9">
+                      <p>Establishing and implementing a security plan for each place of business in Canada where controlled goods are kept. This security plan must set out the following in writing:</p>
+                      <clauses>
+                        <clause anchor="B.2.3.2.9.1">The procedures used to control the examination, possession and transfer of controlled goods;</clause>
+                        <clause anchor="B.2.3.2.9.2">The procedures for the full demilitarizationof controlled goods;</clause>
+                        <clause anchor="B.2.3.2.9.3">The procedures for reporting and investigating security breaches in relation to controlled goods;</clause>
+                        <clause anchor="B.2.3.2.9.4">The description of the responsibilities of the department’s security organization and the identity of the individuals who are responsible for the security of controlled goods; and</clause>
+                        <clause anchor="B.2.3.2.9.5">The contents of security briefings and training programs given to employees and to registered or exempt contracted workers, as the case may be;</clause>
+                      </clauses>
+                    </clause>
+                    <clause anchor="B.2.3.2.10">Notifying the deputy head or their delegate of any breaches to controlled goods immediately after a security breach has occurred or been discovered; and</clause>
+                    <clause anchor="B.2.3.2.11">Providing appropriate awareness training to all employees and contractors on the proper handling, storage, access, security and responsibility structures for controlled goods and breaches thereof;</clause>
+                  </clauses>
+                </section>
+                <section>
+                  <h4>Records</h4>
+                  <clauses>
+                    <clause anchor="B.2.3.2.12">
+                      <p>Keeping and maintaining records that contain:</p>
+                      <clauses>
+                        <clause anchor="B.2.3.2.12.1">A description of any controlled goods in their custody, the date of their receipt, any applicable licences or restrictions, and identification of the person from whom they were transferred;</clause>
+                        <clause anchor="B.2.3.2.12.2">A description of any controlled goods transferred by the department, the date of their transfer, and the identity and address of the person to whom they were transferred;</clause>
+                        <clause anchor="B.2.3.2.12.3">A description of the manner and date of divestment of all controlled goods; and</clause>
+                        <clause anchor="B.2.3.2.12.4">A separate description of ITAR “defense articles,” kept for a period of five years from the expiration of the licence or other approval;</clause>
+                      </clauses>
+                    </clause>
+                  </clauses>
+                </section>
+                <section>
+                  <h4>Acquisition</h4>
+                  <clauses>
+                    <clause anchor="B.2.3.2.13">Ensuring that, with respect to a procurement process, departments are responsible for determining the potential involvement of controlled goods, including any technical data, as early as possible;</clause>
+                    <clause anchor="B.2.3.2.14">In the case of acquisition from Canadian business enterprises, allowing potential bidders or buyers in a procurement process that involves controlled goods sufficient time to seek registration with the Controlled Goods Program; and</clause>
+                    <clause anchor="B.2.3.2.15">Ensuring that, where a department retains the services of a third party to aid or participate in the administration of a procurement process that involves controlled goods, that any third party with access to controlled goods is registered or exempted from the Controlled Goods Program and has the approval of any applicable foreign government’s office of primary interest, as appropriate;</clause>
+                  </clauses>
+                </section>
+                <section>
+                  <h4>Divestment</h4>
+                  <clauses>
+                    <clause anchor="B.2.3.2.16">Ensuring, when divesting of controlled goods domestically, that such goods are transferred only to current registrants of the Controlled Goods Program or entities excluded from Controlled Goods Program registration, or that these items are fully demilitarized before divestiture;</clause>
+                    <clause anchor="B.2.3.2.17">When divesting of controlled goods through GCSurplus, it is the responsibility of departments to notify GCSurplus that the items are controlled in order for GCSurplus to follow the appropriate procedures;</clause>
+                    <clause anchor="B.2.3.2.18">
+                      Ensuring, when divesting of controlled goods through export, that the 
+                      <a href="https://laws-lois.justice.gc.ca/eng/regulations/sor-89-202/page-1.html">
+                        <em>Export Control List</em>
+                      </a>
+                      , 
+                      <a href="https://unoda-web.s3-accelerate.amazonaws.com/wp-content/uploads/2013/06/English7.pdf">
+                        <em>the Arms Trade Treaty</em>
+                      </a>
+                       and other applicable international treaties are consulted, end use assurances are provided and that all necessary export permits are obtained from GAC. When controlled goods are sold internationally through GCSurplus, GCSurplus will verify that the appropriate approvals are obtained on behalf of departments;
+                    </clause>
+                    <clause anchor="B.2.3.2.19">Ensuring that potential bidders or buyers in a divestment process that involves controlled goods have sufficient time to obtain foreign and domestic authorization in the case of foreign business enterprises if their proposals contain reference to transfers, sales, donations, trade-ins or conversion to waste of controlled goods;</clause>
+                    <clause anchor="B.2.3.2.20">Ensuring that, when divesting of controlled goods, the item is fully demilitarized unless it is being transferred to a current registrant of the Controlled Goods Program or entities excluded from Controlled Goods Program registration; and</clause>
+                    <clause anchor="B.2.3.2.21">Before the divestment, re-transfer or re-export of any ITAR “defense article” to any end-user or destination, determining whether the department needs to obtain written approval from the United States Department of State’s Directorate of Defense Trade Controls or the Office of Regional Security and Arms Transfers, as appropriate. When selling controlled goods through GCSurplus, GCSurplus will verify that the appropriate approvals are obtained.</clause>
+                  </clauses>
+                </section>
+              </clause>
+            </clauses>
+          </clause>
+        </clauses>
+      </appendix>
+    </appendix>
+    <appendix anchor="C" title="Appendix C: Definitions">
+      <p>
+        Definitions to be used in the interpretation of this directive can be found in Appendix C of the 
+        <em>
+          <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=32593">Policy on the Planning and Management of Investments</a>
+        </em>
+        .
+      </p>
+    </appendix>
+  </appendices>
+</doc>

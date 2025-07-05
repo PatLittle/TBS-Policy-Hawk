@@ -1,0 +1,1007 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" title="Directive on Personal Information Requests and Correction of Personal Information" documentID="32590" versionID="3" language="en" space="preserve" xsi:noNamespaceSchemaLocation="G:\web\xml\pols\PolicyInstrumentSchema.HTML5.xsd">
+  <chapters>
+    <chapter anchor="1" title="Effective date">
+      <clauses>
+        <clause anchor="1.1">This directive takes effect on October 26, 2022.</clause>
+        <clause anchor="1.2">
+          This directive replaces the 
+          <a href="https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=32730">
+            <em>Directive on Personal Information Requests and Correction of Personal Information</em>
+          </a>
+           dated July 13, 2022.
+        </clause>
+      </clauses>
+    </chapter>
+    <chapter anchor="2" title="Authorities">
+      <clauses>
+        <clause anchor="2.1">
+          This directive is issued pursuant to paragraph 71(1)(d) of the 
+          <a href="https://laws-lois.justice.gc.ca/eng/acts/P-21/FullText.html">
+            <em>Privacy Act</em>
+          </a>
+           and as specified in section 2.2 of the 
+          <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=12510">
+            <em>Policy on Privacy Protection</em>
+          </a>
+          .
+        </clause>
+      </clauses>
+    </chapter>
+    <chapter anchor="3" title="Objectives and expected results">
+      <clauses>
+        <clause anchor="3.1">
+          In addition to the objectives indicated in section 3.1 of the 
+          <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=12510">
+            <em>Policy on Privacy Protection</em>
+          </a>
+          , the objective of this directive is to establish consistent practices and procedures for processing requests from individuals to access their personal information or for the correction of their personal information that is under the control of government institutions and has been used, is used or is available for use for administrative purposes.
+        </clause>
+        <clause anchor="3.2">
+          The expected results indicated in section 3 of the 
+          <em>Policy on Privacy Protection</em>
+           apply to this directive.
+        </clause>
+      </clauses>
+    </chapter>
+    <chapter anchor="4" title="Requirements">
+      <clauses>
+        <clause anchor="4.1">
+          Heads of government institutions or their delegates are responsible for: 
+
+
+          <section>
+            <header>
+              <h3>Exercising discretion</h3>
+            </header>
+            <clauses>
+              <clause anchor="4.1.1">
+                Exercising discretion in a fair, reasonable and impartial manner after:
+
+
+                <clauses>
+                  <clause anchor="4.1.1.1">Considering the purpose of the Act, which is, in part, to provide individuals with a right of access to their personal information, subject to limited and specific exemptions; and the right to request correction of their personal information; </clause>
+                  <clause anchor="4.1.1.2">Considering all relevant factors for and against disclosure, the relevant provisions of the Act, as well as applicable jurisprudence;</clause>
+                  <clause anchor="4.1.1.3">Consulting with government institutions, as necessary; and</clause>
+                  <clause anchor="4.1.1.4">Reviewing the information contained in records.</clause>
+                </clauses>
+              </clause>
+            </clauses>
+          </section>
+          <section>
+            <header>
+              <h3>Privacy training</h3>
+            </header>
+            <clauses>
+              <clause anchor="4.1.2">Ensuring that employees of government institutions and officials who have functional or delegated responsibility for the administration of the Act receive training as outlined in Appendix B: Mandatory Procedures for Privacy Training.</clause>
+              <clause anchor="4.1.3">Documenting the completion of training in accordance with Appendix B: Mandatory Procedures for Privacy Training.</clause>
+            </clauses>
+          </section>
+          <section>
+            <header>
+              <h3>Eligibility of the requester</h3>
+            </header>
+            <clauses>
+              <clause anchor="4.1.4">
+                Establishing procedures to:
+        
+        
+                <clauses>
+                  <clause anchor="4.1.4.1">Confirm the identity of the requester so that privacy will not be breached; and</clause>
+                  <clause anchor="4.1.4.2">Confirm the authority of an individual to make a request on behalf of another individual. </clause>
+                </clauses>
+              </clause>
+            </clauses>
+          </section>
+          <section>
+            <header>
+              <h3>Informal processing</h3>
+            </header>
+            <clauses>
+              <clause anchor="4.1.5">Determining whether it is appropriate to respond to a personal information request on an informal basis, recognizing that the Act is intended to complement existing procedures for obtaining personal information held by government. </clause>
+              <clause anchor="4.1.6">
+                Proceeding with treating a request informally only upon receipt of written consent from the requester who has been informed that only formal requests are subject to the provisions of the 
+                <em>Privacy Act</em>
+                , including legislative timelines and the right to complain.
+              </clause>
+            </clauses>
+          </section>
+          <section>
+            <header>
+              <h3>Acknowledging requests</h3>
+            </header>
+            <clauses>
+              <clause anchor="4.1.7">
+                Providing the requester with: 
+        
+        
+                <clauses>
+                  <clause anchor="4.1.7.1">Acknowledgement of receipt of the request; </clause>
+                  <clause anchor="4.1.7.2">The legislative due date for the response; </clause>
+                  <clause anchor="4.1.7.3">The contact information of the appropriate officer or office within the institution where questions and further clarifications may be addressed; </clause>
+                  <clause anchor="4.1.7.4">Notification of the right to complain to the Privacy Commissioner; and,</clause>
+                  <clause anchor="4.1.7.5">
+                    A copy of the 
+                    <a href="http://www.canada.ca/en/treasury-board-secretariat/services/access-information-privacy/access-information/supporting-tool-access-information-personal-information-requests-principles-assisting-requesters.html">Principles for Assisting Requesters</a>
+                     or a link to the Principles online.
+                  </clause>
+                </clauses>
+              </clause>
+            </clauses>
+          </section>
+          <section>
+            <header>
+              <h3>Duty to assist</h3>
+            </header>
+            <section>
+              <header>
+                <h4>Protecting the identity of the requester</h4>
+              </header>
+              <clauses>
+                <clause anchor="4.1.8">Limiting the use or disclosure of information that could directly or indirectly lead to the identification of a requester to a need to know basis, unless otherwise authorized by the Act.</clause>
+              </clauses>
+            </section>
+            <section>
+              <header>
+                <h4>Interpretation and clarification of requests</h4>
+              </header>
+              <clauses>
+                <clause anchor="4.1.9">Adopting a broad interpretation of a personal information request and communicating promptly with the requester when necessary to clarify the request. </clause>
+                <clause anchor="4.1.10">Assisting the requester in clarifying a request where it would result in the requester receiving more complete, accurate or timely access.</clause>
+                <clause anchor="4.1.11">Documenting the wording of a clarified request, as agreed by the requester, and the date of the revision when a request has been clarified or its wording altered.</clause>
+              </clauses>
+            </section>
+            <section>
+              <header>
+                <h4>Onsite examination</h4>
+              </header>
+              <clauses>
+                <clause anchor="4.1.12">When a copy of the personal information cannot be made available, providing an appropriate location and time within the government institution for the requester to examine the records containing the personal information.</clause>
+              </clauses>
+            </section>
+            <section>
+              <header>
+                <h4>Language of access</h4>
+              </header>
+              <clauses>
+                <clause anchor="4.1.13">Providing the personal information in the official language requested by the requester, including translating or interpreting the personal information when necessary to enable the individual to understand the information.</clause>
+              </clauses>
+            </section>
+            <section>
+              <header>
+                <h4>Accessible format for requesters</h4>
+              </header>
+              <clauses>
+                <clause anchor="4.1.14">Providing the personal information in an accessible format requested by the requester including converting the records to the alternate format when necessary to enable the requester to understand the information when it would be reasonable to cause the personal information to be converted.</clause>
+              </clauses>
+            </section>
+          </section>
+          <section>
+            <header>
+              <h3>Processing of personal information requests and correction requests</h3>
+            </header>
+            <section>
+              <header>
+                <h4>Use of prescribed platforms</h4>
+              </header>
+              <clauses>
+                <clause anchor="4.1.15">Receiving requests using the prescribed platforms listed in Appendix D: Prescribed Platforms for Receiving and Processing Personal Information Requests.</clause>
+                <clause anchor="4.1.16">Processing requests using the prescribed platforms, listed in Appendix D: Prescribed Platforms for Receiving and Processing Personal Information Requests, when platforms have been prescribed.</clause>
+              </clauses>
+            </section>
+            <section>
+              <header>
+                <h4>Tracking system</h4>
+              </header>
+              <clauses>
+                <clause anchor="4.1.17">
+                  Establishing and maintaining an internal management system to keep track of: 
+            
+                  <clauses>
+                    <clause anchor="4.1.17.1">The processing of personal information requests and correction requests;</clause>
+                    <clause anchor="4.1.17.2">Corrections or notations made; </clause>
+                    <clause anchor="4.1.17.3">Complaints; </clause>
+                    <clause anchor="4.1.17.4">Reports and recommendations from the Privacy Commissioner; and </clause>
+                    <clause anchor="4.1.17.5">Reviews by the courts. </clause>
+                  </clauses>
+                </clause>
+              </clauses>
+            </section>
+            <section>
+              <header>
+                <h4>Documentation</h4>
+              </header>
+              <clauses>
+                <clause anchor="4.1.18">
+                  Documenting the processing of requests by placing on file all documents that support decisions under the 
+                  <em>Privacy Act</em>
+                  , including communications where factors considered when exercising discretion are discussed, recommendations are given, rationales are provided and decisions are made.
+                </clause>
+              </clauses>
+            </section>
+            <section>
+              <header>
+                <h4>Control of the personal information</h4>
+              </header>
+              <clauses>
+                <clause anchor="4.1.19">Determining, in a manner consistent with jurisprudence and considering any Treasury Board of Canada Secretariat (TBS) guidance, whether the personal information is under the control of the government institution.</clause>
+              </clauses>
+            </section>
+            <section>
+              <header>
+                <h4>Extension of the time limit</h4>
+              </header>
+              <clauses>
+                <clause anchor="4.1.20">Assessing, without undue delay, each request received under the Act to determine if an extension is needed for processing the request.</clause>
+                <clause anchor="4.1.21">Providing a written explanation to the requester within 30 days of receipt of the request of the reasons for an extension should the personal information request take more than 30 days to fulfill.  </clause>
+                <clause anchor="4.1.22">Notifying the requester of their right to complain to the Privacy Commissioner in respect of the extension of the time limit.</clause>
+                <clause anchor="4.1.23">Reporting on the number of and reasons for extensions in the institution’s annual report to Parliament.</clause>
+              </clauses>
+            </section>
+            <section>
+              <header>
+                <h4>Limiting inter-institutional consultations</h4>
+              </header>
+              <clauses>
+                <clause anchor="4.1.24">
+                  Undertaking inter-institutional consultation only when:
+                
+                  <clauses>
+                    <clause anchor="4.1.24.1">The processing institution requires more information for the proper exercise of discretion to withhold information; or </clause>
+                    <clause anchor="4.1.24.2">The processing institution intends to disclose potentially sensitive information.</clause>
+                  </clauses>
+                </clause>
+                <clause anchor="4.1.25">Ensuring that consultation requests from other federal government institutions are processed with the same priority as personal information requests.</clause>
+              </clauses>
+            </section>
+            <section>
+              <header>
+                <h4>Exceptions to disclosure</h4>
+              </header>
+              <clauses>
+                <clause anchor="4.1.26">Applying exemption and exclusion provisions in accordance with relevant jurisprudence and TBS guidance. Appendix C: Classification of Exemptions lists the exemptions and indicates whether they are based on a class test or an injury test, and whether they are discretionary or mandatory in nature.</clause>
+                <clause anchor="4.1.27">Citing all exemptions and exclusions invoked on the records on each page, unless doing so would reveal the exempted information or cause the injury upon which the exemption is based to materialize.</clause>
+                <clause anchor="4.1.28">Clearly identifying the redacted material in a manner that is evident on the individual record. </clause>
+              </clauses>
+            </section>
+            <section>
+              <header>
+                <h4>Giving access</h4>
+              </header>
+              <clauses>
+                <clause anchor="4.1.29">Providing written notice to the requester of whether access is being granted.</clause>
+                <clause anchor="4.1.30">Providing access to the information or part thereof, or notifying the requester if access is refused.  </clause>
+                <clause anchor="4.1.31">Notifying requesters of their right to complain to the Privacy Commissioner in respect of matters relating to personal information requests.</clause>
+              </clauses>
+            </section>
+            <section>
+              <header>
+                <h4>Requests for correction and notation of personal information</h4>
+              </header>
+              <clauses>
+                <clause anchor="4.1.32">
+                  Establishing a process to ensure that any request for correction and any subsequent actions are made in accordance with the 
+                  <a href="https://laws-lois.justice.gc.ca/eng/regulations/SOR-83-508/">
+                    <em>Privacy Regulations</em>
+                  </a>
+                   and are documented.
+                </clause>
+                <clause anchor="4.1.33">Documenting any correction or notation made to personal information in a manner that ensures it will be retrieved and used whenever the original personal information is used for an administrative purpose. </clause>
+                <clause anchor="4.1.34">Notifying the individuals, and any public and private sector organizations that use the information for administrative purposes of any correction or notation made to the personal information.</clause>
+                <clause anchor="4.1.35">Notifying requesters of their right to complain to the Privacy Commissioner in respect of requests for correction of personal information.</clause>
+              </clauses>
+            </section>
+            <section>
+              <header>
+                <h4>Considering other means of making information accessible</h4>
+              </header>
+              <clauses>
+                <clause anchor="4.1.36">Regularly reviewing the nature of requests received and assessing the feasibility of making frequently requested types of information available by other means.</clause>
+              </clauses>
+            </section>
+            <section>
+              <header>
+                <h4>Monitoring and reporting </h4>
+              </header>
+              <clauses>
+                <clause anchor="4.1.37">
+                  Monitoring and reporting on the requirements of this directive as specified in the 
+                  <em>Policy on Privacy Protection</em>
+                  .
+                </clause>
+              </clauses>
+            </section>
+          </section>
+        </clause>
+        <clause anchor="4.2">
+          Employees of government institutions are responsible for: 
+
+    
+          <section>
+            <header>
+              <h3>Informal access</h3>
+            </header>
+            <clauses>
+              <clause anchor="4.2.1">Recommending to the head or the delegate, when appropriate, that information requested be disclosed informally.</clause>
+            </clauses>
+          </section>
+          <section>
+            <header>
+              <h3>Complete, accurate and timely responses</h3>
+            </header>
+            <clauses>
+              <clause anchor="4.2.2">Making every reasonable effort to search, locate and retrieve the requested personal information under the control of the government institution. </clause>
+              <clause anchor="4.2.3">Ensuring searches for records are comprehensive and consider both the letter and the spirit of the request.</clause>
+              <clause anchor="4.2.4">Referring questions about whether the personal information is under the control of the government institution to Access to Information and Privacy (ATIP) officials with delegated authority for their determination. </clause>
+              <clause anchor="4.2.5">Advising ATIP officials at an early stage if a request cannot be responded to within the legislated 30-day timeframe.  </clause>
+              <clause anchor="4.2.6">Making every reasonable effort to respond to requests within the timelines prescribed in the Act, including extensions taken in accordance with the Act.</clause>
+            </clauses>
+          </section>
+          <section>
+            <header>
+              <h3>Recommendations</h3>
+            </header>
+            <clauses>
+              <clause anchor="4.2.7">Providing recommendations and contextual information to inform the head of the government institution, or their delegate, about possible exemptions or exclusions applicable to the personal information requested, taking into account the purpose of the Act.</clause>
+            </clauses>
+          </section>
+          <section>
+            <header>
+              <h3>Contracts and agreements</h3>
+            </header>
+            <clauses>
+              <clause anchor="4.2.8">Establishing measures to support an individual’s right of access to their personal information when entering into contracts, arrangements and agreements. </clause>
+            </clauses>
+          </section>
+        </clause>
+      </clauses>
+    </chapter>
+    <chapter anchor="5" title="Roles of other government organizations ">
+      <clauses>
+        <clause anchor="5.1">
+          The roles and responsibilities of government institutions with respect to this directive are identified in section 5 of the 
+          <em>Policy on Privacy Protection</em>
+          . 
+        </clause>
+      </clauses>
+    </chapter>
+    <chapter anchor="6" title="Application">
+      <clauses>
+        <clause anchor="6.1">
+          This directive applies as described in section 6 of the 
+          <em>Policy on Privacy Protection</em>
+          .
+        </clause>
+      </clauses>
+    </chapter>
+    <chapter anchor="7" title="References">
+      <clauses>
+        <clause anchor="7.1">
+          Legislation
+
+
+          <ul>
+            <li>
+              <a href="https://laws-lois.justice.gc.ca/eng/acts/A-1/">
+                <em>Access to Information Act</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://laws-lois.justice.gc.ca/eng/regulations/SOR-83-507/">
+                <em>Access to Information Regulations</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://laws-lois.justice.gc.ca/eng/acts/C-5/">
+                <em>Canada Evidence Act</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://laws-lois.justice.gc.ca/eng/const/page-12.html#h-39">
+                <em>Canadian Charter of Rights and Freedoms</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://laws-lois.justice.gc.ca/eng/acts/F-11/">
+                <em>Financial Administration Act</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://laws-lois.justice.gc.ca/eng/acts/I-21/">
+                <em>Interpretation Act</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://laws-lois.justice.gc.ca/eng/acts/L-7.7/">
+                <em>Library and Archives of Canada Act</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://laws-lois.justice.gc.ca/eng/acts/O-3.01/">
+                <em>Official Languages Act</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://laws-lois.justice.gc.ca/eng/acts/P-8.6/">
+                <em>Personal Information Protection and Electronic Documents Act</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://laws-lois.justice.gc.ca/eng/acts/P-21/">
+                <em>Privacy Act</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://laws-lois.justice.gc.ca/eng/regulations/SI-83-114/">
+                <em>Privacy Act Heads of Government Institutions Designation Order</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://laws-lois.justice.gc.ca/eng/regulations/SOR-83-508/">
+                <em>Privacy Regulations</em>
+              </a>
+            </li>
+          </ul>
+        </clause>
+        <clause anchor="7.2">
+          Related policy instruments
+
+
+          <ul>
+            <li>
+              <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=18310">
+                <em>Directive on Access to Information Requests</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=16577">
+                <em>Directive on Identity Management</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=18309">
+                <em>Directive on Privacy Practices</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=32601">
+                <em>Directive on Service and Digital</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=13342">
+                <em>Directive on Social Insurance Number</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=12453">
+                <em>Policy on Access to Information</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=16578">
+                <em>Policy on Government Security</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=32621">
+                <em>Policy on People Management</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=12510">
+                <em>Policy on Privacy Protection</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=32603">
+                <em>Policy on Service and Digital</em>
+              </a>
+            </li>
+          </ul>
+        </clause>
+        <clause anchor="7.3">
+          Related guidance instruments and forms
+
+
+          <ul>
+            <li>
+              <a href="https://www.canada.ca/en/treasury-board-secretariat/services/access-information-privacy/access-information-privacy-notices.html">Access to Information and Privacy  implementation notices</a>
+            </li>
+            <li>
+              <a href="https://www.canada.ca/en/treasury-board-secretariat/services/access-information-privacy/access-information/delegation-under-access-information-act-privacy-act.html">
+                Delegation under the 
+                <em>Access to  Information Act</em>
+                 and the 
+                <em>Privacy Act</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.canada.ca/en/treasury-board-secretariat/services/access-information-privacy/access-information/access-informatio-policies-guidance/programs-holdings-online-publishing-requirements.html#toc-1">Info Source Online Publishing Requirements</a>
+            </li>
+            <li>
+              <a href="https://www.canada.ca/en/treasury-board-secretariat/services/access-information-privacy/privacy/privacy-policies-guidance/pir-manual.html">Personal Information Request Manual</a>
+            </li>
+            <li>
+              <a href="https://www.canada.ca/en/treasury-board-secretariat/services/access-information-privacy/access-information/supporting-tool-access-information-personal-information-requests-principles-assisting-requesters.html">Principles for Assisting Requesters</a>
+            </li>
+            <li>
+              <a href="https://www.canada.ca/en/treasury-board-secretariat/services/access-information-privacy/privacy/breach-management.html">Privacy Breach Management Toolkit</a>
+            </li>
+            <li>
+              <a href="https://www.canada.ca/en/treasury-board-secretariat/corporate/forms.html">Treasury Board of Canada Secretariat Forms</a>
+            </li>
+          </ul>
+        </clause>
+      </clauses>
+    </chapter>
+    <chapter anchor="8" title="Enquiries">
+      a
+
+  
+      <clauses>
+        <clause anchor="8.1">
+          Members of the public may contact  Treasury Board of Canada Secretariat 
+          <a href="mailto:questions@tbs-sct.gc.ca" title="http://www.tbs-sct.gc.ca/tbs-sct/cmn/contact-eng.asp#enquiries">Public Enquiries</a>
+           regarding any questions about this  directive.
+        </clause>
+        <clause anchor="8.2">
+          Employees of federal institutions may contact  their 
+          <a href="https://www.tbs-sct.canada.ca/ap/atip-aiprp/coord-eng.asp">Access to Information and  Privacy Coordinator</a>
+           regarding any questions about this directive.
+        </clause>
+        <clause anchor="8.3">
+          Access to Information and Privacy Coordinators may contact the Treasury Board of Canada Secretariat’s 
+          <a href="mailto:ippd-dpiprp@tbs-sct.gc.ca">Privacy and Responsible Data Division</a>
+           regarding any questions  about this directive.
+        </clause>
+      </clauses>
+    </chapter>
+  </chapters>
+  <appendices>
+    <appendix anchor="A" title="Appendix A: Definitions">
+      <dl>
+        <dt>
+          class test (
+          <span lang="fr">
+            <em>critère  objectif</em>
+          </span>
+          ) 
+        </dt>
+        <dd>
+          A test that  objectively identifies the categories of information or documents to which  certain exemption provisions of the 
+          <em>Privacy Act</em>
+           can be applied. The exemptions set out in the following sections of the Act  are based on a class test: 18(2) 19(1), 22(1)(a),  22(2), 22.1, 22.2, 22.3, 22.4, 23, 24, 26, 27 and 27.1.
+        </dd>
+        <dt>
+          discretionary exemption  (
+          <span lang="fr">
+            <em>exception discrétionnaire</em>
+          </span>
+          )
+        </dt>
+        <dd>
+          An exemption provision of the 
+          <em>Privacy Act</em>
+           that contains the phrase “may refuse to disclose.” The exemptions set out in the following sections of the Act are  discretionary: 18(2), 20, 21, 22(1)(a), 22(1)(b), 22(1)(c),  23, 24(a), 24(b), 25, 27, 27.1 and 28.
+        </dd>
+        <dt>
+          every reasonable effort (
+          <span lang="fr">
+            <em>tous les efforts raisonnables</em>
+          </span>
+          )
+        </dt>
+        <dd>A level of effort  that a fair and reasonable person would expect or would find acceptable.</dd>
+        <dt>
+          informal request (
+          <span lang="fr">
+            <em>demande  informelle</em>
+          </span>
+          )
+        </dt>
+        <dd>A request for personal information made to  the ATIP office of a government institution that is not made or processed under  the Act. There are no deadlines for responding. In addition, the requester has  no statutory right of complaint to the Privacy Commissioner</dd>
+        <dt>
+          injury test  (
+          <span lang="fr">
+            <em>critère subjectif</em>
+          </span>
+          )
+        </dt>
+        <dd>
+          A test to  determine the reasonable expectation of probable harm that must be met for  certain exemption provisions of the 
+          <em>Privacy Act</em>
+           to apply. The following sections  of the Act are based on an injury test: 20, 21, 22(1)(b),  22(1)(c), 25 and 28.
+        </dd>
+        <dt>
+          mandatory exemption  (
+          <span lang="fr">
+            <em>exception obligatoire</em>
+          </span>
+          ) 
+        </dt>
+        <dd>
+          An exemption provision of the 
+          <em>Privacy Act</em>
+           that contains the phrase “shall refuse to disclose.” The exemptions set out in the following sections of the Act are  mandatory: 19(1), 22(2), 22.1, 22.2, 22.3, 22.4 and 26.
+        </dd>
+        <dt>
+          privacy training (
+          <span lang="fr">
+            <em>formation en protection  des renseignements personnels</em>
+          </span>
+          )
+        </dt>
+        <dd>All activities  that serve to increase privacy awareness, including formal training, discussion  groups, conferences, Access to Information  and Privacy community  meetings, shared learning among colleagues, on-the-job training, special  projects, job shadowing and communications activities that promote learning in  the areas identified in Appendix B of this  directive.</dd>
+        <dt>
+          tracking system (
+          <span lang="fr">
+            <em>système de suivi</em>
+          </span>
+          )
+        </dt>
+        <dd>An electronic or  paper-based case management system used in ATIP offices to track personal  information requests and requests for correction of personal information and  document their processing.</dd>
+      </dl>
+      <p>
+        Additional definitions are listed in Appendix A of the 
+        <em>Policy on Privacy Protection</em>
+        .
+      </p>
+    </appendix>
+    <appendix anchor="B" title="Appendix B: Mandatory Procedures for Privacy Training">
+      <p>This Appendix provides guidance related to training in the application of the Act that all employees of government institutions should receive. </p>
+      <clauses>
+        <clause anchor="B.1">
+          <strong>Effective date</strong>
+          <clauses>
+            <clause anchor="B.1.1">These procedures take effect on October 26, 2022</clause>
+            <clause anchor="B.1.2">
+              These procedures were previously set out in Appendix B: Privacy Awareness in the 
+              <em>Directive on Personal Information Requests and Correction of Personal Information</em>
+               effective July 13, 2022.
+            </clause>
+          </clauses>
+        </clause>
+        <clause anchor="B.2">
+          <strong>Procedures</strong>
+          <clauses>
+            <clause anchor="B.2.1">
+              These procedures provide details on the requirements set out in section 4.1.2 of the 
+              <em>Directive on Personal Information Requests and Correction of Personal Information</em>
+              . All employees of government institutions must receive training on their obligations under the 
+              <em>Privacy Act</em>
+               and related Treasury Board policy instruments. The training must cover the following:
+        
+            
+              <clauses>
+                <clause anchor="B.2.1.1">The purpose of the Act;</clause>
+                <clause anchor="B.2.1.2">The applicable definitions;</clause>
+                <clause anchor="B.2.1.3">
+                  Employees’ responsibilities under the Act and the 
+                  <em>Policy on Privacy Protection</em>
+                   and related directives, including the principles for assisting requesters;
+                </clause>
+                <clause anchor="B.2.1.4">Delegation, exemption decisions and the exercise of discretion;</clause>
+                <clause anchor="B.2.1.5">Employees’ obligation to make every reasonable effort to locate and retrieve the requested personal information under the control of the government institution;</clause>
+                <clause anchor="B.2.1.6">The requirement to provide complete, accurate and timely responses;</clause>
+                <clause anchor="B.2.1.7">The complaint process and reviews by the courts;</clause>
+                <clause anchor="B.2.1.8">Sound privacy and security practices respecting the creation, collection, retention, security designation, validation, use, disclosure and disposition of personal information;</clause>
+                <clause anchor="B.2.1.9">The management of privacy breaches; and</clause>
+                <clause anchor="B.2.1.10">
+                  Specific institutional policies, processes and protocols related to the administration of the 
+                  <em>Privacy Act</em>
+                  , including policies on information management.
+                </clause>
+              </clauses>
+            </clause>
+            <clause anchor="B.2.2">
+              All employees of government institutions who have functional or delegated responsibility for the administration of the 
+              <em>Privacy Act</em>
+               and 
+              <em>Privacy Regulations</em>
+               must receive training that covers the items listed above and in addition:
+            
+              <clauses>
+                <clause anchor="B.2.2.1">The provisions concerning the extension of time limits; exemptions and exclusions; and the language, format and method of access;</clause>
+                <clause anchor="B.2.2.2">Public reporting requirements, including annual reports to Parliament; and</clause>
+                <clause anchor="B.2.2.3">The role of the Privacy Commissioner, the Information Commissioner, and the Parliamentary Standing Committees in relation to the Act.</clause>
+              </clauses>
+            </clause>
+          </clauses>
+        </clause>
+      </clauses>
+    </appendix>
+    <appendix anchor="C" title="Appendix C: Classification of Exemptions">
+      <p>
+        The table below lists all exemptions under the 
+        <em>Privacy Act</em>
+         and indicates whether they are based on a class test or an injury test and whether they are mandatory or discretionary.  The descriptions are paraphrased and should be used as a memory aid only. For more detail, please consult the relevant section of the Act.
+      </p>
+      <table class="table table-bordered table-condensed">
+        <thead>
+          <tr class="active">
+            <th scope="col">Exemption</th>
+            <th scope="col">Short Description of the  Exemptions</th>
+            <th scope="col">Mandatory</th>
+            <th scope="col">Discretionary</th>
+            <th scope="col">Class</th>
+            <th scope="col">Injury</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <a href="https://laws-lois.justice.gc.ca/eng/acts/P-21/page-2.html#docCont">Subsection    18(2)</a>
+            </td>
+            <td>Access may be refused as the personal information is contained    in an exempt bank which consists predominantly of personal information    described in section 21 or 22 of the Act. </td>
+            <td>no</td>
+            <td>yes</td>
+            <td>yes</td>
+            <td>no</td>
+          </tr>
+          <tr>
+            <td>
+              <a href="https://laws-lois.justice.gc.ca/eng/acts/P-21/page-2.html#docCont">Subsection    19(1)</a>
+            </td>
+            <td>
+              <p>Personal information that must be protected as it was    obtained in confidence from:</p>
+              <ul>
+                <li>the government of a foreign state</li>
+                <li>an international organization of states</li>
+                <li>the government of a province</li>
+                <li>a municipal or regional government</li>
+                <li>the Westbank First Nation council</li>
+                <li>
+                  the council of a First Nation defined in the 
+                  <em>First    Nations Jurisdiction over Education in British Columbia Act.</em>
+                </li>
+              </ul>
+            </td>
+            <td>yes</td>
+            <td>no**</td>
+            <td>yes</td>
+            <td>no</td>
+          </tr>
+          <tr>
+            <td>
+              <a href="https://laws-lois.justice.gc.ca/eng/acts/P-21/page-3.html#docCont">Section    20</a>
+            </td>
+            <td>Access may be    refused as disclosure could be expected to be injurious to the Government of    Canada’s conduct of federal-provincial affairs.</td>
+            <td>no</td>
+            <td>yes</td>
+            <td>no</td>
+            <td>yes</td>
+          </tr>
+          <tr>
+            <td>
+              <a href="https://laws-lois.justice.gc.ca/eng/acts/P-21/page-3.html#docCont">Section 21</a>
+            </td>
+            <td>Access may be refused as disclosure could be expected to be injurious to conduct of international affairs; the defence of Canada or any state allied or associated with Canada; or Canada’s efforts to detect, prevent or suppress subversive or hostile activities.</td>
+            <td>no</td>
+            <td>yes</td>
+            <td>no</td>
+            <td>yes</td>
+          </tr>
+          <tr>
+            <td>
+              <a href="https://laws-lois.justice.gc.ca/eng/acts/P-21/page-3.html#docCont">Paragraph 22(1)(a)</a>
+            </td>
+            <td>
+              Access may be    refused as personal information was obtained or prepared by an investigative body (as per regulation) in the course of an investigation regarding: detecting,    preventing or suppressing crime, enforcing any law of Canada or a province; or activities suspected of constituting threats to Canada’s security as set out in the 
+              <em>Canadian Security    Intelligence Service Act</em>
+              .  
+            </td>
+            <td>no</td>
+            <td>yes</td>
+            <td>yes</td>
+            <td>no</td>
+          </tr>
+          <tr>
+            <td>
+              <a href="https://laws-lois.justice.gc.ca/eng/acts/P-21/page-3.html#docCont">Paragraph 22(1)(b)</a>
+            </td>
+            <td>Access may be refused as disclosure could be expected to be injurious to the enforcement of any law of Canada or a province or the conduct of lawful investigations.</td>
+            <td>no</td>
+            <td>yes</td>
+            <td>no</td>
+            <td>yes</td>
+          </tr>
+          <tr>
+            <td>
+              <a href="https://laws-lois.justice.gc.ca/eng/acts/P-21/page-3.html#docCont">Paragraph 22(1)(c)</a>
+            </td>
+            <td>Access may be    refused as disclosure could be expected to be injurious to the security of penal institutions.</td>
+            <td>no</td>
+            <td>yes</td>
+            <td>no</td>
+            <td>yes</td>
+          </tr>
+          <tr>
+            <td>
+              <a href="https://laws-lois.justice.gc.ca/eng/acts/P-21/page-3.html#docCont">Subsection 22(2)</a>
+            </td>
+            <td>Personal information must be protected as it was obtained by the Royal Canadian Mounted Police while performing policing services for a province or    municipality.</td>
+            <td>yes</td>
+            <td>no</td>
+            <td>yes</td>
+            <td>no</td>
+          </tr>
+          <tr>
+            <td>
+              <a href="https://laws-lois.justice.gc.ca/eng/acts/P-21/page-3.html#docCont">Section 22.1</a>
+              *
+            </td>
+            <td>Personal information must be protected as it was obtained or created by Privacy Commissioner in the course of an investigation or in the    course of a consultation with the Information Commissioner.</td>
+            <td>yes</td>
+            <td>no</td>
+            <td>yes</td>
+            <td>no</td>
+          </tr>
+          <tr>
+            <td>
+              <a href="https://laws-lois.justice.gc.ca/eng/acts/P-21/page-3.html#docCont">Section 22.2</a>
+              *
+            </td>
+            <td>
+              Personal information must be protected as it was obtained or    created by Public Sector Integrity Commissioner in the course of an    investigation of a disclosure or an investigation commenced under section 33 of the 
+              <em>Public Servants Disclosure Protection Act</em>
+               (PSDPA).
+            </td>
+            <td>yes</td>
+            <td>no</td>
+            <td>yes</td>
+            <td>no</td>
+          </tr>
+          <tr>
+            <td>
+              <a href="https://laws-lois.justice.gc.ca/eng/acts/P-21/page-3.html#docCont">Section 22.3</a>
+            </td>
+            <td>Personal    information must be protected as it was created    for the purpose of making a disclosure or in the course of an    investigation into a disclosure under the PSDPA.</td>
+            <td>yes</td>
+            <td>no</td>
+            <td>yes</td>
+            <td>no</td>
+          </tr>
+          <tr>
+            <td>
+              <a href="https://laws-lois.justice.gc.ca/eng/acts/P-21/page-3.html#docCont">Section 22.4*</a>
+            </td>
+            <td>Personal information must be protected as it was obtained or created by the Secretariat of the National Security and Intelligent Committee of    Parliamentarians or on its behalf in the course of fulfilling its mandate.</td>
+            <td>yes</td>
+            <td>no</td>
+            <td>yes</td>
+            <td>no</td>
+          </tr>
+          <tr>
+            <td>
+              <a href="https://laws-lois.justice.gc.ca/eng/acts/P-21/page-3.html#docCont">Section 23</a>
+            </td>
+            <td>Access may be refused to personal information obtained or prepared for the purpose of determining whether to grant security clearances. </td>
+            <td>no</td>
+            <td>yes</td>
+            <td>yes</td>
+            <td>no</td>
+          </tr>
+          <tr>
+            <td>
+              <a href="https://laws-lois.justice.gc.ca/eng/acts/P-21/page-3.html#docCont">Paragraph 24(a)</a>
+            </td>
+            <td>Disclosure could disrupt the parole or statutory release of the requester as personal information was collected or obtained by the Correctional Service of Canada or the Parole Board of Canada while the individual who made the request was under sentence for an offence against any  Act of Parliament.</td>
+            <td>no</td>
+            <td>yes</td>
+            <td>yes</td>
+            <td>no</td>
+          </tr>
+          <tr>
+            <td>
+              <a href="https://laws-lois.justice.gc.ca/eng/acts/P-21/page-3.html#docCont">Paragraph 24(b)</a>
+            </td>
+            <td>Access may be refused to personal information obtained in confidence regarding corrections or parole.</td>
+            <td>no</td>
+            <td>yes</td>
+            <td>yes</td>
+            <td>no</td>
+          </tr>
+          <tr>
+            <td>
+              <a href="https://laws-lois.justice.gc.ca/eng/acts/P-21/page-3.html#docCont">Section 25</a>
+            </td>
+            <td>Access may be refused as disclosure could reasonably be    expected to threaten the safety of individuals.</td>
+            <td>no</td>
+            <td>yes</td>
+            <td>no</td>
+            <td>yes</td>
+          </tr>
+          <tr>
+            <td>
+              <a href="https://laws-lois.justice.gc.ca/eng/acts/P-21/page-3.html#docCont">Section 26</a>
+            </td>
+            <td>Access may be refused for personal information about    another individual who is not the requester.     This information must be protected when the disclosure is prohibited    under section 8 of the Act.</td>
+            <td>yes</td>
+            <td>no**</td>
+            <td>yes</td>
+            <td>no</td>
+          </tr>
+          <tr>
+            <td>
+              <a href="https://laws-lois.justice.gc.ca/eng/acts/P-21/page-3.html#docCont">Section 27</a>
+            </td>
+            <td>Access may be refused to personal information subject to solicitor-client    privilege or the professional secrecy of advocates and notaries.</td>
+            <td>no</td>
+            <td>yes</td>
+            <td>yes</td>
+            <td>no</td>
+          </tr>
+          <tr>
+            <td>
+              <a href="https://laws-lois.justice.gc.ca/eng/acts/P-21/page-3.html#docCont">Section 27.1</a>
+            </td>
+            <td>
+              Access may be refused to personal information subject to the privilege set out in section 16.1 of the 
+              <em>Patent Act</em>
+               or section 51.13 of the 
+              <em>Trade-marks Act</em>
+              .
+            </td>
+            <td>no</td>
+            <td>yes</td>
+            <td>yes</td>
+            <td>no</td>
+          </tr>
+          <tr>
+            <td>
+              <a href="https://laws-lois.justice.gc.ca/eng/acts/P-21/page-3.html#docCont">Section 28</a>
+            </td>
+            <td>Disclosure of the medical record relating to the physical or mental health of the individual could be contrary to the best interests of the individual. </td>
+            <td>no</td>
+            <td>yes</td>
+            <td>no</td>
+            <td>yes</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>*The exemption can only be claimed by the government institutions named in the provision.</p>
+      <p>** Where discretion is authorized.</p>
+    </appendix>
+    <appendix anchor="D" title="Appendix D: Prescribed Platforms for Receiving and Processing Personal Information Requests">
+      <p>
+        This Appendix provides details on the requirement set out in sections 4.1.15 and 4.1.16 of the 
+        <em>Directive on Personal Information Requests and Correction of Personal Information</em>
+        . 
+      </p>
+      <clauses>
+        <clause anchor="D.1">
+          <strong>Effective date</strong>
+          <clauses>
+            <clause anchor="D.1.1">This list was updated on October 26, 2022.</clause>
+            <clause anchor="D.1.2">
+              This list was previously set out in Appendix D: Prescribed Platforms for Receiving and Processing Personal Information Requests in the 
+              <em>Directive on Personal Information Requests and Correction of Personal Information</em>
+               dated July 13, 2022.
+            </clause>
+          </clauses>
+        </clause>
+        <clause anchor="D.2">
+          <strong>Prescribed Platforms</strong>
+          <clauses>
+            <clause anchor="D.2.1">
+              Receiving requests
+        
+            
+              <clauses>
+                <clause anchor="D.2.1.1">The prescribed platform is TBS’s ATIP Online.</clause>
+                <clause anchor="D.2.1.2">Requests can be received in alternate formats such as email or paper.</clause>
+              </clauses>
+            </clause>
+            <clause anchor="D.2.2">There is no prescribed platform for processing requests. However, enterprise approved solutions are available through established contracting vehicles for ATIP Request Processing Software Solutions.</clause>
+            <clause anchor="D.2.3">
+              In order to request  an exception from the prescribed platforms, government institutions must  contact the 
+              <a href="mailto:ippd-dpiprp@tbs-sct.gc.ca">Privacy and Responsible Data Division</a>
+               for further information.
+            </clause>
+          </clauses>
+        </clause>
+      </clauses>
+    </appendix>
+  </appendices>
+</doc>
