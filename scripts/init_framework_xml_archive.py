@@ -4,6 +4,7 @@ import os
 import re
 import requests
 import feedparser
+import xml.dom.minidom
 
 # Feeds and corresponding target directories
 feeds = {
@@ -42,9 +43,18 @@ for dir_name, feed_url in feeds.items():
         try:
             resp = requests.get(xml_url)
             if resp.status_code == 200:
-                with open(filepath, 'wb') as f:
-                    f.write(resp.content)
-                print(f"Downloaded: {filepath}")
+                try:
+                    # Pretty-print the XML
+                    dom = xml.dom.minidom.parseString(resp.content)
+                    pretty_xml = dom.toprettyxml(indent="  ", encoding="utf-8")
+                    with open(filepath, 'wb') as f:
+                        f.write(pretty_xml)
+                    print(f"Downloaded (pretty-printed): {filepath}")
+                except Exception as xml_e:
+                    print(f"Error pretty-printing XML for {xml_url}: {xml_e}")
+                    # Optionally save raw content if pretty-print fails
+                    with open(filepath, 'wb') as f:
+                        f.write(resp.content)
             else:
                 print(f"Failed to download: {xml_url} (status: {resp.status_code})")
         except Exception as e:
