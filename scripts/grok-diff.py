@@ -1,5 +1,10 @@
 import os
 import json
+import re
+import difflib
+import subprocess
+from collections import defaultdict
+
 from azure.ai.inference import ChatCompletionsClient
 from azure.ai.inference.models import SystemMessage, UserMessage
 from azure.core.credentials import AzureKeyCredential
@@ -8,14 +13,30 @@ endpoint = "https://models.github.ai/inference"
 model = "xai/grok-3"
 token = os.environ["GITHUB_TOKEN"]
 
-# Helper function to trim content to N characters (adjust as needed)
-def trim_content(content, max_chars=2500):
-    if len(content) > max_chars:
-        return content[:max_chars//2] + "\n...\n" + content[-max_chars//2:]
-    return content
+# Discover pairs of XML files automatically
+pattern = re.compile(r"^(.*?)(\d{4}-\d{2}-\d{2})\.xml$")
+files = defaultdict(list)
+for root, _, filenames in os.walk("data"):
+    for fname in filenames:
+        if fname.endswith(".xml"):
+            m = pattern.match(fname)
+            if m:
+                prefix = os.path.join(root, m.group(1))
+                files[prefix].append(os.path.join(root, fname))
 
-with open("pairs.json") as f:
-    pairs = json.load(f)
+pairs = []
+for prefix, flist in files.items():
+    if len(flist) >= 2:
+        flist.sort(reverse=True)
+        pairs.append((flist[0], flist[1]))
+
+# Load issue mapping (guid -> issue number)
+issue_map_path = os.path.join("data", "issue_map.json")
+if os.path.isfile(issue_map_path):
+    with open(issue_map_path, "r", encoding="utf-8") as f:
+        issue_map = json.load(f)
+else:
+    issue_map = {}
 
 client = ChatCompletionsClient(
     endpoint=endpoint,
@@ -24,21 +45,21 @@ client = ChatCompletionsClient(
 
 all_outputs = ""
 
-for pair in pairs:
+for new_file, old_file in pairs:
     message = ""
-    for file_path in pair:
-        filename = os.path.basename(file_path)
-        with open(file_path, encoding="utf-8") as infile:
+    contents = []
+    for fp in (new_file, old_file):
+        filename = os.path.basename(fp)
+        with open(fp, encoding="utf-8") as infile:
             content = infile.read().strip()
-        content = trim_content(content)  # Trim to avoid token overflow
+        contents.append(content)
         message += f"**{filename}**\n```\n{content}\n```\n\n"
 
     message += (
         "These are two versions of the same file to compare. "
-        "Summarize the changes to content in the versions, focus on the substance of the document not the xml layout or markup. give "
-        "first an executive summary describing the theme of the changes and major changes to requirements, then detailed changes referring to which "
-        "sections each change is in, show previous wording and new wording where "
-        "useful. This is for a policy wonk audience. Generate the output as a markdown document."
+        "Summarize the changes to content in the versions, focus on the substance of the document not the xml layout or markup. "
+        "Give first an executive summary describing the theme of the changes and major changes to requirements, then detailed changes referring to which "
+        "sections each change is in, show previous wording and new wording where useful. This is for a policy wonk audience. Generate the output as a markdown document."
     )
 
     response = client.complete(
@@ -48,19 +69,48 @@ for pair in pairs:
         ],
         temperature=1.0,
         top_p=1.0,
-        model=model
+        model=model,
     )
 
     summary = response.choices[0].message.content
-    all_outputs += f"# AI Generated Comparison for {os.path.basename(pair[0])} and {os.path.basename(pair[1])}\n\n"
-    all_outputs += summary + "\n\n---\n\n"
 
-with open("./grok-diff.md", "w", encoding="utf-8") as f:
+    diff_text = "".join(
+        difflib.unified_diff(
+            contents[1].splitlines(True),
+            contents[0].splitlines(True),
+            fromfile=os.path.basename(old_file),
+            tofile=os.path.basename(new_file),
+        )
+    )
+
+    output = f"# AI Generated Comparison for {os.path.basename(new_file)} and {os.path.basename(old_file)}\n\n"
+    output += summary + "\n\n## Diff\n```diff\n" + diff_text + "```\n\n---\n\n"
+    all_outputs += output
+
+    guid_match = re.search(r"_(\d+)_\d{4}-\d{2}-\d{2}\.xml$", new_file)
+    if guid_match:
+        guid = guid_match.group(1)
+        issue_number = issue_map.get(guid)
+        if issue_number:
+            try:
+                subprocess.run(
+                    [
+                        "gh",
+                        "issue",
+                        "comment",
+                        str(issue_number),
+                        "--body",
+                        output,
+                    ],
+                    check=True,
+                )
+            except subprocess.CalledProcessError:
+                pass
+
+with open("grok-diff.md", "w", encoding="utf-8") as f:
     f.write(all_outputs)
 
 print("Output saved as grok-diff.md")
-
-import re
 
 README_FILE = "README.md"
 MARKER_START = "<!-- BEGIN GROK DIFF -->"
@@ -69,18 +119,13 @@ MARKER_END = "<!-- END GROK DIFF -->"
 with open(README_FILE, "r", encoding="utf-8") as f:
     readme_contents = f.read()
 
-# Build the new section content
 new_section = f"{MARKER_START}\n{all_outputs}\n{MARKER_END}"
-
-# Replace the section between the markers
-pattern = re.compile(
-    rf"{MARKER_START}.*?{MARKER_END}", re.DOTALL
-)
+pattern = re.compile(rf"{MARKER_START}.*?{MARKER_END}", re.DOTALL)
 if pattern.search(readme_contents):
     new_readme = pattern.sub(new_section, readme_contents)
 else:
-    # If section doesn't exist, append at the end
     new_readme = readme_contents.strip() + "\n\n" + new_section
 
 with open(README_FILE, "w", encoding="utf-8") as f:
     f.write(new_readme)
+

@@ -86,7 +86,15 @@ def main():
     gist = resp.json()
     gist_files = gist['files']
 
-    # Create issues for each item with screenshot
+    # Load existing issue map if present
+    issue_map_path = os.path.join('data', 'issue_map.json')
+    if os.path.isfile(issue_map_path):
+        with open(issue_map_path, 'r', encoding='utf-8') as f:
+            issue_map = json.load(f)
+    else:
+        issue_map = {}
+
+    # Create issues for each item with screenshot and record their numbers
     for item in items:
         filename = os.path.basename(item['screenshot_file'])
         raw_url = gist_files[filename]['raw_url']
@@ -101,13 +109,21 @@ def main():
         )
         print(f'Creating issue: {issue_title}')
         try:
-            subprocess.run([
+            result = subprocess.run([
                 'gh', 'issue', 'create',
                 '--title', issue_title,
-                '--body', body
-            ], check=True)
+                '--body', body,
+                '--json', 'number'
+            ], check=True, capture_output=True, text=True)
+            issue_number = json.loads(result.stdout)['number']
+            issue_map[item['guid']] = issue_number
         except subprocess.CalledProcessError as e:
             print(f"Failed to create issue for {item['link']}: {e}", file=sys.stderr)
+
+    # Save updated issue map
+    if issue_map:
+        with open(issue_map_path, 'w', encoding='utf-8') as f:
+            json.dump(issue_map, f, indent=2)
 
 if __name__ == '__main__':
     main()
