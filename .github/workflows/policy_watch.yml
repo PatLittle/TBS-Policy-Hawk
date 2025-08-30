@@ -8,7 +8,7 @@ on:
 permissions:
   contents: write
   issues: write
-  models: read
+  models: read # allow workflows to access models
 
 jobs:
   watch:

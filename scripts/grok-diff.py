@@ -45,34 +45,73 @@ client = ChatCompletionsClient(
 
 all_outputs = ""
 
+
+def chunk_pair(text1: str, text2: str, max_tokens: int = 3000):
+    """Yield paired chunks from both texts within a combined token limit.
+
+    Tokens are approximated by splitting on whitespace. Each pair contains up to
+    ``max_tokens`` tokens total, evenly split between the two inputs.
+    """
+
+    step = max_tokens // 2
+    tokens1 = text1.split()
+    tokens2 = text2.split()
+    i = 0
+    while i * step < len(tokens1) or i * step < len(tokens2):
+        chunk1 = tokens1[i * step : (i + 1) * step]
+        chunk2 = tokens2[i * step : (i + 1) * step]
+        yield " ".join(chunk1), " ".join(chunk2)
+        i += 1
+
 for new_file, old_file in pairs:
-    message = ""
     contents = []
     for fp in (new_file, old_file):
-        filename = os.path.basename(fp)
         with open(fp, encoding="utf-8") as infile:
-            content = infile.read().strip()
-        contents.append(content)
-        message += f"**{filename}**\n```\n{content}\n```\n\n"
+            contents.append(infile.read().strip())
 
-    message += (
-        "These are two versions of the same file to compare. "
-        "Summarize the changes to content in the versions, focus on the substance of the document not the xml layout or markup. "
-        "Give first an executive summary describing the theme of the changes and major changes to requirements, then detailed changes referring to which "
-        "sections each change is in, show previous wording and new wording where useful. This is for a policy wonk audience. Generate the output as a markdown document."
-    )
+    summaries = []
+    for idx, (chunk_new, chunk_old) in enumerate(chunk_pair(contents[0], contents[1])):
+        part_message = (
+            f"**{os.path.basename(new_file)} (part {idx + 1})**\n```\n{chunk_new}\n```\n\n"
+            f"**{os.path.basename(old_file)} (part {idx + 1})**\n```\n{chunk_old}\n```\n\n"
+            "These are two versions of the same file to compare. "
+            "Summarize the changes to content in the versions, focus on the substance of the document not the xml layout or markup. "
+            "Give first an executive summary describing the theme of the changes and major changes to requirements, then detailed changes referring to which "
+            "sections each change is in, show previous wording and new wording where useful. This is for a policy wonk audience. Generate the output as a markdown document."
+        )
 
-    response = client.complete(
-        messages=[
-            SystemMessage("You are a helpful assistant that summarizes the changes between versions of a document."),
-            UserMessage(message),
-        ],
-        temperature=1.0,
-        top_p=1.0,
-        model=model,
-    )
+        response = client.complete(
+            messages=[
+                SystemMessage(
+                    "You are a helpful assistant that summarizes the changes between versions of a document."
+                ),
+                UserMessage(part_message),
+            ],
+            temperature=1.0,
+            top_p=1.0,
+            model=model,
+        )
+        summaries.append(response.choices[0].message.content)
 
-    summary = response.choices[0].message.content
+    if len(summaries) > 1:
+        aggregate_prompt = (
+            "\n\n".join(summaries)
+            + "\n\nCombine the above section summaries into an overall summary of the changes."
+        )
+        final_response = client.complete(
+            messages=[
+                SystemMessage(
+                    "You are a helpful assistant that summarizes the changes between versions of a document."
+                ),
+                UserMessage(aggregate_prompt),
+            ],
+            temperature=1.0,
+            top_p=1.0,
+            model=model,
+        )
+        summary = final_response.choices[0].message.content
+    else:
+        summary = summaries[0]
 
     diff_text = "".join(
         difflib.unified_diff(
