@@ -4,6 +4,7 @@ import re
 import difflib
 import subprocess
 from collections import defaultdict
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 from azure.ai.inference import ChatCompletionsClient
 from azure.ai.inference.models import SystemMessage, UserMessage
@@ -50,17 +51,8 @@ all_outputs = ""
 
 encoding = tiktoken.get_encoding("cl100k_base")
 
-
 def chunk_pair(text1: str, text2: str, max_tokens: int = 3000):
-    """Yield paired chunks from both texts within a combined token limit.
-
-    This uses ``tiktoken`` to count tokens so that each API request remains
-    safely below the 4k token maximum enforced by the ``grok-3`` model. The
-    ``max_tokens`` parameter represents the total number of tokens from both
-    texts combined; each chunk will contain at most half of that from each
-    source document.
-    """
-
+    """Yield paired chunks from both texts within a combined token limit."""
     step = max_tokens // 2
     tokens1 = encoding.encode(text1)
     tokens2 = encoding.encode(text2)
@@ -70,6 +62,29 @@ def chunk_pair(text1: str, text2: str, max_tokens: int = 3000):
         chunk2_tokens = tokens2[i * step : (i + 1) * step]
         yield encoding.decode(chunk1_tokens), encoding.decode(chunk2_tokens)
         i += 1
+
+def summarize_chunk(idx, chunk_new, chunk_old, new_file, old_file, total_chunks):
+    print(f"  Summarizing chunk {idx}/{total_chunks}")
+    part_message = (
+        f"**{os.path.basename(new_file)} (part {idx})**\n```\n{chunk_new}\n```\n\n"
+        f"**{os.path.basename(old_file)} (part {idx})**\n```\n{chunk_old}\n```\n\n"
+        "These are two versions of the same file to compare. "
+        "Summarize the changes to content in the versions, focus on the substance of the document not the xml layout or markup. "
+        "Give first an executive summary describing the theme of the changes and major changes to requirements, then detailed changes referring to which "
+        "sections each change is in, show previous wording and new wording where useful. This is for a policy wonk audience. Generate the output as a markdown document."
+    )
+    response = client.complete(
+        messages=[
+            SystemMessage(
+                "You are a helpful assistant that summarizes the changes between versions of a document."
+            ),
+            UserMessage(part_message),
+        ],
+        temperature=1.0,
+        top_p=1.0,
+        model=model,
+    )
+    return idx, response.choices[0].message.content
 
 for pair_index, (new_file, old_file) in enumerate(pairs, start=1):
     print(
@@ -81,35 +96,20 @@ for pair_index, (new_file, old_file) in enumerate(pairs, start=1):
         with open(fp, encoding="utf-8") as infile:
             contents.append(infile.read().strip())
 
-
     chunk_list = list(chunk_pair(contents[0], contents[1]))
     print(f"  Split into {len(chunk_list)} chunk(s)")
 
-    summaries = []
-    for idx, (chunk_new, chunk_old) in enumerate(chunk_list, start=1):
-        print(f"  Summarizing chunk {idx}/{len(chunk_list)}")
-        part_message = (
-            f"**{os.path.basename(new_file)} (part {idx})**\n```\n{chunk_new}\n```\n\n"
-            f"**{os.path.basename(old_file)} (part {idx})**\n```\n{chunk_old}\n```\n\n"
-
-            "These are two versions of the same file to compare. "
-            "Summarize the changes to content in the versions, focus on the substance of the document not the xml layout or markup. "
-            "Give first an executive summary describing the theme of the changes and major changes to requirements, then detailed changes referring to which "
-            "sections each change is in, show previous wording and new wording where useful. This is for a policy wonk audience. Generate the output as a markdown document."
-        )
-
-        response = client.complete(
-            messages=[
-                SystemMessage(
-                    "You are a helpful assistant that summarizes the changes between versions of a document."
-                ),
-                UserMessage(part_message),
-            ],
-            temperature=1.0,
-            top_p=1.0,
-            model=model,
-        )
-        summaries.append(response.choices[0].message.content)
+    summaries = [None] * len(chunk_list)
+    with ThreadPoolExecutor(max_workers=4) as executor:  # You can tune max_workers for your system/API limits
+        future_to_idx = {
+            executor.submit(
+                summarize_chunk, idx, chunk_new, chunk_old, new_file, old_file, len(chunk_list)
+            ): idx-1
+            for idx, (chunk_new, chunk_old) in enumerate(chunk_list, start=1)
+        }
+        for future in as_completed(future_to_idx):
+            idx, result = future.result()
+            summaries[idx-1] = result
 
     if len(summaries) > 1:
         aggregate_prompt = (
@@ -187,4 +187,3 @@ else:
 
 with open(README_FILE, "w", encoding="utf-8") as f:
     f.write(new_readme)
-
