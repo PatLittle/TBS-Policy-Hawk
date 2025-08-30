@@ -1,2 +1,4 @@
 lxml
 azure-ai-inference
+feedparser
+requests

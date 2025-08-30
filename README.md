@@ -1,4 +1,4 @@
-[![Fetch RSS Feed](https://github.com/PatLittle/TBS-Policy-Hawk/actions/workflows/fetch_rss.yml/badge.svg?branch=main)](https://github.com/PatLittle/TBS-Policy-Hawk/actions/workflows/fetch_rss.yml)
+[![Policy Watch](https://github.com/PatLittle/TBS-Policy-Hawk/actions/workflows/policy_watch.yml/badge.svg?branch=main)](https://github.com/PatLittle/TBS-Policy-Hawk/actions/workflows/policy_watch.yml)
 # TBS Policy Hawk - Watching Like a Hawk for Every Policy Suite Update.
 <img src="https://github.com/user-attachments/assets/2cade396-76a8-474a-8c17-f0f7ed1e69ab" width="300" height="300">
 
@@ -30,7 +30,7 @@ Updates over time are added to `items.csv` along with the GUID assigned, so a di
 
 
 ## Usage
-1. Configure a GitHub Action (pre-built in `.github/workflows/fetch_rss.yml`).
+1. Configure a GitHub Action (pre-built in `.github/workflows/policy_watch.yml`).
 2. Ensure `secrets.GITHUB_TOKEN` is available.
 
 The workflow runs on a schedule to:
@@ -54,10 +54,12 @@ The workflow runs on a schedule to:
 │ ├── new_items.csv
 ├── scripts/
 │ ├── fetch_feed.py
+│ ├── create_issues_with_screenshots.py
+│ ├── grok-diff.py
 │ ├── init_framework_xml_archive.py #populates the repo with all current policy docs
 ├── .github/
 │ └── workflows/
-│ ├── fetch_rss.yml
-│ ├── init_framework_xml.yml 
+│ ├── policy_watch.yml
+│ ├── init_xml_archives.yml
 ```
 
