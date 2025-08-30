@@ -11,23 +11,15 @@ permissions:
   models: read
 
 jobs:
-  fetch_feed:
+  policy-hawk:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
+          # Fetch all history to enable comparing with previous file versions
+          fetch-depth: 0
           persist-credentials: true
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
-      - name: Install Playwright
-        run: |
-          npm install -g playwright
-          playwright install --with-deps chromium
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -37,130 +29,75 @@ jobs:
       - name: Install Python dependencies
         run: |
           pip install -r requirements.txt
+
+      - name: Setup Node and Playwright for screenshots
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: |
+          npm install -g playwright
+          playwright install --with-deps chromium
 
       - name: Ensure data directories exist
         run: |
           mkdir -p data screenshots
 
-      - name: Fetch RSS feed and create CSV/JSON
+      - name: Fetch RSS feed and policy documents
+        id: fetch
         run: |
           python scripts/fetch_feed.py
-        continue-on-error: true
-
-      - name: Check CSV and JSON creation
-        run: |
-          if [ ! -f data/items.csv ] || [ ! -f data/issue_map.json ]; then
-            echo "Required data files not created!"
-            exit 1
+          # Check for new or updated files to control subsequent steps
+          if [[ -n $(git status --porcelain data/) ]]; then
+            echo "changes_detected=true" >> $GITHUB_OUTPUT
+          else
+            echo "changes_detected=false" >> $GITHUB_OUTPUT
           fi
 
-      - name: Commit changes
+      - name: Commit and push data updates
+        if: steps.fetch.outputs.changes_detected == 'true'
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
-          git add data/items.csv data/issue_map.json README.md
-          git diff --staged --quiet || git commit -m 'chore: update policy data'
-        continue-on-error: true
+          git add data/
+          git commit -m 'chore: update policy data and documents'
+          git push
 
-      - name: Push changes
-        run: git push
-        continue-on-error: true
-
-  create_issues:
-    runs-on: ubuntu-latest
-    needs: fetch_feed
-    if: always()
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          persist-credentials: true
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
-      - name: Install Playwright
-        run: |
-          npm install -g playwright
-          playwright install --with-deps chromium
-
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.x'
-
-      - name: Install Python dependencies
-        run: |
-          pip install -r requirements.txt
-
-      - name: Ensure screenshots directory exists
-        run: |
-          mkdir -p screenshots
-
-      - name: Create issues with screenshots
+      - name: Create issues with screenshots for new items
+        if: steps.fetch.outputs.changes_detected == 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          python scripts/create_issues_with_screenshots.py || echo "create_issues_with_screenshots.py failed but continuing"
-        continue-on-error: true
+          python scripts/create_issues_with_screenshots.py
 
-      - name: Commit changes
+      - name: Commit and push issue map and screenshots
+        if: steps.fetch.outputs.changes_detected == 'true'
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
-          git add screenshots README.md data/issue_map.json
-          git diff --staged --quiet || git commit -m 'chore: update screenshots and issue map'
-        continue-on-error: true
-
-      - name: Push changes
-        run: git push
-        continue-on-error: true
-
-  grok_diff:
-    runs-on: ubuntu-latest
-    needs: [fetch_feed, create_issues]
-    if: always()
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          persist-credentials: true
-
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.x'
-
-      - name: Install Python dependencies
-        run: |
-          pip install -r requirements.txt
-
-      - name: Ensure required files exist
-        run: |
-          if [ ! -f data/items.csv ] || [ ! -f data/issue_map.json ]; then
-            echo "Required input files for grok diff missing!"
-            exit 1
+          git add screenshots/ data/issue_map.json README.md
+          if ! git diff --staged --quiet; then
+            git commit -m 'chore: create issues and update screenshots'
+            git push
           fi
 
-      - name: Run grok diff and comment (shows progress)
+      - name: Analyze document changes with AI and comment on issues
+        if: steps.fetch.outputs.changes_detected == 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          echo "Starting grok-diff.py..."
-          python scripts/grok-diff.py --csv data/items.csv --json data/issue_map.json --progress
-          echo "grok-diff.py completed."
-        continue-on-error: true
+          python scripts/analyze_changes.py --post-to-github --append-output --output-file grok-diff.md
 
-      - name: Commit changes
+      - name: Commit and push AI analysis
+        if: steps.fetch.outputs.changes_detected == 'true'
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
-          git add grok-diff.md README.md
-          git diff --staged --quiet || git commit -m 'chore: update grok diff analysis'
-        continue-on-error: true
+          git add grok-diff.md
+          if ! git diff --staged --quiet; then
+            git commit -m 'chore: update AI analysis'
+            git push
+          fi
 
-      - name: Push changes
-        run: git push
-        continue-on-error: true
+      - name: No changes detected
+        if: steps.fetch.outputs.changes_detected == 'false'
+        run: echo "No new policy items detected."
