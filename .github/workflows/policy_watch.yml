@@ -30,12 +30,8 @@ jobs:
         run: |
           pip install -r requirements.txt
 
-      - name: Setup Node and Playwright for screenshots
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
+      - name: Install Playwright browsers
       - run: |
-          npm install -g playwright
           playwright install --with-deps chromium
 
       - name: Ensure data directories exist

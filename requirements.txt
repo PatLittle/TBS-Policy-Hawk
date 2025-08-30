@@ -1,5 +1,7 @@
-lxml
-azure-ai-inference
 feedparser
 requests
-tiktoken
+beautifulsoup4
+pandas
+PyGithub
+openai
+playwright
