@@ -8,6 +8,7 @@ from collections import defaultdict
 from azure.ai.inference import ChatCompletionsClient
 from azure.ai.inference.models import SystemMessage, UserMessage
 from azure.core.credentials import AzureKeyCredential
+import tiktoken
 
 endpoint = "https://models.github.ai/inference"
 model = "xai/grok-3"
@@ -46,22 +47,25 @@ client = ChatCompletionsClient(
 all_outputs = ""
 
 
-def chunk_pair(text1: str, text2: str, max_tokens: int = 3000):
+# Use tiktoken's cl100k_base encoding for rough token counts
+encoding = tiktoken.get_encoding("cl100k_base")
+
+
+def chunk_pair(text1: str, text2: str, max_tokens: int = 2000):
     """Yield paired chunks from both texts within a combined token limit.
 
-    Tokens are approximated by splitting on whitespace. Each pair contains up to
-    ``max_tokens`` tokens total, evenly split between the two inputs.
+    ``max_tokens`` represents the total token budget for the request. Each
+    returned pair will use at most half of that budget for each document.
     """
 
     step = max_tokens // 2
-    tokens1 = text1.split()
-    tokens2 = text2.split()
-    i = 0
-    while i * step < len(tokens1) or i * step < len(tokens2):
-        chunk1 = tokens1[i * step : (i + 1) * step]
-        chunk2 = tokens2[i * step : (i + 1) * step]
-        yield " ".join(chunk1), " ".join(chunk2)
-        i += 1
+    tokens1 = encoding.encode(text1)
+    tokens2 = encoding.encode(text2)
+    for i in range(0, max(len(tokens1), len(tokens2)), step):
+        chunk1 = encoding.decode(tokens1[i : i + step])
+        chunk2 = encoding.decode(tokens2[i : i + step])
+        yield chunk1, chunk2
+
 
 for new_file, old_file in pairs:
     contents = []
