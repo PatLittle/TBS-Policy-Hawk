@@ -8,6 +8,7 @@ from collections import defaultdict
 from azure.ai.inference import ChatCompletionsClient
 from azure.ai.inference.models import SystemMessage, UserMessage
 from azure.core.credentials import AzureKeyCredential
+import tiktoken
 
 endpoint = "https://models.github.ai/inference"
 model = "xai/grok-3"
@@ -47,7 +48,6 @@ client = ChatCompletionsClient(
 
 all_outputs = ""
 
-
 def chunk_pair(text1: str, text2: str, max_tokens: int = 2000):
     """Yield paired chunks from both texts within a combined token limit.
 
@@ -77,6 +77,7 @@ for pair_index, (new_file, old_file) in enumerate(pairs, start=1):
         with open(fp, encoding="utf-8") as infile:
             contents.append(infile.read().strip())
 
+
     chunk_list = list(chunk_pair(contents[0], contents[1]))
     print(f"  Split into {len(chunk_list)} chunk(s)")
 
@@ -86,6 +87,7 @@ for pair_index, (new_file, old_file) in enumerate(pairs, start=1):
         part_message = (
             f"**{os.path.basename(new_file)} (part {idx})**\n```\n{chunk_new}\n```\n\n"
             f"**{os.path.basename(old_file)} (part {idx})**\n```\n{chunk_old}\n```\n\n"
+
             "These are two versions of the same file to compare. "
             "Summarize the changes to content in the versions, focus on the substance of the document not the xml layout or markup. "
             "Give first an executive summary describing the theme of the changes and major changes to requirements, then detailed changes referring to which "
