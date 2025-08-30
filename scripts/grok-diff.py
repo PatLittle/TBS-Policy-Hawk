@@ -46,6 +46,7 @@ client = ChatCompletionsClient(
 
 all_outputs = ""
 
+
 # Use tiktoken's cl100k_base encoding for rough token counts
 encoding = tiktoken.get_encoding("cl100k_base")
 
@@ -64,6 +65,7 @@ def chunk_pair(text1: str, text2: str, max_tokens: int = 2000):
         chunk1 = encoding.decode(tokens1[i : i + step])
         chunk2 = encoding.decode(tokens2[i : i + step])
         yield chunk1, chunk2
+
 
 for new_file, old_file in pairs:
     contents = []
