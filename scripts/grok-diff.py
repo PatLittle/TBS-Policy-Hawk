@@ -48,23 +48,27 @@ client = ChatCompletionsClient(
 
 all_outputs = ""
 
-def chunk_pair(text1: str, text2: str, max_tokens: int = 2000):
+encoding = tiktoken.get_encoding("cl100k_base")
+
+
+def chunk_pair(text1: str, text2: str, max_tokens: int = 3000):
     """Yield paired chunks from both texts within a combined token limit.
 
-    Tokens are approximated by splitting on whitespace. Each pair contains up to
-    ``max_tokens`` tokens total, evenly split between the two inputs. The lower
-    default keeps room for prompt overhead so the request stays within the
-    model's 4k token limit.
+    This uses ``tiktoken`` to count tokens so that each API request remains
+    safely below the 4k token maximum enforced by the ``grok-3`` model. The
+    ``max_tokens`` parameter represents the total number of tokens from both
+    texts combined; each chunk will contain at most half of that from each
+    source document.
     """
 
     step = max_tokens // 2
-    tokens1 = text1.split()
-    tokens2 = text2.split()
+    tokens1 = encoding.encode(text1)
+    tokens2 = encoding.encode(text2)
     i = 0
     while i * step < len(tokens1) or i * step < len(tokens2):
-        chunk1 = tokens1[i * step : (i + 1) * step]
-        chunk2 = tokens2[i * step : (i + 1) * step]
-        yield " ".join(chunk1), " ".join(chunk2)
+        chunk1_tokens = tokens1[i * step : (i + 1) * step]
+        chunk2_tokens = tokens2[i * step : (i + 1) * step]
+        yield encoding.decode(chunk1_tokens), encoding.decode(chunk2_tokens)
         i += 1
 
 for pair_index, (new_file, old_file) in enumerate(pairs, start=1):
