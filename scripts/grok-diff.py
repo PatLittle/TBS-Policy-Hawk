@@ -1,4 +1,4 @@
-import os
+[import os
 import json
 import re
 import difflib
@@ -12,7 +12,8 @@ from azure.core.credentials import AzureKeyCredential
 import tiktoken
 
 endpoint = "https://models.github.ai/inference"
-model = "xai/grok-3"
+grok_model = "xai/grok-3"
+gpt5_model = "gpt-5"  # Update this string to match your real model name if needed
 token = os.environ["GITHUB_TOKEN"]
 
 # Discover pairs of XML files automatically
@@ -47,8 +48,6 @@ client = ChatCompletionsClient(
     credential=AzureKeyCredential(token),
 )
 
-all_outputs = ""
-
 encoding = tiktoken.get_encoding("cl100k_base")
 
 def chunk_pair(text1: str, text2: str, max_tokens: int = 3000):
@@ -63,8 +62,8 @@ def chunk_pair(text1: str, text2: str, max_tokens: int = 3000):
         yield encoding.decode(chunk1_tokens), encoding.decode(chunk2_tokens)
         i += 1
 
-def summarize_chunk(idx, chunk_new, chunk_old, new_file, old_file, total_chunks):
-    print(f"  Summarizing chunk {idx}/{total_chunks}")
+def summarize_chunk(idx, chunk_new, chunk_old, new_file, old_file, total_chunks, model):
+    print(f"  Summarizing chunk {idx}/{total_chunks} with model {model}")
     part_message = (
         f"**{os.path.basename(new_file)} (part {idx})**\n```\n{chunk_new}\n```\n\n"
         f"**{os.path.basename(old_file)} (part {idx})**\n```\n{chunk_old}\n```\n\n"
@@ -86,104 +85,112 @@ def summarize_chunk(idx, chunk_new, chunk_old, new_file, old_file, total_chunks)
     )
     return idx, response.choices[0].message.content
 
-for pair_index, (new_file, old_file) in enumerate(pairs, start=1):
-    print(
-        f"Processing pair {pair_index}/{len(pairs)}: {os.path.basename(new_file)} vs {os.path.basename(old_file)}"
-    )
-
-    contents = []
-    for fp in (new_file, old_file):
-        with open(fp, encoding="utf-8") as infile:
-            contents.append(infile.read().strip())
-
-    chunk_list = list(chunk_pair(contents[0], contents[1]))
-    print(f"  Split into {len(chunk_list)} chunk(s)")
-
-    summaries = [None] * len(chunk_list)
-    with ThreadPoolExecutor(max_workers=4) as executor:  # You can tune max_workers for your system/API limits
-        future_to_idx = {
-            executor.submit(
-                summarize_chunk, idx, chunk_new, chunk_old, new_file, old_file, len(chunk_list)
-            ): idx-1
-            for idx, (chunk_new, chunk_old) in enumerate(chunk_list, start=1)
-        }
-        for future in as_completed(future_to_idx):
-            idx, result = future.result()
-            summaries[idx-1] = result
-
-    if len(summaries) > 1:
-        aggregate_prompt = (
-            "\n\n".join(summaries)
-            + "\n\nCombine the above section summaries into an overall summary of the changes."
+def process_pairs(model, output_filename, post_github=False):
+    all_outputs = ""
+    for pair_index, (new_file, old_file) in enumerate(pairs, start=1):
+        print(
+            f"Processing pair {pair_index}/{len(pairs)}: {os.path.basename(new_file)} vs {os.path.basename(old_file)} with model {model}"
         )
-        final_response = client.complete(
-            messages=[
-                SystemMessage(
-                    "You are a helpful assistant that summarizes the changes between versions of a document."
-                ),
-                UserMessage(aggregate_prompt),
-            ],
-            temperature=1.0,
-            top_p=1.0,
-            model=model,
+
+        contents = []
+        for fp in (new_file, old_file):
+            with open(fp, encoding="utf-8") as infile:
+                contents.append(infile.read().strip())
+
+        chunk_list = list(chunk_pair(contents[0], contents[1]))
+        print(f"  Split into {len(chunk_list)} chunk(s)")
+
+        summaries = [None] * len(chunk_list)
+        with ThreadPoolExecutor(max_workers=4) as executor:
+            future_to_idx = {
+                executor.submit(
+                    summarize_chunk, idx, chunk_new, chunk_old, new_file, old_file, len(chunk_list), model
+                ): idx-1
+                for idx, (chunk_new, chunk_old) in enumerate(chunk_list, start=1)
+            }
+            for future in as_completed(future_to_idx):
+                idx, result = future.result()
+                summaries[idx-1] = result
+
+        if len(summaries) > 1:
+            aggregate_prompt = (
+                "\n\n".join(summaries)
+                + "\n\nCombine the above section summaries into an overall summary of the changes."
+            )
+            final_response = client.complete(
+                messages=[
+                    SystemMessage(
+                        "You are a helpful assistant that summarizes the changes between versions of a document."
+                    ),
+                    UserMessage(aggregate_prompt),
+                ],
+                temperature=1.0,
+                top_p=1.0,
+                model=model,
+            )
+            summary = final_response.choices[0].message.content
+        else:
+            summary = summaries[0]
+
+        diff_text = "".join(
+            difflib.unified_diff(
+                contents[1].splitlines(True),
+                contents[0].splitlines(True),
+                fromfile=os.path.basename(old_file),
+                tofile=os.path.basename(new_file),
+            )
         )
-        summary = final_response.choices[0].message.content
-    else:
-        summary = summaries[0]
 
-    diff_text = "".join(
-        difflib.unified_diff(
-            contents[1].splitlines(True),
-            contents[0].splitlines(True),
-            fromfile=os.path.basename(old_file),
-            tofile=os.path.basename(new_file),
-        )
-    )
+        output = f"# AI Generated Comparison for {os.path.basename(new_file)} and {os.path.basename(old_file)}\n\n"
+        output += summary + "\n\n## Diff\n```diff\n" + diff_text + "```\n\n---\n\n"
+        all_outputs += output
 
-    output = f"# AI Generated Comparison for {os.path.basename(new_file)} and {os.path.basename(old_file)}\n\n"
-    output += summary + "\n\n## Diff\n```diff\n" + diff_text + "```\n\n---\n\n"
-    all_outputs += output
+        print("  Comparison complete")
 
-    print("  Comparison complete")
+        # Only post to GitHub for the original run (optional)
+        if post_github:
+            guid_match = re.search(r"_(\d+)_\d{4}-\d{2}-\d{2}\.xml$", new_file)
+            if guid_match:
+                guid = guid_match.group(1)
+                issue_number = issue_map.get(guid)
+                if issue_number:
+                    try:
+                        subprocess.run(
+                            [
+                                "gh",
+                                "issue",
+                                "comment",
+                                str(issue_number),
+                                "--body",
+                                output,
+                            ],
+                            check=True,
+                        )
+                    except subprocess.CalledProcessError:
+                        pass
 
-    guid_match = re.search(r"_(\d+)_\d{4}-\d{2}-\d{2}\.xml$", new_file)
-    if guid_match:
-        guid = guid_match.group(1)
-        issue_number = issue_map.get(guid)
-        if issue_number:
-            try:
-                subprocess.run(
-                    [
-                        "gh",
-                        "issue",
-                        "comment",
-                        str(issue_number),
-                        "--body",
-                        output,
-                    ],
-                    check=True,
-                )
-            except subprocess.CalledProcessError:
-                pass
+    with open(output_filename, "w", encoding="utf-8") as f:
+        f.write(all_outputs)
+    print(f"Output saved as {output_filename}")
 
-with open("grok-diff.md", "w", encoding="utf-8") as f:
-    f.write(all_outputs)
+    # Only update the README for the original output
+    if post_github:
+        README_FILE = "README.md"
+        MARKER_START = "<!-- BEGIN GROK DIFF -->"
+        MARKER_END = "<!-- END GROK DIFF -->"
+        with open(README_FILE, "r", encoding="utf-8") as f:
+            readme_contents = f.read()
+        new_section = f"{MARKER_START}\n{all_outputs}\n{MARKER_END}"
+        pattern = re.compile(rf"{MARKER_START}.*?{MARKER_END}", re.DOTALL)
+        if pattern.search(readme_contents):
+            new_readme = pattern.sub(new_section, readme_contents)
+        else:
+            new_readme = readme_contents.strip() + "\n\n" + new_section
+        with open(README_FILE, "w", encoding="utf-8") as f:
+            f.write(new_readme)
 
-print("Output saved as grok-diff.md")
-
-README_FILE = "README.md"
-MARKER_START = "<!-- BEGIN GROK DIFF -->"
-MARKER_END = "<!-- END GROK DIFF -->"
-
-with open(README_FILE, "r", encoding="utf-8") as f:
-    readme_contents = f.read()
-
-new_section = f"{MARKER_START}\n{all_outputs}\n{MARKER_END}"
-pattern = re.compile(rf"{MARKER_START}.*?{MARKER_END}", re.DOTALL)
-if pattern.search(readme_contents):
-    new_readme = pattern.sub(new_section, readme_contents)
-else:
-    new_readme = readme_contents.strip() + "\n\n" + new_section
-
-with open(README_FILE, "w", encoding="utf-8") as f:
-    f.write(new_readme)
+if __name__ == "__main__":
+    # First run: GROK-3, updates README and posts to GitHub issues as before
+    process_pairs(grok_model, "grok-diff.md", post_github=True)
+    # Second run: GPT-5, only creates gpt5-diff.md
+    process_pairs(gpt5_model, "gpt5-diff.md", post_github=False)
