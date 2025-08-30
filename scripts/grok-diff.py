@@ -31,6 +31,8 @@ for prefix, flist in files.items():
         flist.sort(reverse=True)
         pairs.append((flist[0], flist[1]))
 
+print(f"Found {len(pairs)} file pair(s) to compare")
+
 # Load issue mapping (guid -> issue number)
 issue_map_path = os.path.join("data", "issue_map.json")
 if os.path.isfile(issue_map_path):
@@ -46,38 +48,46 @@ client = ChatCompletionsClient(
 
 all_outputs = ""
 
-
-# Use tiktoken's cl100k_base encoding for rough token counts
-encoding = tiktoken.get_encoding("cl100k_base")
-
-
 def chunk_pair(text1: str, text2: str, max_tokens: int = 2000):
     """Yield paired chunks from both texts within a combined token limit.
 
-    ``max_tokens`` represents the total token budget for the request. Each
-    returned pair will use at most half of that budget for each document.
+    Tokens are approximated by splitting on whitespace. Each pair contains up to
+    ``max_tokens`` tokens total, evenly split between the two inputs. The lower
+    default keeps room for prompt overhead so the request stays within the
+    model's 4k token limit.
     """
 
     step = max_tokens // 2
-    tokens1 = encoding.encode(text1)
-    tokens2 = encoding.encode(text2)
-    for i in range(0, max(len(tokens1), len(tokens2)), step):
-        chunk1 = encoding.decode(tokens1[i : i + step])
-        chunk2 = encoding.decode(tokens2[i : i + step])
-        yield chunk1, chunk2
+    tokens1 = text1.split()
+    tokens2 = text2.split()
+    i = 0
+    while i * step < len(tokens1) or i * step < len(tokens2):
+        chunk1 = tokens1[i * step : (i + 1) * step]
+        chunk2 = tokens2[i * step : (i + 1) * step]
+        yield " ".join(chunk1), " ".join(chunk2)
+        i += 1
 
+for pair_index, (new_file, old_file) in enumerate(pairs, start=1):
+    print(
+        f"Processing pair {pair_index}/{len(pairs)}: {os.path.basename(new_file)} vs {os.path.basename(old_file)}"
+    )
 
-for new_file, old_file in pairs:
     contents = []
     for fp in (new_file, old_file):
         with open(fp, encoding="utf-8") as infile:
             contents.append(infile.read().strip())
 
+
+    chunk_list = list(chunk_pair(contents[0], contents[1]))
+    print(f"  Split into {len(chunk_list)} chunk(s)")
+
     summaries = []
-    for idx, (chunk_new, chunk_old) in enumerate(chunk_pair(contents[0], contents[1])):
+    for idx, (chunk_new, chunk_old) in enumerate(chunk_list, start=1):
+        print(f"  Summarizing chunk {idx}/{len(chunk_list)}")
         part_message = (
-            f"**{os.path.basename(new_file)} (part {idx + 1})**\n```\n{chunk_new}\n```\n\n"
-            f"**{os.path.basename(old_file)} (part {idx + 1})**\n```\n{chunk_old}\n```\n\n"
+            f"**{os.path.basename(new_file)} (part {idx})**\n```\n{chunk_new}\n```\n\n"
+            f"**{os.path.basename(old_file)} (part {idx})**\n```\n{chunk_old}\n```\n\n"
+
             "These are two versions of the same file to compare. "
             "Summarize the changes to content in the versions, focus on the substance of the document not the xml layout or markup. "
             "Give first an executive summary describing the theme of the changes and major changes to requirements, then detailed changes referring to which "
@@ -129,6 +139,8 @@ for new_file, old_file in pairs:
     output = f"# AI Generated Comparison for {os.path.basename(new_file)} and {os.path.basename(old_file)}\n\n"
     output += summary + "\n\n## Diff\n```diff\n" + diff_text + "```\n\n---\n\n"
     all_outputs += output
+
+    print("  Comparison complete")
 
     guid_match = re.search(r"_(\d+)_\d{4}-\d{2}-\d{2}\.xml$", new_file)
     if guid_match:
