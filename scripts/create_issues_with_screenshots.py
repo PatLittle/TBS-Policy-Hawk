@@ -1,62 +1,106 @@
+import os
 import csv
 import json
-import os
-from pathlib import Path
+from github import Github
 from playwright.sync_api import sync_playwright
 
-DATA_DIR = Path("data")
-SCREENSHOTS_DIR = Path("screenshots")
-CSV_FILE = DATA_DIR / "items.csv"
-ISSUE_MAP_FILE = DATA_DIR / "issue_map.json"
+# --- Configuration ---
+DATA_DIR = "data"
+NEW_ITEMS_CSV_PATH = os.path.join(DATA_DIR, "new_items.csv")
+ISSUE_MAP_JSON_PATH = os.path.join(DATA_DIR, "issue_map.json")
+SCREENSHOTS_DIR = "screenshots"
+REPO_NAME = os.environ.get("GITHUB_REPOSITORY")
 
-def take_screenshot(url, output_path):
+# --- Helper Functions ---
+
+def ensure_dir(directory):
+    """Ensure that a directory exists."""
+    if not os.path.exists(directory):
+        os.makedirs(directory)
+
+def load_issue_map():
+    """Loads the GUID to issue number mapping."""
+    if os.path.exists(ISSUE_MAP_JSON_PATH):
+        with open(ISSUE_MAP_JSON_PATH, 'r', encoding='utf-8') as f:
+            try:
+                return json.load(f)
+            except json.JSONDecodeError:
+                return {} # Return empty dict if file is corrupted or empty
+    return {}
+
+def save_issue_map(issue_map):
+    """Saves the GUID to issue number mapping."""
+    with open(ISSUE_MAP_JSON_PATH, 'w', encoding='utf-8') as f:
+        json.dump(issue_map, f, indent=2)
+
+def take_screenshot(url, filepath):
+    """Takes a screenshot of a given URL."""
+    print(f"Taking screenshot of {url}...")
     try:
         with sync_playwright() as p:
             browser = p.chromium.launch()
             page = browser.new_page()
-            page.goto(url, timeout=60000)
-            page.screenshot(path=output_path, full_page=True)
+            page.goto(url, wait_until='networkidle', timeout=60000)
+            page.screenshot(path=filepath, full_page=True)
             browser.close()
+        print(f"Screenshot saved to {filepath}")
         return True
     except Exception as e:
-        print(f"Failed to screenshot {url}: {e}")
+        print(f"Error taking screenshot for {url}: {e}")
         return False
 
+# --- Main Script ---
+
 def main():
-    if not CSV_FILE.exists():
-        print(f"{CSV_FILE} does not exist.")
+    """Main function to create GitHub issues for new policy items."""
+    if not REPO_NAME:
+        print("Error: GITHUB_REPOSITORY environment variable not set.")
         return
-    if not SCREENSHOTS_DIR.exists():
-        os.makedirs(SCREENSHOTS_DIR)
 
-    items = []
-    with open(CSV_FILE, newline='', encoding="utf-8") as csvfile:
-        reader = csv.DictReader(csvfile)
+    github_token = os.environ.get("GITHUB_TOKEN")
+    if not github_token:
+        print("Error: GITHUB_TOKEN environment variable not set.")
+        return
+
+    if not os.path.exists(NEW_ITEMS_CSV_PATH):
+        print("No new items found (new_items.csv does not exist). Exiting.")
+        return
+
+    g = Github(github_token)
+    repo = g.get_repo(REPO_NAME)
+    issue_map = load_issue_map()
+    
+    ensure_dir(SCREENSHOTS_DIR)
+
+    with open(NEW_ITEMS_CSV_PATH, 'r', newline='', encoding='utf-8') as f:
+        reader = csv.DictReader(f)
         for row in reader:
-            items.append(row)
+            guid = row['guid']
+            if guid in issue_map:
+                print(f"Issue for '{row['title']}' ({guid}) already exists: #{issue_map[guid]}")
+                continue
 
-    if not items:
-        print("No items to create issues for.")
-        return
+            print(f"Creating issue for new item: {row['title']}")
+            screenshot_filename = f"{guid.replace('/', '_')}.png"
+            screenshot_filepath = os.path.join(SCREENSHOTS_DIR, screenshot_filename)
+            screenshot_success = take_screenshot(row['link'], screenshot_filepath)
+            
+            screenshot_url = f"https://github.com/{REPO_NAME}/blob/main/{screenshot_filepath}?raw=true"
+            issue_body = (f"A new or updated policy document has been detected.\n\n"
+                          f"**Title:** {row['title']}\n**Link:** {row['link']}\n"
+                          f"**Category:** {row['category']}\n**GUID:** {guid}\n\n"
+                          f"### Screenshot\n"
+                          f"![Screenshot of policy page]({screenshot_url})" if screenshot_success else "*Failed to capture screenshot.*")
 
-    issue_map = {}
-    for item in items:
-        url = item.get("url")
-        if not url:
-            continue
-        filename = f"{abs(hash(url)) & 0xffffffff:x}.png"
-        screenshot_path = SCREENSHOTS_DIR / filename
-        print(f"Taking screenshot for {url} -> {screenshot_path}")
-        success = take_screenshot(url, str(screenshot_path))
-        if not success:
-            print(f"Skipping item due to screenshot failure: '{url}'")
-            continue
-        # Here you would create the GitHub issue using the API or CLI, omitted for brevity.
-        issue_map[url] = {"screenshot": str(screenshot_path)}  # Add additional metadata as needed
+            try:
+                issue = repo.create_issue(title=f"Policy Update: {row['title']}", body=issue_body, labels=[row['category'], "policy-update"])
+                print(f"Successfully created issue #{issue.number} for '{row['title']}'")
+                issue_map[guid] = issue.number
+            except Exception as e:
+                print(f"Error creating GitHub issue for '{row['title']}': {e}")
 
-    with open(ISSUE_MAP_FILE, "w", encoding="utf-8") as f:
-        json.dump(issue_map, f, indent=2)
-    print(f"Issue map written to {ISSUE_MAP_FILE}")
+    save_issue_map(issue_map)
+    print("Issue creation process complete.")
 
 if __name__ == "__main__":
     main()
