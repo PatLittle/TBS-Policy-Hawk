@@ -31,7 +31,7 @@ jobs:
           pip install -r requirements.txt
 
       - name: Install Playwright browsers
-      - run: |
+        run: |
           playwright install --with-deps chromium
 
       - name: Ensure data directories exist
