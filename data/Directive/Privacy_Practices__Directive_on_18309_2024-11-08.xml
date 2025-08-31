@@ -1,0 +1,1487 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" title="Directive on Privacy Practices" documentID="18309" versionID="14" language="en" space="preserve" xsi:noNamespaceSchemaLocation="PolicyInstrumentSchema.xsd">
+  <chapters>
+    <chapter anchor="1" title="Effective date">
+      <clauses>
+        <clause anchor="1.1">This directive takes effect on October 9, 2024.</clause>
+        <clause anchor="1.2">
+          <p>This directive replaces the following:</p>
+          <clauses>
+            <clause anchor="1.2.1">
+              The 
+              <em>Directive on Privacy Practices</em>
+               dated October 22, 2022; and
+            </clause>
+            <clause anchor="1.2.2">
+              The 
+              <em>Directive on Privacy Impact Assessment</em>
+               dated April 1, 2010. 
+            </clause>
+          </clauses>
+        </clause>
+      </clauses>
+    </chapter>
+    <chapter anchor="2" title="Authorities">
+      <clauses>
+        <clause anchor="2.1">
+          This  directive is issued pursuant to paragraphÂ 71(1)(d) of the 
+          <a href="https://laws-lois.justice.gc.ca/eng/acts/P-21/">
+            <em>Privacy Act</em>
+          </a>
+           (the Act) and as specified in subsectionÂ 2.2 of the 
+          <a href="https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=12510">
+            <em>Policy on Privacy Protection</em>
+          </a>
+          .
+        </clause>
+      </clauses>
+    </chapter>
+    <chapter anchor="3" title="Objectives and expected results">
+      <clauses>
+        <clause anchor="3.1">
+          In addition to the objectives indicated in subsection 3.1 of the 
+          <em>Policy on Privacy Protection</em>
+          , the objectives of this directive are to facilitate the implementation and public reporting of consistent and sound privacy management practices for the protection of personal information throughout its life cycle, which includes the creation, collection, retention, use, disclosure and disposal of personal information under the control of government institutions, whether the information is held by the institution or by a third party acting under contract, information-sharing agreement or information-sharing arrangement with the institution.
+        </clause>
+        <clause anchor="3.2">
+          <p>The expected results of this directive are as follows:</p>
+          <clauses>
+            <clause anchor="3.2.1">
+              Personal  information is only created, collected, retained, used, disclosed and disposed  of in a manner that respects the provisions of the Act and the 
+              <a href="https://laws-lois.justice.gc.ca/eng/regulations/SOR-83-508/index.html">
+                <em>Privacy Regulations</em>
+              </a>
+               (the Regulations).
+            </clause>
+            <clause anchor="3.2.2">
+              <p>Personal information banks (PIBs) and classes of personal  information of government institutions are described in a manner that: </p>
+              <clauses>
+                <clause anchor="3.2.2.1">Facilitates the process for individuals to request access to and correction of personal information; and</clause>
+                <clause anchor="3.2.2.2">Explains the purposes for which government institutions collect personal information and the privacy practices that support the administration of programs and activities.</clause>
+              </clauses>
+            </clause>
+            <clause anchor="3.2.3">Privacy impact assessments (PIAs) are completed so that the privacy risks associated with programs and activities that use personal information for administrative purposes are identified, reviewed and updated, and appropriate mitigation measures implemented.</clause>
+            <clause anchor="3.2.4">Privacy protocols are completed, reviewed and updated for the collection, use or disclosure of personal information for a non-administrative purpose.</clause>
+            <clause anchor="3.2.5">Privacy breaches are effectively managed, and appropriate preventative measures are in place.</clause>
+            <clause anchor="3.2.6">Personal information under the control of government institutions is accurate.</clause>
+          </clauses>
+        </clause>
+      </clauses>
+    </chapter>
+    <chapter anchor="4" title="Requirements">
+      <clauses>
+        <clause anchor="4.1">
+          <p>Heads of government institutions or their delegates are responsible for the following:</p>
+          <clauses>
+            <clause anchor="4.1.1">Establishing effective privacy practices in their institution, as set out below. These practices are to be followed when officers or employees are involved in activities related to the creation, collection, retention, accuracy, use, disclosure or disposal of personal information under the control of the government institution, including the personal information of officers or employees of the institution as defined by the Act;</clause>
+          </clauses>
+          <section>
+            <h3>Privacy training</h3>
+            <clauses>
+              <clause anchor="4.1.2">
+                Ensuring that employees of government institutions  receive privacy training as outlined in AppendixÂ B  of the 
+                <em>
+                  <a href="https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=32590">Directive  on Personal Information Requests and Correction of Personal Information</a>
+                </em>
+                ;
+              </clause>
+              <clause anchor="4.1.3">
+                Documenting the completion of training in accordance with Appendix B of the 
+                <em>Directive on Personal Information Requests and Correction of Personal Information</em>
+                ;
+              </clause>
+            </clauses>
+          </section>
+          <section>
+            <h3>Privacy breaches</h3>
+            <clauses>
+              <clause anchor="4.1.4">
+                <p>Ensuring that plans for addressing privacy breaches that affect personal information under the control of the institution, including those that occur within or as a result of third-party entities, meet the following requirements:</p>
+                <clauses>
+                  <clause anchor="4.1.4.1">Roles and responsibilities in the event of a privacy breach are clearly defined;</clause>
+                  <clause anchor="4.1.4.2">
+                    Internal procedures and communications align with the 
+                    <em>Policy on Government Security</em>
+                     and its related directives and standards; and
+                  </clause>
+                  <clause anchor="4.1.4.3">
+                    The  requirements set out in 
+                    <a href="#appB">AppendixÂ B: Mandatory Procedures  for Privacy Breaches</a>
+                     are met;
+                  </clause>
+                </clauses>
+              </clause>
+              <clause anchor="4.1.5">
+                In the event of a privacy breach affecting personal information that is held by the institution but is under the control of another government institution, promptly notifying the institution under whose control the personal information lies and undertaking responsive action in coordination with the institution as required to ensure that the requirements set out in 
+                <a href="#appB">Appendix B: Mandatory Procedures for Privacy Breaches</a>
+                 are met;
+              </clause>
+              <clause anchor="4.1.6">
+                Executing the mandatory procedures required of heads of government institutions or their delegates set out in 
+                <a href="#appB">Appendix B: Mandatory Procedures for Privacy Breaches</a>
+                ;
+              </clause>
+            </clauses>
+          </section>
+          <section>
+            <h3>Personal information banks and classes of personal information</h3>
+            <clauses>
+              <clause anchor="4.1.7">Ensuring that the development process for new or substantially modified PIBs is aligned with the process for the development and approval of PIAs and privacy protocols;</clause>
+              <clause anchor="4.1.8">
+                <p>Ensuring that a PIB is established for:</p>
+                <clauses>
+                  <clause anchor="4.1.8.1">Any program or activity that uses personal information for an administrative purpose; or </clause>
+                  <clause anchor="4.1.8.2">Any program or activity that uses personal information that is organized and retrievable by the name of an individual or by an identifying number, symbol or other particular assigned to an individual; </clause>
+                </clauses>
+              </clause>
+              <clause anchor="4.1.9">Ensuring that a class of personal information is established for any personal information that is under the control of a government institution but that is not intended to be used for an administrative purpose and that cannot be retrieved by the name of the individual or another personal identifier; and</clause>
+              <clause anchor="4.1.10">Updating the Treasury Board of Canada Secretariat (TBS)-prescribed repository of PIBs for all new, modified or terminated PIBs, and for all changes to classes of personal information;</clause>
+            </clauses>
+          </section>
+          <section>
+            <h3>Privacy impact assessments</h3>
+            <clauses>
+              <clause anchor="4.1.11">
+                <p>Ensuring the establishment of a PIA development and approval process, that:</p>
+                <clauses>
+                  <clause anchor="4.1.11.1">Takes into consideration the responsibility within the institution for establishing PIBs; and</clause>
+                  <clause anchor="4.1.11.2">Is commensurate with the level of risk related to the privacy invasiveness of the institutionâs program or activities; and</clause>
+                </clauses>
+              </clause>
+              <clause anchor="4.1.12">Ensuring that a PIA is established for any program or activity that uses personal information for an administrative purpose;</clause>
+            </clauses>
+          </section>
+          <section>
+            <h3>Privacy protocols</h3>
+            <clauses>
+              <clause anchor="4.1.13">Ensuring that a privacy protocol is established for any program or activity that uses personal information for a non-administrative purpose;</clause>
+            </clauses>
+          </section>
+          <section>
+            <h3>Exempt banks</h3>
+            <clauses>
+              <clause anchor="4.1.14">
+                Ensuring that proposals submitted to TBS to establish or revoke an exempt bank include:
+                                
+                <clauses>
+                  <clause anchor="4.1.14.1">A description of the information to be included in the exempt bank and why that information should be included in an exempt bank;</clause>
+                  <clause anchor="4.1.14.2">Confirmation that the files in the bank consist predominantly of personal information as described in sections 21 or 22 of the Act;</clause>
+                  <clause anchor="4.1.14.3">The specific exemption provision in the Act being relied on;</clause>
+                  <clause anchor="4.1.14.4">A statement of the expected detrimental effect for any injury text exemption; and</clause>
+                  <clause anchor="4.1.14.5">A draft order-in-council, along with a draft Regulatory Impact Analysis Statement;</clause>
+                </clauses>
+              </clause>
+            </clauses>
+          </section>
+          <section>
+            <h3>Requests and disclosures to investigative bodies</h3>
+            <clauses>
+              <clause anchor="4.1.15">
+                Adhering to the requirements concerning requests from  and disclosures to investigative bodies outlined in 
+                <a href="#appD">
+                  AppendixÂ D: Requirements Related  to ParagraphÂ 8(2)(e) of the 
+                  <em>Privacy Act</em>
+                </a>
+                ;
+							
+              </clause>
+            </clauses>
+          </section>
+          <section>
+            <h3>Recording new uses and disclosures</h3>
+            <clauses>
+              <clause anchor="4.1.16">
+                Establishing procedures for maintaining a record of new uses and disclosures, as well as any consistent uses that are not reflected in a PIB. Such procedures will ensure that:
+                                
+                <clauses>
+                  <clause anchor="4.1.16.1">Descriptions of use, purpose of collection and disclosure recorded in all PIBs are kept up to date (this does not apply to disclosures to investigative bodies);</clause>
+                  <clause anchor="4.1.16.2">Any new consistent uses are reflected in the relevant PIBs; and</clause>
+                  <clause anchor="4.1.16.3">The Privacy Commissioner of Canada is notified of all new consistent uses;</clause>
+                </clauses>
+              </clause>
+            </clauses>
+          </section>
+          <section>
+            <h3>Privacy in web analytics</h3>
+            <clauses>
+              <clause anchor="4.1.17">
+                
+								Ensuring that the use of web analytics for measuring and improving performance of Government of Canada websites complies with 
+                <a href="#appE">Appendix E: Standard on Privacy in Web Analytics</a>
+                ; and
+                            
+              </clause>
+            </clauses>
+          </section>
+          <section>
+            <h3>Monitoring and reporting</h3>
+            <clauses>
+              <clause anchor="4.1.18">
+                Monitoring and reporting on the requirements of this directive are conducted as specified in the 
+                <em>Policy on Privacy Protection</em>
+                . 
+              </clause>
+            </clauses>
+          </section>
+        </clause>
+        <clause anchor="4.2">
+          <p>Executives and senior officials who manage programs or activities involving the creation, collection or handling of personal information are responsible for the following:</p>
+          <section>
+            <h3>Privacy practices</h3>
+            <clauses>
+              <clause anchor="4.2.1">Informing the head of the government institution or their delegate of any new or proposed program or activity or of any substantial modification to an existing program or activity where personal information is collected or handled in a decision-making process that directly affects the individual;</clause>
+              <clause anchor="4.2.2">Ensuring that privacy practices are consistent with and respect the provisions found in the Act, the Regulations and other applicable legislation, including the institutionâs enabling legislation; and</clause>
+              <clause anchor="4.2.3">Informing employees of the legal and administrative consequences of any inappropriate or unauthorized access to, use, disclosure, modification, retention and disposal of personal information related to a particular program or activity;</clause>
+            </clauses>
+          </section>
+          <section>
+            <h3>Privacy breaches</h3>
+            <clauses>
+              <clause anchor="4.2.4">Implementing the institutionâs plans for addressing privacy breaches; </clause>
+              <clause anchor="4.2.5">Ensuring that the head of the government institution or their delegate is notified of any potential or confirmed privacy breach that affects personal information held by or under the control of the institution, including any that occur within a third party; and</clause>
+              <clause anchor="4.2.6">
+                Executing the mandatory procedures required of executives and senior officials who manage programs or activities that involve the creation, collection or handling of personal information set out in 
+                <a href="#appB">Appendix B: Mandatory Procedures for Privacy Breaches</a>
+                ;
+              </clause>
+            </clauses>
+          </section>
+          <section>
+            <h3>Collection and creation of personal information</h3>
+            <clauses>
+              <clause anchor="4.2.7">Ensuring, before collecting personal information, that the institution has legal authority for the program or activity for which the information is being collected. Obtaining an individualâs consent for collecting personal information does not replace nor establish legal authority for collecting that information;</clause>
+              <clause anchor="4.2.8">Identifying the elements to be included in a PIB before there is any new collection of personal information; and</clause>
+              <clause anchor="4.2.9">Limiting the collection of personal information to what is directly related to and demonstrably necessary for the government institutionâs programs or activities. Personal information that is created by the government institution is also considered a collection under the Act;</clause>
+            </clauses>
+          </section>
+          <section>
+            <h3>Personal information banks</h3>
+            <clauses>
+              <clause anchor="4.2.10">
+                Ensuring that PIBs are prepared, updated, terminated and submitted to TBS in accordance with 
+                <a href="#appC">Appendix C: Standard on Privacy Impact Assessment</a>
+                ; 
+							
+              </clause>
+            </clauses>
+          </section>
+          <section>
+            <h3>Privacy impact assessments</h3>
+            <clauses>
+              <clause anchor="4.2.11">
+                <p>When personal information is to be used for an administrative purpose, ensuring that PIAs are prepared and updated:</p>
+                <clauses>
+                  <clause anchor="4.2.11.1">
+                    In accordance with 
+                    <a href="#appC">Appendix C: Standard on Privacy Impact Assessment</a>
+                    ; and
+                  </clause>
+                  <clause anchor="4.2.11.2">
+                    In collaboration with the official responsible for section 10 of the 
+                    <em>Privacy Act</em>
+                    ;
+                  </clause>
+                </clauses>
+              </clause>
+              <clause anchor="4.2.12">
+                <p>
+                  Approving PIAs in conjunction with the official responsible for section 10 of the 
+                  <em>Privacy Act</em>
+                  ; and
+                </p>
+                <clauses>
+                  <clause anchor="4.2.12.1">Providing approved PIAs to TBS and the Office of the Privacy Commissioner (OPC), while respecting Cabinet confidences;</clause>
+                </clauses>
+              </clause>
+              <clause anchor="4.2.13">
+                <p>Prior to preparing or updating any PIA for a program or activity that involves more than one institution:</p>
+                <clauses>
+                  <clause anchor="4.2.13.1">Determining the approach for the completion of the PIA(s) with other institutions involved; and</clause>
+                  <clause anchor="4.2.13.2">
+                    Ensuring that TBS  and the OPC are notified in accordance with 
+                    <a href="#appC">AppendixÂ C: Standard on Privacy Impact  Assessment</a>
+                    ;
+                  </clause>
+                </clauses>
+              </clause>
+              <clause anchor="4.2.14">
+                Ensuring that decisions to prepare or update  PIAs are documented in accordance with 
+                <a href="#appC">AppendixÂ C: Standard on Privacy Impact  Assessment</a>
+                ; and 
+              </clause>
+              <clause anchor="4.2.15">
+                Ensuring that summaries of approved PIAs are  published in accordance with 
+                <a href="#appC">AppendixÂ C: Standard on Privacy Impact  Assessment</a>
+                ;
+              </clause>
+            </clauses>
+          </section>
+          <section>
+            <h3>Privacy protocols</h3>
+            <clauses>
+              <clause anchor="4.2.16">
+                <p>When personal information is to be used for a non-administrative purpose, ensuring that privacy protocols are prepared and updated:</p>
+                <clauses>
+                  <clause anchor="4.2.16.1">
+                    In accordance with 
+                    <a href="#appC">Appendix C: Standard on Privacy Impact Assessment</a>
+                    ; and
+                  </clause>
+                  <clause anchor="4.2.16.2">
+                    In collaboration with the official responsible for section 10 of the 
+                    <em>Privacy Act</em>
+                    ; and
+                  </clause>
+                </clauses>
+              </clause>
+              <clause anchor="4.2.17">
+                Approving privacy protocols in conjunction with the official responsible for the section 10 of the 
+                <em>Privacy Act</em>
+                ; 
+              </clause>
+              <clause anchor="4.2.18">
+                Ensuring that decisions to establish or update privacy protocols are documented in accordance with 
+                <a href="#appC">Appendix C: Standard on Privacy Impact Assessment</a>
+                ; and
+              </clause>
+              <clause anchor="4.2.19">When a PIB is being registered, modified or transferred in relation to a program or activity that uses personal information for a non-administrative purpose, ensuring that the associated privacy protocol is provided to TBS and the OPC, while respecting Cabinet confidences;</clause>
+            </clauses>
+          </section>
+          <section>
+            <h3>Privacy notice</h3>
+            <clauses>
+              <clause anchor="4.2.20">
+                <p>Notifying the individual whose personal information is collected directly of:</p>
+                <clauses>
+                  <clause anchor="4.2.20.1">The purpose and legal authority for the collection;</clause>
+                  <clause anchor="4.2.20.2">Any uses or disclosures that are consistent with the original purpose;</clause>
+                  <clause anchor="4.2.20.3">Any legal or administrative consequences for refusing to provide the personal information;</clause>
+                  <clause anchor="4.2.20.4">The relevant PIB description;</clause>
+                  <clause anchor="4.2.20.5">The rights of access to, correction and protection of personal information under the Act; and</clause>
+                  <clause anchor="4.2.20.6">The right to file a complaint to the Privacy Commissioner of Canada regarding the institutionâs handling of the individualâs personal information; and</clause>
+                </clauses>
+              </clause>
+              <clause anchor="4.2.21">Adapting the privacy notice for either written or verbal communication at the time of collection; </clause>
+            </clauses>
+          </section>
+          <section>
+            <h3>Consent regarding collection, use and disclosure</h3>
+            <clauses>
+              <clause anchor="4.2.22">
+                <p>Obtaining consent from an individual for the following:</p>
+                <clauses>
+                  <clause anchor="4.2.22.1">The indirect collection of personal information, unless the collection is for a non-administrative purpose or a purpose listed under subsection 8(2) of the Act, or seeking consent could result in collecting inaccurate information or defeat the purpose or prejudice the use for which the information was collected;</clause>
+                  <clause anchor="4.2.22.2">Uses or disclosures that are not consistent with the purposes for which the information was originally obtained or compiled, unless the use or disclosure is authorized under subsection 8(2) of the Act; and</clause>
+                  <clause anchor="4.2.22.3">Any disposal of personal information before the two-year minimum retention standard established by the Regulations unless such disposal is expressly authorized by legislation;</clause>
+                </clauses>
+              </clause>
+              <clause anchor="4.2.23">
+                <p>Including the following elements, as applicable, when seeking consent:</p>
+                <clauses>
+                  <clause anchor="4.2.23.1">The purpose of the consent;</clause>
+                  <clause anchor="4.2.23.2">The specific personal information elements involved;</clause>
+                  <clause anchor="4.2.23.3">In the case of indirect collections, the sources that will be asked to provide the information, as well as the reason for making the collection indirectly;</clause>
+                  <clause anchor="4.2.23.4">Uses or disclosures that are not consistent with the original purpose of the collection and for which consent is being sought;</clause>
+                  <clause anchor="4.2.23.5">Any consequences that may result from withholding consent; and</clause>
+                  <clause anchor="4.2.23.6">Any alternatives to providing consent; and</clause>
+                </clauses>
+              </clause>
+              <clause anchor="4.2.24">Ensuring that consent is obtained in writing or is otherwise adequately documented, including information such as the date and time of consent; 
+                            </clause>
+            </clauses>
+          </section>
+          <section>
+            <h3>Accuracy</h3>
+            <clauses>
+              <clause anchor="4.2.25">Ensuring, through all reasonable measures, that personal information to be used in a decision-making process is as accurate, up to date and complete as possible. This includes collecting personal information directly from the individual, wherever possible, unless the individual authorizes otherwise or for reasons permitted by subsection 5(1) of the Act;</clause>
+              <clause anchor="4.2.26">
+                <p>Implementing, in cases where personal information is collected indirectly without consent having been obtained, measures to:</p>
+                <clauses>
+                  <clause anchor="4.2.26.1">Ensure that the personal information is obtained from a reliable source; or</clause>
+                  <clause anchor="4.2.26.2">Verify or validate the accuracy of the personal information before use;</clause>
+                </clauses>
+              </clause>
+              <clause anchor="4.2.27">When validating the accuracy of personal information, documenting the source or technique used;</clause>
+              <clause anchor="4.2.28">When validating the accuracy of personal information, identifying in the relevant PIB description the source or technique used, including any data matching, where appropriate; and</clause>
+              <clause anchor="4.2.29">Ensuring that individuals are given the opportunity, whenever possible, to correct inaccurate personal information before any decision is made that could have an impact on them;</clause>
+            </clauses>
+          </section>
+          <section>
+            <h3>Safeguards for access, use and disclosure</h3>
+            <clauses>
+              <clause anchor="4.2.30">Limiting access to personal information to those individuals who hold positions or functions in the program or activity that have a valid reason to access the personal information;</clause>
+              <clause anchor="4.2.31">Limiting access to, as well as use and disclosure of, personal information by administrative, technical and physical means, to protect that information; and</clause>
+              <clause anchor="4.2.32">Adopting appropriate measures to ensure that access to, as well as use and disclosure of, personal information are monitored and documented in order to address the timely identification of privacy breaches;</clause>
+            </clauses>
+          </section>
+          <section>
+            <h3>Contracts, agreements and arrangements</h3>
+            <clauses>
+              <clause anchor="4.2.33">Establishing a contract, information-sharing agreement or information-sharing arrangement with appropriate safeguards prior to any disclosure of personal information to another federal program or to another public or private sector entity, unless the personal information is exchanged under an international treaty in accordance with international standards;</clause>
+              <clause anchor="4.2.34">
+                <p>Ensuring that appropriate safeguards for contracts, information-sharing agreements and information-sharing arrangements subject to subsection 4.2.33 of this directive that take effect or are substantively modified after October 26, 2022, include provisions that address the following elements:</p>
+                <clauses>
+                  <clause anchor="4.2.34.1">The specific elements of personal information that will be disclosed;</clause>
+                  <clause anchor="4.2.34.2">The specific purpose or purposes for the disclosure;</clause>
+                  <clause anchor="4.2.34.3">Limitations on collection, use and subsequent disclosure of the personal information;</clause>
+                  <clause anchor="4.2.34.4">Proper retention and disposal of the personal information, where relevant, including a confirmation of destruction where destruction is required;</clause>
+                  <clause anchor="4.2.34.5">Administrative, technical and physical safeguards;</clause>
+                  <clause anchor="4.2.34.6">The government institutionâs continued control over any personal information disclosed to or collected by the entity as part of the contract, information-sharing agreement or information-sharing arrangement; </clause>
+                  <clause anchor="4.2.34.7">
+                    The obligation to coordinate with the government institution such that the institution can meet its obligations under section 12 of the 
+                    <em>Privacy Act</em>
+                     regarding an individualâs right of access;
+                  </clause>
+                  <clause anchor="4.2.34.8">
+                    For government institutions subject to the 
+                    <em>Policy on Government Security</em>
+                    , the obligation to follow all guidance issued by lead security agencies as set out in section 5 of that policy;
+                  </clause>
+                  <clause anchor="4.2.34.9">Mandatory timely reporting to the government institution of any potential or confirmed privacy breach affecting the personal information;</clause>
+                  <clause anchor="4.2.34.10">
+                    For entities not subject to the 
+                    <em>Privacy Act</em>
+                    , the obligation in the event of a potential or confirmed privacy breach to provide, on request, the government institution leading the investigation with sufficient access to the personal information holdings to undertake an assessment of the potential or confirmed privacy breach; and
+                  </clause>
+                  <clause anchor="4.2.34.11">A mandatory review of the contract, information-sharing agreement or information-sharing arrangement, at an interval agreed upon by the parties; </clause>
+                </clauses>
+              </clause>
+              <clause anchor="4.2.35">Making any contract, information-sharing agreement or information-sharing arrangement subject to subsection 4.2.33 available to the OPC and TBS upon request; </clause>
+              <clause anchor="4.2.36">
+                Making available to the public, via the annual update to the institutionâs 
+                <em>Info Source</em>
+                , summaries of all contracts, information-sharing agreements and information-sharing arrangements that are subject to subsection 4.2.33 and that take effect or are substantively modified after October 26, 2022, except in cases of single, one-time disclosures of personal information; and
+              </clause>
+              <clause anchor="4.2.37">Respecting security requirements as well as any other confidentiality or legal consideration when making a summary of a contract, information-sharing agreement or information-sharing arrangement available to the public; </clause>
+            </clauses>
+          </section>
+          <section>
+            <h3>Devolution or privatization</h3>
+            <clauses>
+              <clause anchor="4.2.38">
+                <p>Ensuring, when personal information is transferred out of the control of a government institution as a result of the devolution or privatization of a program or activity, that:</p>
+                <clauses>
+                  <clause anchor="4.2.38.1">Authority is established for the transfer;</clause>
+                  <clause anchor="4.2.38.2">Adequate privacy practices are in place prior to the transfer;</clause>
+                  <clause anchor="4.2.38.3">The rights of individuals to access and correct their personal information will be maintained after the transfer;</clause>
+                  <clause anchor="4.2.38.4">A records transfer agreement, which respects any existing Records Disposition Authority, is in place to establish the terms and conditions for the records being transferred, including security considerations; </clause>
+                  <clause anchor="4.2.38.5">Consent is obtained from the Librarian and Archivist of Canada before the transfer of records; and</clause>
+                  <clause anchor="4.2.38.6">A notice of the devolution or privatization is made available to the public via the annual update to the institutionâs Info Source</clause>
+                </clauses>
+              </clause>
+            </clauses>
+          </section>
+          <section>
+            <h3>Treasury Board submissions</h3>
+            <clauses>
+              <clause anchor="4.2.39">
+                <p>When preparing a Treasury Board submission, ensuring that the submission identifies:</p>
+                <clauses>
+                  <clause anchor="4.2.39.1">
+                    <p>Whether the authorities requested are related to a program or activity that involves the creation, collection, use, disclosure, retention or disposal of personal information; and</p>
+                    <clauses>
+                      <clause anchor="4.2.39.1.2">In the body of the submission, whether a PIA is required for a program or activity that involves personal information;</clause>
+                    </clauses>
+                  </clause>
+                  <clause anchor="4.2.39.2">In the project brief, when seeking approval from the Treasury Board, measures that are being taken or that are to be taken to address privacy issues and risks; and</clause>
+                </clauses>
+              </clause>
+              <clause anchor="4.2.40">
+                <p>If a Treasury Board submission indicates that a PIA is required, ensuring that it is identified in the body of the submission and:</p>
+                <clauses>
+                  <clause anchor="4.2.40.1">Whether the PIA has been completed; or </clause>
+                  <clause anchor="4.2.40.2">What the timelines are for the completion of the PIA if it has not yet been completed;</clause>
+                </clauses>
+              </clause>
+            </clauses>
+          </section>
+          <section>
+            <h3>Recording of new uses and disclosures</h3>
+            <clauses>
+              <clause anchor="4.2.41">Notifying the head or appropriate delegate of any use, purpose or disclosure of personal information that is not reflected in the PIB description and ensuring that the PIB is updated accordingly;</clause>
+            </clauses>
+          </section>
+          <section>
+            <h3>Retention and disposal of personal information</h3>
+            <clauses>
+              <clause anchor="4.2.42">Applying the institutionâs standards for the retention of personal information, as well as the disposition authorizations as established by Library and Archives Canada and reporting them in the relevant PIB;</clause>
+              <clause anchor="4.2.43">Ensuring that personal information of an individual that has been used for an administrative purpose is retained by the institution in accordance with subsections 6(1) of the Act and paragraphs 4(1)(a) and (b) of the Regulations;</clause>
+              <clause anchor="4.2.44">
+                Reviewing files described within PIBs, including those of exempt banks, on a regular basis and disposing of records that contain personal information in accordance with direction from Library and Archives Canada, as stipulated in sections 12 through 14 of the 
+                <em>Library and Archives of Canada Act</em>
+                ; and
+              </clause>
+              <clause anchor="4.2.45">
+                Where the institution is subject to the 
+                <em>Policy on Government Security</em>
+                , disposing of records in accordance with government security standards;
+              </clause>
+            </clauses>
+          </section>
+          <section>
+            <h3>Privacy in web analytics</h3>
+            <clauses>
+              <clause anchor="4.2.46">
+                Informing employees and any other individuals who are responsible for managing the institutionâs websites, as well as functional specialists and web content owners, of the need to comply with the requirements of 
+                <a href="#appE">Appendix E: Standard on Privacy in Web Analytics</a>
+                .
+              </clause>
+            </clauses>
+          </section>
+        </clause>
+        <clause anchor="4.3">
+          <p>Employees of government institutions are responsible for the following:</p>
+          <section>
+            <h3>Privacy breaches</h3>
+            <clauses>
+              <clause anchor="4.3.1">
+                Executing the mandatory procedures required of employees set out in 
+                <a href="#appB">Appendix B: Mandatory Procedures for Privacy Breaches</a>
+                .
+              </clause>
+            </clauses>
+          </section>
+          <section>
+            <h3>Personal information banks, privacy impact assessments and privacy protocols </h3>
+            <clauses>
+              <clause anchor="4.3.2">
+                Preparing and updating PIBs, PIAs and privacy protocols in accordance with 
+                <a href="#appC">Appendix C: Standard on Privacy Impact Assessment</a>
+                ;
+              </clause>
+            </clauses>
+          </section>
+          <section>
+            <h3>Privacy in web analytics</h3>
+            <clauses>
+              <clause anchor="4.3.3">
+                Performing web analytics, if authorized to do so, in compliance with the requirements of 
+                <a href="#appE">Appendix E: Standard on Privacy in Web Analytics</a>
+                ; and
+              </clause>
+            </clauses>
+          </section>
+          <section>
+            <h3>Privacy training</h3>
+            <clauses>
+              <clause anchor="4.3.4">
+                Completing privacy training as outlined in Appendix B of the 
+                <em>Directive on Personal Information Requests and Correction of Personal Information</em>
+                .
+              </clause>
+            </clauses>
+          </section>
+        </clause>
+      </clauses>
+    </chapter>
+    <chapter anchor="5" title="Roles of other government organizations">
+      <clauses>
+        <clause anchor="5.1">This section identifies the roles of other key government organizations in relation to this directive. In and of itself, this section does not confer any authority.</clause>
+        <clause anchor="5.2">
+          <p>TBS is responsible for supporting the President of the Treasury Board in:</p>
+          <clauses>
+            <clause anchor="5.2.1">Setting the terms and conditions for the approval of PIBs, as well as the terms and conditions for delegating this approval to heads of departments;</clause>
+            <clause anchor="5.2.2">Revoking any delegation order made under subsection 71(6) of the Act if there is a systemic compliance issue at a government institution; and</clause>
+            <clause anchor="5.2.3">Monitoring and tracking material privacy breaches across the government. </clause>
+          </clauses>
+        </clause>
+        <clause anchor="5.3">
+          The Office of the Chief Information Officer, TBS, is responsible for approving de-identification methodologies that a third-party service provider is required to use, as set out in subsection E.2.2.3 of 
+          <a href="#appE">Appendix E: Standard on Privacy in Web Analytics</a>
+          , for the purpose of web analytics on servers hosted externally by the third party.
+        </clause>
+      </clauses>
+    </chapter>
+    <chapter anchor="6" title="Application">
+      <clauses>
+        <clause anchor="6.1">
+          This directive applies as described in section 6 of the 
+          <em>Policy on Privacy Protection</em>
+          .
+        </clause>
+      </clauses>
+    </chapter>
+    <chapter anchor="7" title="References">
+      <clauses>
+        <clause anchor="7.1">
+          <p>Legislation</p>
+          <ul>
+            <li>
+              <a href="https://laws-lois.justice.gc.ca/eng/acts/f-11/">
+                <em>Financial Administration Act</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://laws-lois.justice.gc.ca/eng/acts/l-7.7/">
+                <em>Library and Archives of Canada Act</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://laws-lois.justice.gc.ca/eng/acts/P-21/">
+                <em>Privacy Act</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://laws-lois.justice.gc.ca/eng/regulations/sor-83-508/">
+                <em>Privacy Regulations</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://laws-lois.justice.gc.ca/eng/acts/S-8.9/">
+                <em>Shared Services Canada Act</em>
+              </a>
+            </li>
+          </ul>
+        </clause>
+        <clause anchor="7.2">
+          <p>Related policy instruments</p>
+          <ul>
+            <li>
+              <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=32601">
+                <em>Directive on Service and Digital</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=16578">
+                <em>Policy on Government Security</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=12510">
+                <em>Policy on Privacy Protection</em>
+              </a>
+            </li>
+          </ul>
+        </clause>
+        <clause anchor="7.3">
+          <p>Related guidance instruments and forms</p>
+          <ul>
+            <li>
+              <a href="https://www.canada.ca/en/treasury-board-secretariat/services/access-information-privacy/access-information-privacy-notices.html">Access to Information and Privacy Implementation Notices</a>
+            </li>
+            <li>
+              <a href="https://www.canada.ca/en/treasury-board-secretariat/services/access-information-privacy/privacy/guidance-document-taking-privacy-into-account-before-making-contracting-decisions.html">
+                <em>Guidance Document: Taking Privacy into Account Before Making Contracting  Decisions</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.canada.ca/en/treasury-board-secretariat/services/access-information-privacy/privacy/guidance-preparing-information-sharing-agreements-involving-personal-information.html">
+                <em>Guidance  on Preparing Information Sharing Agreements Involving Personal Information</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.canada.ca/en/government/system/digital-government/guideline-service-digital.html">
+                <em>Guideline  on Service and Digital</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.canada.ca/en/treasury-board-secretariat/services/access-information-privacy/access-information/access-informatio-policies-guidance/programs-holdings-online-publishing-requirements.html">
+                <em>Info  Source</em>
+                 Online Publishing Requirements
+              </a>
+            </li>
+            <li>
+              <a href="https://www.canada.ca/en/treasury-board-secretariat/services/access-information-privacy/privacy/breach-management.html">Privacy Breach Management Toolkit</a>
+            </li>
+            <li>
+              <a href="https://www.canada.ca/en/government/system/digital-government/digital-privacy-playbook.html">The Digital Privacy Playbook</a>
+            </li>
+            <li>
+              <a href="https://www.canada.ca/en/treasury-board-secretariat/corporate/forms.html">Treasury Board of Canada Secretariat Forms</a>
+            </li>
+          </ul>
+        </clause>
+      </clauses>
+    </chapter>
+    <chapter anchor="8" title="Enquiries">
+      <clauses>
+        <clause anchor="8.1">
+          Members of the public may contact 
+          <a href="mailto:questions@tbs-sct.gc.ca">questions@tbs-sct.gc.ca</a>
+           regarding any questions about this  directive.
+        </clause>
+        <clause anchor="8.2">
+          Employees of federal institutions may  contact their 
+          <a href="https://www.tbs-sct.canada.ca/ap/atip-aiprp/coord-eng.asp">Access to Information and Privacy Coordinator</a>
+           regarding any questions about this  directive.
+        </clause>
+        <clause anchor="8.3">
+          Access to  Information and Privacy Coordinators may contact 
+          <a href="mailto:ippd-dpiprp@tbs-sct.gc.ca">ippd-dpiprp@tbs-sct.gc.ca</a>
+           regarding any questions about this  directive. 
+        </clause>
+      </clauses>
+    </chapter>
+  </chapters>
+  <appendices>
+    <appendix anchor="A" title="Appendix A: Definitions">
+      <clauses>
+        <clause anchor="A.1">
+          <p>
+            The definitions listed below, in addition to those listed in Appendix A of the 
+            <em>Policy on Privacy Protection</em>
+            , are to be used in the interpretation of this directive.
+          </p>
+          <dl>
+            <dt>
+              administrative safeguards (
+              <span lang="fr">
+                <em>mesures de protection administrative</em>
+              </span>
+              )
+            </dt>
+            <dd>
+      Policies, directives, rules, procedures and processes  that aim to protect personal information throughout the life cycle of both the  information and the program or activity (for example, institutional security policy,  security provisions in a service contract for the destruction of records). 
+    </dd>
+            <dt>
+              classes of personal information (
+              <span lang="fr">
+                <em>catÃ©gories de renseignements personnels</em>
+              </span>
+              )
+            </dt>
+            <dd>
+              
+      Descriptions of personal information that is under the  control of a government institution but that is not intended to be used for an  administrative purpose or that cannot be retrieved by the  name of the individual or another personal  identifier (for example, unsolicited opinions and  general correspondence). Classes of personal information must  be listed and described in an institutionâs 
+              <em>Info  Source</em>
+               entry. 
+    
+            </dd>
+            <dt>
+              creation of personal information (
+              <span lang="fr">
+                <em>crÃ©ation de renseignements personnels</em>
+              </span>
+              )
+            </dt>
+            <dd>
+              
+      Any personal information element or sub-element that a  government institution assigns to an identifiable individual regardless of  whether the information is derived from existing personal information under the  control of the government institution or the institution appends new  information to the individual. The creation of personal information is  considered a collection under the 
+              <em>Privacy  Act</em>
+              . 
+    
+            </dd>
+            <dt>
+              de-identification (
+              <span lang="fr">
+                <em>dÃ©personnalisation</em>
+              </span>
+              )
+            </dt>
+            <dd>
+      A  process that involves modifying personal information to remove or alter  identifiers to reduce identifiability and implementing mitigation controls to a  degree that is reasonable in the context. De-identified information carries a  residual risk of re-identification. 
+    </dd>
+            <dt>
+              de-identified information (
+              <span lang="fr">
+                <em>renseignements dÃ©personnalisÃ©s</em>
+              </span>
+              )
+            </dt>
+            <dd>
+      Information  resulting from the application of de-identification.
+    </dd>
+            <dt>
+              digital markers (
+              <span lang="fr">
+                <em>marqueurs numÃ©riques</em>
+              </span>
+              )
+            </dt>
+            <dd>
+      Mechanisms used to remember a visitorâs online  interactions with a website(s). These mechanisms may be used to record a visitorâs  online interactions within a single session or visit or to record a visitorâs online  interactions through multiple sessions or visits. 
+    </dd>
+            <dt>
+              direct collection (
+              <span lang="fr">
+                <em>collecte directe</em>
+              </span>
+              )
+            </dt>
+            <dd>
+      The collection of personal information  from the individual to whom the information relates. 
+    </dd>
+            <dt>
+              first-party cookie (
+              <span lang="fr">
+                <em>tÃ©moins internes (de premier niveau)</em>
+              </span>
+              )
+            </dt>
+            <dd>
+      A cookie is a data file sent by a web server to the web  browser on a visitorâs computer that the web server uses to track or record  visitor information. First-party cookies are those cookies set by the website  the visitor is visiting. 
+    </dd>
+            <dt>
+              flow of personal information (
+              <span lang="fr">
+                <em>flux des renseignements personnels</em>
+              </span>
+              )
+            </dt>
+            <dd>
+      Describes the  creation, collection, retention, use, disclosure and disposition of personal  information. It also includes the identification of partners that handle the  personal information during the administration of a program or an activity.
+    </dd>
+            <dt>
+              handling (
+              <span lang="fr">
+                <em>traitement</em>
+              </span>
+              )
+            </dt>
+            <dd>
+      Any  process involving personal information, including collection, correction,  creation, modification, use, retention, disclosure and disposal. 
+    </dd>
+            <dt>
+              indirect collection (
+              <span lang="fr">
+                <em>collecte indirecte</em>
+              </span>
+              )
+            </dt>
+            <dd>
+      The collection of personal information from a source  other than the individual to whom the information relates. 
+    </dd>
+            <dt>
+              information-sharing agreement (
+              <span lang="fr">
+                <em>accord dâÃ©change de renseignements</em>
+              </span>
+              )
+            </dt>
+            <dd>
+      A written record of understanding that outlines the  terms and conditions under which personal information is disclosed between  parties. An information-sharing agreement is usually employed to facilitate the disclosure of personal information from a  federal institution to a public sector entity external to the Crown. An information-sharing  agreement may or may not be legally binding. 
+    </dd>
+            <dt>
+              information-sharing arrangement (
+              <span lang="fr">
+                <em>entente dâÃ©change de renseignements</em>
+              </span>
+              )
+            </dt>
+            <dd>
+      A written record of understanding that outlines the terms and conditions under which personal information is disclosed between parties. An information-sharing arrangement is usually employed to facilitate the disclosure of personal information between and within  federal institutions. An information-sharing arrangement is not  legally binding.
+    </dd>
+            <dt>
+              information technology (
+              <span lang="fr">
+                <em>technologie de lâinformation</em>
+              </span>
+              )
+            </dt>
+            <dd>
+      Any  equipment or system that is used in the acquisition, storage, manipulation,  management, movement, control, display, switching, interchange, transmission or  reception of information or data. It includes all matters concerned with the  design, development, installation and implementation of information systems and  applications.
+    </dd>
+            <dt>
+              Internet Protocol address (
+              <span lang="fr">
+                <em>adresse du protocole Internet (IP)</em>
+              </span>
+              )
+            </dt>
+            <dd>
+      A numerical  label assigned by the Internet service provider to each computer. It is how the computer  user communicates on the Internet. An Internet Protocol (IP) address may, in  some circumstances, be linked with an identifiable individual whose computer is  using that address at any given time. Therefore, the Government of Canada  considers the IP  address to be personal information that must, in all cases, be dealt with in  accordance with the requirements of the Act. 
+    </dd>
+            <dt>
+              internet service provider (
+              <span lang="fr">
+                <em>fournisseur de services Internet</em>
+              </span>
+              )
+            </dt>
+            <dd>
+      An organization that provides access to the Internet. 
+    </dd>
+            <dt>
+              lead government institution  (
+              <span lang="fr">
+                <em>institution fÃ©dÃ©rale responsable</em>
+              </span>
+              )
+            </dt>
+            <dd>
+      The government  institution that leads the multi-institutional privacy impact assessment (PIA)  and that is responsible for determining the most appropriate approach for the  completion and approval of the PIA in support of a multi-institutional program  or activity.
+    </dd>
+            <dt>
+              official responsible for section 10 of the 
+              <em>Privacy Act</em>
+               (
+              <span lang="fr">
+                <em>agent responsable pour lâarticle 10 de la Loi sur la protection des renseignements personnels</em>
+              </span>
+              )
+            </dt>
+            <dd>
+              
+      The officer(s) or  employee(s) who have been designated through a delegation order with the  responsibilities of the head or the officer(s) or employee(s) who performs  those responsibilities in the name of the head with respect to sectionÂ 10  of the 
+              <em>Privacy Act</em>
+              , which concerns the establishment of personal  information banks for the personal information under the control of the  government institution.
+    
+            </dd>
+            <dt>
+              original purpose (
+              <span lang="fr">
+                <em>fin originale</em>
+              </span>
+              )
+            </dt>
+            <dd>
+      The purpose that was first identified when initiating  the collection of personal information and that is directly related to an  operating program or activity of the institution. A purpose that is not  consistent with the original purpose is considered to be a secondary purpose. 
+    </dd>
+            <dt>
+              physical safeguards (
+              <span lang="fr">
+                <em>mesures de protection physique</em>
+              </span>
+              )
+            </dt>
+            <dd>
+      The facilities and equipment that are used to protect  personal information (for example, locked storage rooms, locked filing  cabinets). 
+    </dd>
+            <dt>
+              predominantly (
+              <span lang="fr">
+                <em>principalement</em>
+              </span>
+              )
+            </dt>
+            <dd>
+      In the context of an exempt bank, means that more than  half of the information in each file contained in the bank qualifies for an  exemption under sectionÂ 21 or 22 of the Act. 
+    </dd>
+            <dt>
+              privacy notice (
+              <span lang="fr">
+                <em>avis de confidentialitÃ©</em>
+              </span>
+              )
+            </dt>
+            <dd>
+              
+      A verbal or written notice informing an individual of  the purpose of collecting their personal information as well as the government institutionâs  legal authority for the collection. The notice, which must reference the PIB  described in 
+              <em>Info Source</em>
+              , also  informs the individual of how their personal information will be used and  disclosed, their right to access and request the correction of the personal  information, any consequences of refusing to provide the information requested,  and their right to file a complaint to the Privacy Commissioner of Canada. 
+    
+            </dd>
+            <dt>
+              privacy practices (
+              <span lang="fr">
+                <em>pratiques relatives Ã  protection de la vie privÃ©e</em>
+              </span>
+              )
+            </dt>
+            <dd>
+      All practices related to the creation, collection,  retention, accuracy, correction, use, disclosure, retention and disposal of  personal information. 
+    </dd>
+            <dt>
+              Regulatory Impact Analysis Statement (RIAS) (
+              <span lang="fr">
+                <em>rÃ©sumÃ© de lâÃ©tude dâimpact de la rÃ©glementation (REIR)</em>
+              </span>
+              )
+            </dt>
+            <dd>
+      A tool used for regulatory reform that assesses the  impact of a proposed regulation on the quality of the environment and on the  health, safety, security, and social and economic well-being of Canadians. 
+    </dd>
+            <dt>
+              reliable source (
+              <span lang="fr">
+                <em>source fiable</em>
+              </span>
+              )
+            </dt>
+            <dd>
+      A  source of information or a data holding that is deemed to be accurate and up to date  and that can be trusted and relied on for the purposes of collecting or  validating personal information. 
+    </dd>
+            <dt>
+              substantial modification (
+              <span lang="fr">
+                <em>modification importante</em>
+              </span>
+              )
+            </dt>
+            <dd>
+      Refers to a change to the practices of an  operating program or activity with respect to the creation, collection,  retention, accuracy, correction, use, disclosure and disposal of personal  information. 
+    </dd>
+            <dt>
+              technical safeguards (
+              <span lang="fr">
+                <em>mesures de protection technique</em>
+              </span>
+              )
+            </dt>
+            <dd>
+      Information technology measures that are used to  protect the personal information (for example, encryption) and the facility,  equipment and support system where personal information is recorded and stored  (for example, electronic  access control devices, audit controls). 
+    </dd>
+            <dt>
+              web analytics (
+              <span lang="fr">
+                <em>Web analytique</em>
+              </span>
+              )
+            </dt>
+            <dd>
+      The collection, analysis, measurement and reporting of  data about web traffic and user visits for the purposes of understanding and  optimizing web usage. 
+    </dd>
+          </dl>
+        </clause>
+      </clauses>
+    </appendix>
+    <appendix anchor="B" title="Appendix B: Mandatory Procedures for Privacy Breaches">
+      <appendix anchor="B.1">
+        <title>Effective date</title>
+        <clauses>
+          <clause anchor="B.1.1">These mandatory procedures take effect on March 1, 2024.</clause>
+          <clause anchor="B.1.2">These mandatory procedures replace the Mandatory Procedures for Privacy Breaches dated October 26, 2022.</clause>
+        </clauses>
+      </appendix>
+      <appendix anchor="B.2">
+        <title>Procedures</title>
+        <clauses>
+          <clause anchor="B.2.1">
+            These mandatory procedures for privacy breaches provide details on the requirements set out in section 4 of the 
+            <em>Directive on Privacy Practices</em>
+            . 
+          </clause>
+          <clause anchor="B.2.2">
+            <p>Employees of government institutions must:</p>
+            <clauses>
+              <clause anchor="B.2.2.1">Take immediate measures to contain any potential or confirmed privacy breach and secure the affected personal information; and</clause>
+              <clause anchor="B.2.2.2">
+                <p>Once any containment measures have been taken, immediately notify the head of the institution or their delegate of the potential or confirmed privacy breach. The notification is to include:</p>
+                <clauses>
+                  <clause anchor="B.2.2.2.1">The date, time and location of the potential or confirmed privacy breach; and</clause>
+                  <clause anchor="B.2.2.2.2">A brief description of the potential or confirmed privacy breach, including the type of personal information affected and the number of individuals potentially affected, and any containment measures taken.</clause>
+                </clauses>
+              </clause>
+            </clauses>
+          </clause>
+          <clause anchor="B.2.3">
+            <p>Executives and senior officials who manage programs or activities that involve the creation, collection or handling of personal information must:</p>
+            <clauses>
+              <clause anchor="B.2.3.1">If personal information affected by a privacy breach is the subject of a contract, information-sharing agreement or information-sharing arrangement, promptly notify the parties to that contract, information-sharing agreement or information-sharing arrangement;</clause>
+              <clause anchor="B.2.3.2">If a full assessment of the breach is determined to be required by the head of the government institution or their delegate, ensure that an appropriate program official is assigned to coordinate with the head of the government institution or their delegate;</clause>
+              <clause anchor="B.2.3.3">In coordination with the head of the government institution or their delegate, determine appropriate mitigation measures to reduce the risks of harm to affected individuals and to the institution from the breach, which, in the event of a material privacy breach, must include notification of the affected individuals unless such notification would be inappropriate for security, confidentiality, legal or other reasons; </clause>
+              <clause anchor="B.2.3.4">In coordination with the head of the government institution or their delegate, determine appropriate prevention measures to reduce the risk of future breaches; and </clause>
+              <clause anchor="B.2.3.5">Enact the mitigation and prevention measures that are determined to be appropriate within a reasonable time frame.</clause>
+            </clauses>
+          </clause>
+          <clause anchor="B.2.4">
+            <p>Heads of government institutions or their delegates must:</p>
+            <clauses>
+              <clause anchor="B.2.4.1">On receiving notification of a potential privacy breach, verify whether it does, in fact, constitute a privacy breach;</clause>
+              <clause anchor="B.2.4.2">
+                <p>In the event of a privacy breach, determine the need for a full assessment. A full assessment identifies and documents, at a minimum:</p>
+                <clauses>
+                  <clause anchor="B.2.4.2.1">The circumstances that gave rise to the breach;</clause>
+                  <clause anchor="B.2.4.2.2">The inventory of personal information that was affected;</clause>
+                  <clause anchor="B.2.4.2.3">The individuals whose personal information was affected;</clause>
+                  <clause anchor="B.2.4.2.4">The institutional sectors and third parties, if any, who have a direct or indirect role in handling the personal information involved in the breach;</clause>
+                  <clause anchor="B.2.4.2.5">The risk of harm to individuals affected and to the institution; and</clause>
+                  <clause anchor="B.2.4.2.6">Whether the breach constitutes a material privacy breach;</clause>
+                </clauses>
+              </clause>
+              <clause anchor="B.2.4.3">Collaborate as needed with institutional security officials, including those responsible for cyber security where appropriate, in any assessment of the privacy breach or investigation of a related security event;</clause>
+              <clause anchor="B.2.4.4">
+                <p>Include, at a minimum and where known, the following information when reporting a material privacy breach to the Office of the Privacy Commissioner (OPC) and to the Treasury Board of Canada Secretariat (TBS): </p>
+                <clauses>
+                  <clause anchor="B.2.4.4.1">The date of the breach or the period during which it occurred and the date on which the institution discovered the breach;</clause>
+                  <clause anchor="B.2.4.4.2">A description of the breach, including its type and cause;</clause>
+                  <clause anchor="B.2.4.4.3">The number or approximate number of individuals affected by the breach;</clause>
+                  <clause anchor="B.2.4.4.4">The categories and elements of personal information involved;</clause>
+                  <clause anchor="B.2.4.4.5">The parties involved, including the class of individuals affected by the breach and the relationships between the parties involved;</clause>
+                  <clause anchor="B.2.4.4.6">A description of the relevant safeguards that were in place;</clause>
+                  <clause anchor="B.2.4.4.7">The real risks of significant harm that are anticipated;</clause>
+                  <clause anchor="B.2.4.4.8">All remedial actions, including containment, mitigation and prevention measures, that were or will be taken;</clause>
+                  <clause anchor="B.2.4.4.9">The method used to notify individuals whose personal information was affected, if applicable; and </clause>
+                  <clause anchor="B.2.4.4.10">Justification should individuals whose personal information was affected not be notified;</clause>
+                  <clause anchor="B.2.4.4.11">The physical or geographic location where the breach occurred;</clause>
+                  <clause anchor="B.2.4.4.12">A description of how the breach was discovered; </clause>
+                  <clause anchor="B.2.4.4.13">The PIBs for the information subject to the breach, if applicable; and</clause>
+                  <clause anchor="B.2.4.4.14">A list of any organizations that were notified of the breach.</clause>
+                </clauses>
+              </clause>
+              <clause anchor="B.2.4.5">
+                <p>When reporting a material privacy breach to the OPC and TBS, use the following means: </p>
+                <clauses>
+                  <clause anchor="B.2.4.5.1">
+                    The 
+                    <em>Privacy Act</em>
+                     Material Privacy Breach form
+                  </clause>
+                </clauses>
+              </clause>
+              <clause anchor="B.2.4.6">
+                <p>Maintain a record of all privacy breaches for a period of five years after the date the institution became aware of the breach. The record must include, at a minimum:</p>
+                <clauses>
+                  <clause anchor="B.2.4.6.1">The date of the breach or the period during which it occurred;</clause>
+                  <clause anchor="B.2.4.6.2">A general description of the circumstances of the breach and the nature of the information involved;</clause>
+                  <clause anchor="B.2.4.6.3">The full assessment of the breach if one was undertaken; and</clause>
+                  <clause anchor="B.2.4.6.4">In the case of a material privacy breach, the information provided to the OPC and TBS as prescribed by subsection B.2.4.4.</clause>
+                </clauses>
+              </clause>
+            </clauses>
+          </clause>
+        </clauses>
+      </appendix>
+    </appendix>
+    <appendix anchor="C" title="Appendix C: Standard on Privacy Impact Assessment">
+      <appendix anchor="C.1">
+        <title>Effective date</title>
+        <clauses>
+          <clause anchor="C.1.1">This standard takes effect on October 9, 2024.</clause>
+          <clause anchor="C.1.2">
+            <p>This standard applies to all programs and activities that involve the creation, collection, use, disclosure, retention or disposal of personal information. However, </p>
+            <clauses>
+              <clause anchor="C.1.2.1">Institutions will have until October 10, 2025, to meet the requirements in subsections C.2.2.1.2 and C.2.2.9.4 of this standard.</clause>
+            </clauses>
+          </clause>
+        </clauses>
+      </appendix>
+      <appendix anchor="C.2">
+        <title>Standards</title>
+        <clauses>
+          <clause anchor="C.2.1">
+            This standard provides details on the requirements set out in section 4 of the 
+            <em>Directive on Privacy Practices</em>
+            .
+          </clause>
+          <clause anchor="C.2.2">
+            <p>Standards are as follows:</p>
+            <section>
+              <h3>Personal information banks </h3>
+              <clauses>
+                <clause anchor="C.2.2.1">
+                  <p>Prepare a personal information bank (PIB):</p>
+                  <clauses>
+                    <clause anchor="C.2.2.1.1">
+                      <p>Prior to undertaking a new program or activity that uses personal information:</p>
+                      <clauses>
+                        <clause anchor="C.2.2.1.1.1">For an administrative purpose; or </clause>
+                        <clause anchor="C.2.2.1.1.2">Where the personal information is organized and retrievable by the name of an individual or by an identifying number, symbol or other particular assigned to an individual; and</clause>
+                      </clauses>
+                    </clause>
+                    <clause anchor="C.2.2.1.2">
+                      <p>When there is no PIB for an existing program or activity that uses personal information:</p>
+                      <clauses>
+                        <clause anchor="C.2.2.1.2.1">For an administrative purpose; or </clause>
+                        <clause anchor="C.2.2.1.2.2">Where the personal information is organized and retrievable by the name of an individual or by an identifying number, symbol or other particular assigned to an individual.</clause>
+                      </clauses>
+                    </clause>
+                  </clauses>
+                </clause>
+                <clause anchor="C.2.2.2">
+                  <p>Update an existing PIB when:</p>
+                  <clauses>
+                    <clause anchor="C.2.2.2.1">Substantial modifications are to be made to the program or activity; or </clause>
+                    <clause anchor="C.2.2.2.2">Editorial changes or corrections are to be made to the PIB. </clause>
+                  </clauses>
+                </clause>
+                <clause anchor="C.2.2.3">Terminate a PIB when confirmation is received that the records or personal information referred to in the PIB have been disposed of in accordance with the institutionâs Records Disposition Authority and are no longer under the control of the institution.</clause>
+                <clause anchor="C.2.2.4">
+                  <p>To register, update, transfer or terminate a PIB:</p>
+                  <clauses>
+                    <clause anchor="C.2.2.4.1">Submit a request to the Treasury Board of Canada Secretariat (TBS); </clause>
+                    <clause anchor="C.2.2.4.2">Consider and respond to recommendations from TBS; </clause>
+                    <clause anchor="C.2.2.4.3">
+                      Obtain the approval of the President of the Treasury Board unless otherwise specified in the terms and conditions of a delegation under subsection 71(6) of the 
+                      <em>Privacy Act</em>
+                      ; and
+                    </clause>
+                    <clause anchor="C.2.2.4.4">Update the TBS-prescribed repository for new, substantially modified, edited or terminated personal information banks.</clause>
+                  </clauses>
+                </clause>
+                <clause anchor="C.2.2.5">
+                  <p>When preparing, updating, transferring or terminating a PIB, use the following means: </p>
+                  <clauses>
+                    <clause anchor="C.2.2.5.1">
+                      The Personal Information Bank Submission form, see 
+                      <a href="https://www.canada.ca/en/treasury-board-secretariat/corporate/forms.html#tbs_350-67e">Treasury Board of Canada Secretariat Forms</a>
+                       for more information.
+                    </clause>
+                  </clauses>
+                </clause>
+              </clauses>
+            </section>
+            <section>
+              <h3>Documentation</h3>
+              <clauses>
+                <clause anchor="C.2.2.6">
+                  <p>Document decisions to initiate or update privacy impact assessments (PIAs), multi-institutional PIAs and privacy protocols: </p>
+                  <clauses>
+                    <clause anchor="C.2.2.6.1">Prior to undertaking a new program or activity that could involve the creation, collection, use, disclosure, retention or disposal of personal information; or</clause>
+                    <clause anchor="C.2.2.6.2">When the institution intends to substantially modify an existing program or activity; </clause>
+                    <clause anchor="C.2.2.6.3">
+                      <p>Using the following means:</p>
+                      <clauses>
+                        <clause anchor="C.2.2.6.3.1">
+                          The Privacy Checklist, see 
+                          <a href="https://www.canada.ca/en/treasury-board-secretariat/corporate/forms.html#tbs_350-65e">Treasury Board of Canada Secretariat Forms</a>
+                           for more information.
+                        </clause>
+                      </clauses>
+                    </clause>
+                  </clauses>
+                </clause>
+                <clause anchor="C.2.2.7">
+                  <p>Obtain approval of the Privacy Checklist from: </p>
+                  <clauses>
+                    <clause anchor="C.2.2.7.1">The executive or senior official who manages the program or activity; and</clause>
+                    <clause anchor="C.2.2.7.2">
+                      The official responsible for section 10 of the 
+                      <em>Privacy Act</em>
+                      .
+                    </clause>
+                  </clauses>
+                </clause>
+                <clause anchor="C.2.2.8">Prior to initiating a PIA that involves more than one institution, provide a copy of the approved Privacy Checklist to TBS and the Office of the Privacy Commissioner (OPC), while respecting Cabinet confidences. </clause>
+              </clauses>
+            </section>
+            <section>
+              <h3>Privacy impact assessments</h3>
+              <clauses>
+                <clause anchor="C.2.2.9">
+                  <p>Complete a PIA or update an existing PIA:</p>
+                  <clauses>
+                    <clause anchor="C.2.2.9.1">Prior to undertaking a new program or activity that will involve the creation, collection, use, disclosure, retention or disposal of personal information for an administrative purpose; </clause>
+                    <clause anchor="C.2.2.9.2">
+                      <p>When substantial modifications are to be made to an existing program or activity that uses personal information for an administrative purpose, including through: </p>
+                      <clauses>
+                        <clause anchor="C.2.2.9.2.1">The use of any new or modified information technology or other process;</clause>
+                        <clause anchor="C.2.2.9.2.2">The involvement of any other institution or any third party under contract, agreement or arrangement with the institution; </clause>
+                        <clause anchor="C.2.2.9.2.3">
+                          The use of an automated decision system that would require compliance with the 
+                          <em>Directive on Automated Decision-Making</em>
+                          ; or 
+                        </clause>
+                      </clauses>
+                    </clause>
+                    <clause anchor="C.2.2.9.3">
+                      When the official responsible for section 10 of the 
+                      <em>Privacy Act</em>
+                       determines that a PIA is warranted given the potential risks associated with any administrative or non-administrative use of personal information; or
+                    </clause>
+                    <clause anchor="C.2.2.9.4">When an existing program or activity that uses personal information for an administrative purpose does not already have a PIB;</clause>
+                  </clauses>
+                </clause>
+                <clause anchor="C.2.2.10">When initiating a multi-institutional PIA, appoint a lead institution for the completion of the PIA.</clause>
+                <clause anchor="C.2.2.11">
+                  <p>When completing or updating an existing PIA, using the following means: </p>
+                  <clauses>
+                    <clause anchor="C.2.2.11.1">
+                      The Privacy Impact Assessment template, see 
+                      <a href="https://www.canada.ca/en/treasury-board-secretariat/corporate/forms.html#tbs_350-66e">Treasury Board of Canada Secretariat Forms</a>
+                       for more information.
+                    </clause>
+                  </clauses>
+                </clause>
+                <clause anchor="C.2.2.12">
+                  <p>Provide to TBS and the OPC: </p>
+                  <clauses>
+                    <clause anchor="C.2.2.12.1">All completed PIAs; and </clause>
+                    <clause anchor="C.2.2.12.2">Any information related to a PIA requested by TBS or the OPC, while respecting Cabinet confidences. </clause>
+                  </clauses>
+                </clause>
+                <clause anchor="C.2.2.13">Consider and respond to recommendations from TBS and the OPC related to a PIA. </clause>
+                <clause anchor="C.2.2.14">
+                  Obtain approval of the PIA from the executive or senior official who manages the program or activity and the official responsible for section 10 of the 
+                  <em>Privacy Act</em>
+                  . 
+                </clause>
+                <clause anchor="C.2.2.15">
+                  <p>Following the approval of the PIA, publish a summary that respects security, confidentiality and legal requirements, using the following means:</p>
+                  <clauses>
+                    <clause anchor="C.2.2.15.1">
+                      Summary of the Privacy Impact Assessment (Web Summary), see 
+                      <a href="https://www.canada.ca/en/treasury-board-secretariat/corporate/forms.html#tbs_350-68e">Treasury Board of Canada Secretariat Forms</a>
+                       for more information.
+                    </clause>
+                  </clauses>
+                </clause>
+                <clause anchor="C.2.2.16">Implement the risk mitigation measures identified in the PIA. </clause>
+                <clause anchor="C.2.2.17">Review and update the risk mitigation measures identified in the PIA annually or as risks are mitigated.</clause>
+              </clauses>
+            </section>
+            <section>
+              <h3>Privacy protocols</h3>
+              <clauses>
+                <clause anchor="C.2.2.18">Complete or update a privacy protocol when a program or activity involves the creation, collection, use, disclosure, retention or disposal of personal information for a non-administrative purpose.</clause>
+                <clause anchor="C.2.2.19">
+                  <p>When completing a privacy protocol, document the following at a minimum: </p>
+                  <clauses>
+                    <clause anchor="C.2.2.19.1">The name of the program or activity; </clause>
+                    <clause anchor="C.2.2.19.2">The name and contact information of the official responsible for the program or activity;</clause>
+                    <clause anchor="C.2.2.19.3">A description of the program or activity;</clause>
+                    <clause anchor="C.2.2.19.4">The purpose for the collection of the personal information; </clause>
+                    <clause anchor="C.2.2.19.5">The legal authority for the collection of personal information; </clause>
+                    <clause anchor="C.2.2.19.6">The elements of personal information being collected as part of the program or activity; </clause>
+                    <clause anchor="C.2.2.19.7">Whether proper notification was given for the collection of personal information; </clause>
+                    <clause anchor="C.2.2.19.8">
+                      <p>Whether personal information will be disclosed, and if so:</p>
+                      <clauses>
+                        <clause anchor="C.2.2.19.8.1">The purpose for the disclosure of personal information; and </clause>
+                        <clause anchor="C.2.2.19.8.2">The legal authority to disclose personal information;</clause>
+                      </clauses>
+                    </clause>
+                    <clause anchor="C.2.2.19.9">The safeguards in place to protect the personal information; and</clause>
+                    <clause anchor="C.2.2.19.10">The retention and disposal standards that will apply to the program or activity.</clause>
+                  </clauses>
+                </clause>
+                <clause anchor="C.2.2.20">
+                  Obtain approval of the privacy protocol from the executive or senior official who manages the program or activity and the official responsible for section 10 of the 
+                  <em>Privacy Act</em>
+                  .
+                </clause>
+                <clause anchor="C.2.2.21">
+                  <p>When registering, modifying or transferring a PIB for a program or activity that uses personal information for a non-administrative purpose, provide to TBS and the OPC: </p>
+                  <clauses>
+                    <clause anchor="C.2.2.21.1">The approved privacy protocol for the program or activity; and</clause>
+                    <clause anchor="C.2.2.21.2">Any information related to the privacy protocol requested by TBS or the OPC, while respecting Cabinet confidences. </clause>
+                  </clauses>
+                </clause>
+                <clause anchor="C.2.2.22">Consider and respond to recommendations from TBS or OPC related to privacy protocols.</clause>
+              </clauses>
+            </section>
+          </clause>
+        </clauses>
+      </appendix>
+    </appendix>
+    <appendix anchor="D" title="Appendix D: Requirements Related to Paragraph 8(2)(e) of the Privacy Act">
+      <clauses>
+        <clause anchor="D.1">
+          Under paragraph 8(2)(e) of the 
+          <em>Privacy Act</em>
+           (the Act), personal information may be disclosed to an investigative body specified in the Regulations, upon written request of that body, for the purpose of enforcing any Canadian or provincial law or carrying out a lawful investigation. This provision does not grant investigative bodies a right of access to personal information. It leaves the disclosure decision to the discretion of the institution that has control of the information once the relevant criteria have been satisfied.
+        </clause>
+        <clause anchor="D.2">
+          <p>Requirements related to paragraph 8(2)(e) of the Act are as follows:</p>
+          <section>
+            <h3>Requests under paragraph 8(2)(e)</h3>
+            <clauses>
+              <clause anchor="D.2.1">
+                <p>Requests made under paragraph 8(2)(e) of the Act are to be in writing and are to contain:</p>
+                <clauses>
+                  <clause anchor="D.2.1.1">The name of the investigative body;</clause>
+                  <clause anchor="D.2.1.2">The name of the individual who is the subject of the request or some other personal identifier;</clause>
+                  <clause anchor="D.2.1.3">The purpose of the request and a description of the information to be disclosed;</clause>
+                  <clause anchor="D.2.1.4">The section of the federal or provincial statute under which the investigative activity is being undertaken; and</clause>
+                  <clause anchor="D.2.1.5">The name, title and signature of the member of the investigative body who is filing the request.</clause>
+                </clauses>
+              </clause>
+              <clause anchor="D.2.2">All copies of such requests received by an institution are to be retained.</clause>
+            </clauses>
+          </section>
+          <section>
+            <h3>Documenting 8(2)(e) disclosures</h3>
+            <clauses>
+              <clause anchor="D.2.3">
+                <p>When such requests are received, the head of the institution or the delegate responsible for decisions with respect to paragraph 8(2)(e) of the Act is to retain a record of disclosure for the personal information provided to the investigative body. The record of disclosure is to contain:</p>
+                <clauses>
+                  <clause anchor="D.2.3.1">Clear indication as to whether the request was granted or refused;</clause>
+                  <clause anchor="D.2.3.2">The date the request was received;</clause>
+                  <clause anchor="D.2.3.3">The PIBs in which the disclosed information is held;</clause>
+                  <clause anchor="D.2.3.4">The specific personal information, record or file that was disclosed;</clause>
+                  <clause anchor="D.2.3.5">The name, title and signature of the official who authorized the response; and</clause>
+                  <clause anchor="D.2.3.6">The name of the investigative body that made the request.</clause>
+                </clauses>
+              </clause>
+              <clause anchor="D.2.4">A separate personal information bank (PIB) is maintained for all records of disclosure to federal investigative bodies, including copies of the information that was disclosed to the requester. Pursuant to subsection 8(4) of the Act and section 7 of the Regulations, information contained in this PIB must be retained for a minimum of two years and must be made available to the Privacy Commissioner on request.</clause>
+            </clauses>
+          </section>
+        </clause>
+      </clauses>
+    </appendix>
+    <appendix anchor="E" title="Appendix E: Standard on Privacy in Web Analytics">
+      <appendix anchor="E.1">
+        <title>Effective date</title>
+        <clauses>
+          <clause anchor="E.1.1">This standard takes effect on October 26, 2022.</clause>
+          <clause anchor="E.1.2">
+            This standard replaces the 
+            <em>Standard on Privacy and Web Analytics</em>
+             (January 31, 2013).
+          </clause>
+        </clauses>
+      </appendix>
+      <appendix anchor="E.2">
+        <title>Standards</title>
+        <clauses>
+          <clause anchor="E.2.1">
+            This standard provides details on the requirements set out in section 4 of the 
+            <em>Directive on Privacy Practices</em>
+             as they pertain to web analytics.
+          </clause>
+          <clause anchor="E.2.2">
+            <p>Heads of government institutions or their delegates are responsible for the following standards:</p>
+            <clauses>
+              <clause anchor="E.2.2.1">
+                Information collected for web analytics that can be used to distinguish or trace an individualâs identity, either alone or when combined with other identifying information that is linked or linkable to a specific individual, is considered personal information and is safeguarded in accordance with the requirements of the 
+                <em>Privacy Act</em>
+                 (the Act).
+              </clause>
+              <clause anchor="E.2.2.2">
+                <p>A privacy notice is provided on the institutionâs website that includes the following elements:</p>
+                <clauses>
+                  <clause anchor="E.2.2.2.1">An explanation of what web analytics is and the purposes for its use by the institution;</clause>
+                  <clause anchor="E.2.2.2.2">A statement as to what specific personal information, including the Internet Protocol (IP) address, is being automatically collected from visitors by the government institution;</clause>
+                  <clause anchor="E.2.2.2.3">A statement setting out the legal authority for the collection of this information; </clause>
+                  <clause anchor="E.2.2.2.4">A statement advising visitors as to whether the IP address and other data in digital markers is being collected and used internally by the institution for the purpose of web analytics or is being disclosed or transmitted externally to a third party for that purpose;</clause>
+                  <clause anchor="E.2.2.2.5">In cases where the IP address and other data in digital markers are disclosed or transmitted to a third party, an explanation of how the privacy of visitors to Government of Canada websites is being safeguarded through, at a minimum, the activation of the feature of third-party tools used for web analytics by which IP addresses are de-identified;</clause>
+                  <clause anchor="E.2.2.2.6">If data disclosed or transmitted for web analytics is going outside of Canada, a statement to that effect along with a reference to any governing legislation that the information might be subject to; and</clause>
+                  <clause anchor="E.2.2.2.7">A statement identifying the maximum retention period and the method of disposal for any personal information collected in relation to web analytics.</clause>
+                </clauses>
+              </clause>
+              <clause anchor="E.2.2.3">
+                <p>
+                  Any contract put in place for the purpose of web analytics must contain, in addition to the requirements outlined in subsection 4.2.34 of the 
+                  <em>Directive on Privacy Practices</em>
+                  , at a minimum, the following provisions:
+                </p>
+                <clauses>
+                  <clause anchor="E.2.2.3.1">A definition of âpersonal informationâ as meaning information collected or generated in the performance of the contract about an individual, including the types of information specifically described in the Act and also including information that may be linked or is linkable to an individual, such as the website visitorâs IP address;</clause>
+                  <clause anchor="E.2.2.3.2">A requirement that the third party appoint an officer within the organization to act as representative for all matters related to the personal information in question and that the name and contact information for this third-party contact be provided to the government institution within 10 days of the awarding of the contract;</clause>
+                  <clause anchor="E.2.2.3.3">A requirement that the third party inform all of its employees, contractors and subcontractors of their privacy obligations when dealing with personal information disclosed or transmitted in relation to the work being performed under the contract or subcontract (the âworkâ);</clause>
+                  <clause anchor="E.2.2.3.4">A requirement that the third party de-identify the IP address prior to its storage in order that the full IP address cannot be reconstituted. This must be done through irrevocable truncation of the last octet of the IP address or through some other methodology that offers comparable privacy protection and has been approved by the Treasury Board of Canada Secretariat (TBS);</clause>
+                  <clause anchor="E.2.2.3.5">A requirement that the third party not link, or attempt to link, the IP address or some unique identifier associated with a digital marker with the identity of the individual computer user;</clause>
+                  <clause anchor="E.2.2.3.6">A requirement that the de-identified IP address, along with other data disclosed to the third party for web analytics, be used only in accordance with the work, and that no subsequent uses or reuses of such data for any other purpose be allowed without the institutionâs express prior written authorization;</clause>
+                  <clause anchor="E.2.2.3.7">A requirement that the third party not disclose or transfer the de-identified IP address or any other data disclosed to it except in accordance with the work, with the express prior written authorization of the institution, or if required to do so by law;</clause>
+                  <clause anchor="E.2.2.3.8">A requirement that the third party use only first-party cookies;</clause>
+                  <clause anchor="E.2.2.3.9">A requirement that the third party be prohibited from using techniques that raise the risk of identification, re-identification or profiling, such as but not limited to interlinking, cross-referencing, data mining or data matching from multiple sources on the personal information collected in relation to the work, unless expressly pre-authorized to do so, in writing, by the government institution;</clause>
+                  <clause anchor="E.2.2.3.10">
+                    A requirement that the third party has security in place for the personal and de-identified information that is at least commensurate with the 
+                    <em>Policy on Government Security</em>
+                    ;
+                  </clause>
+                  <clause anchor="E.2.2.3.11">A requirement that the third party safeguard the de-identified IP address and other information disclosed in relation to the work, and that this information be retained for a maximum period of six months, after which time the information, including any backup copies, must be destroyed; and</clause>
+                  <clause anchor="E.2.2.3.12">An audit provision whereby the third party may be audited at least once annually, at a date to be determined by the Government of Canada, to ensure compliance with these requirements.</clause>
+                </clauses>
+              </clause>
+            </clauses>
+          </clause>
+          <clause anchor="E.2.3">
+            <p>Those authorized to perform web analytics on institutional servers or on servers hosted by third parties are responsible for the following standards:</p>
+            <clauses>
+              <clause anchor="E.2.3.1">The feature of third-party tools used for web analytics by which IP addresses are de-identified is activated;</clause>
+              <clause anchor="E.2.3.2">Personal information is used only for the purpose of analytics; or a purpose for which the information may be disclosed by the institution under subsection 8(2) of the Act; </clause>
+              <clause anchor="E.2.3.3">
+                <p>Personal information collected for the purpose of web analytics is not used for the following:</p>
+                <clauses>
+                  <clause anchor="E.2.3.3.1">An administrative purpose, as defined in the Act, except where authorized to do so by law; and</clause>
+                  <clause anchor="E.2.3.3.2">To profile identifiable individuals, which includes producing inferences or other derivations from the personal information;</clause>
+                </clauses>
+              </clause>
+              <clause anchor="E.2.3.4">
+                The IP address and any other personal information, including but not limited to information in digital markers used in relation to web analytics, is safeguarded in accordance with the principles set out in subsection 4.3 of the 
+                <em>Directive on Service and Digital</em>
+                ; and
+              </clause>
+              <clause anchor="E.2.3.5">
+                The IP address and any other personal information, including but not limited to information in digital markers used in relation to web analytics, is retained for a maximum period of 18 months, after which time the information is disposed of in accordance with subsections 4.2.42 and 4.2.45 of the 
+                <em>Directive on Privacy Practices</em>
+                 and as authorized by the Librarian and Archivist of Canada.
+              </clause>
+            </clauses>
+          </clause>
+        </clauses>
+      </appendix>
+    </appendix>
+  </appendices>
+</doc>

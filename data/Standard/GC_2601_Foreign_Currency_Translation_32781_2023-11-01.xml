@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" title="Directive on Accounting Standards: GC 2601 Foreign Currency Translation" documentID="32781" versionID="1" language="en" space="preserve" xsi:noNamespaceSchemaLocation="PolicyInstrumentSchema.HTML5.xsd">
+  <notetoreader>
+    <p>
+      This document is part of the AppendixÂ A of theÂ 
+      <a href="https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=32499">Directive on  Accounting Standards</a>
+      .
+    </p>
+  </notetoreader>
+  <chapters>
+    <chapter anchor="A" title="Primary PSAS reference">
+      <ul class="list-unstyled">
+        <li>PSÂ 2601 Foreign currency translation</li>
+      </ul>
+    </chapter>
+    <chapter anchor="B" title="Effective date">
+      <ul class="list-unstyled">
+        <li>AprilÂ 1,  2022 </li>
+      </ul>
+    </chapter>
+    <chapter anchor="C" title="Government of Canada Consolidated Financial Statements">
+      <ol>
+        <li>Exchange gains and losses  arising from foreign currency transactions subject to the scope exclusions in  PSÂ 2601.02(a), (b) and (d) shall be presented directly in the statement of  operations.</li>
+        <li>For foreign currency  transactions of the Government of Canada that are not subject to the scope  exclusions in PSÂ 2601.02(a), (b) and (d), the irrevocable election  in PSÂ 2601.19A to present  exchange gains and losses directly in  the statement of operations shall be applied. As this election applies without  exceptions, documentation of the irrevocable election on an  instrument-by-instrument basis is not required. </li>
+        <li>Any deviation from  GCÂ 2601.01-02 must be approved by the Comptroller General of Canada.</li>
+        <li>When the election in  GCÂ 2601.01 is made for a financial asset or financial liability in the  fair value category, the exchange gain or loss component of the change in fair  value is separated and recognized directly in the statement of operations.</li>
+        <li>Separate disclosure of the carrying  value of foreign currency denominated financial  assets and liabilities to  which the election in GCÂ 2601.01 applies is required by PSÂ 3450.071A.</li>
+        <li>There is no requirement to  separately disclose unrealized and realized exchange gains and losses in the  financial statements.</li>
+      </ol>
+    </chapter>
+    <chapter anchor="D" title="Departmental Financial Statements">
+      <ol start="7">
+        <li>Applies without additional  policy choices or interpretation for Departmental Financial Statements.</li>
+      </ol>
+    </chapter>
+    <chapter anchor="E" title="Other related references">
+      <ul>
+        <li>
+          <a href="https://www.casso.ca/Home.aspx?App=knotia.ca&amp;ReturnTo=https%3a%2f%2fwww.knotia.ca%2fLogin%2fLogin.aspx%3fmsgID%3d100%26NotSSO%3d1">PSÂ 1201  Financial statement presentation</a>
+          <sup id="fn1-rf">
+            <a class="fn-lnk" href="#fn1">
+              <span class="wb-inv">Footnote </span>
+              1
+            </a>
+          </sup>
+        </li>
+        <li>
+          <a href="https://www.casso.ca/Home.aspx?App=knotia.ca&amp;ReturnTo=https%3a%2f%2fwww.knotia.ca%2fLogin%2fLogin.aspx%3fmsgID%3d100%26NotSSO%3d1">PSÂ 3450  Financial instruments</a>
+          <sup id="fn1a-rf">
+            <a class="fn-lnk" href="#fn1">
+              <span class="wb-inv">Footnote </span>
+              1
+            </a>
+          </sup>
+        </li>
+        <li>GCÂ 3450 Financial Instruments </li>
+      </ul>
+    </chapter>
+  </chapters>
+  <footnotes>
+    <footnote anchor="fn1" reference="fn1-rf" title="1" tooltip="Return to footnote 1 referrer">
+      <p>Please note that a CPA Canada membership or  annual subscription is necessary to access this content.</p>
+    </footnote>
+  </footnotes>
+</doc>

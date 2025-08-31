@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" title="Directive on Accounting Standards: GC 3300-3310 Contingent Liabilities and Loan Guarantees" documentID="32520" versionID="3" language="en" space="preserve" xsi:noNamespaceSchemaLocation="PolicyInstrumentSchema.HTML5.xsd">
+  <notetoreader>
+    <p>
+      This document is part of the Appendix A of the 
+      <a href="/pol/doc-eng.aspx?id=32499">Directive on Accounting Standards</a>
+      .
+    </p>
+  </notetoreader>
+  <chapters>
+    <chapter anchor="A" title="Primary PSAS references">
+      <ul class="list-unstyled">
+        <li>PS 3300 Contingent liabilities</li>
+        <li>PS 3310 Loan guarantees</li>
+      </ul>
+    </chapter>
+    <chapter anchor="B" title="Effective date">
+      <p>
+        <time datetime="2017-04-01" class="nowrap">April 1, 2017</time>
+      </p>
+    </chapter>
+    <chapter anchor="C" title="Government of Canada Consolidated Financial Statements">
+      <ol>
+        <li>Contingent liabilities may exist at departments and agencies as a result of various activities, such as: guarantees of the indebtedness of others; pending and  threatened litigation and other claims; environmental contamination; arrangements with international organizations; and insurance programs.  Normal uncertainties connected with ongoing and recurring accounting estimates do not fall within the scope of contingent liabilities. (PS 3300.03)</li>
+        <li>
+          As defined in PS3200.05, there are two basic characteristics of contingent liabilities:
+					
+					
+          <ol class="lst-lwr-alph">
+            <li>there must be an existing condition or situation; and</li>
+            <li>there must be an expected future event that will resolve the uncertainty as to whether a present obligation to sacrifice economic benefits exists.</li>
+          </ol>
+        </li>
+        <li>
+          Further to PS 3300.13, the uncertainty relating to the future event(s) that will confirm the existence of a liability can be expressed by a range of probabilities. As a guideline, the range of probabilities can be broadly defined as:
+			
+					
+          <ol class="lst-lwr-alph">
+            <li>Likely - a greater than 70% probability that a liability may exist;</li>
+            <li>Unlikely - a less than 30% probability that a liability may exist; and</li>
+            <li>Not determinable - a probability between 30% and 70% that a liability may exist.</li>
+          </ol>
+          <!--p>As defined in PS3200.05, liabilities are obligations where the settlement is expected to result in the future sacrifice of economic benefits.</p-->
+        </li>
+        <li>
+          To illustrate the application of the accounting treatment related to contingent liabilities in specific situations please refer to the table below:
+			
+					
+          <table class="table table-bordered table-condensed">
+            <thead>
+              <tr class="active">
+                <td rowspan="2"/>
+                <th id="th1" colspan="3" class="text-center">Probability that a liability exists</th>
+              </tr>
+              <tr class="active">
+                <th id="th2" class="text-center">Likely</th>
+                <th id="th3" class="text-center">Not determinable</th>
+                <th id="th4" class="text-center">Unlikely</th>
+              </tr>
+            </thead>
+            <tfoot>
+              <tr>
+                <td colspan="4">
+                  <section class="wb-fnote">
+                    <h4 id="table1-fn" class="wb-inv">Table 1 Notes</h4>
+                    <dl>
+                      <dt>Table 1 Note 1</dt>
+                      <dd id="table1-fn1">
+                        <p>Unless one of the exceptions in paragraph 6 of GC 3300/3310 applies and is approved by OCG, in which case only disclose in notes.</p>
+                        <p class="fn-rtn">
+                          <a href="#table1-fn1-rf">
+                            <span class="wb-inv">Return to table 1 note </span>
+                            *
+                            <span class="wb-inv"> referrer</span>
+                          </a>
+                        </p>
+                      </dd>
+                    </dl>
+                  </section>
+                </td>
+              </tr>
+            </tfoot>
+            <tbody>
+              <tr>
+                <th id="th5" class="active">Amount estimable</th>
+                <td headers="th5 th1 th2">
+                  Record an estimated liability 
+                  <sup id="table1-fn1-rf">
+                    <a class="fn-lnk" href="#table1-fn1">
+                      <span class="wb-inv">table 1 note </span>
+                      *
+                    </a>
+                  </sup>
+                </td>
+                <td headers="th5 th1 th3">Disclose in notes</td>
+                <td headers="th5 th1 th4">Do not disclose in notes or record</td>
+              </tr>
+              <tr>
+                <th id="th6" class="active">Amount not estimable</th>
+                <td headers="th6 th1 th2">Disclose in notes</td>
+                <td headers="th6 th1 th3">Disclose in notes</td>
+                <td headers="th6 th1 th4">Do not disclose in notes or record</td>
+              </tr>
+            </tbody>
+          </table>
+        </li>
+      </ol>
+    </chapter>
+    <chapter anchor="D" title="Departmental Financial Statements">
+      <ol start="5">
+        <li>Departmental contingencies are reviewed on a quarterly basis to ensure validity of information and are reported to the Receiver General.</li>
+        <li>Departments and agencies that have a material amount of homogeneous contingencies, such as contingencies related to loan guarantee programs, should develop a methodology to assess the probability and amount of possible losses.</li>
+        <li>
+          For departmental financial statements, the following two exceptions to PS 3300.15 apply:
+			
+					
+          <ol class="lst-lwr-alph">
+            <li>When the magnitude of the estimated liability is so significant that its inclusion in expense/liabilities risks revealing the estimate of the potential liability; or</li>
+            <li>When the contingency relates to decisions of TBS as the public service employer and the potential impact of the claim extends across many departments.</li>
+          </ol>
+          <p>In these situations, consultation with the Office of the Comptroller General (OCG) of Canada is mandatory. The OCG will analyze the specific situation and:</p>
+          <ol class="lst-lwr-alph">
+            <li>
+              If the OCG determines that the estimated liability should not be recorded by the department, the liability and related expense will be recorded centrally in the consolidated financial statements.
+			
+							
+              <ul>
+                <li>However, the department will still need to disclose this in their departmental financial statements notes. The department should provide sufficient description of the nature of the contingency in their departmental financial statements so that the reader understands the significance of its expected impact and that no liability is reflected in the accounts. Particular care should be taken in wording the disclosure of contingent liabilities that are confidential or sensitive in nature. Departments and agencies may wish to consult with the OCG for proposed note disclosure.</li>
+                <li>The department will record the expense and liability in its accounts once the uncertainty surrounding the liability is removed (for example, when a court decision is rendered or a settlement agreement is reached) and will need to inform OCG in order to reverse the liability recorded centrally from the consolidated financial statements.</li>
+              </ul>
+            </li>
+            <li>If OCG determines that the estimated liability should be recorded by the department, the liability and related expense will be recorded and disclosed in their departmental financial statements.</li>
+          </ol>
+        </li>
+      </ol>
+    </chapter>
+    <chapter anchor="E" title="Other related references">
+      <ul class="list-unstyled">
+        <li>
+          <a href="https://www.casso.ca/Home.aspx">PS 3200 Liabilities</a>
+          <sup id="fn1a-rf">
+            <a class="fn-lnk" href="#fn1">
+              <span class="wb-inv">Footnote </span>
+              1
+            </a>
+          </sup>
+        </li>
+        <li>
+          <a href="https://www.casso.ca/Home.aspx">PS 3260 Liability for contaminated sites</a>
+          <sup id="fn1b-rf">
+            <a class="fn-lnk" href="#fn1">
+              <span class="wb-inv">Footnote </span>
+              1
+            </a>
+          </sup>
+        </li>
+        <li>
+          <a href="https://www.casso.ca/Home.aspx">PS 3280 Asset Retirement Obligations</a>
+          <sup id="fn1c-rf">
+            <a class="fn-lnk" href="#fn1">
+              <span class="wb-inv">Footnote </span>
+              1
+            </a>
+          </sup>
+        </li>
+        <li>
+          <a href="https://www.casso.ca/Home.aspx">PS 3210 Assets</a>
+          <sup id="fn1d-rf">
+            <a class="fn-lnk" href="#fn1">
+              <span class="wb-inv">Footnote </span>
+              1
+            </a>
+          </sup>
+        </li>
+        <li>
+          <a href="https://www.casso.ca/Home.aspx">PS 3320 Contingent Assets</a>
+          <sup id="fn1e-rf">
+            <a class="fn-lnk" href="#fn1">
+              <span class="wb-inv">Footnote </span>
+              1
+            </a>
+          </sup>
+        </li>
+        <li>
+          <a href="https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=32521">GC 3320 Contingent Assets</a>
+        </li>
+        <li>
+					GC 3450 Financial Instruments
+				</li>
+        <li>
+          <a href="https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=32528">GC 4500 Departmental Financial Statements</a>
+        </li>
+        <li>
+          <a href="https://gcintranet.tpsgc-pwgsc.gc.ca/fp-gf/pcpc-paci/index-eng.html">Receiver General Manual âPublic Accounts Instructions (formally chapter 15)</a>
+        </li>
+      </ul>
+    </chapter>
+  </chapters>
+  <footnotes>
+    <footnote anchor="fn1" reference="fn1a-rf" title="1" tooltip="Return to footnote 1 referrer">
+			Please note that a CPA Canada membership or annual subscription is necessary to access this content.
+		</footnote>
+  </footnotes>
+</doc>

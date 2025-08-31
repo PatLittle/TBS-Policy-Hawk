@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" title="Directive on the Stewardship of Human Resources Management Systems" documentID="32802" versionID="1" language="en" space="preserve" xsi:noNamespaceSchemaLocation="G:\web\xml\pols\PolicyInstrumentSchema.HTML5.xsd">
+  <chapters>
+    <chapter anchor="1" title="Effective date">
+      <clauses>
+        <clause anchor="1.1">This directive takes effect on August 15, 2024.</clause>
+      </clauses>
+    </chapter>
+    <chapter anchor="2" title="Authorities">
+      <clauses>
+        <clause anchor="2.1">
+          This directive is issued pursuant to sectionÂ 7 and subsectionÂ 11.1 of the 
+          <em>Financial Administration Act</em>
+           (FAA).
+        </clause>
+      </clauses>
+    </chapter>
+    <chapter anchor="3" title="Objectives and expected results">
+      <clauses>
+        <clause anchor="3.1">
+          The objectives indicated in sectionÂ 3 of the 
+          <em>Policy on People Management</em>
+           apply to this directive.
+        </clause>
+        <clause anchor="3.2">
+          The expected results indicated in sectionÂ 3 of the 
+          <em>Policy on People Management</em>
+           apply to this directive.
+        </clause>
+      </clauses>
+    </chapter>
+    <chapter anchor="4" title="Requirements">
+      <clauses>
+        <clause anchor="4.1">
+          Heads of HR are responsible for the following:	  
+	
+          <section>
+            <header>
+              <h4>Stewardship of HR management systems</h4>
+            </header>
+            <clauses>
+              <clause anchor="4.1.1">Engaging the Office of the Chief Human Resources Officer (OCHRO) when planning, proposing and selecting HR management system investments to ensure alignment with direction from OCHRO;</clause>
+              <clause anchor="4.1.2">Engaging the departmental Chief Information Officer to ensure that HR management systems investments, HR information, and data and business processes are in alignment with direction from the Office of the Chief Information Officer;</clause>
+              <clause anchor="4.1.3">Following the mandatory procedure set out in the Appendix for the review of HR management systems investments;</clause>
+              <clause anchor="4.1.4">Working collaboratively with OCHRO to continuously improve and enhance the Government of Canadaâs HR management systems landscape, contributing to the establishment of an interoperable, efficient and effective enterprise-wide Government of Canada HR management systems landscape; and</clause>
+              <clause anchor="4.1.5">Aligning with OCHROâs foundational HR business standards and procedures that pertain to HR management systems;</clause>
+            </clauses>
+          </section>
+          <section>
+            <header>
+              <h4>Use of approved HR management systems</h4>
+            </header>
+            <clauses>
+              <clause anchor="4.1.6">Selecting and implementing an approved HR management system as defined by and in accordance with guidance and direction from OCHRO; and</clause>
+              <clause anchor="4.1.7">Obtaining endorsement from OCHRO for any exemption or deviation of an approved HR management system in accordance with guidance and direction from OCHRO (see the Appendix);</clause>
+            </clauses>
+          </section>
+          <section>
+            <header>
+              <h4>Monitoring and reporting</h4>
+            </header>
+            <clauses>
+              <clause anchor="4.1.8">Ensuring compliance with this directive and any associated procedures, standards and requirements through monitoring, reviews and other assessments; and</clause>
+              <clause anchor="4.1.9">Providing, upon request, information, data and reports on organization HR management systems and processes to OCHRO.</clause>
+            </clauses>
+          </section>
+        </clause>
+      </clauses>
+    </chapter>
+    <chapter anchor="5" title="Roles of other government organizations">
+      <clauses>
+        <clause anchor="5.1">
+          The roles of other government organizations in relation to this directive are described in sectionÂ 5 of the 
+          <em>Policy on People Management</em>
+          .
+        </clause>
+      </clauses>
+    </chapter>
+    <chapter anchor="6" title="Application">
+      <clauses>
+        <clause anchor="6.1">
+          This directive applies to the organizations described in sectionÂ 6 of the 
+          <em>Policy on People Management.</em>
+        </clause>
+        <clause anchor="6.2">
+          Organizations not subject to the 
+          <em>Policy on People Management</em>
+           may consider the application of this directive to realize benefits such as interoperability in the broader HR management systems landscape.
+        </clause>
+      </clauses>
+    </chapter>
+    <chapter anchor="7" title="References">
+      <clauses>
+        <clause anchor="7.1">
+          References in relation to this directive are described in sectionÂ 8 of the 
+          <em>Policy on People Management</em>
+          , the 
+          <em>Policy on Service and Digital</em>
+          , and the 
+          <em>Policy on the Planning and Management of Investments</em>
+          .
+        </clause>
+      </clauses>
+    </chapter>
+    <chapter anchor="8" title="Enquiries">
+      <clauses>
+        <clause anchor="8.1">
+          For interpretation of any aspect of this directive, contact Strategic Directions and Digital Solutions, Office of the Chief Human Resources Officer, Treasury Board of Canada Secretariat (TBS), at 
+          <a href="mailto:pmsp-sdp.spgp-osr@tbs-sct.gc.ca">pmsp-sdp.spgp-osr@tbs-sct.gc.ca</a>
+          .
+        </clause>
+      </clauses>
+    </chapter>
+  </chapters>
+  <appendices>
+    <appendix anchor="A" title="Appendix: Mandatory Procedures for Seeking an Endorsement of Human Resources Management System Investments">
+      <clauses>
+        <clause anchor="A.1">
+          Effective date
+		
+          <clauses>
+            <clause anchor="A.1.1">These procedures take effect on August 15, 2024.</clause>
+          </clauses>
+        </clause>
+        <clause anchor="A.2">
+          Procedures
+		
+          <clauses>
+            <clause anchor="A.2.1">
+              These procedures provide details on the requirements set out in sectionÂ 4 of this 
+              <em>Directive on the Stewardship of Human Resources Management Systems</em>
+              .
+            </clause>
+            <clause anchor="A.2.2">
+              Mandatory procedures are as follows:
+			
+              <clauses>
+                <clause anchor="A.2.2.1">
+                  Consult with TBS, following its established governance process, and with the Human Resources Systems Review Board (HRSRB) when engaging in HR management systems investments by:
+				
+                  <clauses>
+                    <clause anchor="A.2.2.1.1">Seeking advice and guidance on whether an HR management systems investment proposal requires review and endorsement by the Chief Human Resources Officer and Chief Information Officer of Canada;</clause>
+                    <clause anchor="A.2.2.1.2">If endorsement by the Chief Human Resources Officer is required, presenting to the HRSRB, in accordance with OCHROâs information requirements; and</clause>
+                    <clause anchor="A.2.2.1.3">Seeking confirmation in writing from the Office of the Chief Information Officer on whether the approval of the Chief Information Officer of Canada is required, including following its established governance processes.</clause>
+                  </clauses>
+                </clause>
+                <clause anchor="A.2.2.2">
+                  The HRSRB will assess the HR management systems investment proposal using the HR Systems Review Framework and provide an endorsement decision (endorsement,
+                  <a href="#fn1" id="fnr1">
+                    <sup>1</sup>
+                  </a>
+                   endorsement with conditions, no endorsement, or no decision), which departments and agencies must adhere to.
+                </clause>
+                <clause anchor="A.2.2.3">If the investment is approved with conditions, monitor and provide status reports as set out in the conditions of the investment.</clause>
+              </clauses>
+            </clause>
+          </clauses>
+        </clause>
+      </clauses>
+    </appendix>
+  </appendices>
+  <footnotes>
+    <footnote anchor="fn1" reference="fnr1" title="1">
+An endorsement by the HRSRB does not constitute project or expenditure approval and is not intended to replace other existing Treasury Board project or program governance and controls.
+</footnote>
+  </footnotes>
+</doc>

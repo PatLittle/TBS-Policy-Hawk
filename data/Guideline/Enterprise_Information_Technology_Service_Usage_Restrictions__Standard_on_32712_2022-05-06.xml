@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" title="Appendix F: Standard on Enterprise Information Technology Service Usage Restrictions" documentID="32712" versionID="1" language="en" space="preserve" xsi:noNamespaceSchemaLocation="G:\web\xml\pols\PolicyInstrumentSchema.HTML5.xsd">
+  <chapters>
+    <chapter anchor="Appendix F" title="Standard on Enterprise IT Service Usage Restrictions">
+      <chapter anchor="F.1" title="Effective date">
+        <clauses>
+          <clause anchor="F.1.1">This standard takes effect on May 4, 2022. </clause>
+          <clause anchor="F.1.2">
+            This standard provides details on the requirements set out in subsectionÂ 4.4.3.10 of the 
+            <a href="/pol/doc-eng.aspx?id=32601">
+              <em>Directive on Service and Digital</em>
+            </a>
+            .			
+					
+          </clause>
+        </clauses>
+      </chapter>
+      <chapter anchor="F.2" title="Standards">
+        <clauses>
+          <clause anchor="F.2.1">
+            Standards for Enterprise Application Hosting Services are as follows:
+					
+            <clauses>
+              <clause anchor="F.2.1.1">No new departmental application deployments are to occur in data centres that are targeted for closure within two years;</clause>
+              <clause anchor="F.2.1.2">All departmental applications must have an application health rating in the Application Portfolio Management (APM) system of at least âMinimal attention requiredâ; </clause>
+              <clause anchor="F.2.1.3">New departmental mainframe applications must be deployed in accordance to the GC Mainframe Strategy; and</clause>
+              <clause anchor="F.2.1.4">Departments must map all applications hosted on Shared Services Canada (SSC) infrastructure using the Application Portfolio Management application identification within the SSC-managed Configuration Management Database (CMDB).</clause>
+            </clauses>
+          </clause>
+          <clause anchor="F.3.1">
+            Standards for Enterprise IT Service Delivery:
+					
+            <clauses>
+              <clause anchor="F.3.1.1">
+                The delivery of the following enterprise services will comply with the entitlements and limitations specified in these documents:
+						
+                <clauses>
+                  <clause anchor="F.3.1.1.1">
+                    <a href="https://www.canada.ca/en/government/system/digital-government/policies-standards/enterprise-it-service-common-configurations/application-hosting.html">Application Hosting Considerations and Restrictions</a>
+                  </clause>
+                </clauses>
+              </clause>
+            </clauses>
+          </clause>
+          <clause anchor="F.4.1">
+            Standards for Networking and Cabling Services are as follows:
+					
+            <clauses>
+              <clause anchor="F.4.1.1">Ensure that local Internet access services are obtained through SSC;</clause>
+              <clause anchor="F.4.1.2">Departments are responsible for all costs for supplying these services to users; and</clause>
+              <clause anchor="F.4.1.3">Guest Wi-Fi must be provided wherever GC Wi-Fi is available.</clause>
+            </clauses>
+          </clause>
+          <clause anchor="F.5.1">
+            Standards for Telephony Services are as follows:	
+					
+            <clauses>
+              <clause anchor="F.5.1.1">Telephony plans can be purchased for automated devices that require connectivity; and</clause>
+              <clause anchor="F.5.1.2">
+                Fixed lines are permitted for:
+						
+                <ul>
+                  <li>
+                    Requirements specified in 
+                    <a href="/pol/doc-eng.aspx?id=32711">AppendixÂ E: Standard on Information Technology Provisions</a>
+                    ;
+                  </li>
+                  <li>Emergency response or business continuity; and </li>
+                  <li>Where cellular coverage is prohibited or not available.</li>
+                </ul>
+              </clause>
+            </clauses>
+          </clause>
+          <clause anchor="F.6.1">
+            Standards for Printing Services are as follows:
+					
+            <clauses>
+              <clause anchor="F.6.1.1">No more than one printer for every 250 users.</clause>
+            </clauses>
+          </clause>
+          <clause anchor="F.7.1">
+            Standards for Workplace Technology Device Services are as follows:
+					
+            <clauses>
+              <clause anchor="F.7.1.1">There is to be at least two web browsers installed on each end-user device.</clause>
+            </clauses>
+          </clause>
+        </clauses>
+      </chapter>
+    </chapter>
+  </chapters>
+</doc>

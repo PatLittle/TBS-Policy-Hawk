@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" title="Appendix D: Standard on Information Technology User and Workpoint Profiles" documentID="32710" versionID="1" language="en" space="preserve" xsi:noNamespaceSchemaLocation="G:\web\xml\pols\PolicyInstrumentSchema.HTML5.xsd">
+  <chapters>
+    <chapter anchor="Appendix D" title="Standard on Information Technology User and Workpoint Profiles">
+      <chapter anchor="D.1" title="Profiles">
+        <clauses>
+          <clause anchor="D.1.1">These profiles  provide details in support of requirement 4.4.1.1 of the Directive on Service  and Digital.</clause>
+          <clause anchor="D.1.2">
+            <p>The  identified user profiles are as follows:</p>
+            <clauses>
+              <clause anchor="D.1.2.1">GC IT User â A general IT user equipped to  work at and away from a workpoint, outside of GC offices, or in telework or  remote work situations.</clause>
+              <clause anchor="D.1.2.2">Remote/Field User â A user who principally works  remotely.</clause>
+              <clause anchor="D.1.2.3">Call Centre User â A user whose role involves  high telephone use.</clause>
+              <clause anchor="D.1.2.4">High-security User â A GC IT User who works  in high security zone.</clause>
+              <clause anchor="D.1.2.5">Policing/Enforcement/Intelligence User â A  user who works remotely with specific rugged gear and mobile tech related to  policing, enforcement, or intelligence services.</clause>
+              <clause anchor="D.1.2.6">Scientist / Lab User â A user requiring  additional resources due to responsibilities in their research field.</clause>
+              <clause anchor="D.1.2.7">Data Scientist / Analyst â A user requiring  additional resources due to the manipulation of large data sets.</clause>
+              <clause anchor="D.1.2.8">Software Developer / Power User / Graphic  Designer â A user requiring additional resources for software development,  graphics design, or to support use of resource-intensive applications.</clause>
+              <clause anchor="D.1.2.9">International User â A user who works in an  international office or travels frequently internationally, requiring  long-distance telephony configurations and broader secure access options.Â  Possibly in a high-risk environment.</clause>
+            </clauses>
+          </clause>
+          <clause anchor="D.1.3">
+            <p>The  identified individual workpoint profiles are as follows:</p>
+            <clauses>
+              <clause anchor="D.1.3.1">Generic Workpoint â A non-specific workpoint with  basic IT requirements.</clause>
+              <clause anchor="D.1.3.2">Fixed-Line Workpoint â A workpoint that  requires fixed network or telephony connectivity.</clause>
+              <clause anchor="D.1.3.3">High-Security Workpoint â A secure workpoint  in a high security zone.</clause>
+              <clause anchor="D.1.3.4">High-Bandwidth Workpoint â A workpoint with  access to high-speed networking.</clause>
+              <clause anchor="D.1.3.5">Small Workpoint â A small shared closed or  open workpoint, meant for short-term work.</clause>
+              <clause anchor="D.1.3.6">Phone Booth â A small enclosed workpoint with  a fixed telephony device for private calls.</clause>
+            </clauses>
+          </clause>
+          <clause anchor="D.1.4">
+            <p>The  identified collaborative workpoint profiles are as follows:</p>
+            <clauses>
+              <clause anchor="D.1.4.1">Boardroom â A small, medium, or large room  for collective work and meetings.</clause>
+              <clause anchor="D.1.4.2">Collaborative Space â An unstructured space  for collaboration.</clause>
+              <clause anchor="D.1.4.3">Equipment Area â An area for print and  communication devices</clause>
+              <clause anchor="D.1.4.4">Lobby â The entrance area to a building</clause>
+              <clause anchor="D.1.4.5">Public Access Zone â Any publicly available  and open area on GC building premises other than the lobby.</clause>
+            </clauses>
+          </clause>
+        </clauses>
+        <br/>
+        <dl>
+          <dt>Telework</dt>
+          <dd>An  agreement between the user and the employer to work outside of a government  office.</dd>
+          <dt>Remote Work</dt>
+          <dd>An operational requirement by the employer to work outside of a government  office.</dd>
+        </dl>
+      </chapter>
+    </chapter>
+  </chapters>
+</doc>

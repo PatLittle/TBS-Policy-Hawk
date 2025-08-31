@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" title="Directive on Accounting Standards: GCÂ 3400 Revenue" documentID="32798" versionID="1" language="en" space="preserve" xsi:noNamespaceSchemaLocation="PolicyInstrumentSchema.HTML5.xsd">
+  <notetoreader>
+    <p>
+      This document is part of the AppendixÂ A of the 
+      <a href="https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=32499">Directive on Accounting Standards</a>
+      .
+    </p>
+  </notetoreader>
+  <chapters>
+    <chapter anchor="A" title="Primary PSAS reference">
+      <p>PSÂ 3400 Revenue</p>
+    </chapter>
+    <chapter anchor="B" title="Effective date">
+      <p>AprilÂ 1, 2023</p>
+    </chapter>
+    <chapter anchor="C" title="Government of Canada Consolidated Financial Statements">
+      <ol>
+        <li>The Government of Canada (GC) is applying PSÂ 3400 on a prospective basis.</li>
+      </ol>
+    </chapter>
+    <chapter anchor="D" title="Recognition">
+      <ol start="2">
+        <li>In accordance with PSÂ 3400.89, when a public sector entity has the information necessary to record a transaction but does not expect to collect payment, disclosure of these amounts is required and no revenues are recognized as no future economic benefit are expected. However, in order to ensure that amounts owing are recorded in the Accounts of Canada, and to provide a complete and accurate listing of the amounts to be disclosed, these transactions should continue to be recorded as an amount receivable along with an offsetting allowance for doubtful accounts.</li>
+        <li>The determination of whether a transaction is recurring or non-recurring requires professional judgment. Recurring revenue is earned on transactions that are ongoing, routine activities that form part of the normal course of operations and that can be reasonably expected to be earned again in future years (PSÂ 3400.88 (a)).</li>
+        <li>Significant concessionary terms within the Government of Canada are rare. The Office of the Comptroller General should be consulted if a department identifies such terms (PSÂ 3400.90).</li>
+        <li>The Office of the Comptroller General should be consulted in the rare instances that a department is acting as an agent rather than as a principal for third parties outside the Government of Canada accounting entity (external transactions), or a revolving fund concludes that it is acting as an agent for external or internal transactions rather than as a principal (PSÂ 3400.A35-A41).</li>
+        <li>The receipt of non-cash consideration is rare in the Government of Canada. If a department identifies non-cash consideration when determining the transaction price, the Office of the Comptroller General should be consulted (PS 3400.79).</li>
+      </ol>
+    </chapter>
+    <chapter anchor="E" title="Departmental Financial Statements">
+      <ol start="7">
+        <li>Applies without additional policy choices or interpretation for Departmental Financial Statements.</li>
+      </ol>
+    </chapter>
+    <chapter anchor="F" title="Other related references">
+      <ul>
+        <li>
+          <a href="https://laws.justice.gc.ca/eng/regulations/SOR-96-188/index.html">Interest and Administrative Charges Regulations</a>
+        </li>
+        <li>
+          <a href="https://laws.justice.gc.ca/eng/regulations/SOR-94-602/page-1.html">Debt Write-Off Regulations, 1994 (SOR / 94-602)</a>
+        </li>
+      </ul>
+    </chapter>
+  </chapters>
+</doc>

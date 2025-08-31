@@ -1,0 +1,2633 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" title="Government of Canada Cloud Guardrails" documentID="32787" versionID="1" language="en" space="preserve" xsi:noNamespaceSchemaLocation="G:\web\xml\pols\PolicyInstrumentSchema.HTML5.xsd">
+  <chapters>
+    <chapter anchor="1" title="Introduction">
+      <chapter anchor="1.1" title="Background">
+        <p>In August 2019, the Government of Canada (GC) established supply contracts for Protected B cloud services with Amazon Web Services Canada and Microsoft Azure. In order for the GC to use the cloud services securely and responsibly, the Chief Technology Officer of the GC deemed that an underlying operationalization framework was required. An operationalization framework was established and endorsed by the GC Enterprise Architecture Review Board in September 2019. The framework established a set of minimal cyber security controls and architecture requirements before departments use Protected B cloud services. These controls are known as the GC cloud guardrails.</p>
+      </chapter>
+      <chapter anchor="1.2" title="Scope">
+        <p>
+          The 
+          <em>Government of Canada Cloud Guardrails</em>
+          :
+        </p>
+        <ul>
+          <li>focus on a preliminary set of baseline cyber security controls to ensure that the cloud service environment has a minimum set of configurations</li>
+          <li>
+            provide a starting point for project teams and were selected to achieve the following objectives:
+
+						
+            <ul>
+              <li>
+                comply with the:
+
+								
+                <ul>
+                  <li>
+                    <a href="https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=32601">
+                      <em>Directive on Service and Digital</em>
+                    </a>
+                    , 
+                    <a href="https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=32713">Appendix G: Standard on Enterprise Information Technology Service Common Configurations</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/canada-ca/cloud-guardrails">cloud guardrails on Canada.ca</a>
+                  </li>
+                  <li>
+                    applicable mandatory procedures in the 
+                    <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=32611">
+                      <em>Directive on Security Management</em>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                meet the requirements of the 
+                <a href="https://www.canada.ca/en/treasury-board-secretariat/services/access-information-privacy/security-identity-management/direction-secure-use-commercial-cloud-services-spin.html">
+                  <em>Direction on the Secure Use of Commercial Cloud Services: Security Policy Implementation Notice</em>
+                </a>
+                 (SPIN) 2017-01
+							
+              </li>
+              <li>
+                address the Canadian Centre for Cyber Security’s (Cyber Centre’s) 
+                <a href="https://www.cyber.gc.ca/en/guidance/top-10-it-security-actions">Top 10 IT security actions</a>
+              </li>
+              <li>
+                align with the 
+                <a href="https://www.canada.ca/en/government/system/digital-government/modern-emerging-technologies/cloud-services/government-canada-security-control-profile-cloud-based-it-services.html">
+                  <em>Government of Canada Security Control Profile for Cloud-Based GC Services</em>
+                </a>
+              </li>
+              <li>focus on the selection of cyber security controls to ensure that cloud services are hardened through the configuration of software components</li>
+              <li>
+                achieve threat protection objectives specified in 
+                <a href="https://cyber.gc.ca/sites/default/files/cyber/publications/Annex%20B%20CCCS%20MEDIUM%20Cloud%20Profile%20Recommendations.xlsx">Annex B Cyber Centre Medium Cloud Profile Recommendations</a>
+                 (Excel file) and the 
+                <a href="https://www.canada.ca/en/government/system/digital-government/modern-emerging-technologies/cloud-services/government-canada-security-control-profile-cloud-based-it-services.html">
+                  <em>Government of Canada Security Control Profile for Cloud-Based GC Services</em>
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </chapter>
+    </chapter>
+    <chapter anchor="2" title="Cloud guardrails">
+      <p>
+        The 
+        <em>Government of Canada Cloud Guardrails</em>
+         describe a 
+        <strong>preliminary set of baseline cyber security controls</strong>
+         to ensure that the cloud service environment has a minimum set of configurations. Departments must implement, validate and report on compliance with the guardrails in the first 30 business days of getting access to their cloud account.
+      </p>
+      <p>
+        Departments are responsible for implementing the minimum configurations identified in the following tables. Validation of the guardrails will be performed by the SSC Cloud Services Directorate. The 
+        <a href="https://gcxgce.sharepoint.com/teams/1000233/Shared%20Documents/Cloud%20Guardrails_Mesures%20de%20protection%20de%20nuage/SOP%20for%20Validating%20Cloud%20Guardrails%20v0.4.2_EN.docx">Standard Operating Procedure for GC Cloud Guardrails Validation and Escalation Oversight</a>
+         has been developed to support the validation.
+      </p>
+      <p>
+        For 
+        <em>Government of Canada Cloud Guardrails</em>
+        , the following definitions will be used:
+      </p>
+      <ul>
+        <li>
+          <strong>mandatory requirements:</strong>
+           A set of baseline security controls that departments must implement, validate and report on in the first 30 business days of getting access to their cloud account.
+        </li>
+        <li>
+          <strong>additional considerations:</strong>
+           Additional security controls that are highly recommended and should be taken into consideration. While these controls are not expected to be implemented within 30 business days of departments getting access to their cloud account, the controls include best practices that should be considered as departments establish their cloud-based environments.
+        </li>
+      </ul>
+      <chapter anchor="2.1" title="Guardrail 1: protect user accounts and identities">
+        <chapter anchor="2.1.1" title="Objective">
+          <p>Protect user accounts and identities.</p>
+        </chapter>
+        <chapter anchor="2.1.2" title="Applicable service models">
+          <p>Infrastructure as a service (IaaS), platform as a service (PaaS), software as a service (SaaS)</p>
+        </chapter>
+        <chapter anchor="2.1.3" title="Mandatory Requirements">
+          <table class="table table-bordered table-condensed table-hover small">
+            <thead>
+              <tr class="active">
+                <th scope="col" class="text-center col-xs-6">Activity</th>
+                <th scope="col" class="text-center col-xs-6">Validation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <ul>
+                    <li>Implement strong multi-factor authentication (MFA) for all user accounts. Use phishing resistant MFA where and when available</li>
+                  </ul>
+                  <p>
+                    <strong>Note:</strong>
+                     user accounts and identities include:
+                  </p>
+                  <ul>
+                    <li>root or global administrator (as it has enhanced or the highest level of privilege over the control plane and addresses all aspects of access control)</li>
+                    <li>
+                      other administrative user accounts; for the definition of privileged accounts, refer to:
+
+											
+                      <ul>
+                        <li>
+                          section 4 of the 
+                          <a href="https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=32601">
+                            <em>Directive on Service and Digital</em>
+                          </a>
+                          <a href="https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=32713">Appendix G: Standard on Enterprise Information Technology Service Common Configurations</a>
+                           - 
+                          <a href="https://www.canada.ca/en/government/system/digital-government/policies-standards/enterprise-it-service-common-configurations/account.html">Account Management Configuration Requirements</a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li>regular GC user accounts</li>
+                  </ul>
+                </td>
+                <td>
+                  <ul>
+                    <li>Confirm that MFA is implemented according to GC guidance through screenshots, compliance reports, or compliance checks enabled through a reporting tool for all user accounts</li>
+                    <li>Confirm that digital policies are in place to ensure that MFA configurations are enforced</li>
+                    <li>Confirm and report the count of registered root or global administrators (you should have at least two and no more than five)</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <ul>
+                    <li>
+                      Configure alerts to ensure the prompt detection of a potential compromise, in accordance with the GC 
+                      <a href="https://www.canada.ca/en/government/system/digital-government/online-security-privacy/event-logging-guidance.html" title="GC Event Logging Guidance.pdf">
+                        <em>Event Logging Guidance</em>
+                      </a>
+                    </li>
+                  </ul>
+                </td>
+                <td>
+                  <ul>
+                    <li>Confirm whether monitoring and auditing is implemented for all user accounts</li>
+                    <li>Confirm that alerts to the authorized personnel have been implemented to flag misuse or suspicious activities for all user accounts</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <ul>
+                    <li>Use separate dedicated accounts for highly privileged roles (for example, domain administrators, global administrators, and root and any domain administrator equivalent access) when administering cloud services to minimize the potential damage</li>
+                  </ul>
+                </td>
+                <td>
+                  <ul>
+                    <li>Provide evidence that there are dedicated user accounts for administration (for example, privileged access)</li>
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="clearfix"/>
+        </chapter>
+        <chapter anchor="2.1.4" title="Additional considerations">
+          <p>None</p>
+        </chapter>
+        <chapter anchor="2.1.5" title="References">
+          <ul>
+            <li>
+              <a href="https://www.canada.ca/en/treasury-board-secretariat/services/access-information-privacy/security-identity-management/direction-secure-use-commercial-cloud-services-spin.html">
+                <em>Direction on the Secure Use of Commercial Cloud Services: Security Policy Implementation Notice</em>
+              </a>
+               (SPIN) 2017-01, subsection 6.2.3
+						
+            </li>
+            <li>
+              <a href="https://www.cyber.gc.ca/en/guidance/top-10-it-security-actions">Cyber Centre’s top 10 IT security actions</a>
+              , number 3
+            </li>
+            <li>
+              <a href="https://intranet.canada.ca/wg-tg/rtua-rafu-eng.asp">
+                <em>Recommendations for Two-Factor User Authentication Within the Government of Canada Enterprise Domain</em>
+              </a>
+               (accessible only on the Government of Canada network)
+						
+            </li>
+            <li>
+              <a href="https://www.gcpedia.gc.ca/gcwiki/images/9/9e/GC_MFA_Strategy.pdf" title="GC MFA Strategy.pdf">
+                <em>Government of Canada Multi-Factor Authentication (MFA)</em>
+                <em>Considerations and</em>
+                <em>Strategy for GC Enterprise IT Services</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=32601">
+                <em>Directive on Service and Digital</em>
+              </a>
+              , 
+              <a href="https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=32713">Appendix G: Standard on Enterprise Information Technology Service Common Configurations</a>
+               - 
+              <a href="https://www.canada.ca/en/government/system/digital-government/policies-standards/enterprise-it-service-common-configurations/account.html">Account Management Configuration Requirements</a>
+            </li>
+            <li>
+              <a href="https://www.canada.ca/en/government/system/digital-government/online-security-privacy/event-logging-guidance.html" title="GC Event Logging Guidance.pdf">
+                <em>Event Logging Guidance</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://cyber.gc.ca/en/guidance/itsp50104-guidance-defence-depth-cloud-based-services">
+                <em>Guidance on Defence in Depth for Cloud-Based Services</em>
+                 (ITSP.50.104)
+              </a>
+               , subsection 4.6
+						
+            </li>
+          </ul>
+        </chapter>
+        <chapter anchor="2.1.6" title="Related security controls from IT Security Risk Management: A Lifecycle Approach (ITSG-33)">
+          <p>AC-2, AC-2(11), AC-3, AC-5, AC-6, AC-6(5), AC-6(10), AC-19, AC-20(3), IA-2, IA-2(1), IA-2(2), IA-2(3), IA-2(11), IA-5(8), SI-4, SI-4(5), SA-4(12), CM-5</p>
+        </chapter>
+      </chapter>
+      <chapter anchor="2.2" title="Guardrail 2: manage access">
+        <chapter anchor="2.2.1" title="Objective">
+          <p>Establish access control policies and procedures for management of all accounts.</p>
+        </chapter>
+        <chapter anchor="2.2.2" title="Applicable service models">
+          <p>IaaS, PaaS, SaaS</p>
+        </chapter>
+        <chapter anchor="2.2.3" title="Mandatory Requirements">
+          <table class="table table-bordered table-condensed table-hover small">
+            <thead>
+              <tr class="active">
+                <th scope="col" class="text-center col-xs-6">Activity</th>
+                <th scope="col" class="text-center col-xs-6">Validation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <ul>
+                    <li>
+                      Implement a mechanism to enforce access authorizations for all user accounts, based on criteria in the 
+                      <a href="https://www.tbs-sct.canada.ca/pol/doc-fra.aspx?id=32713">
+                        <em>Directive on Service and Digital</em>
+                      </a>
+                      , Appendix G: Standard on Enterprise Information Technology Service Common Configurations, and in section 3 of the 
+                      <a href="https://www.canada.ca/en/government/system/digital-government/policies-standards/enterprise-it-service-common-configurations/account.html#cha3">Account Management Configuration Requirements</a>
+                    </li>
+                  </ul>
+                </td>
+                <td>
+                  <ul>
+                    <li>Demonstrate that access configurations and policies are implemented for different classes of users (non-privileged and privileged users)</li>
+                    <li>
+                      Confirm that the access authorization mechanisms have been implemented to:
+
+											
+                      <ul>
+                        <li>uniquely identify and authenticate users to the cloud service</li>
+                        <li>validate that the least privilege role is assigned</li>
+                        <li>validate that role based access is implemented</li>
+                        <li>terminate role assignment upon job change or termination</li>
+                        <li>perform periodic reviews of role assignment (minimum yearly)</li>
+                        <li>disable default and dormant accounts</li>
+                        <li>avoid using user generic accounts</li>
+                      </ul>
+                    </li>
+                    <li>Verify that a review of role assignment for root or global administrator accounts is performed at least every 12 months</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <ul>
+                    <li>Leverage role-based access and configure for least privilege; doing so can include built-in roles or custom roles that have been established with only the minimum number of privileges required to perform the job function</li>
+                  </ul>
+                </td>
+                <td>
+                  <ul>
+                    <li>Demonstrate that built-in roles on cloud platforms are configured for least privilege. Custom roles can be used but a rationale should be documented and approved</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <ul>
+                    <li>
+                      Change default passwords in accordance with the GC 
+                      <a href="https://www.canada.ca/en/government/system/digital-government/online-security-privacy/password-guidance.html">
+                        <em>Password Guidance</em>
+                      </a>
+                    </li>
+                  </ul>
+                </td>
+                <td>
+                  <ul>
+                    <li>Confirm that the default passwords have been changed for all built-in accounts for the cloud service</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <ul>
+                    <li>
+                      Configure the default password policy in accordance with GC 
+                      <a href="https://www.canada.ca/en/government/system/digital-government/online-security-privacy/password-guidance.html">
+                        <em>Password Guidance</em>
+                      </a>
+                    </li>
+                  </ul>
+                </td>
+                <td>
+                  <ul>
+                    <li>
+                      Demonstrate that password policy for the cloud platform has been configured according to the 
+                      <em>Password Guidance</em>
+                       by:
+
+											
+                      <ul>
+                        <li>requiring passwords that are at least 12 characters long without a maximum length limit</li>
+                        <li>countering online guessing or brute force of passwords using throttling, account lockout policies, monitoring and multi-factor authentication</li>
+                        <li>protecting against offline attacks using effective hashing, salting and keyed hashing</li>
+                      </ul>
+                    </li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <ul>
+                    <li>Implement mechanisms to protect against password brute force attacks</li>
+                  </ul>
+                </td>
+                <td>
+                  <ul>
+                    <li>Confirm that mechanisms, such as throttling, account lock out policies, monitoring and risk-based authentication, to protect against password brute force attacks have been implemented</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <ul>
+                    <li>Establish a guest user access policy and procedures that minimize the number of guest users and that manage the life cycle of such accounts so that such accounts are terminated when they are no longer needed</li>
+                    <li>
+                      <strong>Note:</strong>
+                       a guest is someone who is not an employee, student or member of your organization (a guest does not have an existing account with the organization’s cloud tenant)
+                    </li>
+                  </ul>
+                </td>
+                <td>
+                  <ul>
+                    <li>Confirm that only required guest user accounts are enabled (according to the business requirements of the service)</li>
+                    <li>Provide a list of non-organizational users with elevated privileges</li>
+                    <li>Verify that reviews of guest access are performed periodically</li>
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="clearfix"/>
+        </chapter>
+        <chapter anchor="2.2.4" title="Additional considerations">
+          <table class="table table-bordered table-condensed table-hover small">
+            <thead>
+              <tr class="active">
+                <th scope="col" class="text-center col-xs-6">Activity</th>
+                <th scope="col" class="text-center col-xs-6">Validation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <ul>
+                    <li>
+                      Document a process for managing accounts, access privileges, and access credentials for organizational users and non-organizational users (if required), based on criteria listed in the 
+                      <a href="https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=32713">
+                        <em>Directive on Service and Digital</em>
+                        , Appendix G: Standard on Enterprise Information Technology Service Common Configurations
+                      </a>
+                      , and in section 3 of the 
+                      <a href="https://www.canada.ca/en/government/system/digital-government/policies-standards/enterprise-it-service-common-configurations/account.html#cha3">Account Management Configuration Requirements</a>
+                      . This process should be approved by the chief security officer (or their delegate) and by the designated official for cyber security.
+										
+                    </li>
+                  </ul>
+                </td>
+                <td>
+                  <ul>
+                    <li>
+                      Confirm that the access control procedure for management of administrative accounts has been documented for the cloud service. The access control procedure:
+
+											
+                      <ul>
+                        <li>should include provision for any guest accounts and custom accounts</li>
+                        <li>must refer to the emergency break glass procedure</li>
+                      </ul>
+                    </li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <ul>
+                    <li>Enforce just-in-time access for privileged user accounts to provide time-based and approval-based role activation to mitigate the risks of excessive, unnecessary or misused access permissions</li>
+                  </ul>
+                </td>
+                <td>
+                  <ul>
+                    <li>Confirm just-in-time access for all privileged user accounts to provide time-based and approval-based role activation</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <ul>
+                    <li>Enforce attribute-based access control to restrict access based on a combination of authentication factors, such as devices issued and managed by the GC, device compliance, sign-in and user risks, and location</li>
+                  </ul>
+                </td>
+                <td>
+                  <ul>
+                    <li>Provide evidence that attribute-based access control mechanisms are in place to restrict access based on attributes or signals, such as authentication factors, devices issued and managed by the GC, device compliance, sign-in and user risks, and location.</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <ul>
+                    <li>Leverage tools, such as privilege access management systems, to enforce access control to privileged functions by configuring roles that require approval for activation</li>
+                    <li>Choose one or multiple users or groups as delegated approvers</li>
+                  </ul>
+                </td>
+                <td>
+                  <ul>
+                    <li>Provide evidence that all role activation for privileged user accounts require approval, and that privilege elevation is temporary (time-bound).</li>
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="clearfix"/>
+        </chapter>
+        <chapter anchor="2.2.5" title="References">
+          <ul>
+            <li>
+              <a href="https://www.canada.ca/en/treasury-board-secretariat/services/access-information-privacy/security-identity-management/direction-secure-use-commercial-cloud-services-spin.html">
+                <em>Direction on the Secure Use of Commercial Cloud Services: Security Policy Implementation Notice</em>
+              </a>
+              , (SPIN) 2017-01, subsection 6.2.3
+						
+            </li>
+            <li>
+              <a href="https://www.cyber.gc.ca/en/guidance/top-10-it-security-actions">Cyber Centre’s top 10 IT security actions</a>
+              , number 3
+            </li>
+            <li>
+              <a href="https://cyber.gc.ca/en/guidance/user-authentication-guidance-information-technology-systems-itsp30031-v3">
+                <em>User Authentication Guidance for Information Technology Systems</em>
+                 (ITSP.30.031 v3)
+              </a>
+            </li>
+            <li>
+              <a href="https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/cloud-services/guideline-cloud-authentication.html">Guidance on Cloud Authentication for the Government of Canada</a>
+            </li>
+            <li>
+              <a href="https://intranet.canada.ca/wg-tg/rtua-rafu-eng.asp">
+                <em>Recommendations for Two-Factor User Authentication Within the Government of Canada Enterprise Domain</em>
+              </a>
+               (accessible only on the Government of Canada network)
+						
+            </li>
+            <li>
+              <a href="https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=32601">
+                <em>Directive on Service and Digital</em>
+              </a>
+              ,
+              <a href="https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=32713">Appendix G: Standard on Enterprise Information Technology Service Common Configurations</a>
+            </li>
+            <li>
+              <a href="https://www.canada.ca/en/government/system/digital-government/policies-standards/enterprise-it-service-common-configurations/account.html">Account Management Configuration Requirements</a>
+            </li>
+            <li>
+              <a href="https://cyber.gc.ca/en/guidance/itsp50104-guidance-defence-depth-cloud-based-services">
+                <em>Guidance on Defence in Depth for Cloud-Based Services</em>
+                 (ITSP.50.104)
+              </a>
+              , subsection 4.6
+						
+            </li>
+            <li>
+              <a href="https://www.canada.ca/en/government/system/digital-government/online-security-privacy/password-guidance.html">
+                <em>Password Guidance</em>
+              </a>
+            </li>
+          </ul>
+        </chapter>
+        <chapter anchor="2.2.6" title="Related security controls from ITSG-33">
+          <p>AC‑2, AC‑2(1), AC‑2(7) AC‑3, AC‑3(7), AC‑3, AC‑4 AC‑5, AC‑6, AC‑6(5), IA‑2, IA‑2(1), IA‑2(8), IA‑2(11), IA‑4, IA‑5, IA‑5(1), IA‑5(6)</p>
+        </chapter>
+      </chapter>
+      <chapter anchor="2.3" title="Guardrail 3: secure endpoints">
+        <chapter anchor="2.3.1" title="Objective">
+          <p>Implement increased levels of protection for management interfaces.</p>
+        </chapter>
+        <chapter anchor="2.3.2" title="Applicable service models">
+          <p>IaaS, PaaS, SaaS</p>
+        </chapter>
+        <chapter anchor="2.3.3" title="Mandatory Requirements">
+          <table class="table table-bordered table-condensed table-hover small">
+            <thead>
+              <tr class="active">
+                <th scope="col" class="text-center col-xs-6">Activity</th>
+                <th scope="col" class="text-center col-xs-6">Validation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <ul>
+                    <li>
+                      Implement access restrictions to ensure that devices issued and managed by the GC are configured and managed, in accordance with 
+                      <a href="https://www.canada.ca/en/government/system/digital-government/policies-standards/enterprise-it-service-common-configurations/endpoint.html">Endpoint Management Configuration Requirements</a>
+                    </li>
+                  </ul>
+                </td>
+                <td>
+                  <ul>
+                    <li>Confirm that administrative access to cloud environments is from approved and trusted locations and from devices issued and managed by the GC that enforce the Endpoint Management Configuration Requirements</li>
+                    <li>Demonstrate that access configurations and policies are implemented for devices</li>
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="clearfix"/>
+        </chapter>
+        <chapter anchor="2.3.4" title="Additional considerations">
+          <table class="table table-bordered table-condensed table-hover small">
+            <thead>
+              <tr class="active">
+                <th scope="col" class="text-center col-xs-6">Activity</th>
+                <th scope="col" class="text-center col-xs-6">Validation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <ul>
+                    <li>All administrative tasks should be undertaken on dedicated administrative workstations</li>
+                    <li>
+                      <strong>Note:</strong>
+                       a dedicated administrative workstation is a secured physical (thick or thin) client workstation used to perform specific and sensitive administrative tasks or tasks requiring privileged access (such a workstation must have no Internet access and related services, such as email and web browsing, must be disabled and prohibited)
+                    </li>
+                  </ul>
+                </td>
+                <td>
+                  <ul>
+                    <li>Confirm whether dedicated administrative workstations are used to conduct all administrative activities</li>
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="clearfix"/>
+        </chapter>
+        <chapter anchor="2.3.5" title="References">
+          <ul>
+            <li>
+              <a href="https://www.canada.ca/en/treasury-board-secretariat/services/access-information-privacy/security-identity-management/direction-secure-use-commercial-cloud-services-spin.html">
+                <em>Direction on the Secure Use of Commercial Cloud Services: Security Policy Implementation Notice</em>
+              </a>
+               (SPIN) 2017-01, subsection 6.2.3
+						
+            </li>
+            <li>
+              <a href="https://www.cyber.gc.ca/en/guidance/top-10-it-security-actions">Cyber Centre’s top 10 IT security actions</a>
+              , number 2
+            </li>
+            <li>
+              <a href="https://intranet.canada.ca/wg-tg/rtua-rafu-eng.asp">
+                <em>Recommendations for Two-Factor User Authentication Within the Government of Canada Enterprise Domain</em>
+              </a>
+               (accessible only on the Government of Canada network)
+						
+            </li>
+            <li>
+              <a href="https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=32601">
+                <em>Directive on Service and Digital</em>
+              </a>
+              , 
+              <a href="https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=32713">Appendix G: Standard on Enterprise Information Technology Service Common Configurations</a>
+            </li>
+            <li>
+              <a href="https://www.canada.ca/en/government/system/digital-government/policies-standards/enterprise-it-service-common-configurations/endpoint.html">Endpoint Management Configuration Requirements</a>
+            </li>
+            <li>
+              <a href="https://cyber.gc.ca/en/guidance/itsp50104-guidance-defence-depth-cloud-based-services">
+                <em>Guidance on Defence in Depth for Cloud-Based Services</em>
+                 (ITSP.50.104)
+              </a>
+               , subsection 4.9
+						
+            </li>
+          </ul>
+        </chapter>
+        <chapter anchor="2.3.6" title="Related security controls from ITSG-33">
+          <p>AC3, AC-3(7), AC-4, AC-5, AC-6, AC6(5), AC-6(10), AC-19, AC-20(3), IA-2, IA-2(1), IA-2(11), IA-4, IA-5, IA-5(1), SI-4, AU-6, AU-12</p>
+        </chapter>
+      </chapter>
+      <chapter anchor="2.4" title="Guardrail 4: enterprise monitoring accounts">
+        <chapter anchor="2.4.1" title="Objective">
+          <p>Create role-based accounts to enable enterprise monitoring and visibility.</p>
+        </chapter>
+        <chapter anchor="2.4.2" title="Applicable service models">
+          <p>IaaS, PaaS, SaaS</p>
+        </chapter>
+        <chapter anchor="2.4.3" title="Mandatory Requirements">
+          <table class="table table-bordered table-condensed table-hover small">
+            <thead>
+              <tr class="active">
+                <th scope="col" class="text-center col-xs-6">Activity</th>
+                <th scope="col" class="text-center col-xs-6">Validation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <ul>
+                    <li>Create role-based accounts to enable enterprise monitoring and visibility for cloud environments that are procured via the GC Cloud Broker or are included in the scope of centralized guardrails validation</li>
+                  </ul>
+                </td>
+                <td>
+                  <ul>
+                    <li>Verify that roles required to enable visibility in the GC have been provisioned or assigned</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <ul>
+                    <li>Review access privileges periodically and remove access when it is no longer required</li>
+                  </ul>
+                </td>
+                <td>
+                  <ul>
+                    <li>Confirm that alerts to authorized personnel have been implemented to flag misuse, suspicious sign-in attempts, or when changes are made to privileged and non-privileged accounts</li>
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="clearfix"/>
+        </chapter>
+        <chapter anchor="2.4.4" title="Additional considerations">
+          <p>None</p>
+        </chapter>
+        <chapter anchor="2.4.5" title="References">
+          <ul>
+            <li>
+              <a href="https://www.canada.ca/en/treasury-board-secretariat/services/access-information-privacy/security-identity-management/direction-secure-use-commercial-cloud-services-spin.html">
+                <em>Direction on the Secure Use of Commercial Cloud Services: Security Policy Implementation Notice</em>
+              </a>
+               (SPIN) 2017-01, subsection 6.2.3
+						
+            </li>
+            <li>
+              <a href="https://www.cyber.gc.ca/en/guidance/top-10-it-security-actions">Cyber Centre’s top 10 IT security actions</a>
+              , number 2
+            </li>
+            <li>
+              <a href="https://cyber.gc.ca/en/guidance/it-security-risk-management-lifecycle-approach-itsg-33">
+                <em>IT Security Risk Management: A Lifecycle Approach</em>
+                 (ITSG-33)
+              </a>
+              , 
+              <a href="https://www.cyber.gc.ca/en/guidance/annex-3a-security-control-catalogue-itsg-33">Annex 3A: Security Control Catalogue</a>
+              , AC-3(7)
+						
+            </li>
+          </ul>
+        </chapter>
+        <chapter anchor="2.4.6" title="Related security controls from ITSG-33">
+          <p>AC-3(7), AC-6(5), IA-2(1)</p>
+        </chapter>
+      </chapter>
+      <chapter anchor="2.5" title="Guardrail 5: data location">
+        <chapter anchor="2.5.1" title="Objective">
+          <p>Establish policies to restrict sensitive GC workloads to approved geographic locations.</p>
+        </chapter>
+        <chapter anchor="2.5.2" title="Applicable service models">
+          <p>IaaS, PaaS, SaaS</p>
+        </chapter>
+        <chapter anchor="2.5.3" title="Mandatory Requirements">
+          <table class="table table-bordered table-condensed table-hover small">
+            <thead>
+              <tr class="active">
+                <th scope="col" class="text-center col-xs-6">Activity</th>
+                <th scope="col" class="text-center col-xs-6">Validation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <ul>
+                    <li>
+                      According to subsection 4.4.3.14 of the 
+                      <em>Directive on Service and Digital</em>
+                      :
+                    </li>
+                  </ul>
+                  <p>
+                    “
+                    <em>Ensuring computing facilities located within the geographic boundaries of Canada or within the premises of a Government of Canada department located abroad, such as a diplomatic or consular mission, be identified and evaluated as a principal delivery option for all sensitive electronic information and data under government control that has been categorized as Protected B, Protected C or is Classified.</em>
+                    ”
+                  </p>
+                </td>
+                <td>
+                  <ul>
+                    <li>Demonstrate that the service location is within Canada for all Protected B cloud services where configurable, in accordance with the applicable cloud usage profiles</li>
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="clearfix"/>
+        </chapter>
+        <chapter anchor="2.5.4" title="Additional considerations">
+          <p>None</p>
+        </chapter>
+        <chapter anchor="2.5.5" title="References">
+          <ul>
+            <li>
+              <a href="https://www.canada.ca/en/treasury-board-secretariat/services/access-information-privacy/security-identity-management/direction-secure-use-commercial-cloud-services-spin.html">
+                <em>Direction on the Secure Use of Commercial Cloud Services: Security Policy Implementation Notice</em>
+              </a>
+              , SPIN 2017-01, subsection 6.2.3
+						
+            </li>
+            <li>
+              <a href="https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=32601">
+                <em>Directive on Service and Digital</em>
+              </a>
+              , subsection 4.4.3.14
+						
+            </li>
+          </ul>
+        </chapter>
+        <chapter anchor="2.5.6" title="Related security controls from ITSG-33">
+          <p>SA-9(5)</p>
+        </chapter>
+      </chapter>
+      <chapter anchor="2.6" title="Guardrail 6: protection of data at rest">
+        <chapter anchor="2.6.1" title="Objective">
+          <p>Protect data at rest by default (for example, storage) for cloud-based workloads.</p>
+        </chapter>
+        <chapter anchor="2.6.2" title="Applicable service models">
+          <p>IaaS, PaaS, SaaS</p>
+        </chapter>
+        <chapter anchor="2.6.3" title="Mandatory Requirements">
+          <table class="table table-bordered table-condensed table-hover small">
+            <thead>
+              <tr class="active">
+                <th scope="col" class="text-center col-xs-6">Activity</th>
+                <th scope="col" class="text-center col-xs-6">Validation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <ul>
+                    <li>Implement an encryption mechanism to protect the confidentiality and integrity of data when data is at rest in storage</li>
+                  </ul>
+                </td>
+                <td>
+                  <ul>
+                    <li>For IaaS and PaaS, confirm that storage service encryption is enabled for data at rest (if required based on the security risk assessment)</li>
+                    <li>For SaaS, confirm that the cloud service provider (CSP) has implemented encryption to protect customer data</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <ul>
+                    <li>Use cryptographic algorithms and protocols approved by Communications Security Establishment Canada (CSE) in accordance with ITSP.40.111 and ITSP.40.062</li>
+                  </ul>
+                </td>
+                <td>
+                  <ul>
+                    <li>Cryptographic algorithms and protocols configurable by the consumer are in accordance with ITSP.40.111 and ITSP.40.062</li>
+                    <li>For SaaS, confirm that the CSP has implemented algorithms that align with ITSP.40.111 and ITSP.40.062.</li>
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="clearfix"/>
+        </chapter>
+        <chapter anchor="2.6.4" title="Additional considerations">
+          <table class="table table-bordered table-condensed table-hover small">
+            <thead>
+              <tr class="active">
+                <th scope="col" class="text-center col-xs-6">Activity</th>
+                <th scope="col" class="text-center col-xs-6">Validation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <ul>
+                    <li>Seek guidance from privacy and access to information officials within institutions before storing personal information in cloud-based environments</li>
+                  </ul>
+                </td>
+                <td>
+                  <ul>
+                    <li>Confirm that privacy is part of the departmental software development life cycle</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <ul>
+                    <li>
+                      Leverage an appropriate key management system for the cryptographic protection used in cloud-based services, in accordance with the 
+                      <em>Government of Canada Considerations for the Use of Cryptography in Commercial Cloud Services</em>
+                       and the Cyber Centre’s 
+                      <a href="https://www.cyber.gc.ca/en/guidance/guidance-cloud-service-cryptography-itsp50106">
+                        <em>Guidance on Cloud Service Cryptography</em>
+                         (ITSP.50.106)
+                      </a>
+                    </li>
+                  </ul>
+                </td>
+                <td>
+                  <ul>
+                    <li>Confirm that a key management strategy has been adopted for the cloud tenant</li>
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="clearfix"/>
+        </chapter>
+        <chapter anchor="2.6.5" title="References">
+          <ul>
+            <li>
+              <a href="https://www.canada.ca/en/treasury-board-secretariat/services/access-information-privacy/security-identity-management/direction-secure-use-commercial-cloud-services-spin.html">
+                <em>Direction on the Secure Use of Commercial Cloud Services: Security Policy Implementation Notice</em>
+              </a>
+               (SPIN) 2017-01, subsection 6.2.4
+						
+            </li>
+            <li>
+              cryptography guidance in 
+              <a href="https://cyber.gc.ca/en/guidance/cryptographic-algorithms-unclassified-protected-and-protected-b-information-itsp40111">
+                C
+                <em>ryptographic Algorithms for Unclassified, Protected A and Protected B Information</em>
+                 (ITSP.40.111)
+              </a>
+               and 
+              <a href="https://www.cyber.gc.ca/en/guidance/guidance-securely-configuring-network-protocols-itsp40062">
+                <em>Guidance on Securely Configuring Network Protocols</em>
+                 (ITSP.40.062)
+              </a>
+            </li>
+            <li>
+              <a href="https://www.cyber.gc.ca/en/guidance/guidance-cloud-service-cryptography-itsp50106">
+                <em>Guidance on Cloud Service Cryptography</em>
+                 (ITSP.50.106)
+              </a>
+            </li>
+            <li>
+              <a href="https://cyber.gc.ca/en/guidance/itsp50104-guidance-defence-depth-cloud-based-services">
+                <em>Guidance on Defence in Depth for Cloud-Based Services</em>
+                 (ITSP.50.104)
+              </a>
+              , subsection 4.5
+						
+            </li>
+          </ul>
+        </chapter>
+        <chapter anchor="2.6.6" title="Related security controls from ITSG-33">
+          <p>IA-7, SC-12, SC-13, SC-28, SC-28(1)</p>
+        </chapter>
+      </chapter>
+      <chapter anchor="2.7" title="Guardrail 7: protection of data in transit">
+        <chapter anchor="2.7.1" title="Objective">
+          <p>Protect data transiting networks through the use of appropriate encryption and network safeguards.</p>
+        </chapter>
+        <chapter anchor="2.7.2" title="Applicable service models">
+          <p>IaaS, PaaS, SaaS</p>
+        </chapter>
+        <chapter anchor="2.7.3" title="Mandatory Requirements">
+          <table class="table table-bordered table-condensed table-hover small">
+            <thead>
+              <tr class="active">
+                <th scope="col" class="text-center col-xs-6">Activity</th>
+                <th scope="col" class="text-center col-xs-6">Validation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <ul>
+                    <li>
+                      Encrypt data in transit by default (for example, Transport Layer Security (TLS) 1.2) to protect the confidentiality and integrity of data, including for all publicly accessible sites and external communications, according to the GC 
+                      <a href="https://www.canada.ca/en/government/system/digital-government/policies-standards/enterprise-it-service-common-configurations/web-sites.html">Web Sites and Services Management Configuration Requirements</a>
+                      , and wherever possible for internal zone communication
+										
+                    </li>
+                  </ul>
+                </td>
+                <td>
+                  <ul>
+                    <li>Confirm that TLS 1.2 or above encryption is implemented for all cloud services (via Hypertext Transfer Protocol Secure (HTTPS), TLS or another mechanism)</li>
+                    <li>
+                      <strong>Note:</strong>
+                       while this encryption setting is often the default, cloud platforms and cloud services often have configuration options to select the permitted TLS version
+                    </li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <ul>
+                    <li>Use CSE-approved cryptographic algorithms and protocols in accordance with ITSP.40.111 and ITSP.40.062</li>
+                  </ul>
+                </td>
+                <td>
+                  <ul>
+                    <li>Leverage cryptographic algorithms and protocols configurable by the user in accordance with ITSP.40.111 and ITSP.40.062</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <ul>
+                    <li>
+                      Leverage non-person entity certificates from certificate authorities that align with the 
+                      <a href="https://wiki.gccollab.ca/images/9/92/Recommendations_for_TLS_Server_Certificates_-_14_May_2021.pdf">
+                        <em>Government of Canada Recommendations for TLS Server Certificates for GC Public Facing Web Services</em>
+                      </a>
+                    </li>
+                  </ul>
+                </td>
+                <td>
+                  <ul>
+                    <li>Confirm that non-person entity certificates are issued from certificate authorities that align with GC recommendations for TLS server certificates</li>
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="clearfix"/>
+        </chapter>
+        <chapter anchor="2.7.4" title="Additional considerations">
+          <p>None</p>
+        </chapter>
+        <chapter anchor="2.7.5" title="References">
+          <ul>
+            <li>
+              <a href="https://www.canada.ca/en/treasury-board-secretariat/services/access-information-privacy/security-identity-management/direction-secure-use-commercial-cloud-services-spin.html">
+                <em>Direction on the Secure Use of Commercial Cloud Services: Security Policy Implementation Notice</em>
+              </a>
+               (SPIN) 2017-01, subsection 6.2.4
+						
+            </li>
+            <li>
+              <a href="https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=32601">
+                <em>Directive on Service and Digital</em>
+              </a>
+              , 
+              <a href="https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=32713">Appendix G: Standard on Enterprise Information Technology Service Common Configurations</a>
+            </li>
+            <li>
+              <a href="https://www.canada.ca/en/government/system/digital-government/policies-standards/enterprise-it-service-common-configurations/web-sites.html">Web Sites and Services Management Configuration Requirements</a>
+            </li>
+            <li>
+              cryptography guidance in 
+              <a href="https://cyber.gc.ca/en/guidance/cryptographic-algorithms-unclassified-protected-and-protected-b-information-itsp40111">
+                C
+                <em>ryptographic Algorithms for Unclassified, Protected A and Protected B Information</em>
+                 (ITSP.40.111)
+              </a>
+               and 
+              <a href="https://www.cyber.gc.ca/en/guidance/guidance-securely-configuring-network-protocols-itsp40062">
+                <em>Guidance on Securely Configuring Network Protocols</em>
+                 (ITSP.40.062)
+              </a>
+            </li>
+            <li>
+              network security zoning guidance in 
+              <a href="https://cyber.gc.ca/en/guidance/baseline-security-requirements-network-security-zones-government-canada-itsg-22">
+                <em>Baseline Security Requirements for Network Security Zones</em>
+                 (ITSP.80.022)
+              </a>
+               and 
+              <a href="https://cyber.gc.ca/en/guidance/network-security-zoning-design-considerations-placement-services-within-zones-itsg-38">
+                <em>Network Security Zoning</em>
+                 (ITSG-38)
+              </a>
+            </li>
+            <li>
+              <a href="https://www.cyber.gc.ca/en/guidance/guidance-cloud-service-cryptography-itsp50106">
+                <em>Guidance on Cloud Service Cryptography</em>
+                 (ITSP.50.106)
+              </a>
+              .
+						
+            </li>
+            <li>
+              <a href="https://wiki.gccollab.ca/images/9/92/Recommendations_for_TLS_Server_Certificates_-_14_May_2021.pdf">
+                <em>Government of Canada Recommendations for TLS Server Certificates for GC Public Facing Web Services</em>
+              </a>
+              (accessible only on the Government of Canada network)
+						
+            </li>
+            <li>
+              <a href="https://cyber.gc.ca/en/guidance/itsp50104-guidance-defence-depth-cloud-based-services">
+                <em>Guidance on Defence in Depth for Cloud-Based Services</em>
+                 (ITSP.50.104)
+              </a>
+              , subsection 4.5
+						
+            </li>
+          </ul>
+        </chapter>
+        <chapter anchor="2.7.6" title="Related security controls from ITSG-33">
+          <p>IA-7, SC-12, SC-13, SC-28, SC-28(1)</p>
+        </chapter>
+      </chapter>
+      <chapter anchor="2.8" title="Guardrail 8: segment and separate">
+        <chapter anchor="2.8.1" title="Objective">
+          <p>Segment and separate information based on sensitivity of information</p>
+        </chapter>
+        <chapter anchor="2.8.2" title="Applicable service models">
+          <p>IaaS, PaaS</p>
+          <p>
+            <strong>Note</strong>
+          </p>
+          <p>
+            The following guardrail is not applicable to SaaS. The cloud service provider is responsible for the management and security of the network and this responsibility is included as part of the SaaS offering. Refer to section 4.3 of 
+            <a href="https://cyber.gc.ca/en/guidance/itsp50104-guidance-defence-depth-cloud-based-services">
+              <em>Guidance on Defence in Depth for Cloud-Based Services</em>
+               (ITSP.50.104)
+            </a>
+             to understand key considerations for cloud network segmentation.
+          </p>
+        </chapter>
+        <chapter anchor="2.8.3" title="Mandatory Requirements">
+          <table class="table table-bordered table-condensed table-hover small">
+            <thead>
+              <tr class="active">
+                <th scope="col" class="text-center col-xs-6">Activity</th>
+                <th scope="col" class="text-center col-xs-6">Validation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <ul>
+                    <li>Isolate and secure cloud workloads based on the sensitivity of the data</li>
+                  </ul>
+                </td>
+                <td>
+                  <ul>
+                    <li>Confirm that the department has a target network architecture with a high-level design or a diagram with appropriate segmentation between network security zones in alignment with ITSP.50.104, ITSP.80.022 and ITSG-38</li>
+                    <li>Confirm that the department has documented a deployment guide for the cloud platform and associated services (the guide should capture the landing zone if applicable)</li>
+                    <li>Confirm that the cloud service provider’s segmentation features are leveraged to provide segmentation of management, production, user acceptance testing (UAT), development (DEV) and testing (for example, the use of subscription, instances or other cloud provider constructs)</li>
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="clearfix"/>
+        </chapter>
+        <chapter anchor="2.8.4" title="Additional considerations">
+          <table class="table table-bordered table-condensed table-hover small">
+            <thead>
+              <tr class="active">
+                <th scope="col" class="text-center col-xs-6">Activity</th>
+                <th scope="col" class="text-center col-xs-6">Validation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <ul>
+                    <li>Develop a target network security design that considers segmentation via network security zones in alignment with ITSP.50.104, ITSP.80.022 and ITSG-38</li>
+                  </ul>
+                </td>
+                <td>
+                  <ul>
+                    <li>Leverage landing zones that include predefined, secured, multi-account support to allow automated onboarding of different workloads and teams</li>
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="clearfix"/>
+        </chapter>
+        <chapter anchor="2.8.5" title="References">
+          <ul>
+            <li>
+              <a href="https://www.canada.ca/en/treasury-board-secretariat/services/access-information-privacy/security-identity-management/direction-secure-use-commercial-cloud-services-spin.html">
+                <em>Direction on the Secure Use of Commercial Cloud Services: Security Policy Implementation Notice</em>
+              </a>
+               (SPIN) 2017-01, subsection 6.2.4
+						
+            </li>
+            <li>
+              <a href="https://www.cyber.gc.ca/en/guidance/top-10-it-security-actions">Cyber Centre’s top 10 IT security actions</a>
+              , number 5
+            </li>
+            <li>
+              network security zoning guidance in 
+              <a href="https://cyber.gc.ca/en/guidance/baseline-security-requirements-network-security-zones-government-canada-itsg-22">
+                <em>Baseline Security Requirements for Network Security Zones</em>
+                 (ITSP.80.022)
+              </a>
+               and 
+              <a href="https://cyber.gc.ca/en/guidance/network-security-zoning-design-considerations-placement-services-within-zones-itsg-38">
+                <em>Network Security Zoning</em>
+                 (ITSG-38)
+              </a>
+            </li>
+            <li>
+              <a href="https://cyber.gc.ca/en/guidance/itsp50104-guidance-defence-depth-cloud-based-services">
+                <em>Guidance on Defence in Depth for Cloud-Based Services</em>
+                 (ITSP.50.104)
+              </a>
+              , subsections 4.3 and 4.5
+						
+            </li>
+          </ul>
+        </chapter>
+        <chapter anchor="2.8.6" title="Related security controls from ITSG-33">
+          <p>AC‑4, SC‑7</p>
+        </chapter>
+      </chapter>
+      <chapter anchor="2.9" title="Guardrail 9: network security services">
+        <chapter anchor="2.9.1" title="Objective">
+          <p>Establish external and internal network perimeters and monitor network traffic.</p>
+        </chapter>
+        <chapter anchor="2.9.2" title="Applicable service models">
+          <p>IaaS, PaaS, SaaS</p>
+        </chapter>
+        <chapter anchor="2.9.3" title="Mandatory Requirements">
+          <table class="table table-bordered table-condensed table-hover small">
+            <thead>
+              <tr class="active">
+                <th scope="col" class="text-center col-xs-6">Activity</th>
+                <th scope="col" class="text-center col-xs-6">Validation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <ul>
+                    <li>Ensure that egress and ingress points to and from GC cloud-based environments are managed and monitored</li>
+                  </ul>
+                </td>
+                <td>
+                  <ul>
+                    <li>Confirm the policy for limiting the number of public Internet Protocols (IPs)</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <ul>
+                    <li>Implement network boundary protection mechanisms for all external facing interfaces that enforce a deny-all or allow-by-exception policy</li>
+                  </ul>
+                </td>
+                <td>
+                  <ul>
+                    <li>Confirm the policy for network boundary protection</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <ul>
+                    <li>Perimeter security services, such as boundary protection, intrusion prevention services, proxy services and TLS traffic inspection, must be enabled based on risk profile according to GC secure connectivity requirements and CSE guidance</li>
+                  </ul>
+                </td>
+                <td>
+                  <ul>
+                    <li>Confirm policy for limiting to authorized source IP addresses (for example, GC IP addresses)</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <ul>
+                    <li>Ensure that access to cloud storage services is protected and restricted to authorized security zones or networks, users, and services</li>
+                  </ul>
+                </td>
+                <td>
+                  <ul>
+                    <li>Confirm that storage accounts are not exposed to the public</li>
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="clearfix"/>
+        </chapter>
+        <chapter anchor="2.9.4" title="Additional considerations">
+          <table class="table table-bordered table-condensed table-hover small">
+            <thead>
+              <tr class="active">
+                <th scope="col" class="text-center col-xs-6">Activity</th>
+                <th scope="col" class="text-center col-xs-6">Validation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <ul>
+                    <li>Use centrally provisioned network security services where available</li>
+                  </ul>
+                </td>
+                <td>
+                  <ul>
+                    <li>Confirm whether the department is intending to establish dedicated and secure connections to on-premise resources</li>
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="clearfix"/>
+        </chapter>
+        <chapter anchor="2.9.5" title="References">
+          <ul>
+            <li>
+              <a href="https://www.canada.ca/en/treasury-board-secretariat/services/access-information-privacy/security-identity-management/direction-secure-use-commercial-cloud-services-spin.html">
+                <em>Direction on the Secure Use of Commercial Cloud Services: Security Policy Implementation Notice</em>
+              </a>
+               (SPIN) 2017-01, subsection 6.2.4
+						
+            </li>
+            <li>
+              <a href="https://www.cyber.gc.ca/en/guidance/top-10-it-security-actions">Cyber Centre’s top 10 IT security actions</a>
+              , number 1
+            </li>
+            <li>
+              network security zoning guidance in 
+              <a href="https://cyber.gc.ca/en/guidance/baseline-security-requirements-network-security-zones-government-canada-itsg-22">
+                <em>Baseline Security Requirements for Network Security Zones</em>
+                 (ITSP.80.022)
+              </a>
+               and 
+              <a href="https://cyber.gc.ca/en/guidance/network-security-zoning-design-considerations-placement-services-within-zones-itsg-38">
+                <em>Network Security Zoning</em>
+                 (ITSG-38)
+              </a>
+            </li>
+            <li>
+              <a href="https://cyber.gc.ca/en/guidance/itsp50104-guidance-defence-depth-cloud-based-services">
+                <em>Guidance on Defence in Depth for Cloud-Based Services</em>
+                 (ITSP.50.104)
+              </a>
+              , subsection 4.3
+						
+            </li>
+          </ul>
+        </chapter>
+        <chapter anchor="2.9.6" title="Related security controls from ITSG-33">
+          <p>AC-3, AC‑4, SC‑7, SC‑7(5), SI-4, SI-4(18)</p>
+        </chapter>
+      </chapter>
+      <chapter anchor="2.10" title="Guardrail 10: cyber defence services">
+        <chapter anchor="2.10.1" title="Objective">
+          <p>Establish a memorandum of understanding for defensive services and threat-monitoring protection services.</p>
+        </chapter>
+        <chapter anchor="2.10.2" title="Applicable service models">
+          <p>IaaS, PaaS, SaaS</p>
+        </chapter>
+        <chapter anchor="2.10.3" title="Mandatory Requirements">
+          <table class="table table-bordered table-condensed table-hover small">
+            <thead>
+              <tr class="active">
+                <th scope="col" class="text-center col-xs-6">Activity</th>
+                <th scope="col" class="text-center col-xs-6">Validation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <ul>
+                    <li>
+                      Sign a memorandum of understanding with the Cyber Centre by contacting 
+                      <a href="mailto:CDOServiceDeployments@cyber.gc.ca">CDOServiceDeployments@cyber.gc.ca</a>
+                    </li>
+                  </ul>
+                </td>
+                <td>
+                  <ul>
+                    <li>Confirm with the Cyber Centre that the memorandum of understanding has been signed</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <ul>
+                    <li>Implement defensive services, including host-based sensors (HBSs), cloud-based sensors (CBSs), and network-based sensors (NBSs), in accordance with the Cyber Centre’s onboarding guidance where available</li>
+                  </ul>
+                </td>
+                <td>
+                  <ul>
+                    <li>Confirm that the Cyber Centre’s sensors or other cyber defence services are implemented where available</li>
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="clearfix"/>
+        </chapter>
+        <chapter anchor="2.10.4" title="Additional considerations">
+          <p>None</p>
+        </chapter>
+        <chapter anchor="2.10.5" title="References">
+          <ul>
+            <li>
+              <a href="https://www.canada.ca/en/treasury-board-secretariat/services/access-information-privacy/security-identity-management/direction-secure-use-commercial-cloud-services-spin.html">
+                <em>Direction on the Secure Use of Commercial Cloud Services: Security Policy Implementation Notice</em>
+              </a>
+               (SPIN) 2017-01, subsection 6.3
+						
+            </li>
+          </ul>
+        </chapter>
+        <chapter anchor="2.10.6" title="Related security controls from ITSG-33">
+          <p>SI‑4</p>
+        </chapter>
+      </chapter>
+      <chapter anchor="2.11" title="Guardrail 11: logging and monitoring">
+        <chapter anchor="2.11.1" title="Objective">
+          <p>Enable logging for the cloud environment and for cloud-based workloads.</p>
+        </chapter>
+        <chapter anchor="2.11.2" title="Applicable service models">
+          <p>IaaS, PaaS, SaaS</p>
+        </chapter>
+        <chapter anchor="2.11.3" title="Mandatory Requirements">
+          <table class="table table-bordered table-condensed table-hover small">
+            <thead>
+              <tr class="active">
+                <th scope="col" class="text-center col-xs-6">Activity</th>
+                <th scope="col" class="text-center col-xs-6">Validation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <ul>
+                    <li>Implement adequate level of logging and reporting, including a security audit log function in all information systems</li>
+                  </ul>
+                </td>
+                <td>
+                  <ul>
+                    <li>Confirm policy for event logging is implemented</li>
+                    <li>
+                      Confirm that the following logs are included:
+
+											
+                      <ul>
+                        <li>sign-in (interactive and non-interactive sign-ins, API sign-ins)</li>
+                        <li>access privilege and group changes (including group membership and group privilege assignment)</li>
+                        <li>changes in the configuration of the cloud platform</li>
+                        <li>cloud resource provisioning activities</li>
+                      </ul>
+                    </li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <ul>
+                    <li>
+                      Configure events within the solution to support security monitoring, in accordance with the GC 
+                      <a href="https://www.canada.ca/en/government/system/digital-government/online-security-privacy/event-logging-guidance.html" title="GC Event Logging Guidance.pdf">
+                        <em>Event Logging Guidance</em>
+                      </a>
+                    </li>
+                  </ul>
+                </td>
+                <td>
+                  <ul>
+                    <li>Confirm whether monitoring and auditing is implemented for all users</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <ul>
+                    <li>Ensure that the appropriate contact information is configured so that the cloud service provider can notify the GC organization of incidents they detect</li>
+                  </ul>
+                </td>
+                <td>
+                  <ul>
+                    <li>Confirm that the security contact record within the account should be completed with the details of at least two appropriate information security personnel (if multiple personnel are permitted by the cloud platform)</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <ul>
+                    <li>Configure an appropriate time zone for the audit records generated by your solution components</li>
+                  </ul>
+                </td>
+                <td>
+                  <ul>
+                    <li>Confirm that the appropriate time zone has been set</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <ul>
+                    <li>Ensure that resources are assigned to monitor cloud-based events</li>
+                  </ul>
+                </td>
+                <td>
+                  <ul>
+                    <li>Demonstrate that the monitoring use cases for the cloud platform have been implemented and have been integrated with the overall security monitoring activities being performed by the department (evidence could include monitoring a checklist or a system generated report)</li>
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="clearfix"/>
+        </chapter>
+        <chapter anchor="2.11.4" title="Additional considerations">
+          <p>None</p>
+        </chapter>
+        <chapter anchor="2.11.5" title="References">
+          <ul>
+            <li>
+              <a href="https://www.canada.ca/en/treasury-board-secretariat/services/access-information-privacy/security-identity-management/direction-secure-use-commercial-cloud-services-spin.html">
+                <em>Direction on the Secure Use of Commercial Cloud Services: Security Policy Implementation Notice</em>
+              </a>
+               (SPIN) 2017-01, subsection 6.3.1
+						
+            </li>
+            <li>
+              <a href="https://www.cyber.gc.ca/en/guidance/top-10-it-security-actions">Cyber Centre’s top 10 IT security actions</a>
+              , numbers 1, 5 and 8
+            </li>
+            <li>
+              <a href="https://www.canada.ca/en/government/system/digital-government/online-security-privacy/event-logging-guidance.html">
+                <em>Event Logging Guidance</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://cyber.gc.ca/en/guidance/itsp50104-guidance-defence-depth-cloud-based-services">
+                <em>Guidance on Defence in Depth for Cloud-Based Services</em>
+                 (ITSP.50.104),
+              </a>
+               subsection 4.8
+						
+            </li>
+          </ul>
+        </chapter>
+        <chapter anchor="2.11.6" title="Related security controls from ITSG-33">
+          <p>AU‑12, SI-4, SI-4(7)</p>
+        </chapter>
+      </chapter>
+      <chapter anchor="2.12" title="Guardrail 12: configuration of cloud marketplaces">
+        <chapter anchor="2.12.1" title="Objective">
+          <p>Restrict third-party software from cloud service providers to ensure that only GC-approved products are used.</p>
+        </chapter>
+        <chapter anchor="2.12.2" title="Applicable service models">
+          <p>IaaS, PaaS, SaaS</p>
+        </chapter>
+        <chapter anchor="2.12.3" title="Mandatory Requirements">
+          <table class="table table-bordered table-condensed table-hover small">
+            <thead>
+              <tr class="active">
+                <th scope="col" class="text-center col-xs-6">Activity</th>
+                <th scope="col" class="text-center col-xs-6">Validation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <ul>
+                    <li>Only GC approved cloud marketplace products are to be consumed. Turning on the commercial marketplace is prohibited.</li>
+                  </ul>
+                </td>
+                <td>
+                  <ul>
+                    <li>Confirm that third-party marketplace restrictions have been implemented</li>
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="clearfix"/>
+        </chapter>
+        <chapter anchor="2.12.4" title="Additional considerations">
+          <table class="table table-bordered table-condensed table-hover small">
+            <thead>
+              <tr class="active">
+                <th scope="col" class="text-center col-xs-6">Activity</th>
+                <th scope="col" class="text-center col-xs-6">Validation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <ul>
+                    <li>Submit requests to add third-party products to marketplace to SSC’s Cloud Broker</li>
+                  </ul>
+                </td>
+                <td>
+                  <p>Not applicable</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <ul>
+                    <li>Ensure that software offered through the cloud service provider or the cloud service provider marketplace undergo a software assurance process to ensure that only approved products are used</li>
+                  </ul>
+                </td>
+                <td>
+                  <p>Not applicable</p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="clearfix"/>
+        </chapter>
+        <chapter anchor="2.12.5" title="References">
+          <ul>
+            <li>
+              <a href="https://www.canada.ca/en/treasury-board-secretariat/services/access-information-privacy/security-identity-management/direction-secure-use-commercial-cloud-services-spin.html">
+                <em>Direction on the Secure Use of Commercial Cloud Services: Security Policy Implementation Notice</em>
+              </a>
+               (SPIN) 2017-01, subsection 6.2.5
+						
+            </li>
+          </ul>
+        </chapter>
+        <chapter anchor="2.12.6" title="Related security controls from ITSG-33">
+          <p>CM5, CM8, SA12</p>
+        </chapter>
+      </chapter>
+      <chapter anchor="2.13" title="Guardrail 13: plan for continuity">
+        <chapter anchor="2.13.1" title="Objective">
+          <p>Ensure that there is a plan for continuity of access and service that accommodates both expected and unexpected events.</p>
+        </chapter>
+        <chapter anchor="2.13.2" title="Applicable service models">
+          <p>IaaS, PaaS, SaaS</p>
+        </chapter>
+        <chapter anchor="2.13.3" title="Mandatory Requirements">
+          <table class="table table-bordered table-condensed table-hover small">
+            <thead>
+              <tr class="active">
+                <th scope="col" class="text-center col-xs-6">Activity</th>
+                <th scope="col" class="text-center col-xs-6">Validation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <ul>
+                    <li>Document, implement and test a break glass emergency account management process</li>
+                  </ul>
+                </td>
+                <td>
+                  <ul>
+                    <li>Verify that an emergency account management procedure has been developed</li>
+                    <li>Verify that alerts are in place to report any use of emergency accounts</li>
+                    <li>Verify that testing of emergency accounts took place, and that periodic testing is included in emergency account management procedures</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <ul>
+                    <li>Obtain confirmation from the departmental chief information officer (CIO) in collaboration with the designated official for cyber security (DOCS) with signatures that acknowledge and approve the emergency account management procedures</li>
+                  </ul>
+                </td>
+                <td>
+                  <ul>
+                    <li>Confirm through attestation that the departmental CIO, in collaboration with the DOCS, has approved the emergency account management procedure for the cloud service</li>
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="clearfix"/>
+        </chapter>
+        <chapter anchor="2.13.4" title="Additional considerations">
+          <table class="table table-bordered table-condensed table-hover small">
+            <thead>
+              <tr class="active">
+                <th scope="col" class="text-center col-xs-6">Activity</th>
+                <th scope="col" class="text-center col-xs-6">Validation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <ul>
+                    <li>Develop a cloud backup strategy that considers where GC data is stored, replicated, or backed up by the cloud service, and the IT continuity plan for the service or application</li>
+                  </ul>
+                </td>
+                <td>
+                  <ul>
+                    <li>Confirm through attestation that the cloud backup strategy is developed and approved by the business owner</li>
+                    <li>Verify if there are scripts that support the ability to restore from code (for example, infrastructure as code)</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <ul>
+                    <li>Ensure that cloud workloads are associated with the relevant Application ID (identifier) in the Treasury Board of Canada Secretariat Application Portfolio Management (APM) tool, in support of Appendix H: Standard on At-Risk Technology</li>
+                  </ul>
+                </td>
+                <td>
+                  <ul>
+                    <li>Provide a list of all software, including versions, deployed on virtual machines associated with the Application IDs from the APM</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <ul>
+                    <li>
+                      Ensure that departmental cyber security event management plans include cloud services, in alignment with the 
+                      <em>Government of Canada Cyber Security Event Management Plan</em>
+                    </li>
+                  </ul>
+                </td>
+                <td>
+                  <ul>
+                    <li>Confirm that the departmental cyber security event management plan includes contact information to reach the cloud service provider in case of a security event or incident</li>
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="clearfix"/>
+        </chapter>
+        <chapter anchor="2.13.5" title="References">
+          <ul>
+            <li>
+              <a href="https://www.canada.ca/en/treasury-board-secretariat/services/access-information-privacy/security-identity-management/direction-secure-use-commercial-cloud-services-spin.html">
+                <em>Direction on the Secure Use of Commercial Cloud Services: Security Policy Implementation Notice</em>
+              </a>
+               (SPIN) 2017-01, subsection 6.2.9
+						
+            </li>
+            <li>
+              <a href="https://gcconnex.gc.ca/file/view/55010566/break-glass-emergency-account-procedure-departments-can-use-to-develop-their-emergency-access-management-controls-for-cloud?language=en">Break glass emergency account management procedure</a>
+               for Azure and Office 365 (accessible only on the Government of Canada network)
+						
+            </li>
+            <li>
+              <a href="https://www.gcpedia.gc.ca/gcwiki/images/6/66/Department_CSEMP_Template.docx" title="Department CSEMP Template.docx">Cyber Security Event Management Plan template</a>
+               for departments (Word file) (accessible only on the Government of Canada network)
+						
+            </li>
+            <li>
+              <a href="https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=32601">
+                <em>Directive on Service and Digital</em>
+              </a>
+            </li>
+          </ul>
+        </chapter>
+        <chapter anchor="2.13.6" title="Related security controls from ITSG-33">
+          <p>AC-1, CP-1,CP-2,CP-9,CA-3</p>
+        </chapter>
+      </chapter>
+    </chapter>
+    <chapter anchor="3" title="After the first 30 business days">
+      <p>Implementing the guardrails is one of the first steps to establishing a secure cloud-based environment. Departments are expected to continue implementing the security requirements as outlined in:</p>
+      <ul>
+        <li>
+          <a href="https://www.canada.ca/en/treasury-board-secretariat/services/access-information-privacy/security-identity-management/direction-secure-use-commercial-cloud-services-spin.html">
+            <em>Direction on the Secure Use of Commercial Cloud Services: Security Policy Implementation Notice</em>
+          </a>
+           (SPIN) 2017-01
+				
+        </li>
+        <li>
+          <a href="https://www.canada.ca/en/government/system/digital-government/modern-emerging-technologies/cloud-services/government-canada-security-control-profile-cloud-based-it-services.html">
+            <em>Government of Canada Security Control Profile for Cloud-Based GC Services</em>
+          </a>
+        </li>
+      </ul>
+      <p>
+        Departments should engage with their IT security risk management teams to obtain advice and guidance on integrating security assessment and authorization activities as part of the implementation of the GC cloud environment. The 
+        <a href="https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/cloud-services/cloud-security-risk-management-approach-procedures.html">
+          <em>Government of Canada Cloud Security Risk Management Approach and Procedures</em>
+        </a>
+         outlines activities for departments to consider as part of risk management.
+      </p>
+      <p>Shared Services Canada (SSC) will perform periodic audits of the departmental tenant environment to ensure ongoing compliance with the guardrails after the first 30 business days.</p>
+    </chapter>
+    <chapter anchor="4" title="Cloud usage profiles">
+      <chapter anchor="4.1" title="Overview">
+        <p>The following table outlines the cloud usage identifier, profiles, descriptions and cloud service models used in the GC.</p>
+        <table class="table table-bordered table-condensed table-hover small">
+          <caption class="text-left">Table 1: cloud usage identifiers, profiles and service models</caption>
+          <thead>
+            <tr class="active">
+              <th scope="col">Identifier (ID)</th>
+              <th scope="col">Profile</th>
+              <th scope="col">Description</th>
+              <th scope="col">Applicable cloud service model</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <p>1.</p>
+              </td>
+              <td>
+                <p>Experimentation or sandbox</p>
+              </td>
+              <td>
+                <ul>
+                  <li>Cloud-based services used for experimentation or sandbox</li>
+                  <li>No direct system-to-system network interconnections required with GC data centres</li>
+                </ul>
+              </td>
+              <td>
+                <p>IaaS, PaaS, SaaS</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>2.</p>
+              </td>
+              <td>
+                <p>Non-sensitive cloud-based services</p>
+              </td>
+              <td>
+                <ul>
+                  <li>Cloud-based services hosting non-sensitive GC content</li>
+                  <li>No direct system-to-system network interconnections required with GC data centres</li>
+                </ul>
+              </td>
+              <td>
+                <p>IaaS, PaaS, SaaS</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>3a.</p>
+              </td>
+              <td>
+                <p>Sensitive (up to Protected B) cloud-based services</p>
+              </td>
+              <td>
+                <ul>
+                  <li>Cloud-based services hosting sensitive (up to Protected B) information</li>
+                  <li>No direct system-to-system network interconnections required with GC data centres</li>
+                </ul>
+              </td>
+              <td>
+                <p>IaaS, PaaS, SaaS</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>3b.</p>
+              </td>
+              <td>
+                <p>Sensitive (up to Protected B) cloud-based services (hybrid IT – extension of GC data centres)</p>
+              </td>
+              <td>
+                <ul>
+                  <li>Cloud-based services hosting sensitive (up to Protected B) information</li>
+                  <li>GC cloud-based systems required to interact with systems in GC data centres</li>
+                  <li>Restricted environment for GC users only</li>
+                  <li>No external user connections to or from GC cloud-based virtual private cloud and no publicly accessible services</li>
+                </ul>
+              </td>
+              <td>
+                <p>PaaS, SaaS</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>4a.</p>
+              </td>
+              <td>
+                <p>Sensitive (up to Protected B) cloud-based services for GC-wide SaaS solutions</p>
+              </td>
+              <td>
+                <ul>
+                  <li>Cloud-based services hosting sensitive (up to Protected B) information for GC-wide enterprise applications (SaaS)</li>
+                  <li>No direct system-to-system network interconnections required with GC data centres</li>
+                </ul>
+              </td>
+              <td>
+                <p>SaaS</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>4b.</p>
+              </td>
+              <td>
+                <p>Sensitive (up to Protected B) cloud-based services for GC-wide SaaS solutions (hybrid IT – extension of GC data centres)</p>
+              </td>
+              <td>
+                <ul>
+                  <li>Cloud-based services hosting sensitive (up to Protected B) information for GC-wide enterprise applications (SaaS)</li>
+                  <li>GC cloud-based systems required to interact with systems in GC data centres</li>
+                  <li>Restricted environment for GC users only</li>
+                  <li>No external user connections to or from GC cloud-based virtual private cloud and no publicly accessible services</li>
+                </ul>
+              </td>
+              <td>
+                <p>SaaS</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>5.</p>
+              </td>
+              <td>
+                <p>GC to GC only (hybrid IT – extension of GC data centres)</p>
+              </td>
+              <td>
+                <ul>
+                  <li>Hybrid IT environment with an extension of the GC network to cloud-based virtual private cloud (up to Protected B) information</li>
+                  <li>GC cloud-based systems required to interact with systems in GC data centres</li>
+                  <li>Restricted environment for GC users only</li>
+                  <li>No external user connections to or from GC cloud-based virtual private cloud and no publicly accessible services</li>
+                </ul>
+              </td>
+              <td>
+                <p>IaaS, PaaS</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>6.</p>
+              </td>
+              <td>
+                <p>Cloud-based services with external user access and interconnection to GC data centres</p>
+              </td>
+              <td>
+                <ul>
+                  <li>Cloud-based services hosting sensitive (up to Protected B) information</li>
+                  <li>GC cloud-based systems required to interact with systems in GC data centres</li>
+                  <li>Environment accessible to GC users and external users and services</li>
+                  <li>Solution implemented, managed, and operated by a GC department or agency</li>
+                </ul>
+              </td>
+              <td>
+                <p>IaaS, PaaS</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="clearfix"/>
+      </chapter>
+      <chapter anchor="4.2" title="Mapping guardrails to cloud usage profiles">
+        <p>The following table describes the applicability of the guardrails during the first 30 business days of departments getting access to their cloud account. Within each departmental cloud tenant, there will be various information systems being provided. Each cloud sub-account or resource group should be tagged with the relevant cloud usage profile to ensure that appropriate policies are applied and validation is performed.</p>
+        <table class="table table-bordered table-condensed table-hover small">
+          <caption class="text-left">Table 2: guardrail identifiers, service models and cloud usage profiles</caption>
+          <thead>
+            <tr class="active">
+              <th scope="col">Identifier (ID)</th>
+              <th scope="col">Guardrail</th>
+              <th scope="col">Applicable service models</th>
+              <th scope="col">
+                Profile 1: experimentation or
+                <br/>
+                
+							sandbox
+              </th>
+              <th scope="col">Profile 2: non-sensitive cloud-based services</th>
+              <th scope="col">Profile 3a and 3b: sensitive (up to Protected B) cloud-based services</th>
+              <th scope="col">Profile 4a and 4b: sensitive (up to Protected B) cloud-based services for GC-wide SaaS solutions</th>
+              <th scope="col">Profile 5: GC to GC only (hybrid IT – extension of GC data centres)</th>
+              <th scope="col">Profile 6: cloud-based service accessible to external users (connections to GC data centres required)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>
+                <p>
+                  <strong>Protect user accounts and identities</strong>
+                </p>
+              </td>
+              <td>
+                <p>IaaS, PaaS,SaaS</p>
+              </td>
+              <td>
+                <p>Required</p>
+                <p>(minimum for privileged users)</p>
+              </td>
+              <td>
+                <p>Required</p>
+              </td>
+              <td>
+                <p>Required</p>
+              </td>
+              <td>
+                <p>Required</p>
+              </td>
+              <td>
+                <p>Required</p>
+              </td>
+              <td>
+                <p>Required</p>
+              </td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>
+                <p>
+                  <strong>Manage access</strong>
+                </p>
+              </td>
+              <td>
+                <p>IaaS, PaaS, SaaS</p>
+              </td>
+              <td>
+                <p>Required</p>
+              </td>
+              <td>
+                <p>Required</p>
+              </td>
+              <td>
+                <p>Required</p>
+              </td>
+              <td>
+                <p>Required</p>
+              </td>
+              <td>
+                <p>Required</p>
+              </td>
+              <td>
+                <p>Required</p>
+              </td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>
+                <p>
+                  <strong>Secure endpoints</strong>
+                </p>
+              </td>
+              <td>
+                <p>IaaS, PaaS, SaaS</p>
+              </td>
+              <td>
+                <p>Recommended</p>
+              </td>
+              <td>
+                <p>Required</p>
+              </td>
+              <td>
+                <p>Required</p>
+              </td>
+              <td>
+                <p>Required</p>
+              </td>
+              <td>
+                <p>Required</p>
+              </td>
+              <td>
+                <p>Required</p>
+              </td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>
+                <p>
+                  <strong>Enterprise monitoring accounts</strong>
+                </p>
+              </td>
+              <td>
+                <p>IaaS, PaaS, SaaS</p>
+              </td>
+              <td>
+                <p>Required (for billing)</p>
+              </td>
+              <td>
+                <p>Required</p>
+              </td>
+              <td>
+                <p>Required</p>
+              </td>
+              <td>
+                <p>Required</p>
+              </td>
+              <td>
+                <p>Required</p>
+              </td>
+              <td>
+                <p>Required</p>
+              </td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>
+                <p>
+                  <strong>Data location</strong>
+                </p>
+              </td>
+              <td>
+                <p>IaaS, PaaS, SaaS</p>
+              </td>
+              <td>
+                <p>Recommended</p>
+              </td>
+              <td>
+                <p>Recommended</p>
+              </td>
+              <td>
+                <p>Required</p>
+                <p>(required in Canada for GC storage of Protected B information and above)</p>
+              </td>
+              <td>
+                <p>Required</p>
+                <p>(required in Canada for GC storage of Protected B information and above)</p>
+              </td>
+              <td>
+                <p>Required</p>
+                <p>(required in Canada for GC storage of Protected B information and above)</p>
+              </td>
+              <td>
+                <p>Required</p>
+                <p>(required in Canada for GC storage of Protected B information and above)</p>
+              </td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>
+                <p>
+                  <strong>Protection of data at rest</strong>
+                </p>
+              </td>
+              <td>
+                <p>IaaS, PaaS, SaaS</p>
+              </td>
+              <td>
+                <p>Not required</p>
+              </td>
+              <td>
+                <p>Recommended</p>
+              </td>
+              <td>
+                <p>Required</p>
+              </td>
+              <td>
+                <p>Required</p>
+              </td>
+              <td>
+                <p>Required</p>
+              </td>
+              <td>
+                <p>Required</p>
+              </td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>
+                <p>
+                  <strong>Protection of data in transit</strong>
+                </p>
+              </td>
+              <td>
+                <p>IaaS, PaaS, SaaS</p>
+              </td>
+              <td>
+                <p>Recommended</p>
+              </td>
+              <td>
+                <p>Required</p>
+              </td>
+              <td>
+                <p>Required</p>
+              </td>
+              <td>
+                <p>Required</p>
+              </td>
+              <td>
+                <p>Required</p>
+              </td>
+              <td>
+                <p>Required</p>
+              </td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>
+                <p>
+                  <strong>Segment and separate</strong>
+                </p>
+              </td>
+              <td>
+                <p>IaaS, PaaS</p>
+              </td>
+              <td>
+                <p>Required (network filtering at a minimum)</p>
+              </td>
+              <td>
+                <p>Required</p>
+              </td>
+              <td>
+                <p>Required</p>
+              </td>
+              <td>
+                <p>Required</p>
+              </td>
+              <td>
+                <p>Required</p>
+              </td>
+              <td>
+                <p>Required</p>
+              </td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td>
+                <p>
+                  <strong>Network security services</strong>
+                </p>
+              </td>
+              <td>
+                <p>IaaS, PaaS, SaaS</p>
+              </td>
+              <td>
+                <p>Recommended</p>
+              </td>
+              <td>
+                <p>Required</p>
+              </td>
+              <td>
+                <p>Required</p>
+              </td>
+              <td>
+                <p>Required (restrict to GC only)</p>
+              </td>
+              <td>
+                <p>Required (deny external access, GC only)</p>
+              </td>
+              <td>
+                <p>Required</p>
+              </td>
+            </tr>
+            <tr>
+              <td>10</td>
+              <td>
+                <p>
+                  <strong>Cyber defence services</strong>
+                </p>
+              </td>
+              <td>
+                <p>IaaS, PaaS, SaaS</p>
+              </td>
+              <td>
+                <p>Not required</p>
+              </td>
+              <td>
+                <p>Required</p>
+              </td>
+              <td>
+                <p>Required</p>
+              </td>
+              <td>
+                <p>Required</p>
+              </td>
+              <td>
+                <p>Required</p>
+              </td>
+              <td>
+                <p>Required</p>
+              </td>
+            </tr>
+            <tr>
+              <td>11</td>
+              <td>
+                <p>
+                  <strong>Logging and monitoring</strong>
+                </p>
+              </td>
+              <td>
+                <p>IaaS, PaaS, SaaS</p>
+              </td>
+              <td>
+                <p>Recommended</p>
+              </td>
+              <td>
+                <p>Required</p>
+              </td>
+              <td>
+                <p>Required</p>
+              </td>
+              <td>
+                <p>Required</p>
+              </td>
+              <td>
+                <p>Required</p>
+              </td>
+              <td>
+                <p>Required</p>
+              </td>
+            </tr>
+            <tr>
+              <td>12</td>
+              <td>
+                <p>
+                  <strong>Configuration of cloud marketplaces</strong>
+                </p>
+              </td>
+              <td>
+                <p>IaaS, PaaS, SaaS</p>
+              </td>
+              <td>
+                <p>Required</p>
+              </td>
+              <td>
+                <p>Required</p>
+              </td>
+              <td>
+                <p>Required</p>
+              </td>
+              <td>
+                <p>Required</p>
+              </td>
+              <td>
+                <p>Required</p>
+              </td>
+              <td>
+                <p>Required</p>
+              </td>
+            </tr>
+            <tr>
+              <td>13</td>
+              <td>
+                <p>
+                  <strong>Plan for continuity</strong>
+                </p>
+              </td>
+              <td>
+                <p>IaaS, PaaS, SaaS</p>
+              </td>
+              <td>
+                <p>Not required</p>
+              </td>
+              <td>
+                <p>Required</p>
+              </td>
+              <td>
+                <p>Required</p>
+              </td>
+              <td>
+                <p>Required</p>
+              </td>
+              <td>
+                <p>Required</p>
+              </td>
+              <td>
+                <p>Required</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="clearfix"/>
+      </chapter>
+    </chapter>
+    <chapter anchor="5" title="References">
+      <chapter anchor="5.1" title="Related policy instruments">
+        <ul>
+          <li>
+            <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=32611">
+              <em>Directive on Security Management</em>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.canada.ca/en/government/system/digital-government/modern-emerging-technologies/direction-secure-use-commercial-cloud-services-spin.html">
+              <em>Direction on the Secure Use of Commercial Cloud Services: Security Implementation Notice (SPIN)</em>
+            </a>
+             2017-01
+					
+          </li>
+          <li>
+            <a href="https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=32601">
+              <em>Directive on Service and Digital</em>
+            </a>
+            , 
+            <a href="https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=32713">Appendix G: Standard on Enterprise Information Technology Service Common Configurations</a>
+          </li>
+        </ul>
+      </chapter>
+      <chapter anchor="5.2" title="Additional references">
+        <ul>
+          <li>
+            <a href="https://www.canada.ca/en/government/system/digital-government/modern-emerging-technologies/cloud-services/government-canada-security-control-profile-cloud-based-it-services.html">
+              <em>Government of Canada Security Control Profile for Cloud-Based GC Services</em>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/cloud-services/cloud-security-risk-management-approach-procedures.html">
+              <em>Government of Canada Cloud Security Risk Management Approach and Procedures</em>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=32614">Directive on Security Management - Appendix J: Standard on Security Categorization</a>
+          </li>
+          <li>
+            <a href="https://www.gcpedia.gc.ca/gcwiki/images/5/5f/GC_Cloud_Event_Management_Standard_Operating_Procedure.pdf">
+              <em>Government of Canada Cloud Event Management Standard Operating Procedure</em>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.tbs-sct.gc.ca/pol-cont/doc/32593-eng.docx">Concept case for digital projects</a>
+             (accessible only on the Government of Canada network)
+					
+          </li>
+          <li>
+            <a href="http://www.gcpedia.gc.ca/wiki/ESA_Template_Guides">Enterprise Security Architecture (ESA) Template Guides</a>
+          </li>
+          <li>
+            <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=26262">
+              <em>Guideline on Defining Authentication Requirements</em>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=30678">
+              <em>Guideline on Identity Assurance</em>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.cyber.gc.ca/en/guidance/guidance-using-tokenization-cloud-based-services-itsp50108">
+              <em>Guidance on Using Tokenization for Cloud-Based Services</em>
+               (ITSP.50.108)
+            </a>
+          </li>
+          <li>
+            <a href="https://www.cyber.gc.ca/en/guidance/guidance-cloud-service-cryptography-itsp50106">
+              <em>Guidance on Cloud Service Cryptography</em>
+               (ITSP.50.106)
+            </a>
+          </li>
+          <li>
+            <a href="https://cyber.gc.ca/en/guidance/it-security-risk-management-lifecycle-approach-itsg-33">
+              <em>IT Security Risk Management: A Lifecycle Approach</em>
+               (ITSG-33)
+            </a>
+          </li>
+          <li>
+            <a href="https://cyber.gc.ca/en/guidance/guidance-securely-configuring-network-protocols-itsp40062">
+              <em>Guidance on Securely Configuring Network Protocols</em>
+               (ITSP.40.062)
+            </a>
+          </li>
+          <li>
+            <a href="https://cyber.gc.ca/en/guidance/baseline-security-requirements-network-security-zones-government-canada-itsg-22">
+              <em>Baseline Security Requirements for Network Security Zones</em>
+               (ITSP.80.022)
+            </a>
+          </li>
+          <li>
+            <a href="https://cyber.gc.ca/en/guidance/network-security-zoning-design-considerations-placement-services-within-zones-itsg-38">
+              <em>Network Security Zoning</em>
+               (ITSG-38)
+            </a>
+          </li>
+          <li>
+            <a href="https://cyber.gc.ca/en/guidance/itsp50104-guidance-defence-depth-cloud-based-services">
+              <em>Guidance on Defence in Depth for Cloud-Based Services</em>
+               (ITSP.50.104)
+            </a>
+          </li>
+        </ul>
+      </chapter>
+    </chapter>
+  </chapters>
+  <appendices>
+    <appendix anchor="A" title="Appendix A: Cloud operationalization framework">
+      <p>The following table provides an overview of the updated framework. The framework sets out the steps that organizations must take in order to make use of Protected B cloud services.</p>
+      <table class="table table-bordered table-condensed table-hover small">
+        <thead>
+          <tr class="active">
+            <th rowspan="2" scope="col" class="text-center">Organization</th>
+            <th colspan="7" scope="colgroup" class="text-center">Responsibilities</th>
+          </tr>
+          <tr class="active">
+            <th scope="col" class="text-center">assess the cloud service provider</th>
+            <th scope="col" class="text-center">obtain a cloud account</th>
+            <th scope="col" class="text-center">apply guardrails</th>
+            <th scope="col" class="text-center">obtain the authority to operate</th>
+            <th scope="col" class="text-center">evaluate connectivity readiness</th>
+            <th scope="col" class="text-center">deploy cloud solutions</th>
+            <th scope="col" class="text-center">operate and maintain the solutions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <p>Departments</p>
+            </td>
+            <td>
+              <ul>
+                <li>Where possible, use centrally assessed services from the Canadian Centre for Cyber Security (Cyber Centre) through Shared Services Canada’s (SSC’s) Cloud Brokering Service</li>
+                <li>If not deemed within scope for centralized assessment, use the appropriate tool (according to the cloud-tiered assurance model) to self-assess</li>
+              </ul>
+            </td>
+            <td>
+              <ul>
+                <li>Submit cloud account request via SSC’s Cloud Broker</li>
+                <li>
+                  Request departmental cloud subnet (according to SSC’s 
+                  <em>Cloud IP Address Management (Cloud IPAM) Guideline</em>
+                  )
+                </li>
+              </ul>
+            </td>
+            <td>
+              <ul>
+                <li>Implement GC cloud guardrails within the first 30 business days of access to the cloud account</li>
+                <li>Provide evidence of implementation of guardrails to SSC Cloud Operations</li>
+              </ul>
+            </td>
+            <td>
+              <ul>
+                <li>Develop artifacts (for example, high-level design, operations manual)</li>
+                <li>Implement and validate solution-specific recommended information technology (IT) security configurations</li>
+                <li>Develop a plan of action and milestones to address residual risks</li>
+                <li>Obtain departmental authority to operate</li>
+              </ul>
+            </td>
+            <td>
+              <ul>
+                <li>Complete the cloud interconnection security agreement</li>
+                <li>Describe network flows </li>
+                <li>Deploy the virtual private interface</li>
+                <li>Agree to the connectivity service level description</li>
+                <li>Integrate enterprise common services in collaboration with SSC</li>
+              </ul>
+            </td>
+            <td>
+              <ul>
+                <li>Complete the Workload Intake Form</li>
+                <li>Deploy ExpressRoute or Direct Connect</li>
+                <li>Test network flows</li>
+              </ul>
+            </td>
+            <td>
+              <ul>
+                <li>Manage the cloud environment</li>
+                <li>Perform continuous monitoring, including ongoing monitoring of compliance with guardrails</li>
+                <li>Address items in the plan of action and milestones as appropriate</li>
+                <li>Maintain systems authorization</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>Shared Services Canada</p>
+            </td>
+            <td>
+              <ul>
+                <li>Determine which enterprise services can be leveraged to support software as a service (SaaS) solutions</li>
+                <li>Perform an IT security assessment of enterprise common services</li>
+                <li>Make the security assessment report of enterprise common services available to departments that will be using the services</li>
+              </ul>
+            </td>
+            <td>
+              <ul>
+                <li>Use SSC’s Cloud Broker to process cloud account requests from departments</li>
+                <li>Develop the Cloud IP Address Management (Cloud IPAM) Strategy</li>
+              </ul>
+            </td>
+            <td>
+              <ul>
+                <li>Validate the GC cloud guardrails package</li>
+                <li>Manage tools to support an automated approach to validate departmental implementation of guardrails for hyper-scalers under the framework agreement (FA) and for enterprise-grade SaaS recorded in the inclusion list</li>
+                <li>Report non-compliance with guardrails to the Treasury Board of Canada Secretariat (TBS) and escalate</li>
+                <li>Develop a cloud naming and tagging strategy</li>
+              </ul>
+            </td>
+            <td>
+              <ul>
+                <li>Develop GC accelerators, including templates and scripts for rapid deployment (for example, infrastructure as code) to facilitate secure cloud deployments at departments</li>
+              </ul>
+            </td>
+            <td>
+              <ul>
+                <li>Develop cloud connectivity service descriptions and offerings</li>
+              </ul>
+            </td>
+            <td>
+              <ul>
+                <li>Develop or update the Workload Intake Form for Cloud</li>
+                <li>Activate approved connection requests</li>
+                <li>Maintain cloud connectivity service levels</li>
+              </ul>
+            </td>
+            <td>
+              <ul>
+                <li>Report on the adherence to GC cloud guardrails by departments to help TBS and deputy heads identify issues and implement corrective actions</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>Treasury Board of Canada Secretariat</p>
+            </td>
+            <td>
+              <ul>
+                <li>Monitor cloud requests </li>
+              </ul>
+            </td>
+            <td>
+              <ul>
+                <li>Monitor cloud requests</li>
+              </ul>
+            </td>
+            <td>
+              <ul>
+                <li>Develop GC cloud guardrails, cloud usage profiles and supporting guidance</li>
+                <li>Escalate non-compliance of guardrails to departmental chief information officers (CIOs)</li>
+              </ul>
+            </td>
+            <td>
+              <ul>
+                <li>Develop templates to support cyber security assurance activities</li>
+              </ul>
+            </td>
+            <td>
+              <ul>
+                <li>Develop an interconnection security agreement template</li>
+              </ul>
+            </td>
+            <td>
+              <ul>
+                <li>Develop tools and templates to support secure application development</li>
+                <li>Develop cyber security playbooks</li>
+              </ul>
+            </td>
+            <td>
+              <ul>
+                <li>
+                  Maintain situational awareness in support of the 
+                  <em>Government of Canada Cyber Security Event Management Plan</em>
+                </li>
+                <li>Monitor departmental implementation of and adherence to GC cloud guardrails.</li>
+                <li>Address non-compliance with GC cloud guardrails</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>Canadian Centre for Cyber Security</p>
+            </td>
+            <td>
+              <ul>
+                <li>If deemed within scope of the centralized assessment by the Cyber Centre, ensure that the cloud service provider (CSP) is onboarded to the program</li>
+                <li>Make the CSP security assessment report available to departments that will be using the services</li>
+              </ul>
+            </td>
+            <td>
+              <ul>
+                <li>Perform supply chain integrity reviews for third-party marketplace requests </li>
+              </ul>
+            </td>
+            <td>
+              <ul>
+                <li>Work with the department to establish a memorandum of understanding in order to access the Cyber Centre’s cyber defence services</li>
+                <li>Validate the visibility of the departmental cloud tenant (reader account) and deploy cloud-based sensors if feasible</li>
+              </ul>
+            </td>
+            <td>
+              <ul>
+                <li>Provide IT security advice and guidance</li>
+              </ul>
+            </td>
+            <td>
+              <ul>
+                <li>Provide IT security advice and guidance</li>
+              </ul>
+            </td>
+            <td>
+              <ul>
+                <li>Provide IT security advice and guidance</li>
+              </ul>
+            </td>
+            <td>
+              <ul>
+                <li>Perform the GC security operations centre function</li>
+                <li>Provide second-level IT security monitoring services</li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="clearfix"/>
+    </appendix>
+  </appendices>
+</doc>

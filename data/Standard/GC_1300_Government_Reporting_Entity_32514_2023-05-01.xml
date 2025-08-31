@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" title="Directive on Accounting Standards: GC 1300 Government Reporting Entity" documentID="32514" versionID="2" language="en" space="preserve" xsi:noNamespaceSchemaLocation="PolicyInstrumentSchema.HTML5.xsd">
+  <notetoreader>
+    <p>
+      This document is part of the Appendix A of the 
+      <a href="https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=32499">Directive on Accounting Standards</a>
+      .
+    </p>
+  </notetoreader>
+  <chapters>
+    <chapter anchor="A" title="Primary PSAS reference">
+      <ul class="list-unstyled">
+        <li>PS 1300 Government reporting entity</li>
+      </ul>
+    </chapter>
+    <chapter anchor="B" title="Effective date">
+      <p>
+        <time datetime="2017-04-01" class="nowrap">April 1, 2017</time>
+      </p>
+    </chapter>
+    <chapter anchor="C" title="Government of Canada Consolidated Financial Statements">
+      <ol>
+        <li>Further to PS 1300, the reporting entity of the Government of Canada includes all the government organizations that comprise the legal entity of the Government as well as other government organizations, including Crown corporations, which are separate legal entities but are controlled by the Government.</li>
+        <li>All organizations defined as departments and as Crown corporations in theÂ Financial Administration Act (or other respective acts)Â are included in the reporting entity.</li>
+        <li>Other organizations not listed in theÂ Financial Administration ActÂ (FAA) may also be controlled by the Government. Such organizations are included in the Governmentâs reporting entity if their revenues, expenses, assets or liabilities are significant.</li>
+      </ol>
+    </chapter>
+    <chapter anchor="D" title="Departmental Financial Statements">
+      <ol start="4">
+        <li>Departmental Financial Statements should include all government components the deputy head (DH) is accountable for as the accounting officer of the department. This is different from a reporting entity that is based on a ministerial portfolio. The financial transactions of government components (e.g., departments, revolving funds and consolidated specified purpose accounts) which are under the DHâs accountability as the accounting officer should be included in the departmental financial statements to reflect the financial operations and financial position of the department as a single reporting entity. When the reporting entity of the department includes the financial results of more than one government component and the financial transactions of the additional government components are significant, the Departmental Financial Statements should be labeled as consolidated (e.g. âConsolidated Financial Statementsâ, âConsolidated Statement of Financial Positionâ) for clarity and comparability purposes.</li>
+        <li>Departments are generally not expected to have investments in other entities. Crown corporations are not consolidated in the financial statements of departments. The FAA, Part X indicates that the responsible minister holds the accountability of Crown corporations to Parliament, not the department.</li>
+        <li>Payments to Crown corporations from appropriations are not included in the departmentâs financial statements, as these funds do not relate to its activities. In these situations, the department is simply acting as a flow-through mechanism for administration purposes so that the Crown corporations may receive their Parliamentary authorities.</li>
+        <li>Investments in, and loans and advances to Crown corporations, as well as any transactions related to these, such as interest revenue and dividends, are not to be recorded in the departmental financial statements, unless they are departmental assets over which the department has clear and demonstrated responsibilities. Departments do not normally have the risks and rewards of ownership as these assets are not normally under the DHâs responsibility.</li>
+      </ol>
+    </chapter>
+    <chapter anchor="E" title="Other related references">
+      <ul class="list-unstyled">
+        <li>
+          <a href="https://www.knotia.ca/Home.aspx">PS 1201 Financial statement presentation</a>
+          <sup id="fn1a-rf">
+            <a class="fn-lnk" href="#fn1">
+              <span class="wb-inv">Footnote </span>
+              1
+            </a>
+          </sup>
+        </li>
+        <li>
+          <a href="https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=32528">GC 4500 Departmental Financial Statements</a>
+        </li>
+      </ul>
+    </chapter>
+  </chapters>
+  <footnotes>
+    <footnote anchor="fn1" reference="fn1a-rf" title="1" tooltip="Return to footnote 1 referrer">
+			Please note that a CPA Canada membership or annual subscription is necessary to access this content.
+		</footnote>
+  </footnotes>
+</doc>

@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" title="GC 3450 Guideline: Embedded Derivatives" documentID="32780" versionID="2" language="en" space="preserve" xsi:noNamespaceSchemaLocation="PolicyInstrumentSchema.HTML5.xsd">
+  <chapters>
+    <chapter anchor="1" title="Overview">
+      <p>New accounting standard PSÂ 3450 Financial Instrumentsrequires that certain contracts be  reviewed to identify embedded derivatives that may require  separate accounting treatment  (PSÂ 3450.14).</p>
+      <p>
+        An 
+        <strong>embedded  derivative </strong>
+        is a provision in a contract that causes the cash flows to vary,  either based on an underlying measure, such as an inflation index, foreign  exchange rate or commodity price, or due to an  optional term. A provision is called an embedded derivative if it meets the definition of a stand-alone derivative.
+      </p>
+      <p>Embedded derivatives have the same  characteristics as derivatives but are incorporated into a host contract. Embedded  derivatives change the way that risk is distributed among the parties to the  contract. Such embedded derivatives are found in many types of host contracts,  such as leases, insurance contracts and multi-year purchase  agreements. For example,  a lease agreement with future rent increases based on the consumer price index  (CPI) is a host contract with an embedded derivative, by which the lessor  transfers inflation risk to the lessee.</p>
+      <p>
+        The 
+        <strong>host contract </strong>
+        may  be a financial or non-financial contract that is in the scope of PSÂ 3450. Embedded derivatives in such host  contracts should be identified. However, they are accounted for separately as derivatives 
+        <strong>only  when</strong>
+         their economic  characteristics are 
+        <strong>not </strong>
+        closely related to those of the host contract.
+      </p>
+      <p>This document explains  which contracts are in the scope  of PSÂ 3450 and provides  an overview of the common, variable cash-flow features that may indicate  the existence of embedded derivatives and whether they are closely related to  the host contract.</p>
+      <section>
+        <header>
+          <h3>1.1 Timing</h3>
+        </header>
+        <p>These requirements apply  prospectively to new contracts entered into on or after AprilÂ 1, 2022,  or to amendments to existing contracts  where the amendment causes  a significant change  to the cash flows under the  contract after AprilÂ 1, 2022.</p>
+      </section>
+      <section>
+        <header>
+          <h3>1.2 Materiality</h3>
+        </header>
+        <p>Departments must review all contracts  worth $10Â million or more. Accounting policies need not be applied to  immaterial items. Departments may establish thresholds for contracts below $10Â million based on materiality.</p>
+      </section>
+    </chapter>
+    <chapter anchor="2" title="Scope of contract review (PSÂ 3450.03-.08)">
+      <p>Contracts that are excluded  from the scope of PSÂ 3450 do not need to be reviewed for embedded derivatives.</p>
+      <section>
+        <header>
+          <h3>2.1 Contracts for the purchase or sale of goods or services</h3>
+        </header>
+        <p>The following  flow chart may be used to decide whether to review contracts for the  purchase or sale of goods or services for embedded derivatives.</p>
+        <figure>
+          <figcaption class="text-center">
+            <strong>FigureÂ 1: flow chart to determine  whether to review contracts for embedded derivatives</strong>
+          </figcaption>
+          <img src="https://www.tbs-sct.gc.ca/pol-cont/32780-1-eng.png" class="img-responsive center-block" alt="Figure 1. Text version below"/>
+          <details>
+            <summary>Figure 1 - Text version</summary>
+            <ul>
+              <li>
+                Does the contract exceed the established materiality threshold?
+      
+                <ul>
+                  <li>If no, no further action required.</li>
+                  <li>
+                    If yes, is the contract a commodity contract* or a public-private  partnership (P3) agreement?        
+          
+                    <ul>
+                      <li>If yes, assess the  contract for embedded derivatives or as a stand-alone derivative.</li>
+                      <li>
+                        If no, is the contract an âown useâ contract or  a contract for which payments are based on volumes of sales or revenues of one  of the parties to the contract?            
+              
+                        <ul>
+                          <li>If no, assess the contract for embedded  derivatives or as a stand-alone derivative.</li>
+                          <li>If yes, no further action required.</li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <p>
+              * Entities  have the option  to first analyze the commodity contract to determine whether  it meets the definition of an 
+              <strong>own  use contract</strong>
+              , that is, whether the quantities are not in  excess of the entityâs purchase or usage requirements, in  order to exclude the contract from the review for embedded derivatives.
+            </p>
+          </details>
+        </figure>
+        <p>
+          <strong>Commodities</strong>
+           are goods or raw materials that can be bought, sold, or traded. As basic goods,  commodities, such as oil, metals and agricultural goods, are interchangeable  with other goods in the same category.
+        </p>
+        <p>According to PSÂ 3450.A13:</p>
+        <p class="mrgn-lft-md">Some contracts  to buy or sell non-financial items that can be settled net or by exchanging  financial instruments, or in which the non-financial item is readily  convertible to cash, are within the scope of this Section as if they were  financial instruments.</p>
+        <p>As commodities are readily convertible to  cash, commodity purchase or sale contracts may be derivatives in their entirety  or fail the own use exemption. Consequently, it is advised to include such  contracts in the contract review, although entities may instead determine  whether the contract meets the own use exemption as noted above.</p>
+        <table class="table table-bordered table-condensed">
+          <caption class="text-left">
+            <strong>TableÂ 1: types of contracts excluded  from the scope of the review for embedded derivatives</strong>
+          </caption>
+          <thead>
+            <tr class="active">
+              <th scope="col">Type  of contract </th>
+              <th scope="col">Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Own use contracts (PSÂ 3450.03(p))</td>
+              <td>
+                Contracts to buy or sell non-financial items when quantities are in accordance with a departmentâs expected purchase, sale or usage    requirements. Such contracts include:
+        
+                <ul>
+                  <li>contracts for goods or    services purchased in accordance with the departmentâs purchasing or    operating requirements, that is, contracts entered into for the purpose of taking physical delivery of the goods or services under the contract; and</li>
+                  <li>sales contracts entered into for the purpose    of making physical delivery of the goods or services under    the contract, including user fees contracts for services    provided to customers.</li>
+                </ul>
+                <p>
+                  <strong>Note:</strong>
+                   In accordance with PSÂ 3450.005,    contracts to buy or sell    non-financial items where    quantities are in excess of the entityâs purchase, sale or usage    requirements for which there is an option to 
+                  <strong>settle net</strong>
+                  , in cash or another financial instrument instead of    taking physical delivery, are
+                  <strong> not</strong>
+                   own use contracts and are in the    scope of PSÂ 3450.
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td>Volume-related contracts (PSÂ 3450.03(m))</td>
+              <td>Contracts that require payments based on specified volumes    of sales or service    revenues of one of the parties to the contract, and that are not traded on an    exchange.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section>
+        <header>
+          <h3>2.2 Contracts in scope of PSÂ 3450</h3>
+        </header>
+        <p>A review for embedded derivatives should be performed  for the following  types of contracts if the contract value exceeds the  established materiality threshold:</p>
+        <ol class="lst-lwr-alph">
+          <li>
+            <strong>financial contracts,</strong>
+             such as loans receivable,  portfolio investments, market debt and loan guarantees; 
+          </li>
+          <li>
+            <strong>leases, </strong>
+            such as operating leases  and capital leases; and
+          </li>
+          <li>
+            <strong>non-financial  contracts, </strong>
+            such  as:
+
+    
+            <ul>
+              <li>
+                purchase or sales contracts  where quantities are in excess of purchase, sale or usage requirements, and where the contract can be 
+                <strong>net  settled </strong>
+                (no physical delivery); 
+              </li>
+              <li>commodity contracts;</li>
+              <li>public-private partnership (P3) contracts;</li>
+              <li>insurance contracts; or</li>
+              <li>contracts involving payments based on a climatic or geological  variable.</li>
+            </ul>
+          </li>
+        </ol>
+      </section>
+    </chapter>
+    <chapter anchor="3" title="Identification and assessment of embedded derivatives">
+      <section>
+        <header>
+          <h3>3.1Â  Identification of embedded derivatives in host contracts (PSÂ 3450.A18-.A24)</h3>
+        </header>
+        <p>When a contract under review is  determined to be in scope of PSÂ 3450, it should be assessed for embedded  derivatives.</p>
+        <p>A contract may include embedded  derivatives when there is a change in contractual cash flows:</p>
+        <ol class="lst-lwr-alph">
+          <li>due to pricing features  based on an underlying variable; or</li>
+          <li>based on optional contract  features.</li>
+        </ol>
+        <p>3.1.1Â Examples of changes  in contractual cash flow due to pricing features based on an underlying variable include: </p>
+        <ol class="lst-lwr-alph">
+          <li>
+            Foreign currency: cash flows  vary based on a foreign  exchange rate. Assess  whether the currency is:
+      
+            <ul>
+              <li>the functional currency  of the counterparty,</li>
+              <li>the currency in which commercial transactions for the good or service are routinely  denominated globally, or</li>
+              <li>a currency commonly  used in contracts to purchase  or sell non-financial items in the economic environment of the  transaction;</li>
+            </ul>
+          </li>
+          <li>
+            Inflation index:  cash flows that are adjusted  by:
+      
+            <ul>
+              <li>inflation indices based on Canadian  or non-Canadian rates,  or</li>
+              <li>
+                <strong>leveraged </strong>
+                inflation and CPI adjustments (factor aboveÂ 2);
+              </li>
+            </ul>
+          </li>
+          <li>Cash flows adjusted by any other underlying variable  (for example, share price, commodity price, interest  rate index, credit risk of a third party, stock exchange); or</li>
+          <li>
+            Settlement permitted with 
+            <strong>non-cash  consideration </strong>
+            whose value  changes with an underlying  variable (that is, with warrants, options of a company, shares or commodities).
+          </li>
+        </ol>
+        <p>3.1.2Â Examples of changes in contractual cash flows based on optional  contract features include:</p>
+        <ol class="lst-lwr-alph">
+          <li>Cash flows that are modified  by a pricing cap or floor.  Assess whether the cap is above  or below the market rate or whether  the floor is below or above the market rate;</li>
+          <li>
+            <strong>Call</strong>
+            , 
+            <strong>put</strong>
+            , prepayment or redemption option that requires  the payment of a penalty  that:
+      
+            <ul>
+              <li>is fixed, or</li>
+              <li>varies based on current interest rates or some other variable;</li>
+            </ul>
+          </li>
+          <li>Term-extension option  or options. Consider whether  this option is at a market or non-market rate;</li>
+          <li>Complex interest rate features  or formulas that calculate the contractual cash flows. Assess whether the holder would  not substantially recover their  investment or would  receive a return that is at least twice the market  return; or</li>
+          <li>Terms allowing the transfer  of credit risk of a reference asset. Consider whether  this is related to the  creditworthiness of the obligor.</li>
+        </ol>
+        <p>3.1.3 Assessment to determine whether  the embedded derivative is closely related to  the host contract (PSÂ 3450.A25-.A26).</p>
+        <p>Not all  contracts containing provisions with the features of an embedded derivative  will warrant the recognition of the embedded derivative and measurement of its  value. When an embedded derivative is closely related to the host contract, it has  the same economic characteristics as the host contract. In such instances, the  embedded derivative does not need to be accounted for as a separate derivative  instrument. In addition to the examples provided in PSÂ 3450.A25-.A26, the  following table includes examples that indicate host contracts with embedded  derivatives that are closely related or not closely related to the contract. </p>
+        <table class="table table-bordered table-condensed">
+          <caption class="text-left">
+            <strong>TableÂ 2: examples of embedded derivatives in host contracts</strong>
+          </caption>
+          <thead>
+            <tr class="active">
+              <th scope="col">Type of host contract</th>
+              <th scope="col">Embedded derivatives that are closely related to the contract</th>
+              <th scope="col">
+                Embedded derivatives that are 
+                <strong>not</strong>
+                 closely related to the contract
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row" class="fnt-nrml">Loan receivable with floating interest rate</th>
+              <td>Floating interest rate is capped at 4%. Market interest rate at inception is 3% (below cap).</td>
+              <td>Floating interest rate is capped at 2%. Market interest rate at inception is 3% (above cap).</td>
+            </tr>
+            <tr>
+              <th scope="row" class="fnt-nrml">Loan receivable with prepayment option</th>
+              <td>Prepayment option at par value of the loan plus accrued interest (equals the amortized cost of the loan).</td>
+              <td>Prepayment option at 110% of the par value of the loan, plus accrued interest (does not equal the amortized cost of the loan).</td>
+            </tr>
+            <tr>
+              <th scope="row" class="fnt-nrml">Deposit liability</th>
+              <td>Interest payments linked to an interest rate index.</td>
+              <td>Interest payments linked to an equity or commodity index.</td>
+            </tr>
+            <tr>
+              <th scope="row" class="fnt-nrml">Building lease</th>
+              <td>Annual payments based on the consumer price index (CPI).</td>
+              <td>Annual payments based on two times CPI; or annual payments based on a non-Canadian inflation index.</td>
+            </tr>
+            <tr>
+              <th scope="row" class="fnt-nrml">
+                Executory contract to purchase copper in a foreign currency (commodity contract) 
+                <br/>
+                <strong>Note:</strong>
+                 If this contract meets the definition of a stand-alone    derivative, the entire contract is measured at fair value.
+              </th>
+              <td>Payments    are in US dollars, which is the currency in which copper prices are routinely denominated around the world.</td>
+              <td>
+                Payments are in Japanese yen, which is not one of the following:
+        
+                <ul>
+                  <li>The functional currency of either party to the contract;</li>
+                  <li>
+                    The currency in which transactions for this service are routinely denominated around the world;
+                    <strong> or</strong>
+                  </li>
+                  <li>The currency of the economic environment in which the transaction took place.</li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </chapter>
+    <chapter anchor="4" title="Accounting  requirements for embedded  derivatives">
+      <p>The following flow chart provides an overview of the accounting requirements for embedded  derivatives.</p>
+      <figure>
+        <figcaption class="text-center">
+          <strong>FigureÂ 2: flow chart to determine  the accounting requirements for embedded derivatives</strong>
+        </figcaption>
+        <img src="https://www.tbs-sct.gc.ca/pol-cont/32780-2-eng.png" class="img-responsive center-block" alt="Figure 2. Text version below"/>
+        <details>
+          <summary>Figure 2 - Text version</summary>
+          <ul>
+            <li>
+              Are the economic characteristics and risks of  the embedded derivative closely related to the host contract?
+    
+              <ul>
+                <li>If yes, do not separate the embedded  derivatives from the host contract.</li>
+                <li>
+                  If no, will the hybrid contract be measured at  fair value?
+        
+                  <ul>
+                    <li>If yes, do not separate the embedded  derivatives from the host contract.</li>
+                    <li>If no, separate the embedded derivative from  the host contract and account for the embedded derivative as a derivative.</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </details>
+      </figure>
+      <section>
+        <header>
+          <h3>4.1Â  Embedded derivative closely related to the host contract</h3>
+        </header>
+        <p>If the embedded derivative is determined  to be closely related to the host contract at inception, it is not separated  from the host contract and there are no further accounting requirements (PSÂ 3450.A19-.A.26). </p>
+        <p>Subsequent reassessment of the embedded derivative is prohibited unless  there are changes  to the contract that significantly modify the cash flows (PSÂ 3450.A21).</p>
+      </section>
+      <section>
+        <header>
+          <h3>4.2Â  Embedded derivative not closely related to the host contract</h3>
+        </header>
+        <p>When it has been determined that the embedded  derivative is not closely related  to the host contract (PSÂ 3450.A25), there are two accounting  options available:</p>
+        <ol class="lst-lwr-alph">
+          <li>
+            Measure the combined (hybrid)  contract at fair value at inception and throughout its life (PSÂ 3450.A22). Embedded derivatives  in financial instruments classified in the fair value category are not  separated (PSÂ 3450.A19(c)); 
+            <strong>or</strong>
+          </li>
+          <li>Separate the embedded  derivative and account for it separately as a stand-alone derivative, as long  as a separate instrument with the same terms as the embedded derivative would  meet the definition of a derivative (PSÂ 3450.A19(b)).</li>
+        </ol>
+      </section>
+      <section>
+        <header>
+          <h3>4.3Â  Accounting requirements for derivatives</h3>
+        </header>
+        <p>Apply the accounting requirements for  derivatives in PSÂ 3450 as follows:</p>
+        <ol class="lst-lwr-alph">
+          <li>
+            Determine the fair value
+            <sup id="fn1-rf">
+              <a class="fn-lnk" href="#fn1">
+                <span class="wb-inv">Footnote </span>
+                1
+              </a>
+            </sup>
+             of the hybrid contract or the embedded  feature at inception  (PSÂ 3450.A24) and continue to measure the derivative at fair value  throughout the life of the contract;
+          </li>
+          <li>Recognize the derivative asset  or derivative liability on the statement of financial position; and</li>
+          <li>Present unrealized fair value  gains or losses on the derivative in the statement of remeasurement gains and  losses until settlement, except for unrealized exchange gains and losses that are  recognized directly in the statement of operations (according to Government of  Canada accounting policy election).</li>
+        </ol>
+        <p>Contact the Office of the Comptroller  General for specific coding requirements. </p>
+      </section>
+    </chapter>
+    <chapter anchor="5" title="Definitions">
+      <dl>
+        <dt>
+          <strong>call or put option</strong>
+        </dt>
+        <dd>An option to buy  or sell assets at an agreed price on or before  a particular date in the  future.</dd>
+        <dt>
+          <strong>closely related derivative</strong>
+        </dt>
+        <dd>An embedded derivative is closely related  to the host contract when the  risk and economic characteristics  of the embedded derivative, such as the changes in fair value,  are similar to the risk and economic characteristics of the host  contract.</dd>
+        <dt>
+          <strong>derivative</strong>
+        </dt>
+        <dd>
+           A financial  instrument that has 
+          <strong>all three </strong>
+          of the  following characteristics:
+
+          <ul>
+            <li>Its value changes in response  to the change in a specified interest rate, financial instrument price, commodity price, foreign exchange rate, index of prices or rates, credit  rating or credit  index, or other variable, provided in the case of a non-financial  variable that the variable is not specific to a party to the contract  (sometimes the variable is described as âunderlyingâ);</li>
+            <li>It does not require an initial  net investment, or it requires an initial net investment that is smaller than would  be required for other types of contracts that would be expected to have  a similar response to changes in market factors; and</li>
+            <li>It is settled at a future date or dates.</li>
+          </ul>
+        </dd>
+        <dt>
+          <strong>host contract</strong>
+        </dt>
+        <dd>A contract  that is currently being assessed  for the existence of an  embedded derivative or derivatives.</dd>
+        <dt>
+          <strong>hybrid  contract</strong>
+        </dt>
+        <dd>A combined contract  that includes both a non-derivative host contract and an embedded derivative.  Such a contract has the effect that some of the cash flows of the combined  instrument vary in a way similar to a stand-alone derivative.</dd>
+        <dt>
+          <strong>net settlement</strong>
+        </dt>
+        <dd>A settlement  method used where the seller (or buyer) of an item does not deliver (or  purchase) the actual physical asset but instead exchanges (pays) the associated cash value based  on the change in fair value.</dd>
+        <dt>
+          <strong>non-cash  consideration </strong>
+        </dt>
+        <dd>Consideration  received or receivable in a form other than cash, which typically includes  options, stocks, warrants, or non-financial assets, such as equipment or  materials.</dd>
+      </dl>
+    </chapter>
+  </chapters>
+  <footnotes>
+    <footnote anchor="fn1" reference="fn1-rf" title="1" tooltip="Return to footnote 1 referrer">
+      <p>Determining the fair value of a derivative may require the services of a valuation  expert.</p>
+    </footnote>
+  </footnotes>
+</doc>

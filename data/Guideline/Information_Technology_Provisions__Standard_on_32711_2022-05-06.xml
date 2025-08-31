@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" title="Appendix E: Standard on Information Technology Provisions" documentID="32711" versionID="1" language="en" space="preserve" xsi:noNamespaceSchemaLocation="G:\web\xml\pols\PolicyInstrumentSchema.HTML5.xsd">
+  <chapters>
+    <chapter anchor="Appendix E" title="Standard on Information Technology Provisions">
+      <chapter anchor="E.1" title="Profiles">
+        <clauses>
+          <clause anchor="E.1.1">These profiles provide details in support of requirement 4.4.1.1  of the Directive on Service and Digital.</clause>
+          <clause anchor="E.1.2">
+            <p>The  specifications for the GC IT User and Call Centre User profiles are:</p>
+            <clauses>
+              <clause anchor="E.1.2.1">A single portable computing device.</clause>
+              <clause anchor="E.1.2.2">A single keyboard and input device.</clause>
+              <clause anchor="E.1.2.3">All computing devices have camera, microphone,  and Wi-Fi network connectivity enabled.</clause>
+              <clause anchor="E.1.2.4">A single licence to the Microsoft Office M365 E3 subscription.</clause>
+              <clause anchor="E.1.2.5">A limit of one non-Microsoft Office M365 account for  audio/web/video conferencing.</clause>
+              <clause anchor="E.1.2.6">A single individual enterprise email account.</clause>
+              <clause anchor="E.1.2.7">A single GC Digital Identity.</clause>
+              <clause anchor="E.1.2.8">
+                <p>A limit of one cellular device and one lowest-tier  cellular plan.</p>
+                <clauses>
+                  <clause anchor="E.1.2.8.1">A second cellular device and second  cellular plan as required for secure/classified information or communications.</clause>
+                </clauses>
+              </clause>
+              <clause anchor="E.1.2.9">Eligible to be assigned a single Government of  Canada Secret Infrastructure (GCSI) account.</clause>
+              <clause anchor="E.1.2.10">Eligible  to be assigned secure remote access (SRA).</clause>
+            </clauses>
+          </clause>
+          <clause anchor="E.1.3">
+            <p>The specifications for the Remote/Field User and the  Policing/Enforcement/Intelligence User in addition to the GC IT User are:</p>
+            <clauses>
+              <clause anchor="E.1.3.1">Eligible for ruggedized portable computing  device.</clause>
+              <clause anchor="E.1.3.2">Eligible for high-data limit cellular plans if  principally working remotely.</clause>
+            </clauses>
+          </clause>
+          <clause anchor="E.1.4">
+            <p>The  specifications for the High-security User in addition to the GC IT User are:</p>
+            <clauses>
+              <clause anchor="E.1.4.1">Eligible for computing device to be desktop  computer.</clause>
+              <clause anchor="E.1.4.2">Eligible to have camera, microphone, or Wi-Fi  functionalities disabled.</clause>
+              <clause anchor="E.1.4.3">Eligible to be assigned fixed telephony  devices (Voice over Internet Protocol (VoIP), or other fixed line) if cell  signal is not permitted in their work environment.</clause>
+            </clauses>
+          </clause>
+          <clause anchor="E.1.5">
+            <p>The specifications for the Scientist/Lab User, Data  Scientist/Analyst, and Software Developer / Power User / Graphic Designer in  addition to the GC IT User are:</p>
+            <clauses>
+              <clause anchor="E.1.5.1">Eligible to have a high-performance device as  their base computing device.</clause>
+            </clauses>
+          </clause>
+          <clause anchor="E.1.6">
+            <p>The  specifications for the International Users in addition to the GC Office User are:</p>
+            <clauses>
+              <clause anchor="E.1.6.1">Eligible to be assigned cellular plans  appropriate for international use.</clause>
+              <clause anchor="E.1.6.2">Eligible to be assigned additional digital  identities or third-party credentials.</clause>
+            </clauses>
+          </clause>
+          <clause anchor="E.2.1">
+            <p>The base  specifications for all individual and collaborative workpoint profiles are:</p>
+            <clauses>
+              <clause anchor="E.2.1.1">Cellular and Wireless connectivity, with minimum -60  decibel-milliwatts (dBm) signal strength.</clause>
+            </clauses>
+          </clause>
+          <clause anchor="E.2.2">
+            <p>The specifications for all individual workpoint profiles in  addition to the base specified in E.2.1 are:</p>
+            <clauses>
+              <clause anchor="E.2.2.1">
+                <p>Two screen display (monitor) devices.</p>
+                <clauses>
+                  <clause anchor="E.2.2.1.1">Screen displays have  rotate, tilt, and height-adjust capabilities.</clause>
+                  <clause anchor="E.2.2.1.2">Minimum screen size is  22 inches per screen.</clause>
+                </clauses>
+              </clause>
+              <clause anchor="E.2.2.2">Port replicators for connection to a portable  computing device.</clause>
+              <clause anchor="E.2.2.3">Small Workspaces may have zero or one screen  display (monitor) devices.</clause>
+            </clauses>
+          </clause>
+          <clause anchor="E.2.3">
+            <p>The specifications for Fixed-line Workpoints in addition to the  base individual workpoint profiles are:</p>
+            <clauses>
+              <clause anchor="E.2.3.1">One fixed telephony/network connection.</clause>
+            </clauses>
+          </clause>
+          <clause anchor="E.2.4">
+            <p>The specifications for High-security Workpoints in addition to  the base individual workpoint profiles are:</p>
+            <clauses>
+              <clause anchor="E.2.4.1">Eligible for a secure desktop computer.</clause>
+              <clause anchor="E.2.4.2">Fixed network connection(s) to secret networks.</clause>
+              <clause anchor="E.2.4.3">Cell signals and wireless connectivity can be  restricted.</clause>
+              <clause anchor="E.2.4.4">Eligible for fixed telephony, or secure fixed telephony.</clause>
+            </clauses>
+          </clause>
+          <clause anchor="E.2.5">
+            <p>The specifications for High-bandwidth Workpoints in addition to  the base individual workpoint profiles are:</p>
+            <clauses>
+              <clause anchor="E.2.5.1">A fixed network connection point of minimum 1 Gigabit per second  (Gbps).</clause>
+            </clauses>
+          </clause>
+          <clause anchor="E.2.6">
+            <p>The specifications for Commissionaires Desks in addition to the  base individual workpoint profiles are:</p>
+            <clauses>
+              <clause anchor="E.2.6.1">One fixed telephony/network connection point.</clause>
+            </clauses>
+          </clause>
+          <clause anchor="E.2.7">
+            <p>The  specifications for Phone Booths are:</p>
+            <clauses>
+              <clause anchor="E.2.7.1">One fixed telephony/network connection point.</clause>
+            </clauses>
+          </clause>
+          <clause anchor="E.2.8">
+            <p>The  specifications for all collaborative workpoint profiles in addition to the base  are:</p>
+            <clauses>
+              <clause anchor="E.2.8.1">Each floor in a GC building should have, at  minimum, three equally spaced fixed telephony/network connection points, for  backup and emergency connection purposes.</clause>
+            </clauses>
+          </clause>
+          <clause anchor="E.2.9">
+            <p>The specifications for Boardrooms and Collaborative Spaces in  addition to the base collaborative workpoint profiles are:</p>
+            <clauses>
+              <clause anchor="E.2.9.1">At minimum, one fixed telephony/network connection  point, with additional connection points possible based on their size.</clause>
+              <clause anchor="E.2.9.2">At minimum, one display device of at least 48  inches.</clause>
+              <clause anchor="E.2.9.3">Display devices include HDMI connections, and  boardroom screens have screen-casting / screen-sharing capabilities.</clause>
+              <clause anchor="E.2.9.4">Boardrooms include cameras and microphones, as  appropriate, for audio or video conferencinE.</clause>
+              <clause anchor="E.2.9.5">Microsoft Office 365 compatible technologies  for any new implementations.</clause>
+            </clauses>
+          </clause>
+          <clause anchor="E.2.10">
+            <p>The specifications for Equipment Area in addition to the base collaborative  workpoint profiles are:</p>
+            <clauses>
+              <clause anchor="E.2.10.1">One fixed  telephony/network connection point for each communication device in the centre.</clause>
+            </clauses>
+          </clause>
+          <clause anchor="E.2.11">
+            <p>The specifications for Lobby and Public Access Zones in addition  to the base collaborative workpoint profiles are:</p>
+            <clauses>
+              <clause anchor="E.2.11.1">Availability of guest  Wi-Fi.</clause>
+              <clause anchor="E.2.11.2">Fixed-line telephony.</clause>
+            </clauses>
+          </clause>
+        </clauses>
+      </chapter>
+    </chapter>
+  </chapters>
+</doc>

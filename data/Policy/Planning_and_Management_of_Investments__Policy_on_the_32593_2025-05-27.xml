@@ -1,0 +1,1981 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" title="Policy on the Planning and Management of Investments" documentID="32593" versionID="5" language="en" space="preserve" xsi:noNamespaceSchemaLocation="s:\PolicyInstrumentSchema.HTML5.xsd">
+  <notetoreader>
+    <p>
+      The requirements in the amended 
+      <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=32593">
+        <em>Policy on the Planning and Management of Investments</em>
+      </a>
+       take effect on May 13, 2021 and replace the following instruments:
+    </p>
+    <ul>
+      <li>
+        <a href="http://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=14494">
+          <em>Contracting Policy</em>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=12038">
+          <em>Policy on Decision Making in Limiting Contractor Liability in Crown Procurement Contracts</em>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=12062">
+          <em>Policy on Management of Materiel</em>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=12042">
+          <em>Policy on Management of Real Property</em>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=12043">
+          <em>Directive on the Sale or Transfer of Surplus Real Property</em>
+        </a>
+      </li>
+    </ul>
+  </notetoreader>
+  <chapters>
+    <chapter anchor="1" title="Effective date">
+      <clauses>
+        <clause anchor="1.1">
+          This policy was amended and takes effect on 
+          <time datetime="2021-05-13">May 13, 2021</time>
+          .
+        </clause>
+        <clause anchor="1.2">
+          This policy replaces the following Treasury Board policy instruments: 
+    
+          <ul>
+            <li>
+              <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=14494">
+                <em>Contracting  Policy</em>
+              </a>
+               (April 11, 2019)
+            </li>
+            <li>
+              <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=12022">
+                <em>Policy Framework for the Management of Assets and Acquired Services</em>
+              </a>
+               (November 1, 2006)
+            </li>
+            <li>
+              <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=12038">
+                <em>Policy  on Decision Making in Limiting Contractor Liability in Crown Procurement  Contracts</em>
+              </a>
+               (September  1, 2013)
+            </li>
+            <li>
+              <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=18225">
+                <em>Policy on Investment Planning: Assets and Acquired Services</em>
+              </a>
+               (December 10, 2009)
+            </li>
+            <li>
+              <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=12062">
+                <em>Policy  on Management of</em>
+                <em>Materiel</em>
+              </a>
+              Â (November  1, 2006)
+            </li>
+            <li>
+              <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=18229">
+                <em>Policy on the Management of Projects</em>
+              </a>
+              Â (December 10, 2009)
+            </li>
+            <li>
+              <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=12042">
+                <em>Policy on Management of Real Property</em>
+              </a>
+              Â (November 1, 2006)
+            </li>
+            <li>
+              <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=32593">
+                <em>Policy  on the Planning and Management of Investments</em>
+              </a>
+              Â (April 11, 2019)
+            </li>
+            <li>
+              <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=12074">
+                <em>Procurement Review Policy</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=12043">
+                <em>Directive  on the Sale or Transfer of Surplus Real Property</em>
+              </a>
+              Â (November 1, 2006)
+            </li>
+          </ul>
+        </clause>
+        <clause anchor="1.3">The requirement of subsection 4.1.6 will come into  effect on April 11, 2021.</clause>
+        <clause anchor="1.4">The requirement to designate a senior official or  senior officials in the areas of procurement, real property and materiel  management, found in subsection 4.1.1 of this policy, will come into effect on May  13, 2021.
+    </clause>
+        <clause anchor="1.5">The requirements of subsectionsÂ 4.1.17, 4.1.18 (including  subsections starting with 4.1.18), 4.1.19, 4.1.20, 4.1.21, 4.1.22, 4.1.23,  4.1.24, 4.1.25 and 4.1.26 will come into effect on May 13, 2021. </clause>
+        <clause anchor="1.6">
+          Projects approved under the rescinded 
+          <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=18229">
+            <em>Policy on the  Management of Projects</em>
+          </a>
+           or the rescinded 
+          <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=12075">
+            <em>Project Approval Policy</em>
+          </a>
+           will  be automatically transitioned to the 
+          <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=32593">
+            <em>Policy on the Planning and Management  of Investments</em>
+          </a>
+           and the 
+          <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=32594">
+            <em>Directive on the Management of Projects and  Programmes</em>
+          </a>
+           in keeping with a timetable set by the Comptroller General of  Canada.
+        </clause>
+      </clauses>
+    </chapter>
+    <chapter anchor="2" title="Authorities">
+      <clauses>
+        <clause anchor="2.1">
+          This policy is issued pursuant to the following:
+	  
+          <ul>
+            <li>
+              sectionÂ 7 and subsectionsÂ 9(1.1), 9(2)  and 149(1) of the 
+              <a href="http://laws-lois.justice.gc.ca/eng/acts/F-11/">
+                <em>Financial Administration Act</em>
+              </a>
+            </li>
+            <li>
+              subsectionÂ 16(4) of the 
+              <a href="http://laws-lois.justice.gc.ca/eng/acts/F-8.4/">
+                <em>Federal Real Property and Federal Immovables Act</em>
+              </a>
+            </li>
+            <li>
+              sectionÂ 31 of the 
+              <a href="http://laws.justice.gc.ca/eng/acts/P-33.01/">
+                <em>Public Service Employment Act</em>
+              </a>
+            </li>
+          </ul>
+        </clause>
+        <clause anchor="2.2">The Treasury Board has delegated to the President of  the Treasury Board the authority to issue, amend and rescind directives that  are related to this policy.
+  </clause>
+        <clause anchor="2.3">
+          The Treasury Board has delegated to the Comptroller  General of Canada the authority to issue, amend and rescind appendices of this  policy and related directives, with the exception of Appendix A: Contracting  Approvals of the 
+          <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=32692">
+            <em>Directive on the  Management of Procurement</em>
+          </a>
+          .
+        </clause>
+      </clauses>
+    </chapter>
+    <chapter anchor="3" title="Objectives and expected results">
+      <clauses>
+        <clause anchor="3.1">The objective of this policy is that the Government of  Canada has the necessary assets and services in place to support program  delivery to Canadians.</clause>
+        <clause anchor="3.2">
+          The expected results of this policy are as follows:
+    
+          <clauses>
+            <clause anchor="3.2.1">Assets and services are well managed;</clause>
+            <clause anchor="3.2.2">Decisions are based on an assessment of full life-cycle  costs and demonstrate best value and sound stewardship;</clause>
+            <clause anchor="3.2.3">Governance and oversight are effective;</clause>
+            <clause anchor="3.2.4">Integrated and collaborative practices are in place;  and</clause>
+            <clause anchor="3.2.5">The workforce has the required knowledge, experience  and skills.</clause>
+          </clauses>
+        </clause>
+      </clauses>
+    </chapter>
+    <chapter anchor="4" title="Requirements">
+      <clauses>
+        <clause anchor="4.1">
+          Deputy heads are responsible for the following:
+
+	
+          <clauses>
+            <clause anchor="4.1.1">Designating a senior official or senior officials who  are responsible for supporting the deputy headâs accountability for all  requirements under this policy, including the capacity, competency, and  knowledge of the departmentâs workforce in project and programme management,  procurement, real property, and materiel management;</clause>
+            <clause anchor="4.1.2">
+              Ensuring that the departmentâs processes, systems and  controls for the planning and management of investments:
+        
+              <clauses>
+                <clause anchor="4.1.2.1.">Are commensurate with the level of risk and complexity  of the investment decisions;</clause>
+                <clause anchor="4.1.2.2.">Enable effective life-cycle management; </clause>
+                <clause anchor="4.1.2.3.">Integrate input and include an effective internal challenge  from the departmentâs functions for project and programme management, procurement,  real property, materiel management, information technology, finance, human  resources, security, and legal services; and</clause>
+                <clause anchor="4.1.2.4.">Are fair, open and transparent;</clause>
+              </clauses>
+            </clause>
+            <clause anchor="4.1.3">
+              Ensuring that investment decisions:
+			
+              <clauses>
+                <clause anchor="4.1.3.1.">Are aligned with results as set out in the Departmental Results Framework;</clause>
+                <clause anchor="4.1.3.2.">Consider areas of significant risk in achieving departmental  objectives;</clause>
+                <clause anchor="4.1.3.3.">Are documented and communicated across the department;</clause>
+                <clause anchor="4.1.3.4.">Are informed by timely and accurate performance  information;</clause>
+                <clause anchor="4.1.3.5.">Demonstrate best value and sound stewardship, taking  into account the life-cycle costs of assets and services;</clause>
+                <clause anchor="4.1.3.6.">Uphold the obligations of the Crown with respect to  Indigenous peoples;</clause>
+                <clause anchor="4.1.3.7.">Demonstrate strategic consideration of market  conditions and alternative and innovative approaches to procurement;</clause>
+                <clause anchor="4.1.3.8.">Consider inputs from project and programme management,  procurement, real property, materiel management, and other applicable internal  and external stakeholders;</clause>
+                <clause anchor="4.1.3.9.">Consider opportunities to advance government  socio-economic and environmental objectives, such as accessibility and reducing  greenhouse gas emissions; and </clause>
+                <clause anchor="4.1.3.10.">Leverage opportunities for interdepartmental  collaboration, including government-wide portfolio solutions;</clause>
+              </clauses>
+            </clause>
+            <clause anchor="4.1.4">
+              Ensuring that information is available to:
+			
+              <clauses>
+                <clause anchor="4.1.4.1.">Enable performance measurement and reporting, both  within the department and government-wide, related to the state and management  of investments; and</clause>
+                <clause anchor="4.1.4.2.">Support planning, budgeting and accounting for allocating  resources; </clause>
+              </clauses>
+            </clause>
+            <clause anchor="4.1.5">
+              Approving an investment plan that:
+			
+              <clauses>
+                <clause anchor="4.1.5.1.">Documents the departmentâs priorities, strategies and  planned investments for the upcoming five years, including a list of planned  and approved projects and programmes of $2.5Â million or greater and the  associated procurement plans, strategies or options for each;</clause>
+                <clause anchor="4.1.5.2.">Meets the operational requirements of the department  within existing reference levels and confirmed sources of funds; and</clause>
+                <clause anchor="4.1.5.3.">Is submitted every three years to the Treasury Board of  Canada Secretariat (TBS) in accordance with AppendixÂ A: Mandatory  Procedures for Investment Plans;</clause>
+              </clauses>
+            </clause>
+            <clause anchor="4.1.6">Submitting to TBS annually an updated list of planned  projects and programmes for the upcoming five years, with the associated  procurement plans, strategies or options for each, and the criteria used for prioritizing  the projects and programmes included in the list; and</clause>
+            <clause anchor="4.1.7">Ensuring that concept cases for digital investments are  completed in keeping with Appendix B: Mandatory Procedures for Concept Cases  for Digitally Enabled Projects;</clause>
+          </clauses>
+          <section>
+            <header>
+              <p>
+                <strong>Approval  authorities</strong>
+              </p>
+            </header>
+            <clauses>
+              <clause anchor="4.1.8">
+                When Treasury Board authority is required, ensuring  that no action is taken with respect to planned investments without the required  authorities in place, including: 
+      
+                <clauses>
+                  <clause anchor="4.1.8.1">
+                    Projects when the assessed level of complexity and risk  exceeds the assessed department capacity class of the sponsoring minister as outlined  in Appendix C: Project Approval Limits of the 
+                    <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=32594">
+                      <em>Directive on the Management of Projects and Programmes</em>
+                    </a>
+                    ;
+                  </clause>
+                  <clause anchor="4.1.8.2">All programmes;</clause>
+                  <clause anchor="4.1.8.3">
+                    Procurements of goods, services or construction that  exceed limits in Appendix A: Contracting Approvals of the 
+                    <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=32692">
+                      <em>Directive on the Management of Procurement</em>
+                    </a>
+                    ; and
+                  </clause>
+                  <clause anchor="4.1.8.4">
+                    Real property transactions that exceed limits in the 
+                    <a href="https://www.canada.ca/en/treasury-board-secretariat/services/federal-real-property-management/transaction-approval-limits-conditions-acquisition-disposition-real-property.html">
+                      <em>Transaction Approval Limits and Conditions  for the Acquisition or Disposition of Real Property</em>
+                    </a>
+                    ;
+                  </clause>
+                </clauses>
+              </clause>
+            </clauses>
+          </section>
+          <section>
+            <header>
+              <p class="mrgn-rght-lg">
+                <strong>Function-specific requirements</strong>
+              </p>
+              <p>
+                <strong>Project  and programme management</strong>
+              </p>
+              <p>Project and programme approval  authority limits</p>
+            </header>
+            <clauses>
+              <clause anchor="4.1.9">
+                Ensuring that when a department is seeking project  approval authority above the $2.5 million limit:
+      
+                <clauses>
+                  <clause anchor="4.1.9.1.">
+                    The departmentâs capacity to manage projects and programmes  is accurately assessed using the 
+                    <a href="https://www.canada.ca/en/treasury-board-secretariat/services/information-technology-project-management/project-management/organizational-project-management-capacity-assessment-tool.html">
+                      <em>Organizational Project Management Capacity  Assessment Tool</em>
+                    </a>
+                    ; and
+                  </clause>
+                  <clause anchor="4.1.9.2.">The resulting capacity class is submitted for the Treasury  Boardâs consideration at least once every three years, normally as part of the  consideration of the departmentâs investment plan;</clause>
+                </clauses>
+              </clause>
+            </clauses>
+          </section>
+          <section>
+            <p class="mrgn-lft-sm">Project and programme governance</p>
+            <clauses>
+              <clause anchor="4.1.10">
+                Ensuring  that the governance of all projects and programmes:
+      
+                <clauses>
+                  <clause anchor="4.1.10.1.">Is proportionate to the projectâs or programmeâs materiality,  needs, complexity, risk and scope; </clause>
+                  <clause anchor="4.1.10.2.">Provides for effective and timely decision-making, communication,  control and oversight; </clause>
+                  <clause anchor="4.1.10.3.">Is supported by appropriate structures and processes such  as committees, quality assurance and the use of independent reviews; and</clause>
+                  <clause anchor="4.1.10.4.">
+                    Includes processes to ensure decisions that:
+          
+                    <clauses>
+                      <clause anchor="4.1.10.4.1.">Take into account the interests of key stakeholders;</clause>
+                      <clause anchor="4.1.10.4.2.">Reflect, where appropriate, input from functional  experts;</clause>
+                      <clause anchor="4.1.10.4.3.">Focus on achieving business outcomes and benefits; and</clause>
+                      <clause anchor="4.1.10.4.4.">Are documented and communicated to key stakeholders;</clause>
+                    </clauses>
+                  </clause>
+                </clauses>
+              </clause>
+              <clause anchor="4.1.11">
+                Ensuring that, for enterprise projects and programmes:
+      
+                <clauses>
+                  <clause anchor="4.1.11.1.">Key stakeholders are provided with an opportunity to  participate in the governance;</clause>
+                  <clause anchor="4.1.11.2.">A governance committee structure is established that  includes a Senior Board consisting of participating deputy heads, an assistant  deputy minister or equivalent committee, and a director general committee; and</clause>
+                  <clause anchor="4.1.11.3.">Deputy heads who are members of the Senior Board sign off on the project and programme sponsor appointment letter;</clause>
+                </clauses>
+              </clause>
+            </clauses>
+          </section>
+          <section>
+            <p class="mrgn-lft-sm">Project and programme  sponsors</p>
+            <clauses>
+              <clause anchor="4.1.12">
+                Ensuring  that all projects and programmes have a sponsor who is:
+      
+                <clauses>
+                  <clause anchor="4.1.12.1.">Designated at the outset of the planning phase;</clause>
+                  <clause anchor="4.1.12.2.">The single point of accountability; and</clause>
+                  <clause anchor="4.1.12.3.">At the appropriate management level to be accountable  for successful implementation of the project or programme;</clause>
+                </clauses>
+              </clause>
+            </clauses>
+          </section>
+          <clauses>
+            <clause anchor="4.1.13">
+              Appointing  an assistant deputy minister or equivalent as the sponsor for:
+      
+              <clauses>
+                <clause anchor="4.1.13.1.">All projects that have a project complexity and risk assessment  level of 4;</clause>
+                <clause anchor="4.1.13.2.">All digitally enabled projects that have a project complexity  and risk assessment level of 3 or 4; and</clause>
+                <clause anchor="4.1.13.3.">All programmes;</clause>
+              </clauses>
+            </clause>
+            <clause anchor="4.1.14">
+              Signing appointment letters that document the  responsibilities and authorities of the sponsor for:
+	     
+              <clauses>
+                <clause anchor="4.1.14.1">All projects that have a project complexity and risk assessment  of 4;</clause>
+                <clause anchor="4.1.14.2">Projects over $100Â million that have a project complexity  and risk assessment of 3; and</clause>
+                <clause anchor="4.1.14.3">All programmes;</clause>
+              </clauses>
+            </clause>
+            <clause anchor="4.1.15">Ensuring that the sponsor for all digitally enabled  projects or programmes that have a project complexity and risk assessment level  of 3 or 4 is either the business owner or a delegated representative of the  business owner;</clause>
+          </clauses>
+          <section>
+            <p>
+              <strong>Procurement</strong>
+            </p>
+            <clauses>
+              <clause anchor="4.1.16">Ensuring  that government-wide policies and programs that leverage procurement to achieve  socio-economic and environmental policy objectives obtain Treasury Board  approval before being implemented, and that performance of those approved  policies and programs are measured;</clause>
+            </clauses>
+          </section>
+          <section>
+            <p>
+              <strong>Real  property and materiel</strong>
+            </p>
+            <clauses>
+              <clause anchor="4.1.17">Acquiring  and administering real property and materiel only in support of their mandated programs;</clause>
+              <clause anchor="4.1.18">
+                Ensuring  that real property and materiel are managed using a life-cycle approach that: 
+	 
+                <clauses>
+                  <clause anchor="4.1.18.1">Bases investment decisions on real property portfolio  strategies and materiel strategies;</clause>
+                  <clause anchor="4.1.18.2">Reduces greenhouse gas emissions and is consistent with  the principles of sustainable development;</clause>
+                  <clause anchor="4.1.18.3">Respects their heritage value;</clause>
+                  <clause anchor="4.1.18.4">Minimizes the risk of damage or loss;</clause>
+                  <clause anchor="4.1.18.5">Safeguards controlled goods; </clause>
+                  <clause anchor="4.1.18.6">Ensures that they are accessible and barrier-free  unless reasonably not required;</clause>
+                  <clause anchor="4.1.18.7">Optimizes best value, including socio-economic and  environmental considerations; and</clause>
+                  <clause anchor="4.1.18.8">Optimizes their useful life through adequate  maintenance and reinvestment;</clause>
+                </clauses>
+              </clause>
+              <clause anchor="4.1.19">Ensuring  disposal or divestment of real property and materiel that no longer support  program requirements;</clause>
+              <clause anchor="4.1.20">Ensuring  that costs and risks are minimized for underutilized and surplus real property  and materiel, and when disposal or divestment is not possible;</clause>
+              <clause anchor="4.1.21">Ensuring  that due diligence is undertaken in the acquisition and disposal or divestment  of real property and materiel;</clause>
+              <clause anchor="4.1.22">
+                Justifying  the consideration received or given by the government in relation to the market  value determined according to Appendix B: Mandatory  Procedures for Appraisals and Estimates of the 
+                <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=32691">
+                  <em>Directive on the Management of Real Property</em>
+                </a>
+                ;
+              </clause>
+              <clause anchor="4.1.23">Obtaining  ministerial approval to acquire or dispose of real property when it is  inappropriate or not in the public interest to have an open solicitation of  offers;</clause>
+              <clause anchor="4.1.24">Seeking  ministerial approval for the sale of materiel that is being sold or donated at  less that market value or to a limited market, unless this approval has been  delegated by the Minister to the deputy head;</clause>
+              <clause anchor="4.1.25">
+                Ensuring  that the proceeds of sale are sought only when reporting requirements outlined  in Appendix C: Mandatory Procedures for Reporting of the 
+                <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=32691">
+                  <em>Directive on the Management of Real Property</em>
+                </a>
+                 are satisfied; and
+              </clause>
+              <clause anchor="4.1.26">Investing  the proceeds of sale of real property, when accessed, in real property.</clause>
+            </clauses>
+          </section>
+        </clause>
+        <clause anchor="4.2">The Secretary of the Treasury Board is responsible for establishing  and documenting processes for TBSâs review of investment plans.</clause>
+        <clause anchor="4.3">
+          The Comptroller General of Canada is responsible for  the following:
+    
+          <clauses>
+            <clause anchor="4.3.1">Providing government-wide leadership and supporting the  professional development of the communities for investment planning, project  management, procurement, real property, and materiel management;</clause>
+            <clause anchor="4.3.2">
+              Providing guidance and recommending corrective action  regarding the following:
+        
+              <clauses>
+                <clause anchor="4.3.2.1.">Compliance with this policy and its supporting  instruments;</clause>
+                <clause anchor="4.3.2.2.">Performance of the functions involved in investment  planning and management within departments; and</clause>
+                <clause anchor="4.3.2.3.">The investment planning and management functions across  government;</clause>
+              </clauses>
+            </clause>
+            <clause anchor="4.3.3">Ensuring  that there are opportunities to review and align Treasury Boardâapproved programs  that leverage procurement for socio-economic and environmental policy objectives;  and</clause>
+            <clause anchor="4.3.4">Providing  opportunities for sharing best practices and lessons learned government-wide;</clause>
+          </clauses>
+        </clause>
+        <clause anchor="4.4">The Chief Information Officer of the Government of Canada  is responsible for reviewing and endorsing concept cases for digital  investments that have been submitted as required by AppendixÂ B: Mandatory Procedures for Concept  Cases for Digitally Enabled Projects.
+   
+  </clause>
+      </clauses>
+    </chapter>
+    <chapter anchor="5" title="Roles of other government organizations">
+      <clauses>
+        <clause anchor="5.1">Roles of other departments related to procurement, real  property and materiel management are identified in supporting directives.</clause>
+      </clauses>
+    </chapter>
+    <chapter anchor="6" title="Application">
+      <clauses>
+        <clause anchor="6.1">
+          This policy and its supporting instruments apply to all  departments, as defined in section 2 of the 
+          <a href="http://laws-lois.justice.gc.ca/eng/acts/F-11/">
+            <em>Financial Administration Act</em>
+          </a>
+           except those included within the  meaning of paragraphÂ (c), unless otherwise excluded by other acts,  regulations or orders in council.
+        </clause>
+        <clause anchor="6.2">This policy does not apply to activities, initiatives  or projects or programmes funded by the Government of Canada using transfer  payments.</clause>
+      </clauses>
+      <section>
+        <p>
+          <strong>Agents of Parliament:</strong>
+        </p>
+        <clauses>
+          <clause anchor="6.3">
+            The following organizations are considered agents of  Parliament for the purposes of the policy, and are solely responsible for  monitoring and ensuring compliance with the policy within their organizations, and  for responding to cases of non-compliance in accordance with any Treasury Board  instruments that address the management of compliance:
+	      
+            <ul>
+              <li>Office of the Auditor General of Canada</li>
+              <li>Office of the Chief Electoral Officer</li>
+              <li>Office of the Commissioner of Lobbying of Canada</li>
+              <li>Office of the Commissioner of Official Languages</li>
+              <li>Office of the Information Commissioner of Canada</li>
+              <li>Office of the Privacy Commissioner of Canada</li>
+              <li>Office of the Public Sector Integrity  Commissioner of Canada </li>
+            </ul>
+            <clauses>
+              <clause anchor="6.3.1">For greater certainty, the definition of âprojectâ does not include the performance of audits, investigations, or other statutory  mandate activities of agents of Parliament; and
+    
+      </clause>
+              <clause anchor="6.3.2">
+                The following sections of this policy do not  apply to agents of Parliament:
+		
+		
+                <ul>
+                  <li>subsectionÂ 4.1.7</li>
+                  <li>subsection 4.1.8, including 4.1.8.1, 4.1.8.2,  4.1.8.3 and 4.1.8.4</li>
+                  <li>subsection 4.1.9, including 4.1.9.1 and 4.1.9.2</li>
+                  <li>subsection 4.1.16</li>
+                  <li>subsection 4.3.2, including 4.3.2.1, 4.3.2.2, and  4.3.2.3</li>
+                  <li>sectionÂ 7, including subsectionÂ 7.1</li>
+                  <li>AppendixÂ A: Mandatory Procedures for  Investment Plans, subsectionsÂ A.1.2.7, and A.1.3 including A.1.3.1, A.1.3.2  and A.1.3.3</li>
+                  <li>AppendixÂ B: Mandatory Procedures for  Concept Cases for Digitally Enabled Projects, subsectionÂ B.1.4, including B.1.4.1  and B1.4.2</li>
+                </ul>
+              </clause>
+            </clauses>
+          </clause>
+        </clauses>
+      </section>
+      <clauses>
+        <clause anchor="6.4">
+          Subsections 4.1.5.3 and 4.1.6 of this policy do not  apply to small departments and agencies.
+
+
+
+          <section>
+            <p class="mrgn-tp-md">
+              <strong>Small departments and agencies</strong>
+            </p>
+            <clauses>
+              <clause anchor="6.4.1">For the purposes of this policy, small departments and  agencies are defined as organizations that have reference levels that include  revenues credited to the vote of less than $300Â million per year or that  have been, for the purposes of this policy, designated as small departments or  agencies by the President of the Treasury Board on the recommendation of the  Secretary of the Treasury Board; and</clause>
+              <clause anchor="6.4.2">Organizations whose reference levels change so as to  bring them above or below the $300Â million threshold will not be redefined  as large or small departments or agencies unless their reference levels remain  above or below the threshold for three consecutive years, to allow for  stability and transition, unless otherwise determined by the President of the  Treasury Board upon the recommendation of the Secretary of the Treasury Board;</clause>
+            </clauses>
+          </section>
+        </clause>
+        <clause anchor="6.5">The requirements of subsection 4.1.9 and its related  subsections apply to departments seeking a project approval authority limit  greater than $2.5Â million; and</clause>
+        <clause anchor="6.6">
+          For interpretation of this policy and the related 
+          <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=32691">
+            <em>Directive on the Management of Real Property</em>
+          </a>
+          ,  mandatory procedures, and standards in the province of Quebec, âreal propertyâ means âimmovableâ within the meaning of civil law of the province of Quebec and  includes the rights of a lessee in respect of such an immovable.
+        </clause>
+      </clauses>
+    </chapter>
+    <chapter anchor="7" title="Consequences  of non-compliance">
+      <clauses>
+        <clause anchor="7.1">
+          For an outline of the consequences of non-compliance,  refer to the 
+          <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=17151">
+            <em>Framework for the Management of Compliance</em>
+          </a>
+           (AppendixÂ C: Consequences for Institutions and AppendixÂ D:  Consequences for Individuals).
+        </clause>
+      </clauses>
+    </chapter>
+    <chapter anchor="8" title="References">
+      <clauses>
+        <clause anchor="8.1">
+          Legislation
+
+          <ul>
+            <li>
+              <a href="https://laws-lois.justice.gc.ca/eng/acts/A-1/">
+                <em>Access to Information Act</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://laws-lois.justice.gc.ca/eng/acts/A-0.6/">
+                <em>Accessible Canada Act</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://laws-lois.justice.gc.ca/eng/acts/a-10.7/">
+                <em>Alternative Fuels Act</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://laws-lois.justice.gc.ca/eng/acts/h-6/">
+                <em>Canadian Human Rights Act</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://laws-lois.justice.gc.ca/eng/const/">
+                <em>Constitution Act, 1982</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://laws-lois.justice.gc.ca/eng/acts/C-51/">
+                <em>Cultural Property Export and Import Act</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://laws-lois.justice.gc.ca/eng/acts/d-1/">
+                <em>Defence Production Act</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://laws-lois.justice.gc.ca/eng/acts/P-38.2/">
+                <em>Department of Public Works and Government Services Act</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://laws-lois.justice.gc.ca/eng/acts/e-5.401/">
+                <em>Employment Equity Act</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://laws-lois.justice.gc.ca/eng/acts/E-19/">
+                <em>Export and Import Permits Act</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://laws-lois.justice.gc.ca/eng/acts/F-5.5/">
+                <em>Federal Accountability Act</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://laws-lois.justice.gc.ca/eng/acts/f-8.4/">
+                <em>Federal Real Property and Federal Immovables  Act</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://laws-lois.justice.gc.ca/eng/acts/f-8.6/">
+                <em>Federal Sustainable Development Act</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://laws-lois.justice.gc.ca/eng/acts/F-11/">
+                <em>Financial Administration Act</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://laws-lois.justice.gc.ca/eng/acts/i-3.3/">
+                <em>Income Tax Act</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://laws-lois.justice.gc.ca/eng/acts/i-5/">
+                <em>Indian Act</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://laws-lois.justice.gc.ca/eng/acts/o-2.4/">
+                <em>Oceans Act</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://laws-lois.justice.gc.ca/eng/acts/O-3.01/">
+                <em>Official Languages Act</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://laws-lois.justice.gc.ca/eng/acts/P-21/">
+                <em>Privacy Act</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://laws-lois.justice.gc.ca/eng/acts/S-8.9/">
+                <em>Shared Services Canada Act</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://lois-laws.justice.gc.ca/eng/acts/S-14.5/">
+                <em>Special Economic Measures Act</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://laws-lois.justice.gc.ca/eng/acts/s-27/">
+                <em>Surplus Crown Assets Act</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://laws-lois.justice.gc.ca/eng/acts/u-2/">
+                <em>United Nations Act</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://laws-lois.justice.gc.ca/eng/regulations/SOR-92-502/">
+                <em>Federal Real Property and Federal Immovables  Regulations</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://laws-lois.justice.gc.ca/eng/regulations/sor-87-402/">
+                <em>Government Contracts Regulations</em>
+              </a>
+            </li>
+          </ul>
+        </clause>
+        <clause anchor="8.2">
+          Related policy instruments
+    
+          <ul>
+            <li>
+              <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=32495">
+                <em>Policy on Financial Management</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=16578">
+                <em>Policy on Government Security</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=32573">
+                <em>Policy on Green Procurement</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=16484">
+                <em>Policy on Internal Audit</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=31300">
+                <em>Policy on Results</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=32603">
+                <em>Policy on Service and Digital</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=13525">
+                <em>Policy on Transfer Payments</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=32610">
+                <em>Directive  on Government Contracts, Including Real Property Leases, in the Nunavut  Settlement Area</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=32692">
+                <em>Directive  on the Management of Procurement</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=32594">
+                <em>Directive on the Management of Projects and Programmes</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=32691">
+                <em>Directive  on the Management of Real Property</em>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=32690">
+                <em>Directive  on the Management of Materiel</em>
+              </a>
+            </li>
+          </ul>
+        </clause>
+      </clauses>
+    </chapter>
+    <chapter anchor="9" title="Enquiries">
+      <clauses>
+        <clause anchor="9.1">
+          For interpretation of any aspect of this policy,  contact 
+          <a href="https://www.canada.ca/en/treasury-board-secretariat/corporate/contact.html#enquiries">Treasury  Board of Canada Secretariat Public Enquiries</a>
+          . 
+        </clause>
+      </clauses>
+    </chapter>
+  </chapters>
+  <appendices>
+    <appendix anchor="A" title="Appendix A: Mandatory Procedures for Investment Plans">
+      <appendix anchor="A.1" title="Procedures">
+        <clauses>
+          <clause anchor="A.1.1">
+            These  procedures provide details on the requirements set out in subsection 4.1.5 of  the 
+            <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=32593">
+              <em>Policy on the Planning and Management  of Investments</em>
+            </a>
+            .
+          </clause>
+          <clause anchor="A.1.2">
+            The departmentâs investment plan must: 
+
+            <clauses>
+              <clause anchor="A.1.2.1">Demonstrate the existence of an  investment management framework to direct the prioritization, planning,  acquisition, use and maintenance, and disposal or divestment of real property,  materiel, and information technology assets and services;</clause>
+              <clause anchor="A.1.2.2">
+                Be consistent with strategic government-wide initiatives; align  with departmental strategic planning, including the departmental results  framework established pursuant to the 
+                <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=31300">
+                  <em>Policy on Results</em>
+                </a>
+                ; and be responsive to current and future program  requirements;
+              </clause>
+              <clause anchor="A.1.2.3">Include procurement information that demonstrates consideration of market  conditions, supplier feedback, the duration or renewals of contracts, the recommended  procurement approach, any potential for single compliant bidders or serial  incumbents, any key risks, Indigenous procurement, and any additional  socio-economic and environmental public procurement priorities;</clause>
+              <clause anchor="A.1.2.4">Provide a summary of the departmentâs capacity for project and  programme management and procurement, and for managing real property, materiel,  and information technology assets and services, including identification of  specific capacity issues;</clause>
+              <clause anchor="A.1.2.5">Provide an assessment of previously planned investments against  intended results, including an overview of lessons learned, challenges to and  opportunities for improving elements of the investment planning framework, and  organizational planning and resourcing capacity;</clause>
+              <clause anchor="A.1.2.6">Describe departmental investment priorities, prioritization criteria,  and planned spending on real property, materiel, and information technology  assets and services for the upcoming five years;</clause>
+              <clause anchor="A.1.2.7">Include sufficient information on planned projects and procurements  to support an informed decision by the Treasury Board as to which projects and  procurements would warrant its consideration; and</clause>
+              <clause anchor="A.1.2.8">Include performance and risk management plans to identify and  address areas of greatest risk in achieving departmental results, and identify and  address significant gaps in investment performance.</clause>
+            </clauses>
+          </clause>
+          <clause anchor="A.1.3">
+            As part of the development of the investment plan:
+
+            <clauses>
+              <clause anchor="A.1.3.1">The Treasury Board of Canada Secretariat  (TBS) is consulted in determining which investments to highlight in the  departmental investment plan;</clause>
+              <clause anchor="A.1.3.2">TBS is advised, in a timely manner, of any  significant deviations from the departmental investment plan. Following  consultations with TBS, if requested, the departmental investment plan is to be  revised and submitted to TBS; and</clause>
+              <clause anchor="A.1.3.3">
+                If requested by TBS, the departmental  investment plan is to be submitted to Treasury Board for approval. The Treasury Boardâs decision  to approve will be based on several factors, including:
+	 
+                <clauses>
+                  <clause anchor="A.1.3.3.1">The  significance and risk of a departmentâs planned investments;</clause>
+                  <clause anchor="A.1.3.3.2">The departmentâs  management performance as determined through appropriate management  accountability mechanisms and other monitoring activities; and</clause>
+                  <clause anchor="A.1.3.3.3">The  magnitude of changes in planned investments or capacity to deliver.</clause>
+                </clauses>
+              </clause>
+            </clauses>
+          </clause>
+        </clauses>
+      </appendix>
+    </appendix>
+    <appendix anchor="B" title="Appendix B: Mandatory Procedures for Concept Cases for Digitally Enabled Projects">
+      <appendix anchor="B.1" title="Procedures">
+        <clauses>
+          <clause anchor="B.1.1">
+            These  procedures provide details on the requirements set out in subsection 4.1.7 of  the 
+            <a href="https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=32593">
+              <em>Policy on the Planning and Management  of Investments</em>
+            </a>
+            . 
+          </clause>
+          <clause anchor="B.1.2">
+            These procedures  apply to all potential investments in Government of Canada digitally enabled  projects for which the department is willing to invest a minimum of the  following amounts in order to address a problem  or take advantage of an opportunity : 
+
+            <clauses>
+              <clause anchor="B.1.2.1">$2.5Â million for  departments that do not have an approved Organizational Project Management  Capacity Class or that have an approved Organizational Project Management  Capacity Class of 1;</clause>
+              <clause anchor="B.1.2.2">$5Â million for departments that have an  approved Organizational Project Management Capacity Class of 2;</clause>
+              <clause anchor="B.1.2.3">$10Â million for departments that have an  approved Organizational Project Management Capacity Class of 3;</clause>
+              <clause anchor="B.1.2.4">$15Â million for National Defence; and</clause>
+              <clause anchor="B.1.2.5">$25Â million for departments that have an  approved Organizational Project Management Capacity Class of 4.</clause>
+            </clauses>
+          </clause>
+        </clauses>
+        <section>
+          <header>
+            <p class="mrgn-rght-lg">
+              <strong>Preparing and  submitting the concept case</strong>
+            </p>
+          </header>
+          <clauses>
+            <clause anchor="B.1.3">
+              The deputy head is responsible for ensuring that  a concept case is prepared in accordance with the 
+              <a href="https://www.tbs-sct.gc.ca/pol-cont/32593-eng.docx">Concept Case Template </a>
+               and approved by the  business owner (assistant deputy minister level or above). 
+            </clause>
+            <clause anchor="B.1.4">
+              The business  owner is responsible for:
+ 
+              <clauses>
+                <clause anchor="B.1.4.1">Ensuring  that the concept case is reviewed by the appropriate departmental investment  oversight body to confirm that it merits inclusion in the departmental  investment plan; and </clause>
+                <clause anchor="B.1.4.2">Approving  and submitting the concept case to the Treasury Board of Canada Secretariat for  review by the Chief Information Officer of the Government of Canada.</clause>
+              </clauses>
+            </clause>
+            <clause anchor="B.1.5">For concept cases that may result in a joint or enterprise digitally  enabled project or programme, the initiative lead is designated as the business  owner and, as such, is responsible for providing the concept case on behalf of  all implicated departments. </clause>
+          </clauses>
+        </section>
+      </appendix>
+    </appendix>
+    <appendix anchor="C" title="Appendix C: Definitions ">
+      <dl>
+        <dt>
+          <strong>
+            access (
+            <span lang="fr-CA">accÃ¨s</span>
+            )
+          </strong>
+        </dt>
+        <dd>  With respect to controlled  goods, the capacity to examine, possess or transfer controlled goods.</dd>
+        <dt>
+          <strong>
+            acquisition (
+            <span lang="fr-CA">acquisition</span>
+            )
+          </strong>
+        </dt>
+        <dd>  A transaction that adds  assets or services to a departmentâs or Government of Canadaâs program or  service delivery capabilities by: purchase; lease; acceptance of a surrender or  resiliation of a lease; licence; exchange; acceptance of a gift, devise, or legacy;  easement; acceptance  of a relinquishment of an easement or by abandonment of a servitude;  expropriation; transfer of administration from another department or agent  Crown Corporation; or a transfer of administration and control from the  provincial Crown.</dd>
+        <dt>
+          <strong>
+            advance contract award  notice (
+            <span lang="fr-CA">prÃ©avis dâadjudication de contrat</span>
+            )
+          </strong>
+        </dt>
+        <dd>  A notice posted on the  Government of Canadaâapproved electronic tendering system for a minimum of  15Â calendar days to notify suppliers that a department intends to award a  good, service or construction contract to a pre-identified supplier and that  the department is willing to consider an alternative, qualified supplier.</dd>
+        <dt>
+          <strong>
+            appointment letter (
+            <span lang="fr-CA">lettre de nomination</span>
+            )
+          </strong>
+        </dt>
+        <dd>
+            A letter that sets out responsibilities of the project or  programme sponsor, including:
+
+          <ul>
+            <li>Delivering an output that respects the identified and agreed  to capabilities of the project or programme;</li>
+            <li>Making decisions so as not to disadvantage the realization of  intended outcomes and benefits of the project or programme;</li>
+            <li>Exercising effective governance, including comprehensive  engagement of stakeholders, timely decisions, and appropriate escalation of  issues; and </li>
+            <li>Honest and transparent reporting of project status, issues  and risks.</li>
+          </ul>
+        </dd>
+        <dt>
+          <strong>
+            appraisal (
+            <span lang="fr-CA">Ã©valuation</span>
+            )
+          </strong>
+        </dt>
+        <dd>An adequately supported  written opinion of the market value of the real property as of a specific date  that evaluates the real property rights, interests or benefits involved  according to accepted appraisal practices, undertaken by a recognized  professional.</dd>
+        <dt>
+          <strong>
+            archaeological site (
+            <span lang="fr-CA">site archÃ©ologique</span>
+            )
+          </strong>
+        </dt>
+        <dd>A place or area where the  significance of the tangible evidence of past human activity is located in situ  on, below or above ground or on lands under water as determined by a qualified  archaeologist using archaeological research methods.</dd>
+        <dt>
+          <strong>
+            assets (
+            <span lang="fr-CA">actifs</span>
+            ) 
+          </strong>
+        </dt>
+        <dd>Tangible and intangible  items of value, excluding money or records, that have an expected life beyond  one year, whether they are Crown-owned, leased or accessed through other  arrangements. </dd>
+        <dt>
+          <strong>
+            benefit (
+            <span lang="fr-CA">avantage</span>
+            )
+          </strong>
+        </dt>
+        <dd>A measurable improvement  that contributes to departmental objectives, including strategic objectives.</dd>
+        <dt>
+          <strong>
+            best value (
+            <span lang="fr-CA">optimisation des ressources</span>
+            )
+          </strong>
+        </dt>
+        <dd>The extent to which a  solution or investment achieves the optimal balance of resource expenditure and  realization of outcomes, including socio-economic and environmental returns,  throughout the asset or service life cycle. For acquisitions, the lowest price  is not always representative of best value.</dd>
+        <dt>
+          <strong>
+            bid (
+            <span lang="fr-CA">soumission</span>
+            )
+          </strong>
+        </dt>
+        <dd>A proposal, quotation or  tender submitted in response to a solicitation.</dd>
+        <dt>
+          <strong>
+            bidder (
+            <span lang="fr-CA">soumissionnaire</span>
+            )
+          </strong>
+        </dt>
+        <dd>A legal entity, person,  joint venture or company that has submitted a bid in response to a  solicitation.</dd>
+        <dt>
+          <strong>
+            business owner (
+            <span lang="fr-CA">propriÃ©taire fonctionnel</span>
+            )
+          </strong>
+        </dt>
+        <dd>
+          An individual who is responsible for the business or program  area for which the project, procurement or programme is established. The  business owner is responsible for:
+
+          <ul>
+            <li>Defining the required capabilities, intended business  outcomes, and benefits of a project, procurement or programme at its outset;  and </li>
+            <li>The achievement of the business outcomes and benefits  following implementation.</li>
+          </ul>
+        </dd>
+        <dt>
+          <strong>
+            climate resiliency (
+            <span lang="fr-CA">rÃ©silience climatique</span>
+            )
+          </strong>
+        </dt>
+        <dd>The capacity of structures  to support operations in the context of climate change.</dd>
+        <dt>
+          <strong>
+            commercial vehicle (
+            <span lang="fr-CA">vÃ©hicule commercial</span>
+            ) 
+          </strong>
+        </dt>
+        <dd>
+          On-road  passenger and cargo-carrying vehicles with a gross vehicle weight rating (
+          <span lang="fr-CA">GVWR</span>
+          )  of 4,536Â kg (
+          <span lang="fr-CA">10,001Â lb.</span>
+          ) and above, including but not limited to,  straight trucks (
+          <span lang="fr-CA">such as van body trucks, dump trucks and flatbed trucks</span>
+          ),  highway tractors (
+          <span lang="fr-CA">semis</span>
+          ) and buses used to transport more than 15Â passengers,  including the driver.
+        </dd>
+        <dt>
+          <strong>
+            commodity grouping (
+            <span lang="fr-CA">groupe de produits</span>
+            )
+          </strong>
+        </dt>
+        <dd>A collection of frequently  bought commodities, each of which is managed as a standard group with its  associated risk assessment, financial caps and clauses.</dd>
+        <dt>
+          <strong>
+            common service provider (
+            <span lang="fr-CA">fournisseur de services communs</span>
+            )
+          </strong>
+        </dt>
+        <dd>A department or  organization, including a special operating agency, designated by Cabinet  decisions, law or policy as a central supplier of designated services to  support the requirements of other departments.</dd>
+        <dt>
+          <strong>
+            competitive contract (
+            <span lang="fr-CA">contrat concurrentiel</span>
+            )
+          </strong>
+        </dt>
+        <dd>A contract that is entered  into by soliciting more than one bid.</dd>
+        <dt>
+          <strong>
+            competitive procurement (
+            <span lang="fr-CA">approvisionnement  concurrentiel</span>
+            )
+          </strong>
+        </dt>
+        <dd>The solicitation of bids  from more than one supplier.</dd>
+        <dt>
+          <strong>
+            complex procurement (
+            <span lang="fr-CA">approvisionnement complexe</span>
+            )
+          </strong>
+        </dt>
+        <dd>
+          A procurement that involves  some level of complexity, such as:
+
+          <ul>
+            <li>being a component of a project; </li>
+            <li>being meant for government-wide or enterprise usage or having  horizontal implications; </li>
+            <li>including components that are public-facing,  transformational, or that have a high level of uncertainty.</li>
+          </ul>
+        </dd>
+        <dt>
+          <strong>
+            concept case (
+            <span lang="fr-CA">cas conceptuel</span>
+            )
+          </strong>
+        </dt>
+        <dd>An examination of a business  problem or opportunity for which a digitally enabled project may be established  and that includes a description of the conceptual future state and intended  outcome or outcomes that are expected to result from the investment.</dd>
+        <dt>
+          <strong>
+            conservation (
+            <span lang="fr-CA">conservation</span>
+            )
+          </strong>
+        </dt>
+        <dd>Any action or process that  is aimed at safeguarding the character-defining elements of a property so as to  retain its heritage value and extend its physical life. This may involve  preservation, rehabilitation, restoration or a combination of these actions or  processes.</dd>
+        <dt>
+          <strong>
+            contaminated site (
+            <span lang="fr-CA">site contaminÃ©</span>
+            )
+          </strong>
+        </dt>
+        <dd>
+          A site at which substances  occur in the environment at concentrations that: (
+          <span lang="fr-CA">1</span>
+          ) are above background  levels and pose, or are likely to pose, an immediate or long-term hazard to  human health or the environment; or (
+          <span lang="fr-CA">2</span>
+          ) exceed the levels specified in policies  and regulations. A real property may have more than one contaminated site. 
+        </dd>
+        <dt>
+          <strong>
+            contract (
+            <span lang="fr-CA">contrat</span>
+            ) 
+          </strong>
+        </dt>
+        <dd>A binding agreement entered  into by a contracting authority and a contractor to procure a good, service or  construction. </dd>
+        <dt>
+          contract value (
+          <span lang="fr-CA">valeur du contrat</span>
+          )
+        </dt>
+        <dd>
+          The total amount in Canadian  dollars to be paid under a contract or contractual arrangement, including: 
+
+          <ul>
+            <li>the price of the goods, services or construction to be  delivered over the term, including all options and amendments;</li>
+            <li>
+              all disbursements and other related costs charged by a  contractor or entity (
+              <span lang="fr-CA">including travel, shipping, overhead, profit,  administration, tools and materials, fees, etc.</span>
+              ); and
+            </li>
+            <li>
+              all applicable taxes (
+              <span lang="fr-CA">including any non-recoverable tax paid  to a foreign government and any value added tax paid to a government in  Canada</span>
+              ).
+            </li>
+          </ul>
+        </dd>
+        <dt>
+          <strong>
+            contracting authority (
+            <span lang="fr-CA">autoritÃ© contractante</span>
+            )
+          </strong>
+        </dt>
+        <dd>  A person who has delegated  contracting authority to enter into a contract or contractual arrangement on  behalf of a department or agency.</dd>
+        <dt>
+          <strong>
+            contractor (
+            <span lang="fr-CA">entrepreneur</span>
+            ) 
+          </strong>
+        </dt>
+        <dd>A legal entity, person,  joint venture or company that has entered into a contract to provide goods,  services or construction.</dd>
+        <dt>
+          <strong>
+            contractual arrangement (
+            <span lang="fr-CA">entente contractuelle</span>
+            )
+          </strong>
+        </dt>
+        <dd>A written arrangement to  procure goods, services, or construction, for payment or other appropriate  consideration, that is subject to Treasury Board contracting limits, and that  is signed by a contracting authority and a representative of one or more government  entities, countries or international organizations, or other public entities. </dd>
+        <dt>
+          <strong>
+            controlled goods (
+            <span lang="fr-CA">marchandises contrÃ´lÃ©es</span>
+            )
+          </strong>
+        </dt>
+        <dd>Goods, including components  and their associated technologies (for example, blueprints, technical  specifications), that primarily have a military or national security  significance, including âdefense articlesâ that are controlled by the United  States International Traffic in Arms Regulations (ITAR). The Controlled Goods  List contained in the Schedule to the Defence Production Act details the  specific controlled goods that are domestically controlled.</dd>
+        <dt>
+          custodian (
+          <span lang="fr-CA">gardien</span>
+          )
+        </dt>
+        <dd>A department whose minister  has responsibility for the administration of real property for the purposes of  that department.</dd>
+        <dt>
+          <strong>
+            digitally enabled project (
+            <span lang="fr-CA">projet numÃ©rique</span>
+            )
+          </strong>
+        </dt>
+        <dd>  A set of business change  activities that result in the transformation of business processes and/or new  or revised models of operation or service, and for which the use of information  or digital technologies is critical to obtaining the business outcome. </dd>
+        <dt>
+          <strong>
+            disposal (
+            <span lang="fr-CA">disposition</span>
+            )
+          </strong>
+        </dt>
+        <dd>
+          The removal of an asset from  a departmentâs holdings.
+          <br/>
+          
+  In the context of real  property, a transaction that alienates real property from a departmentâs  inventory by sale, lease, surrender or resiliation of a lease, licence,  exchange, gift, easement, relinquishment of an easement, abandonment of  servitude, transfer of administration to another department or an agent Crown  corporation, or transfer of administration and control to the provincial Crown.
+        </dd>
+        <dt>
+          <strong>
+            divestment (
+            <span lang="fr-CA">dessaisissement</span>
+            )
+          </strong>
+        </dt>
+        <dd>
+          Also called 
+          <strong>divestiture</strong>
+          , divestment is the disposal  of materiel, including controlled goods, in any of a variety of ways through  transfer, donation, trade-in, sale, recycling, full demilitarization, or  conversion to waste. 
+        </dd>
+        <dt>
+          <strong>
+            donation (
+            <span lang="fr-CA">don</span>
+            )
+          </strong>
+        </dt>
+        <dd>
+          The provision by  contribution, gift or bequest by a person, group or organization of funds,  goods, facilities or services without cost to the recipient. The contribution  is made without expectation of any benefit in return (
+          <span lang="fr-CA">other than public  acknowledgement, if agreed to by both parties, and a tax receipt if  applicable</span>
+          ). Recipients may include other levels of government, Indigenous  organizations, other national governments, or charitable organizations.
+        </dd>
+        <dt>
+          <strong>
+            enterprise project or programme (
+            <span lang="fr-CA">projet ou programme de projets organisationnel</span>
+            )
+          </strong>
+        </dt>
+        <dd>A project or programme where  the output is a common solution that is to be adopted by multiple departments.</dd>
+        <dt>
+          <strong>
+            environmental condition (
+            <span lang="fr-CA">condition environnementale</span>
+            )
+          </strong>
+        </dt>
+        <dd>A measure that assesses the state of the environment on and around the real property, relative to its intended use, by identifying the presence or potential presence of any hazardous substances or petroleum products on or in the air, building materials, soil, groundwater and sediment, if any.</dd>
+        <dt>
+          <strong>
+            environmental performance (
+            <span lang="fr-CA">rendement environnemental</span>
+            )
+          </strong>
+        </dt>
+        <dd>A measure that assesses the real propertyâs compliance with applicable regulations relative to its intended use and environmental impacts, including energy use, waste management, water consumption, greenhouse gas emissions, and release of other pollutants.</dd>
+        <dt>
+          <strong>
+            estimate (
+            <span lang="fr-CA">estimation</span>
+            )
+          </strong>
+        </dt>
+        <dd>
+          An opinion, judgment or calculation  of the market value of real property, in writing as of a specific date that  evaluates the real property right, interests or benefits involved and provides  sufficient information and analysis to support the conclusion. An estimate must  be undertaken by a person who is experienced in real estate, established in a  real estate-related business (
+          <span lang="fr-CA">such as appraisal, brokerage or, banking</span>
+          ), or  employed in the federal public service with appropriate competencies.
+        </dd>
+        <dt>
+          <strong>
+            evaluation criteria (
+            <span lang="fr-CA">critÃ¨res dâÃ©valuation</span>
+            )
+          </strong>
+        </dt>
+        <dd>In the context of  procurement, a benchmark, standard or yardstick against which the  accomplishment, conformance, performance and suitability of a person,  alternative, activity, product or plan is measured to select the best supplier.  Criteria may be qualitative or quantitative in nature. </dd>
+        <dt>
+          <strong>
+            examine (
+            <span lang="fr-CA">examiner</span>
+            )
+          </strong>
+        </dt>
+        <dd>For the purposes of this  policy and its associated directives, for controlled  goods, to consider in detail or make subject to an analysis in order to  discover essential features or meaning.</dd>
+        <dt>
+          <strong>
+            expected life (
+            <span lang="fr-CA">durÃ©e de vie prÃ©vue</span>
+            )
+          </strong>
+        </dt>
+        <dd>The estimated time that an  asset can be expected to contribute to operations once it is installed or in  use and assuming routine maintenance is practised.</dd>
+        <dt>
+          <strong>
+            fair (
+            <span lang="fr-CA">Ã©quitable</span>
+            )
+          </strong>
+        </dt>
+        <dd>In real or potential  transactions, treating all parties without discrimination or favouritism while  conforming to established rules.</dd>
+        <dt>
+          <strong>
+            federal heritage property (
+            <span lang="fr-CA">bien patrimonial fÃ©dÃ©ral</span>
+            )
+          </strong>
+        </dt>
+        <dd>Property that is a UNESCO  World Heritage site, national historic site, federal heritage building,  heritage lighthouse, or heritage railway station on federal lands. It can  include an Indigenous heritage site, a cultural landscape, an archaeological  site, an engineering work or other place that has been formally recognized for  its heritage value.</dd>
+        <dt>
+          <strong>
+            financial cap (
+            <span lang="fr-CA">plafond financier</span>
+            )
+          </strong>
+        </dt>
+        <dd>In the context of limitation  of liability, the maximum amount or amounts specified in the contract for which  a contractor can be liable to the Crown.</dd>
+        <dt>
+          <strong>
+            financial performance (
+            <span lang="fr-CA">rendement financier</span>
+            )
+          </strong>
+        </dt>
+        <dd>A performance measure that  assesses the cost of operating and maintaining an asset relative to established  financial standards or targets.</dd>
+        <dt>
+          <strong>
+            first party (
+            <span lang="fr-CA">premiÃ¨re partie</span>
+            )
+          </strong>
+        </dt>
+        <dd>In the context of limitation  of liability, in a contract, the party that is the Crown or the contractor.</dd>
+        <dt>
+          <strong>
+            fleet (
+            <span lang="fr-CA">parc automobile</span>
+            ) 
+          </strong>
+        </dt>
+        <dd>For the purposes  of this policy and its  associated directives, a group of vehicles owned or leased by a  department, agency or other government organization.</dd>
+        <dt>
+          <strong>
+            fleet card (
+            <span lang="fr-CA">carte de parc automobile</span>
+            )
+          </strong>
+        </dt>
+        <dd>A card provided by a private  sector contractor for fleet management support services to be used for the  purchase of fuel, operation and maintenance expenses related to government  vehicles, including charging batteries in electric vehicles, where feasible.</dd>
+        <dt>
+          <strong>
+            former public servant (
+            <span lang="fr-CA">ancien fonctionnaire</span>
+            )
+          </strong>
+        </dt>
+        <dd>
+          A former employee of a  department or agency as defined in the 
+          <a href="https://laws-lois.justice.gc.ca/eng/acts/F-11/">Financial Administration Act</a>
+          , a former member of the Canadian Armed Forces or a  former member of the Royal Canadian Mounted Police.
+        </dd>
+        <dt>
+          <strong>
+            full demilitarization (
+            <span lang="fr-CA">demilitarisation complÃ¨te</span>
+            )
+          </strong>
+        </dt>
+        <dd>For controlled goods, means  an action that permanently prevents materiel from being repaired, restored or  reverse-engineered.</dd>
+        <dt>
+          <strong>
+            functionality (
+            <span lang="fr-CA">fonctionnalitÃ©</span>
+            )
+          </strong>
+        </dt>
+        <dd>A performance measure that  assesses how effectively an asset meets defined program and service  requirements.</dd>
+        <dt>
+          <strong>
+            goods (
+            <span lang="fr-CA">biens</span>
+            )
+          </strong>
+        </dt>
+        <dd>Items delivered or to be  delivered under a contract.</dd>
+        <dt>
+          <strong>
+            governance (
+            <span lang="fr-CA">gouvernance</span>
+            )
+          </strong>
+        </dt>
+        <dd>The way in which departments  organize themselves to collaboratively conduct and implement a policy, project,  programme, framework or horizontal initiative, including the planning,  development and implementation of process and control structures for  decision-making, reporting and evaluation.</dd>
+        <dt>
+          <strong>
+            government electronic tendering system (
+            <span lang="fr-CA">service Ã©lectronique dâappels  dâoffres du gouvernement</span>
+            )
+          </strong>
+        </dt>
+        <dd>A computer-based system that  provides suppliers with information related to procurements. </dd>
+        <dt>
+          <strong>
+            government vehicle (
+            <span lang="fr-CA">vÃ©hicule gouvernemental</span>
+            )
+          </strong>
+        </dt>
+        <dd>Crown-owned vehicles used in  support of ongoing departmental operations and program delivery.</dd>
+        <dt>
+          <strong>
+            heritage value (
+            <span lang="fr-CA">valeur patrimoniale</span>
+            )
+          </strong>
+        </dt>
+        <dd>
+          A value determined by  assessing the aesthetic, historic, scientific, cultural, social or spiritual  importance or significance for past, present and future generations.
+          <br/>
+          
+  In the context of real  property, heritage value is embodied in character-defining materials, forms,  location, spatial configurations, uses, and cultural associations or meanings.
+          <br/>
+          
+  In the context of materiel, heritage  value is the value assigned to a resource derived from its association with an  aspect or aspects of human history, including historical associations,  aesthetic and functional qualities or significance, environmental associations,  scientific significance, and spiritual or cultural associations. Heritage value  can reflect both physical (
+          <span lang="fr-CA">tangible</span>
+          ) as well as symbolic (
+          <span lang="fr-CA">intangible</span>
+          )  attributes. It can be derived from an association with many periods in history,  a single episode, or from the interaction of nature and human activities. The  heritage value of a resource is determined through evaluation using established  criteria that set out which items are to be considered heritage resources and  what constitutes their heritage value.
+        </dd>
+        <dt>
+          <strong>
+            hybrid-electric vehicle (
+            <span lang="fr-CA">HEV</span>
+            ) (
+            <span lang="fr-CA">vÃ©hicule hybride Ã©lectrique</span>
+            )
+          </strong>
+        </dt>
+        <dd>A hybrid-electric vehicle is  propelled by both an internal combustion engine and an electric drivetrain that  draws power from on-board batteries that cannot be recharged by plugging into  the grid. A hybrid-electric vehicle uses a gasoline engine, regenerative  braking and the energy produced from coasting to operate. </dd>
+        <dt>
+          <strong>
+            indemnification (
+            <span lang="fr-CA">indemnisation</span>
+            )
+          </strong>
+        </dt>
+        <dd>A legally binding promise  whereby one first party undertakes to accept any responsibility for losses or  damages that another party may suffer or be liable for. The term usually refers  to the obligation to pay money to compensate for damages suffered by a first or  third party.</dd>
+        <dt>
+          <strong>
+            Indigenous group (
+            <span lang="fr-CA">groupe autochtone</span>
+            )
+          </strong>
+        </dt>
+        <dd>A First Nations, Inuit or  MÃ©tis group, community or people that holds rights recognized and affirmed by  section 35 of the Constitution Act, 1982 and represented by a council,  government or other entity that is authorized to act on their behalf.</dd>
+        <dt>
+          <strong>
+            investment (
+            <span lang="fr-CA">investissement</span>
+            ) 
+          </strong>
+        </dt>
+        <dd>The use of resources for  assets and services required to support program delivery with the expectation  of receiving future benefits.</dd>
+        <dt>
+          <strong>
+            investment planning (
+            <span lang="fr-CA">planification des  investissements</span>
+            ) 
+          </strong>
+        </dt>
+        <dd>The process of allocating  and reallocating resources, from all sources available to a department, to both  existing and new investments, in a diligent and rational manner to support  program outcomes and government priorities. </dd>
+        <dt>
+          <strong>
+            joint project or programme (
+            <span lang="fr-CA">projet ou programme de projets conjoint</span>
+            )
+          </strong>
+        </dt>
+        <dd>A project or programme  sponsored by one department, the output or outputs of which are for the use of  a second department, or a project or programme undertaken by a group of  departments, the output or outputs of which are for the use of one or more  partner departments. </dd>
+        <dt>
+          <strong>
+            land vehicle (
+            <span lang="fr-CA">vÃ©hicule terrestre</span>
+            )
+          </strong>
+        </dt>
+        <dd>
+          A self-propelled piece of equipment used  primarily for transporting passengers or cargo on land. Land vehicles include:
+
+          <ul>
+            <li>Light-duty vehicles, including executive vehicles</li>
+            <li>Commercial vehicles, medium and heavy trucks, buses</li>
+            <li>Industrial, construction, and farm vehicles and equipment</li>
+            <li>Snowmobiles, motorcycles and off-road vehicles </li>
+          </ul>
+          <p>For the purpose of this policy  and its associated directives, Canadian Military Pattern trucks and equipment,  and armoured vehicles, are excluded from this category.</p>
+        </dd>
+        <dt>
+          <strong>
+            liability (
+            <span lang="fr-CA">responsabilitÃ©</span>
+            )
+          </strong>
+        </dt>
+        <dd>The legal obligation to do  something or refrain from doing something including the responsibility of  associated costs.</dd>
+        <dt>
+          <strong>
+            life-cycle costs (
+            <span lang="fr-CA">coÃ»ts du cycle de vie</span>
+            )
+          </strong>
+        </dt>
+        <dd>The total cost of ownership  over the life of an investment.</dd>
+        <dt>
+          life-cycle management (
+          <span lang="fr-CA">gestion du cycle de vie</span>
+          )
+        </dt>
+        <dd>The management of  investments along the entire continuum, including planning, acquisition, use  and maintenance, and disposal or divestment or close-out.</dd>
+        <dt>
+          <strong>
+            light-duty vehicle (
+            <span lang="fr-CA">vÃ©hicule lÃ©ger</span>
+            )
+          </strong>
+        </dt>
+        <dd>
+          Consists of on-road  passenger and cargo carrying vehicles with a gross vehicle weight rating (
+          <span lang="fr-CA">GVWR</span>
+          )  up to 4,535Â kg (
+          <span lang="fr-CA">10,000 lb.</span>
+          ), including, but not limited to, sedans,  hatchbacks, station wagons, vans, pick-up trucks, multi-purpose vehicles, sport  utility vehicles, light-duty cube vans and motorcycles.
+        </dd>
+        <dt>
+          <strong>
+            limitation of contractor liability (
+            <span lang="fr-CA">limitation de la responsabilitÃ© de  lâentrepreneur</span>
+            )
+          </strong>
+        </dt>
+        <dd>The establishment by  contract of a predetermined financial cap to limit the responsibility of the  contractor.</dd>
+        <dt>
+          <strong>
+            limited market (
+            <span lang="fr-CA">marchÃ© restreint</span>
+            )
+          </strong>
+        </dt>
+        <dd>A market that can take only  a specified amount or type of asset that artificially restricts the number of  individuals who are potential buyers of an asset. </dd>
+        <dt>
+          <strong>
+            limited tendering (
+            <span lang="fr-CA">appel dâoffres limitÃ©</span>
+            )
+          </strong>
+        </dt>
+        <dd>A procurement method where,  in specific circumstances, a contracting authority may deviate from certain  procedural obligations of the applicable trade agreements in a particular  procurement.</dd>
+        <dt>
+          <strong>
+            lump-sum payment (
+            <span lang="fr-CA">paiement forfaitaire</span>
+            )
+          </strong>
+        </dt>
+        <dd>A sum that is paid in one  single payment instead of instalments.</dd>
+        <dt>
+          <strong>
+            lump-sum payment period (
+            <span lang="fr-CA">pÃ©riode dâapplication du paiement forfaitaire</span>
+            )
+          </strong>
+        </dt>
+        <dd>In procurement, the period  measured in weeks of salary, for which payment has been made to facilitate the  transition to retirement or to other employment for public servants whose  employment is terminated under an initiative to adjust government spending. The  lump-sum payment period does not include the period of severance pay.</dd>
+        <dt>
+          <strong>
+            market rent (
+            <span lang="fr-CA">loyer selon le marchÃ©</span>
+            )
+          </strong>
+        </dt>
+        <dd>
+          The most probable rent that  a property should bring in a competitive and open market reflecting all  conditions and restrictions of the lease (
+          <span lang="fr-CA">licence</span>
+          ) agreement, including  permitted uses, use restrictions, expense obligations, terms, concessions,  renewal and purchase options, and tenant improvements. (
+          <span lang="fr-CA">Source: Dictionary of  Real Estate Appraisals, Fifth edition</span>
+          )
+        </dd>
+        <dt>
+          <strong>
+            market value (
+            <span lang="fr-CA">valeur marchande</span>
+            )
+          </strong>
+        </dt>
+        <dd>The most probable price that  an asset should bring in a competitive and open market as of the specified date  under all conditions requisite to a fair sale, the buyer and seller each acting  prudently and knowledgeably, and assuming the price is not affected by undue  stimulus.</dd>
+        <dt>
+          <strong>
+            materiel (
+            <span lang="fr-CA">matÃ©riel</span>
+            ) 
+          </strong>
+        </dt>
+        <dd>
+          All movable assets  (
+          <span lang="fr-CA">excluding money, records and seized assets</span>
+          ) acquired by His Majesty in right  of Canada. 
+        </dd>
+        <dt>
+          <strong>
+            non-competitive contract (
+            <span lang="fr-CA">contrat non concurrentiel</span>
+            )
+          </strong>
+        </dt>
+        <dd>  A contract that is entered  into without soliciting bids.</dd>
+        <dt>
+          <strong>
+            open (
+            <span lang="fr-CA">ouvert</span>
+            ) 
+          </strong>
+        </dt>
+        <dd>Providing parties with  opportunities for their input into a real or potential transaction. </dd>
+        <dt>
+          <strong>
+            outcomes-based procurement (
+            <span lang="fr-CA">approvisionnement axÃ© sur les rÃ©sultats</span>
+            )
+          </strong>
+        </dt>
+        <dd>A procurement strategy that  ties remuneration to a contractorâs ability to meet, or exceed, defined program  outcomes in a meaningful and measurable way.</dd>
+        <dt>
+          <strong>
+            personal use (
+            <span lang="fr-CA">usage personnel</span>
+            )
+          </strong>
+        </dt>
+        <dd>Consists of any use of  government materiel, including land vehicles, by a Government of Canada  employee for purposes not related toÂ their employment. </dd>
+        <dt>
+          <strong>
+            physical condition (
+            <span lang="fr-CA">Ã©tat physique</span>
+            )
+          </strong>
+        </dt>
+        <dd>A measure that identifies the physical state of repair of an asset relative to its current and long-term service delivery requirements.</dd>
+        <dt>
+          <strong>
+            physical performance (
+            <span lang="fr-CA">rendement physique</span>
+            )
+          </strong>
+        </dt>
+        <dd>A measure that assesses the real propertyâs operating efficiency relative to its physical state of repair and its current and long-term service delivery requirements.</dd>
+        <dt>
+          <strong>
+            possess (
+            <span lang="fr-CA">possession</span>
+            )
+          </strong>
+        </dt>
+        <dd>For controlled goods, means  either actual possession, where the person has direct physical control over a  controlled good at a given time, or constructive possession, where the person  has the power and the intention at a given time to exercise control over a  controlled good, either directly or through another person or persons.</dd>
+        <dt>
+          <strong>
+            procurement (
+            <span lang="fr-CA">approvisionnement</span>
+            )
+          </strong>
+        </dt>
+        <dd>The process related to  obtaining goods, services or construction from the planning to the completion  of the procurement life cycle. </dd>
+        <dt>
+          <strong>
+            procurement life cycle (
+            <span lang="fr-CA">cycle de vie de lâapprovisionnement</span>
+            )
+          </strong>
+        </dt>
+        <dd>The continuum of effective  and efficient management of procurement phases including planning, acquisition  and execution, use and maintenance, and disposal and close-out.</dd>
+        <dt>
+          <strong>
+            procurement strategy (
+            <span lang="fr-CA">stratÃ©gie dâapprovisionnement</span>
+            )
+          </strong>
+        </dt>
+        <dd>
+          A strategy that  defines, in general terms, how a good, service or construction will:
+
+          <ul>
+            <li>be  procured to obtain best value;</li>
+            <li>include,  at the highest level, the determination to proceed competitively or  non-competitively; and </li>
+            <li>include  applicable approaches in support of sustainable benefits or other national  objectives, priorities or programs.</li>
+          </ul>
+        </dd>
+        <dt>
+          <strong>
+            program (
+            <span lang="fr-CA">programme</span>
+            ) 
+          </strong>
+        </dt>
+        <dd>Individual or groups of  services, activities or combinations thereof that are managed together within  the department and that focus on a specific set of outputs, outcomes or service  levels.</dd>
+        <dt>
+          <strong>
+            programme (
+            <span lang="fr-CA">programme de projets</span>
+            )
+          </strong>
+        </dt>
+        <dd>A group of related projects  and change management activities that together achieve beneficial results for a  department.</dd>
+        <dt>
+          <strong>
+            programme management (
+            <span lang="fr-CA">gestion des programmes de  projets</span>
+            )
+          </strong>
+        </dt>
+        <dd>The coordinated management  of projects and change management activities to achieve beneficial results.</dd>
+        <dt>
+          <strong>
+            project (
+            <span lang="fr-CA">projet</span>
+            ) 
+          </strong>
+        </dt>
+        <dd>An activity or series of  activities that has a beginning and an end. A project is required to produce  defined outputs and realize specific outcomes in support of a public policy  objective, within a clear schedule and resource plan. A project is undertaken  within specific parameters for time, cost and performance. </dd>
+        <dt>
+          <strong>
+            project management (
+            <span lang="fr-CA">gestion de projet</span>
+            ) 
+          </strong>
+        </dt>
+        <dd>
+          The systematic planning,  organizing and control of allocated resources to accomplish identified project  objectives and outcomes. Project management is normally reserved for focused,  non-repetitive, and time-limited activities that have some degree of risk, and  for activities beyond the usual scope of program (
+          <span lang="fr-CA">operational</span>
+          ) activities. 
+        </dd>
+        <dt>
+          <strong>
+            project or programme sponsor (
+            <span lang="fr-CA">promoteur de projet ou de programme de  projets</span>
+            )
+          </strong>
+        </dt>
+        <dd>  An executive who is accountable  for the successful planning, definition, implementation, transition and  close-out of a project or programme, and who represents the interests of the  business owner.</dd>
+        <dt>
+          <strong>
+            public purpose (
+            <span lang="fr-CA">fins publiques</span>
+            ) 
+          </strong>
+        </dt>
+        <dd>For federal departments and  agent Crown corporations, âpublic purposeâ means program need; for provinces  and municipalities, âpublic purposeâ generally refers to infrastructure and  public amenities. Other public purposes could be considered if they are  non-commercial and are for the common good. For Indigenous groups, âpublic  purposeâ can refer to uses that provide socio economic benefits.</dd>
+        <dt>
+          <strong>
+            real property (
+            <span lang="fr-CA">biens immobiliers</span>
+            ) 
+          </strong>
+        </dt>
+        <dd>
+            Any right, interest or  benefit in land, which includes mines and minerals, and buildings, structures,  improvements and other fixtures on, above or below the surface of the land or  water (
+          <span lang="fr-CA">submerged land</span>
+          ). Federal real property is any real property belonging to  His Majesty, including any real property of which His Majesty has the power to  dispose. 
+        </dd>
+        <dt>
+          <strong>
+            real property transaction (
+            <span lang="fr-CA">transaction liÃ©e Ã  des biens immobiliers</span>
+            )
+          </strong>
+        </dt>
+        <dd>  An acquisition or disposal  of real property as defined in this policy.</dd>
+        <dt>
+          <strong>
+            related persons (
+            <span lang="fr-CA">personnes apparentÃ©es</span>
+            )
+          </strong>
+        </dt>
+        <dd>  Persons related to the  authorized user by a blood relationship, by marriage, by common-law  partnership, or by adoption, and who reside within the same household as the  authorized user.</dd>
+        <dt>
+          <strong>
+            remediation (
+            <span lang="fr-CA">assainissement</span>
+            )
+          </strong>
+        </dt>
+        <dd>Improving a contaminated  site to prevent, minimize or mitigate damage to human health or the  environment. Remediation involves developing and applying a planned approach  that monitors, removes, destroys, contains, or otherwise reduces the exposure  of contaminants to receptors of concern. </dd>
+        <dt>
+          <strong>
+            request for expression of  interest (
+            <span lang="fr-CA">demande  dâexpression dâintÃ©rÃªt</span>
+            )
+          </strong>
+        </dt>
+        <dd>A document used to gather  information on supplier interest in an opportunity or information on supplier  capabilities and qualifications. </dd>
+        <dt>
+          <strong>
+            request for information (
+            <span lang="fr-CA">demande de renseignements</span>
+            )
+          </strong>
+        </dt>
+        <dd>A document issued to  potential suppliers to gather general supplier, service or product information. </dd>
+        <dt>
+          <strong>
+            request for proposal (
+            <span lang="fr-CA">demande de proposition</span>
+            )
+          </strong>
+        </dt>
+        <dd>A document used to request  suppliers to supply solutions for the delivery of goods or services or to  provide alternative options or solutions. </dd>
+        <dt>
+          <strong>
+            risk (
+            <span lang="fr-CA">risque</span>
+            ) 
+          </strong>
+        </dt>
+        <dd>The uncertainty that can  create exposure to undesired future events and outcomes. Risk is the expression  of the likelihood and impact of an event that has the potential to affect the  achievement of a departmentâs objectives.</dd>
+        <dt>
+          <strong>
+            risk management for contaminated sites (
+            <span lang="fr-CA">gestion du risque des sites  contaminÃ©s</span>
+            )
+          </strong>
+        </dt>
+        <dd>  In the context of  contaminated sites, the selection and implementation of a strategy of control  for risk to human health or the environment, followed by monitoring and  evaluation of the effectiveness of that strategy. This may include direct  remedial actions or other strategies that reduce the probability, intensity,  frequency or duration of the exposure to contamination.</dd>
+        <dt>
+          <strong>
+            security breach (
+            <span lang="fr-CA">atteinte Ã  la sÃ©curitÃ©</span>
+            )
+          </strong>
+        </dt>
+        <dd>
+          For controlled goods, the  unauthorized examination, possession or transfer of goods identified in the  Export Control List and the Controlled Goods List contained in the Schedule of  the 
+          <a href="https://laws-lois.justice.gc.ca/eng/acts/d-1/">Defence Production Act</a>
+          . A security breach includes, among other things:
+
+          <ul>
+            <li>Loss of controlled goods, such as by theft or disappearance,  including through a breach of controlled technical data as a result of computer  hacking or cyber attack;</li>
+            <li>Unauthorized examination, possession or transfer of  controlled goods, including their technical data, by anyone, including  unauthorized employees; and</li>
+            <li>Appearance of wilful damage to or tampering with controlled  goods.</li>
+          </ul>
+        </dd>
+        <dt>
+          <strong>
+            seized asset (
+            <span lang="fr-CA">actif saisis</span>
+            )
+          </strong>
+        </dt>
+        <dd>Any property seized under  the authority of any act of Parliament or pursuant to any warrant of any rule  of law in connection with any designated offence.</dd>
+        <dt>
+          <strong>
+            senior designated official (
+            <span lang="fr-CA">cadre supÃ©rieur dÃ©signÃ©</span>
+            )
+          </strong>
+        </dt>
+        <dd>A person responsible for  supporting the deputy head in fulfilling their function-specific policy  requirements. </dd>
+        <dt>
+          <strong>
+            serious fire (
+            <span lang="fr-CA">incendie majeur</span>
+            )
+          </strong>
+        </dt>
+        <dd>
+          A fire that meets any of the  following criteria:
+
+          <ul>
+            <li>Involves death or serious injury;</li>
+            <li>Results in a $250,000 loss or greater in direct costs;</li>
+            <li>Causes a significant interruption of essential federal  services; </li>
+            <li>Requires the suppression services of a local fire department;</li>
+            <li>Necessitates immediate action to prevent reoccurrence; or</li>
+            <li>Impacts the heritage value of one or more federal heritage  properties.</li>
+          </ul>
+        </dd>
+        <dt>
+          <strong>
+            service (
+            <span lang="fr-CA">service</span>
+            )
+          </strong>
+        </dt>
+        <dd>For the purposes of this  policy and its associated directives, a service is obtained through formal arrangements such as contracts,  memoranda of understanding, and letters of agreement, to support the  realization of specific outcomes.</dd>
+        <dt>
+          <strong>
+            sound stewardship (
+            <span lang="fr-CA">intendance judicieuse</span>
+            )
+          </strong>
+        </dt>
+        <dd>
+          The demonstration of diligence in managing and controlling  the administration of public funds to achieve best value through: 
+	
+
+          <ul>
+            <li>Management processes that are clearly defined, transparent,  regularly tested and validated; </li>
+            <li>Financial and non-financial performance measurement; and </li>
+            <li>Reporting at the transaction and business process levels. </li>
+          </ul>
+        </dd>
+        <dt>
+          <strong>
+            special purpose real property (
+            <span lang="fr-CA">biens immobiliers Ã  vocation  particuliÃ¨re</span>
+            )
+          </strong>
+        </dt>
+        <dd>
+          Real property other than  general purpose office space administered by Public Services and Procurement  Canada (
+          <span lang="fr-CA">for example, laboratories and penitentiaries</span>
+          ).
+        </dd>
+        <dt>
+          <strong>
+            standing offer (
+            <span lang="fr-CA">offres Ã  commandes</span>
+            )
+          </strong>
+        </dt>
+        <dd>A standing offer is an offer  from a potential supplier to provide goods and/or services at pre-arranged  prices, under set terms and conditions, when and if required. It is not a  contract until the government issues a âcall-upâ against the standing offer.</dd>
+        <dt>
+          <strong>
+            stock-taking (
+            <span lang="fr-CA">prise dâinventaire</span>
+            )
+          </strong>
+        </dt>
+        <dd>The procedure of counting  and reconciling actual holdings against physical or digital records for stocking  accounts. The aim is to resolve discrepancies and update physical and digital  records regarding the balance of stock on hand, identification, condition and  location of materiel.</dd>
+        <dt>
+          <strong>
+            substantive transfer of risk  (
+            <span lang="fr-CA">transfert  substantiel des risques</span>
+            )
+          </strong>
+        </dt>
+        <dd>Where the limitation of  liability of the contractor to be included in the contract is significantly  less than the potential financial liability that might reasonably be expected,  based on the circumstances and potential losses that might arise from specified  risks, taking into account their probability.</dd>
+        <dt>
+          <strong>
+            supplier (
+            <span lang="fr-CA">fournisseur</span>
+            ) 
+          </strong>
+        </dt>
+        <dd>A person or legal entity  that provides or could provide goods, services or construction.</dd>
+        <dt>
+          <strong>
+            supply arrangements (
+            <span lang="fr-CA">arrangements en matiÃ¨re dâapprovisionnement</span>
+            )
+          </strong>
+        </dt>
+        <dd>A supply arrangement is a method  of supply used by departments to procure goods and services. Many supply  arrangements include ceiling prices that allow client departments to negotiate  the price downward based on the specific requirement.</dd>
+        <dt>
+          <strong>
+            surplus real property (
+            <span lang="fr-CA">biens immobiliers excÃ©dentaires</span>
+            ) 
+          </strong>
+        </dt>
+        <dd>Real property that is no  longer required in support of a departmentâs programs.</dd>
+        <dt>
+          <strong>
+            third party (
+            <span lang="fr-CA">tierce partie</span>
+            )
+          </strong>
+        </dt>
+        <dd>  Any party other than those  entering into the contract or contractual arrangement.</dd>
+        <dt>
+          <strong>
+            third-party valuation (
+            <span lang="fr-CA">Ã©valuation par un tiers</span>
+            )
+          </strong>
+        </dt>
+        <dd>The valuation of materiel by  a person deemed to have expertise in the sale of materiel of that type who is  not employed by the divesting department.</dd>
+        <dt>
+          <strong>
+            transfer (
+            <span lang="fr-CA">transfert</span>
+            )
+          </strong>
+        </dt>
+        <dd>The conveyance of materiel  from one department to another. When used in the context of controlled goods,  includes divestment of materiel and disclosure of the content of controlled  goods in any manner, including outside the federal domain.</dd>
+        <dt>
+          <strong>
+            transparent (
+            <span lang="fr-CA">transparent</span>
+            ) 
+          </strong>
+        </dt>
+        <dd>Information is provided in a  manner that facilitates decision-making and public scrutiny. </dd>
+        <dt>
+          <strong>
+            utilization (
+            <span lang="fr-CA">utilisation</span>
+            )
+          </strong>
+        </dt>
+        <dd>A performance measure that  assesses the intensity of use of an asset relative to its capacity or  potential.</dd>
+        <dt>
+          <strong>
+            zero-emission vehicle (
+            <span lang="fr-CA">ZEV</span>
+            ) (
+            <span lang="fr-CA">vÃ©hicule Ã  Ã©mission zÃ©ro</span>
+            )
+          </strong>
+        </dt>
+        <dd>
+          <ul class="lst-lwr-alph">
+            <li>Plug-in hybrid electric vehicle: A plug-in hybrid  electric vehicle is propelled by both an internal combustion engine and an  electric drivetrain that draws power from on-board batteries that are recharged  by plugging into the grid or by the gasoline engine. Compared with  hybrid-electric vehicles, these vehicles offer a much greater electric-only  range.</li>
+            <li>Battery-electric vehicle: A battery-electric  vehicle is propelled entirely by an electric drivetrain that draws power from  on-board batteries that must be recharged by plugging into the electricity  grid.</li>
+            <li>Hydrogen internal combustion engine vehicle: A  hydrogen internal combustion engine vehicle is propelled entirely by an  internal combustion engine that burns hydrogen. </li>
+            <li>Fuel-cell electric  vehicle: A fuel-cell electric vehicle is propelled entirely by an electric  drivetrain that draws power at least in part from on-board conversion of  hydrogen to electricity in a fuel cell. </li>
+          </ul>
+        </dd>
+      </dl>
+    </appendix>
+  </appendices>
+</doc>

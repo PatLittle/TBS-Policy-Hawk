@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" title="Appendix L: Standard for Managing Metadata" documentID="32786" versionID="1" language="en" space="preserve" xsi:noNamespaceSchemaLocation="G:\web\xml\pols\PolicyInstrumentSchema.HTML5.xsd">
+  <chapters>
+    <chapter anchor="Appendix L" title="Standard for Managing Metadata">
+      <p>
+        This standard provides direction on managing metadata for all Government of Canada (GC) information and data to realize the expected results of digital government for Canadians. The open and strategic management of information and data inherently requires that metadata also be managed. Therefore, this standard elaborates on requirements of the 
+        <em>Directive on Service and Digital</em>
+        , which does not explicitly address metadata. 
+      </p>
+      <chapter anchor="L.1" title="Effective date">
+        <clauses>
+          <clause anchor="L.1.1">This standard takes effect on January 15, 2024.</clause>
+          <clause anchor="L.1.2">This standard applies to all systems that are developed or procured after the effective date of this standard.</clause>
+          <clause anchor="L.1.3">
+            This standard replaces the 
+            <em>Standard on Metadata</em>
+             dated July 1, 2010.
+          </clause>
+        </clauses>
+      </chapter>
+      <chapter anchor="L.2" title="Standard">
+        <clauses>
+          <clause anchor="L.2.1">
+            This standard provides details on the requirements set out in sections 4.1.1.6, 4.1.1.8, 4.2.1.1, 4.2.1.7, 4.3.1, 4.3.3, 4.4.3.6, 4.4.3.8 and 4.4.3.9 of the 
+            <a href="https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=32601">
+              <em>Directive on Service and Digital</em>
+            </a>
+            .
+          </clause>
+          <clause anchor="L.2.2">
+            Departmental officials must apply the following standards:
+						
+            <clauses>
+              <clause anchor="L.2.2.1">Assess metadata needs to inform the planning, design, delivery and continuous improvement of operations and services. </clause>
+              <clause anchor="L.2.2.2">Use GC enterprise-wide metadata reference standards to describe information and data to support information and data discovery, sharing, exchange and reuse. If such GC enterprise-wide metadata reference standards do not exist, use departmental metadata reference standards.</clause>
+              <clause anchor="L.2.2.3">Apply a risk management approach to metadata quality control.</clause>
+              <clause anchor="L.2.2.4">Manage metadata consistent with the information and data life cycle.</clause>
+            </clauses>
+          </clause>
+        </clauses>
+      </chapter>
+    </chapter>
+  </chapters>
+</doc>
