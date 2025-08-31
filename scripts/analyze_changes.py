@@ -14,7 +14,7 @@ import tiktoken
 
 # --- Configuration ---
 # Can be overridden by command-line arguments
-DEFAULT_MODEL = "xai/grok-3"
+DEFAULT_MODEL = "openai/gpt-5"
 DEFAULT_DATA_DIR = "data"
 DEFAULT_ISSUE_MAP_FILE = "data/issue_map.json"
 DEFAULT_OUTPUT_FILE = "grok-diff.md"
