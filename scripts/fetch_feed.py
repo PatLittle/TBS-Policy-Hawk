@@ -41,7 +41,12 @@ def get_existing_guids(filepath):
     return guids
 
 def download_policy_xml(url, category, title, pub_date):
-    """Downloads the policy XML from a given URL and saves it to the correct category directory."""
+    """Downloads the policy HTML from a given URL and saves it to the correct category directory."""
+    # Ensure the URL uses https and contains section=html
+    url = url.replace("http://", "https://")
+    if "section=html" not in url:
+        separator = "&" if "?" in url else "?"
+        url = f"{url}{separator}section=html"
     try:
         response = requests.get(url, timeout=30)
         response.raise_for_status()
