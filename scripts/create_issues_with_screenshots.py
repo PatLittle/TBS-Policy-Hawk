@@ -34,20 +34,34 @@ def save_issue_map(issue_map):
         json.dump(issue_map, f, indent=2)
 
 def take_screenshot(url, filepath):
-    """Takes a screenshot of a given URL."""
+    """Takes a screenshot of a given URL with a Windows 11 user agent. On failure, retries with HTTPS."""
+    WINDOWS11_UA = (
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+    )
     print(f"Taking screenshot of {url}...")
-    try:
-        with sync_playwright() as p:
-            browser = p.chromium.launch()
-            page = browser.new_page()
-            page.goto(url, wait_until='networkidle', timeout=60000)
-            page.screenshot(path=filepath, full_page=True)
-            browser.close()
-        print(f"Screenshot saved to {filepath}")
+    def attempt_screenshot(target_url):
+        try:
+            with sync_playwright() as p:
+                browser = p.chromium.launch()
+                page = browser.new_page(user_agent=WINDOWS11_UA)
+                page.goto(target_url, wait_until='networkidle', timeout=60000)
+                page.screenshot(path=filepath, full_page=True)
+                browser.close()
+            print(f"Screenshot saved to {filepath}")
+            return True
+        except Exception as e:
+            print(f"Error taking screenshot for {target_url}: {e}")
+            return False
+
+    # First attempt
+    if attempt_screenshot(url):
         return True
-    except Exception as e:
-        print(f"Error taking screenshot for {url}: {e}")
-        return False
+    # If failed, try switching http:// to https://
+    if url.startswith("http://"):
+        https_url = "https://" + url[len("http://") :]
+        print(f"Retrying screenshot with HTTPS: {https_url}")
+        return attempt_screenshot(https_url)
+    return False
 
 # --- Main Script ---
 
