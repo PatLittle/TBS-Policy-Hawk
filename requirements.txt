@@ -6,3 +6,6 @@ pandas
 PyGithub
 openai
 playwright
+azure-ai-inference
+azure-core
+tiktoken
