@@ -42,6 +42,8 @@ jobs:
         id: fetch
         run: |
           python scripts/fetch_feed.py
+          git add -A
+          ls
           # Check for new or updated files to control subsequent steps
           if [[ -n $(git status --porcelain data/) ]]; then
             echo "changes_detected=true" >> $GITHUB_OUTPUT
