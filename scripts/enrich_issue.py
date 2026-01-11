@@ -196,20 +196,27 @@ def truncate_comment(text: str, limit: int = 60000) -> str:
 
 def main() -> None:
     event_path = os.environ.get("GITHUB_EVENT_PATH")
-    if not event_path:
-        raise RuntimeError("GITHUB_EVENT_PATH not set.")
+    repo_full_name = os.environ.get("GITHUB_REPOSITORY")
+    default_branch = "main"
+    issue_number = None
+    issue_body = ""
 
-    event = load_event_payload(Path(event_path))
-    issue_data = event.get("issue", {})
-    issue_number = issue_data.get("number")
-    issue_body = issue_data.get("body", "") or ""
-    repo_full_name = event.get("repository", {}).get("full_name") or os.environ.get("GITHUB_REPOSITORY")
-    default_branch = event.get("repository", {}).get("default_branch", "main")
+    if event_path and Path(event_path).exists():
+        event = load_event_payload(Path(event_path))
+        issue_data = event.get("issue", {})
+        issue_number = issue_data.get("number")
+        issue_body = issue_data.get("body", "") or ""
+        repo_full_name = event.get("repository", {}).get("full_name") or repo_full_name
+        default_branch = event.get("repository", {}).get("default_branch", default_branch)
+
+    manual_issue_number = os.environ.get("ISSUE_NUMBER")
+    if not issue_number and manual_issue_number:
+        issue_number = int(manual_issue_number)
 
     if not repo_full_name:
         raise RuntimeError("Repository name not found in event payload or environment.")
     if not issue_number:
-        raise RuntimeError("Issue number missing from event payload.")
+        raise RuntimeError("Issue number missing from event payload or ISSUE_NUMBER.")
 
     link, category, guid = parse_issue_metadata(issue_body)
     if not link:
@@ -254,16 +261,19 @@ def main() -> None:
     repo = gh.get_repo(repo_full_name)
     issue = repo.get_issue(number=issue_number)
 
+    if not issue_body:
+        issue_body = issue.body or ""
+
     if not comment_exists(issue, COMMENT_MARKERS["screenshot"]):
         body = f"### Screenshot\n\n![Screenshot]({screenshot_url})"
         post_comment(issue, body, COMMENT_MARKERS["screenshot"])
 
     if not comment_exists(issue, COMMENT_MARKERS["current_md"]):
-        body = f"### Current Version (Markdown)\n\n```\n{truncate_comment(current_md)}\n```"
+        body = f"### Current Version (Markdown)\n\n{truncate_comment(current_md)}"
         post_comment(issue, body, COMMENT_MARKERS["current_md"])
 
     if previous_md and not comment_exists(issue, COMMENT_MARKERS["previous_md"]):
-        body = f"### Previous Version (Markdown)\n\n```\n{truncate_comment(previous_md)}\n```"
+        body = f"### Previous Version (Markdown)\n\n{truncate_comment(previous_md)}"
         post_comment(issue, body, COMMENT_MARKERS["previous_md"])
 
     if diff_text and not comment_exists(issue, COMMENT_MARKERS["diff"]):
