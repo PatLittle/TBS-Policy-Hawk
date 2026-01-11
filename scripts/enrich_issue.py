@@ -7,7 +7,7 @@ import tempfile
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Optional, Tuple
-from urllib.parse import parse_qs, urlencode, urlparse, urlunparse
+from urllib.parse import parse_qs, quote, urlencode, urlparse, urlunparse
 
 import requests
 from github import Github
@@ -59,14 +59,29 @@ def ensure_section_html(url: str) -> str:
     query = parse_qs(parsed.query)
     query["section"] = ["HTML"]
     new_query = urlencode(query, doseq=True)
-    return urlunparse(parsed._replace(query=new_query))
+    scheme = parsed.scheme or "https"
+    if scheme == "http":
+        scheme = "https"
+    return urlunparse(parsed._replace(query=new_query, scheme=scheme))
 
 
 def fetch_html(url: str) -> str:
     headers = {"User-Agent": "policy-hawk/1.0"}
-    resp = requests.get(url, timeout=60, headers=headers)
-    resp.raise_for_status()
-    return resp.text
+    if url.startswith("https://corsproxy.io/"):
+        resp = requests.get(url, timeout=60, headers=headers)
+        resp.raise_for_status()
+        return resp.text
+
+    try:
+        resp = requests.get(url, timeout=60, headers=headers)
+        resp.raise_for_status()
+        return resp.text
+    except requests.RequestException as exc:
+        proxy_url = f"https://corsproxy.io/?url={quote(url, safe='')}"
+        print(f"Direct fetch failed, retrying via proxy: {proxy_url} ({exc})")
+        resp = requests.get(proxy_url, timeout=60, headers=headers)
+        resp.raise_for_status()
+        return resp.text
 
 
 def take_screenshot(url: str, filepath: Path) -> bool:
