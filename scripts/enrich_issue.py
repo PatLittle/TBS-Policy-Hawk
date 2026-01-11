@@ -218,14 +218,6 @@ def main() -> None:
     if not issue_number:
         raise RuntimeError("Issue number missing from event payload or ISSUE_NUMBER.")
 
-    link, category, guid = parse_issue_metadata(issue_body)
-    if not link:
-        raise RuntimeError("Policy link not found in issue body.")
-    if not guid:
-        raise RuntimeError("GUID not found in issue body.")
-
-    category = (category or "Unknown").strip().replace(" ", "_")
-
     section_url = ensure_section_html(link)
     html_text = fetch_html(section_url)
 
@@ -263,6 +255,17 @@ def main() -> None:
 
     if not issue_body:
         issue_body = issue.body or ""
+
+    link, category, guid = parse_issue_metadata(issue_body)
+    if not link:
+        raise RuntimeError("Policy link not found in issue body.")
+    if not guid:
+        raise RuntimeError("GUID not found in issue body.")
+
+    category = (category or "Unknown").strip().replace(" ", "_")
+
+    section_url = ensure_section_html(link)
+    html_text = fetch_html(section_url)
 
     if not comment_exists(issue, COMMENT_MARKERS["screenshot"]):
         body = f"### Screenshot\n\n![Screenshot]({screenshot_url})"
