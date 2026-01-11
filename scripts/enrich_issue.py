@@ -218,6 +218,24 @@ def main() -> None:
     if not issue_number:
         raise RuntimeError("Issue number missing from event payload or ISSUE_NUMBER.")
 
+    github_token = os.environ.get("GITHUB_TOKEN")
+    if not github_token:
+        raise RuntimeError("GITHUB_TOKEN not set.")
+    gh = Github(github_token)
+    repo = gh.get_repo(repo_full_name)
+    issue = repo.get_issue(number=issue_number)
+
+    if not issue_body:
+        issue_body = issue.body or ""
+
+    link, category, guid = parse_issue_metadata(issue_body)
+    if not link:
+        raise RuntimeError("Policy link not found in issue body.")
+    if not guid:
+        raise RuntimeError("GUID not found in issue body.")
+
+    category = (category or "Unknown").strip().replace(" ", "_")
+
     section_url = ensure_section_html(link)
     html_text = fetch_html(section_url)
 
@@ -245,24 +263,6 @@ def main() -> None:
     screenshot_path = SCREENSHOTS_DIR / f"{guid.replace('/', '_')}.png"
     take_screenshot(link, screenshot_path)
     screenshot_url = f"https://raw.githubusercontent.com/{repo_full_name}/{default_branch}/{screenshot_path.as_posix()}"
-
-    github_token = os.environ.get("GITHUB_TOKEN")
-    if not github_token:
-        raise RuntimeError("GITHUB_TOKEN not set.")
-    gh = Github(github_token)
-    repo = gh.get_repo(repo_full_name)
-    issue = repo.get_issue(number=issue_number)
-
-    if not issue_body:
-        issue_body = issue.body or ""
-
-    link, category, guid = parse_issue_metadata(issue_body)
-    if not link:
-        raise RuntimeError("Policy link not found in issue body.")
-    if not guid:
-        raise RuntimeError("GUID not found in issue body.")
-
-    category = (category or "Unknown").strip().replace(" ", "_")
 
     section_url = ensure_section_html(link)
     html_text = fetch_html(section_url)
