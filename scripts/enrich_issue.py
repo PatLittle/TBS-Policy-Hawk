@@ -290,6 +290,8 @@ def main() -> None:
     diff_text = ""
     if previous_md:
         diff_text = compute_diff(previous_md, current_md)
+        diff_path = base_dir / f"{timestamp}.diff"
+        diff_path.write_text(diff_text, encoding="utf-8")
 
     screenshot_path = SCREENSHOTS_DIR / f"{guid.replace('/', '_')}.png"
     take_screenshot(link, screenshot_path)
@@ -329,6 +331,8 @@ def main() -> None:
         user_prompt = build_summary_prompt(current_md, previous_md, diff_text)
         model = os.environ.get("GEMINI_MODEL", "gemini-1.5-pro")
         summary = generate_gemini_summary(gemini_key, system_prompt, user_prompt, model)
+        summary_path = base_dir / f"{timestamp}.summary.md"
+        summary_path.write_text(summary, encoding="utf-8")
         body = f"### Expert Summary of Changes\n\n{summary}"
         post_comment(issue, body, COMMENT_MARKERS["summary"])
 
