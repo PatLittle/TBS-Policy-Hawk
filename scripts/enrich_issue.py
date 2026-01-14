@@ -11,6 +11,12 @@ from urllib.parse import parse_qs, quote, urlencode, urlparse, urlunparse
 
 import requests
 from github import Github
+
+try:
+    # PyGithub >= 2.x
+    from github import Auth
+except Exception:  # pragma: no cover
+    Auth = None
 from playwright.sync_api import sync_playwright
 
 try:
@@ -31,6 +37,15 @@ COMMENT_MARKERS = {
     "summary": "<!-- policy-hawk:summary -->",
 }
 
+def make_github_client(token: str) -> Github:
+    """
+    Create a PyGithub client without using deprecated login_or_token.
+    Falls back for older PyGithub versions.
+    """
+    if Auth is not None:
+        return Github(auth=Auth.Token(token))
+    # Fallback for older PyGithub that may not have Auth
+    return Github(token)
 
 def load_event_payload(path: Path) -> dict:
     with open(path, "r", encoding="utf-8") as f:
@@ -236,7 +251,8 @@ def main() -> None:
     github_token = os.environ.get("GITHUB_TOKEN")
     if not github_token:
         raise RuntimeError("GITHUB_TOKEN not set.")
-    gh = Github(github_token)
+
+    gh = make_github_client(github_token)
     repo = gh.get_repo(repo_full_name)
     issue = repo.get_issue(number=issue_number)
 
