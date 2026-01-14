@@ -9,3 +9,4 @@ playwright
 azure-ai-inference
 azure-core
 tiktoken
+google-genai
