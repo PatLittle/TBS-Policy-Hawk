@@ -23,6 +23,12 @@ try:
     from markitdown import MarkItDown
 except Exception:  # pragma: no cover - handled at runtime
     MarkItDown = None
+try:
+    from google import genai
+    from google.genai import types
+except Exception:  # pragma: no cover - handled at runtime
+    genai = None
+    types = None
 
 
 DATA_DIR = Path("data")
@@ -164,18 +170,31 @@ def compute_diff(old_text: str, new_text: str) -> str:
 
 
 def generate_gemini_summary(api_key: str, system_prompt: str, user_prompt: str, model: str) -> str:
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={api_key}"
-    payload = {
-        "systemInstruction": {"parts": [{"text": system_prompt}]},
-        "contents": [{"role": "user", "parts": [{"text": user_prompt}]}],
-    }
-    resp = requests.post(url, json=payload, timeout=60)
-    resp.raise_for_status()
-    data = resp.json()
-    try:
-        return data["candidates"][0]["content"]["parts"][0]["text"].strip()
-    except (KeyError, IndexError) as exc:
-        raise RuntimeError(f"Unexpected Gemini response: {data}") from exc
+    if genai is None or types is None:
+        raise RuntimeError("google-genai is not installed. Install it with pip.")
+    client = genai.Client(api_key=api_key)
+    contents = [
+        types.Content(
+            role="user",
+            parts=[types.Part.from_text(text=user_prompt)],
+        )
+    ]
+    generate_content_config = types.GenerateContentConfig(
+        thinking_config=types.ThinkingConfig(thinking_budget=0),
+        system_instruction=[types.Part.from_text(text=system_prompt)],
+    )
+    chunks = []
+    for chunk in client.models.generate_content_stream(
+        model=model,
+        contents=contents,
+        config=generate_content_config,
+    ):
+        if chunk.text:
+            chunks.append(chunk.text)
+    summary = "".join(chunks).strip()
+    if not summary:
+        raise RuntimeError("Gemini returned empty output.")
+    return summary
 
 
 def build_summary_prompt(current_md: str, previous_md: str, diff_md: str) -> str:
@@ -329,7 +348,7 @@ def main() -> None:
             "available, and separate high-level takeaways from clause-level details."
         )
         user_prompt = build_summary_prompt(current_md, previous_md, diff_text)
-        model = os.environ.get("GEMINI_MODEL", "gemini-1.5-pro")
+        model = os.environ.get("GEMINI_MODEL", "gemini-flash-lite-latest")
         summary = generate_gemini_summary(gemini_key, system_prompt, user_prompt, model)
         summary_path = base_dir / f"{timestamp}.summary.md"
         summary_path.write_text(summary, encoding="utf-8")
