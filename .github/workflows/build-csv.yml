@@ -1,0 +1,40 @@
+name: Build TBS Policy Hierarchy CSV
+
+on:
+  workflow_dispatch:
+  # schedule:
+  #   - cron: "0 6 * * *"  # Run daily at 06:00 UTC
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-tbs-policy-csv
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Fetch HTML
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -sSL "https://www.tbs-sct.canada.ca/pol/hierarch-eng.aspx" -o page.html
+
+      - name: Generate full CSV
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p data
+          python3 scripts/build_tbs_policy_hierarchy.py page.html data/tbs_policy_hierarchy_full.csv
+
+      - name: Commit CSV
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore(data): refresh TBS policy hierarchy CSV (full)"
+          file_pattern: data/*.csv
