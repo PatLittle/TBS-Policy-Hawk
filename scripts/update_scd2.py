@@ -5,6 +5,7 @@ import requests
 import xml.etree.ElementTree as ET
 import hashlib
 import pandas as pd
+import feedparser
 from datetime import datetime, timezone
 from pathlib import Path
 import subprocess
@@ -15,6 +16,23 @@ REPO_ROOT = Path(__file__).parent.parent
 FEEDS = {
     "en": "https://www.tbs-sct.canada.ca/pol/rssfeeds-filsrss-eng.aspx?feed=2&count=300",
     "fr": "https://www.tbs-sct.canada.ca/pol/rssfeeds-filsrss-fra.aspx?feed=2&count=300",
+}
+
+FALLBACK_FEEDS = {
+    "en": [
+        "https://www.tbs-sct.canada.ca/pol/rssfeeds-filsrss-eng.aspx?feed=1&type=79",
+        "https://www.tbs-sct.canada.ca/pol/rssfeeds-filsrss-eng.aspx?feed=1&type=27",
+        "https://www.tbs-sct.canada.ca/pol/rssfeeds-filsrss-eng.aspx?feed=1&type=73",
+        "https://www.tbs-sct.canada.ca/pol/rssfeeds-filsrss-eng.aspx?feed=1&type=36",
+        "https://www.tbs-sct.canada.ca/pol/rssfeeds-filsrss-eng.aspx?feed=1&type=83",
+    ],
+    "fr": [
+        "https://www.tbs-sct.canada.ca/pol/rssfeeds-filsrss-fra.aspx?feed=1&type=79",
+        "https://www.tbs-sct.canada.ca/pol/rssfeeds-filsrss-fra.aspx?feed=1&type=27",
+        "https://www.tbs-sct.canada.ca/pol/rssfeeds-filsrss-fra.aspx?feed=1&type=73",
+        "https://www.tbs-sct.canada.ca/pol/rssfeeds-filsrss-fra.aspx?feed=1&type=36",
+        "https://www.tbs-sct.canada.ca/pol/rssfeeds-filsrss-fra.aspx?feed=1&type=83",
+    ],
 }
 
 SCD2_PATH = REPO_ROOT / "data" / "tbs_policy_feed_scd2.csv"
@@ -29,6 +47,46 @@ TRACKED_COLS = [
 ### Helpers
 
 def fetch_and_union():
+    def normalize_entry(entry, lang):
+        guid = entry.get("guid") or entry.get("id") or entry.get("link")
+        if not guid:
+            return None
+        return {
+            "guid": guid.strip(),
+            f"title_{lang}": (entry.get("title") or "").strip(),
+            f"link_{lang}": (entry.get("link") or "").strip(),
+            f"description_{lang}": (entry.get("summary") or entry.get("description") or "").strip(),
+            f"pubDate_{lang}": (entry.get("published") or "").strip(),
+        }
+
+    def parse_feedparser(url, lang):
+        parsed = feedparser.parse(url)
+        if getattr(parsed, "bozo", False) or not getattr(parsed, "entries", []):
+            return None
+        rows = [normalize_entry(entry, lang) for entry in parsed.entries]
+        rows = [r for r in rows if r is not None]
+        return pd.DataFrame(rows)
+
+    def parse_fallback_feeds(lang):
+        deduped = {}
+        for url in FALLBACK_FEEDS[lang]:
+            parsed = parse_feedparser(url, lang)
+            if parsed is None or parsed.empty:
+                continue
+            for row in parsed.to_dict(orient="records"):
+                guid = row["guid"]
+                existing = deduped.get(guid)
+                if not existing:
+                    deduped[guid] = row
+                    continue
+
+                current_date = pd.to_datetime(row.get(f"pubDate_{lang}", ""), errors="coerce")
+                existing_date = pd.to_datetime(existing.get(f"pubDate_{lang}", ""), errors="coerce")
+                if pd.notna(current_date) and (pd.isna(existing_date) or current_date > existing_date):
+                    deduped[guid] = row
+
+        return pd.DataFrame(deduped.values())
+
     def parse_rss(url, lang):
         resp = requests.get(url, timeout=60)
         resp.raise_for_status()
@@ -48,8 +106,20 @@ def fetch_and_union():
             })
         return pd.DataFrame(rows)
 
-    en = parse_rss(FEEDS["en"], "en")
-    fr = parse_rss(FEEDS["fr"], "fr")
+    def load_lang_feed(lang):
+        parsed = parse_feedparser(FEEDS[lang], lang)
+        if parsed is not None and not parsed.empty:
+            return parsed
+
+        print(f"Primary {lang} feed unavailable. Falling back to instrument feeds.")
+        fallback = parse_fallback_feeds(lang)
+        if fallback.empty:
+            # Keep the original parser as a last-resort attempt to preserve behaviour.
+            return parse_rss(FEEDS[lang], lang)
+        return fallback
+
+    en = load_lang_feed("en")
+    fr = load_lang_feed("fr")
 
     df = en.merge(fr, on="guid", how="outer")
     df["pubDate"] = df["pubDate_en"].where(df["pubDate_en"].astype(bool), df["pubDate_fr"])
