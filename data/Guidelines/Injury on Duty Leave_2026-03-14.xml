@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html><!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]--><!--[if gt IE 8]><!--><html class="no-js" dir="ltr" lang="en" xmlns="http://www.w3.org/1999/xhtml"><!--<![endif]--><head><meta charset="utf-8"></meta><!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html --><title>Injury-on-Duty Leave</title><meta content="width=device-width,initial-scale=1" name="viewport"></meta><meta content="robots" name="noindex,nofollow"></meta><!-- Load stylesheet --><link rel="stylesheet" href="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v5_0_2/cdts/cdts-styles.css"></link><!-- Load/activate closure template scripts --><script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v5_0_2/cdts/compiled/wet-en.js"></script><noscript><!-- Write closure fall-back static file --><!-- /pol/GoC.WebTemplate/StaticFallbackFiles/gcweb/refTop.html --><!--#include virtual="/pol/GoC.WebTemplate/StaticFallbackFiles/gcweb/refTop.html" --></noscript><script>
+          wet.builder.setup({
+            cdnEnv: "prod",
+            isApplication: false,
+            top: {
+              breadcrumbs: [{ href: "http://www.canada.ca/en/index.html", title: "Home"},{ href: "http://www.canada.ca/en/government/system/index.html", title: "How government works"},{ href: "index-eng.aspx", title: "Policies, directives, standards and guidelines"},{ href: "doc-eng.aspx?id=12139", title: "Injury-on-Duty Leave"}],
+              lngLinks: [{ lang: "en", href: "doc-fra.aspx?id=12139&amp;section=html", text: "Français"}],
+              search: false,
+              siteMenu: false,
+              topSecMenu: false
+            },
+            preFooter: {
+              dateModified: "1992-10-01",
+              showFeedback: false,
+              showPostContent: false,
+              showShare: false
+            },
+            footer: {
+              showFooter: false
+            }
+          });
+        </script><link rel="stylesheet" href="./css/pol.css"></link><link rel="stylesheet" href="./css/print.pol.css"></link></head><body vocab="http://schema.org/" typeof="WebPage"><div id="cdts-def-top"><!-- Write closure fall-back static file --><!-- /ROOT/etc/designs/canada/cdts/gcweb/v5_0_2/cdts/static/top-en.html --><!--#include virtual="/pol/GoC.WebTemplate/StaticFallbackFiles/gcweb/top-en.html" --></div><main property="mainContentOfPage" typeof="WebPageElement" class="container"><!-- the main content --><div class="row"><div class="col-md-12"><h1 id="wb-cont" property="name">Injury-on-Duty Leave</h1><div class="pol-cha"><section class="pol-sec"><h2 id="cha1">1. Introduction</h2><div class="pol-content"><p>In virtually all cases where the Treasury Board is the employer, employees disabled due to an occupational illness are 
+entitled to injury-on-duty leave with full normal pay for such reasonable period as is determined by the employer, where 
+the disability is confirmed by a Provincial Workmen's Compensation Board pursuant to <em>the Government Employees Compensation 
+Act</em>.</p></div></section><section class="pol-sec"><h2 id="cha2">2. Authority</h2><div class="pol-content"><p>For the majority of employees, provisions for injury-on-duty leave are negotiated through the process of collective bargaining 
+and the provisions are contained in the collective agreements. To determine the injury-on-duty leave provisions applicable 
+to specific groups, the relevant collective agreement must be consulted.</p><p>Injury-on-duty leave may also be granted, in accordance with <em>the Public Service Terms and Conditions of Employment 
+Regulations</em>, to employees whose terms and conditions of employment are governed by these Regulations.</p><p>The following "Management guidelines for the administration of injury-on-duty leave" have been developed in consultation 
+with several departments, including Labour Canada, which administers the <em>Government Employees Compensation Act</em>. 
+Departments should ensure that all personnel associated with the administration of injury-on-duty leave are familiar with 
+these guidelines.</p></div></section><section class="pol-sec"><h2 id="cha3">3. Guidelines</h2><div class="pol-content"><section class="pol-sub"><h3 id="sec3.1">3.1 General</h3><div class="pol-content"><p>Injury-on-duty leave should not be granted unless an injury report has been submitted to Labour Canada pursuant to the
+<em>Government Employees Compensation Act</em>, and the claim subsequently allowed. Departments should ensure that verification 
+of the period of disability is obtained form Labour Canada before approving such leave and periodically, where necessary, 
+to confirm continuing disability. In the case of a minor (non-disabling) injury where no time is lost beyond that required 
+for immediate medical treatment, the employee should be allowed appropriate time off with pay to obtain such treatment.</p></div></section><section class="pol-sub"><h3 id="sec3.2">3.2 Verification of disability period</h3><div class="pol-content"><p>In the case of a disabling injury, that is, any injury which prevents the employee from returning to work for the next 
+regular shift or any subsequent workday, departments should, prior to granting or terminating injury-on-duty leave, ensure 
+that certification verifying disability and the date on which such disability commences or ceases has been received from 
+Labour Canada. In cases involving extended periods of injury-on-duty leave, periodic verification should be requested from 
+the appropriate regional office of Labour Canada, as necessary to support the continued provision of this leave. Labour 
+Canada form APC-5(71) is used to inform departments in this regard.</p><p>While a department is awaiting the receipt of certification required for the granting of injury-on-duty leave, the disabled 
+employee may be granted sick leave to the extent of his or her sick leave credits. If the employee has insufficient sick 
+leave credits, he or she may be advanced additional sick leave in accordance with the terms of the applicable collective 
+agreement or other applicable authority. When sick leave is granted and injury-on-duty leave is subsequently approved for 
+the same period, the employee is to be credited with the number of days of sick leave involved.</p></div></section><section class="pol-sub"><h3 id="sec3.3">3.3 Medical review</h3><div class="pol-content"><p>If there is a reasonable doubt concerning the disability status of an employee at any time while on injury-on-duty leave, 
+a special medical assessment of the employee's physical condition can be made by the department through the nearest medical 
+service regional office of Health and Welfare Canada. If, as a result of this medical assessment, the employee is considered 
+fit for work, this should be reported immediately along with all supporting documents, to the appropriate regional office 
+of Labour Canada, which will arrange for a review of the employee's disability status.</p></div></section><section class="pol-sub"><h3 id="sec3.4">3.4 Termination of injury-on-duty leave</h3><div class="pol-content"><p>Injury-on-duty leave should not be granted beyond the date certified through Labour Canada that the employee is fit for 
+work, including "light duty" work, where it is available. (An employee reporting to the department that he or she has been 
+medically authorized to return to work may do so, pending the receipt of confirming certification from Labour Canada.)</p><p>An employee who has been authorized to perform "light duty" work should be provided with work which is commensurate with 
+his or her physical capability. If such work is not available and the employee's disability is of a temporary nature, injury-on-duty 
+leave may continue to be authorized, subject to paragraph 3.2, until appropriate work is found for the employee, or until 
+he or she has been certified as ready to assume normal duties.</p><p>Should the total period of injury-on-duty leave granted to an employee with respect to an injury or illness reach 130 working 
+days, a special departmental review of the case should be carried out and a decision made as to whether or not the continued 
+provision of such leave beyond this period is warranted.</p><p>Where a decision is made to discontinue the provision of injury-on-duty leave to a disabled employee, the appropriate 
+regional office of Labour Canada should be immediately notified of the date that injury-on-duty leave will terminate. Upon 
+receipt of such notification, Labour Canada will make the required arrangements for the disabled employee to receive Provincial 
+Workers' Compensation payments from the date injury-on-duty leave ceases until the claim is settled. (Provincial wage compensation 
+benefits for totally disabled employees are generally 75% of earnings, based on a maximum annual earnings ceiling. Specific 
+information concerning provincial compensation benefits may be obtained from the appropriate regional office of Labour Canada.)</p></div></section></div></section><section class="pol-sec"><h2 id="cha4">4. Reference</h2><div class="pol-content"><p>This chapter replaces chapter 5-2 of <em>PMM</em> volume 16.</p></div></section><section class="pol-sec"><h2 id="cha5">5. Enquiries</h2><div class="pol-content"><p>Enquiries concerning the above should be directed through the appropriate departmental representative to:</p><div class="indent1"><address>
+    Benefits Group<br />
+    General Personnel Policy Development and Compensation Division<br />
+    Personnel Policy Branch<br />
+    Treasury Board Secretariat</address></div></div></section></div><p class="mrgn-tp-lg text-center small">© His Majesty the King in right of Canada, represented by the President of the Treasury Board, 2017, <br/>ISBN: 978-0-660-09839-5</p></div></div><!-- end main content --><div id="cdts-def-preFooter"><!-- Write closure fall-back static file --><!-- /ROOT/etc/designs/canada/cdts/gcweb/v5_0_2/cdts/static/preFooter-en.html --><!--#include virtual="/pol/GoC.WebTemplate/StaticFallbackFiles/gcweb/preFooter-en.html" --></div></main><div id="cdts-def-footer"><!-- Write closure fall-back static file --><!-- /ROOT/etc/designs/canada/cdts/gcweb/v5_0_2/cdts/static/footer-en.html --><!--#include virtual="/pol/GoC.WebTemplate/StaticFallbackFiles/gcweb/footer-en.html" --></div></body></html>

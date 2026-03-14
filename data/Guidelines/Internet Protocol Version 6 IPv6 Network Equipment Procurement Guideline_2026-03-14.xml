@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html><!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]--><!--[if gt IE 8]><!--><html class="no-js" dir="ltr" lang="en" xmlns="http://www.w3.org/1999/xhtml"><!--<![endif]--><head><meta charset="utf-8"></meta><!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html --><title>Internet Protocol Version 6 (IPv6) Network Equipment Procurement Guideline</title><meta content="width=device-width,initial-scale=1" name="viewport"></meta><meta content="robots" name="noindex,nofollow"></meta><!-- Load stylesheet --><link rel="stylesheet" href="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v5_0_2/cdts/cdts-styles.css"></link><!-- Load/activate closure template scripts --><script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v5_0_2/cdts/compiled/wet-en.js"></script><noscript><!-- Write closure fall-back static file --><!-- /pol/GoC.WebTemplate/StaticFallbackFiles/gcweb/refTop.html --><!--#include virtual="/pol/GoC.WebTemplate/StaticFallbackFiles/gcweb/refTop.html" --></noscript><script>
+          wet.builder.setup({
+            cdnEnv: "prod",
+            isApplication: false,
+            top: {
+              breadcrumbs: [{ href: "http://www.canada.ca/en/index.html", title: "Home"},{ href: "http://www.canada.ca/en/government/system/index.html", title: "How government works"},{ href: "index-eng.aspx", title: "Policies, directives, standards and guidelines"},{ href: "doc-eng.aspx?id=26295", title: "Internet Protocol Version 6 (IPv6) Network Equipment Procurement Guideline"}],
+              lngLinks: [{ lang: "en", href: "doc-fra.aspx?id=26295&amp;section=html", text: "Français"}],
+              search: false,
+              siteMenu: false,
+              topSecMenu: false
+            },
+            preFooter: {
+              dateModified: "2012-11-30",
+              showFeedback: false,
+              showPostContent: false,
+              showShare: false
+            },
+            footer: {
+              showFooter: false
+            }
+          });
+        </script><link rel="stylesheet" href="./css/pol.css"></link><link rel="stylesheet" href="./css/print.pol.css"></link></head><body vocab="http://schema.org/" typeof="WebPage"><div id="cdts-def-top"><!-- Write closure fall-back static file --><!-- /ROOT/etc/designs/canada/cdts/gcweb/v5_0_2/cdts/static/top-en.html --><!--#include virtual="/pol/GoC.WebTemplate/StaticFallbackFiles/gcweb/top-en.html" --></div><main property="mainContentOfPage" typeof="WebPageElement" class="container"><!-- the main content --><div class="row"><div class="col-md-12"><h1 id="wb-cont" property="name">Internet Protocol Version 6 (IPv6) Network Equipment Procurement Guideline</h1><div class="pol-cha"><section class="pol-sec"><h2 id="cha1">1 Effective date</h2><div class="pol-content"><p>This guideline takes effect on November 30, 2012.</p></div></section><section class="pol-sec"><h2 id="cha2">2 Purpose</h2><div class="pol-content"><p>This guideline sets out recommendations to assist departments when procuring network equipment, in support of the Government 
+of Canada Internet Protocol Version 6 (IPv6) Adoption Strategy.</p></div></section><section class="pol-sec"><h2 id="cha3">3 Background</h2><div class="pol-content"><p>The Internet's remaining unused Internet Protocol Version 4 (IPv4) address blocks were allocated in early 2011 to the 
+five Regional Internet Registries which allocate Internet addresses to network operators in their region. The Asia-Pacific 
+region has experienced strong Internet growth and has been a lead adopter of <abbr title="Internet Protocol version 6">IPv6</abbr>, 
+now using <abbr title="Internet Protocol version 6">IPv6</abbr> for all new growth. Due to the address space pressures, 
+many governments and enterprises around the world are actively adopting <abbr title="Internet Protocol version 6">IPv6</abbr>, 
+which provides a much larger address space.</p><p>Although <abbr title="Internet Protocol version 4">IPv4</abbr> and <abbr title="Internet Protocol version 6">IPv6</abbr> 
+are not backwards compatible, there are mechanisms to link the two, such as translation and tunnelling, which can be used 
+to assist in deployment during the transition from <abbr title="Internet Protocol version 4">IPv4</abbr> to
+<abbr title="Internet Protocol version 6">IPv6</abbr>. Both <abbr title="Internet Protocol version 4">IPv4</abbr> and
+<abbr title="Internet Protocol version 6">IPv6</abbr> networks will coexist in the global Internet for some time as systems 
+become inter-connected and move to a dual-stack architecture.</p></div></section><section class="pol-sec"><h2 id="cha4">4 Context</h2><div class="pol-content"><p>The advent of <abbr title="Internet Protocol version 6">IPv6</abbr> will have an impact on the Government of Canada, 
+whose business is geographically dispersed throughout the world. The Government of Canada conducts business with clients, 
+suppliers and global partners who are (or soon will be) on <abbr title="Internet Protocol version 6">IPv6</abbr> networks, 
+and as a consequence, the Government of Canada must adopt <abbr title="Internet Protocol version 6">IPv6</abbr>.</p><p>The Government of Canada <abbr title="Internet Protocol version 6">IPv6</abbr> Adoption Strategy is designed to ensure 
+the continuity of Government of Canada services. Adoption of <abbr title="Internet Protocol version 6">IPv6</abbr> by the 
+Government of Canada will provide seamless, uninterrupted access to Government of Canada services by Canadians and users 
+around the world. It also ensures continued access to global Internet resources by public service employees in carrying 
+out their job functions.</p></div></section><section class="pol-sec"><h2 id="cha5">5 Network Equipment Procurement</h2><div class="pol-content"><p>Network equipment (e.g., routers, proxy servers, firewalls) is procured for Government of Canada networks through a variety 
+of means, including contracts and standing offers such as Network Equipment Support Services (NESS).
+<abbr title="Internet Protocol version 6">IPv6</abbr> functions specified in this guideline are expected to be incorporated 
+in these procurement vehicles where IP-based network equipment is specified.</p></div></section><section class="pol-sec"><h2 id="cha6">6 Audience</h2><div class="pol-content"><p>This guideline supports the <em><a href="/pol/doc-eng.aspx?id=15249">Directive on Management of Information Technology</a></em> 
+by providing functional specialists, within Government of Canada departments and at Shared Services Canada, with network 
+equipment procurement guidance to assist in the adoption of <abbr title="Internet Protocol version 6">IPv6</abbr>.</p><p>The target audience for this guideline includes Government of Canada departmental clients, technical authorities, network 
+architects, network procurement technical analysts and contracting authorities.</p></div></section><section class="pol-sec"><h2 id="cha7">7 Definitions</h2><div class="pol-content"><p>There are numerous generic terms such as "<abbr title="Internet Protocol version 6">IPv6</abbr>-enabled", "<abbr title="Internet Protocol version 6">IPv6</abbr>-ready", "<abbr title="Internet Protocol version 6">IPv6</abbr>-compatible", 
+and "<abbr title="Internet Protocol version 6">IPv6</abbr>-capable", that are used to identify
+<abbr title="Internet Protocol version 6">IPv6</abbr> functionality in network equipment. There is no standard interpretation 
+of these terms, which can lead to confusion among buyers.</p><p>In this guideline, the term "<abbr title="Internet Protocol version 6">IPv6</abbr>-capable" means network equipment that 
+meets the set of functions identified in the <a href="/it-ti/ipv6/tr-et-eng.asp">Technical Requirements for Internet Protocol 
+Version 6 Network Equipment Procurement Guideline</a>.</p></div></section><section class="pol-sec"><h2 id="cha8">8 Usage recommendations</h2><div class="pol-content"><p>This document provides guidance for those procuring network equipment, by identifying functions that are essential to 
+the proper functioning of equipment in a Government of Canada <abbr title="Internet Protocol version 6">IPv6</abbr> environment 
+(see the <a href="/it-ti/ipv6/tr-et-eng.asp">Technical Requirements for Internet Protocol Version 6 Network Equipment Procurement 
+Guideline</a>). A list of base functions that applies to all network equipment is followed by lists of functions that apply 
+to the equipment when used in specific situations. Following these is a section that addresses future needs, also organized 
+according to the network scenario in which the equipment will be used.</p><p>When preparing network equipment requirements, buyers should include the <abbr title="Internet Protocol version 6">IPv6</abbr> 
+functions referred to above, as specified in the <a href="/it-ti/ipv6/tr-et-eng.asp">Technical Requirements for Internet 
+Protocol Version 6 Network Equipment Procurement Guideline</a>.</p><p>It is possible that not all functions listed are currently supported by all vendors and that some of the quoted Internet 
+standards may be updated or become obsolete. As a result, a "best fit" may be required when equipment must be replaced due 
+to end-of-life or other considerations, and cannot wait for the availability of the full
+<abbr title="Internet Protocol version 6">IPv6</abbr> functionality recommended in this guideline.</p><p>Although beyond the scope of this guideline, buyers may also wish to specify performance requirements (e.g., throughput, 
+latency, packet loss, jitter), for both <abbr title="Internet Protocol version 4">IPv4</abbr> and
+<abbr title="Internet Protocol version 6">IPv6</abbr> for the equipment being procured, because their performance characteristics 
+may differ. This could be particularly noticeable in cases where <abbr title="Internet Protocol version 6">IPv6</abbr> functionality 
+requires additional hardware or software modules.</p></div></section><section class="pol-sec"><h2 id="cha9">9 References</h2><div class="pol-content"><section class="pol-sub"><h3 id="sec9.1">9.1 Related policy instruments and publications</h3><div class="pol-content"><ul><li><em><a href="/pol/doc-eng.aspx?id=12755">Policy on Management of Information Technology</a></em></li><li><em><a href="/pol/doc-eng.aspx?id=15249">Directive on Management of Information Technology</a></em></li><li><em><a href="/pol/doc-eng.aspx?id=16578">Policy on Government Security</a></em></li><li><em><a href="/pol/doc-eng.aspx?id=12328">Operational Security Standard: Management of Information Technology Security 
+	(MITS)</a></em></li><li><em><a href="/pol/doc-eng.aspx?id=32593">Policy on the Planning and Management of Investment</a></em></li></ul></div></section><section class="pol-sub"><h3 id="sec9.2">9.2 Relevant legislation</h3><div class="pol-content"><ul><li><em><a href="http://laws-lois.justice.gc.ca/eng/acts/f-11/">Financial Administration Act</a></em></li></ul></div></section></div></section><section class="pol-sec"><h2 id="cha10">10 Enquiries</h2><div class="pol-content"><p>For questions on this policy instrument, please contact <a href="/tbs-sct/cmn/contact-eng.asp">Treasury Board of Canada 
+Secretariat (TBS) Public Enquiries</a>.</p></div></section></div><hr /><div class="pol-app mrgn-tp-md"><section class="pol-sec"><h2 id="appA">Appendix – List of Abbreviations</h2><div class="pol-content"><dl><dt><strong><abbr title="Internet Protocol version 4">IPv4</abbr></strong></dt><dd>Internet Protocol version 4</dd><dt><strong><abbr title="Internet Protocol version 6">IPv6</abbr></strong></dt><dd>Internet Protocol version 6</dd><dt><strong><abbr title="Network Equipment Support Services">NESS</abbr></strong></dt><dd>Network Equipment Support Services</dd><dt><strong><abbr title="National Master Standing Offer">NMSO</abbr></strong></dt><dd>National Master Standing Offer</dd></dl></div></section></div><p class="mrgn-tp-lg text-center small">© His Majesty the King in right of Canada, represented by the President of the Treasury Board, 2017, <br/>ISBN: 978-0-660-09847-0</p></div></div><!-- end main content --><div id="cdts-def-preFooter"><!-- Write closure fall-back static file --><!-- /ROOT/etc/designs/canada/cdts/gcweb/v5_0_2/cdts/static/preFooter-en.html --><!--#include virtual="/pol/GoC.WebTemplate/StaticFallbackFiles/gcweb/preFooter-en.html" --></div></main><div id="cdts-def-footer"><!-- Write closure fall-back static file --><!-- /ROOT/etc/designs/canada/cdts/gcweb/v5_0_2/cdts/static/footer-en.html --><!--#include virtual="/pol/GoC.WebTemplate/StaticFallbackFiles/gcweb/footer-en.html" --></div></body></html>
