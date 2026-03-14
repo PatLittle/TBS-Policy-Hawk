@@ -18,6 +18,7 @@ Updates over time are added to `items.csv` along with the GUID assigned, so a di
 ## Features
 
 ✅ Fetch and parse the RSS feed for new policy items  
+✅ Automatically fallback to instrument-specific feeds when the main latest-changes feed is unavailable  
 ✅ Append new items to `data/items.csv`  
 ✅ Create GitHub Issues for new items  
 ✅ Archive XML documents for **Framework**, **Policy**, **Directive**, **Standard**, and **Guideline** categories
@@ -62,4 +63,3 @@ The workflow runs on a schedule to:
 │ ├── policy_watch.yml
 │ ├── init_xml_archives.yml
 ```
-

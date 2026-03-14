@@ -5,9 +5,17 @@ import requests
 import feedparser
 from bs4 import BeautifulSoup
 from datetime import datetime
+from email.utils import parsedate_to_datetime
 
 # --- Configuration ---
 RSS_URL = "https://www.tbs-sct.canada.ca/pol/rssfeeds-filsrss-eng.aspx?feed=2&count=100"
+FALLBACK_RSS_URLS = [
+    "https://www.tbs-sct.canada.ca/pol/rssfeeds-filsrss-eng.aspx?feed=1&type=79",
+    "https://www.tbs-sct.canada.ca/pol/rssfeeds-filsrss-eng.aspx?feed=1&type=27",
+    "https://www.tbs-sct.canada.ca/pol/rssfeeds-filsrss-eng.aspx?feed=1&type=73",
+    "https://www.tbs-sct.canada.ca/pol/rssfeeds-filsrss-eng.aspx?feed=1&type=36",
+    "https://www.tbs-sct.canada.ca/pol/rssfeeds-filsrss-eng.aspx?feed=1&type=83",
+]
 DATA_DIR = "data"
 ITEMS_CSV_PATH = os.path.join(DATA_DIR, "items.csv")
 NEW_ITEMS_CSV_PATH = os.path.join(DATA_DIR, "new_items.csv")
@@ -24,6 +32,64 @@ def sanitize_filename(name):
     """Sanitize a string to be a valid filename."""
     name = name.replace(":", "_").replace("/", "_")
     return "".join(c for c in name if c.isalnum() or c in (' ', '.', '_', '-')).rstrip()
+
+
+def parse_pub_date(pub_date):
+    """Convert an RSS date string to a comparable datetime value."""
+    if not pub_date:
+        return datetime.min
+    try:
+        return parsedate_to_datetime(pub_date)
+    except (TypeError, ValueError):
+        return datetime.min
+
+
+def normalize_entry(entry):
+    """Normalize feedparser entries into a stable dictionary structure."""
+    guid = entry.get('guid') or entry.get('id') or entry.get('link')
+    return {
+        "guid": guid,
+        "title": entry.get('title', '').strip(),
+        "link": entry.get('link', '').strip(),
+        "pubDate": entry.get('published', ''),
+        "category": entry.get('category', 'Uncategorized'),
+    }
+
+
+def fetch_entries_with_fallback(parser=feedparser.parse):
+    """Fetch entries from primary feed; use instrument feeds if main feed is unavailable."""
+    primary_feed = parser(RSS_URL)
+    primary_entries = getattr(primary_feed, 'entries', [])
+
+    if not getattr(primary_feed, 'bozo', False) and primary_entries:
+        return [normalize_entry(entry) for entry in primary_entries], "primary"
+
+    if getattr(primary_feed, 'bozo', False):
+        print(f"Warning: main RSS feed appears broken ({primary_feed.bozo_exception}). Falling back to instrument feeds.")
+    else:
+        print("Warning: main RSS feed returned no entries. Falling back to instrument feeds.")
+
+    deduped_entries = {}
+    for feed_url in FALLBACK_RSS_URLS:
+        fallback_feed = parser(feed_url)
+        if getattr(fallback_feed, 'bozo', False):
+            print(f"Warning: fallback feed parse issue for {feed_url}: {fallback_feed.bozo_exception}")
+            continue
+        for entry in getattr(fallback_feed, 'entries', []):
+            normalized = normalize_entry(entry)
+            guid = normalized['guid']
+            if not guid:
+                continue
+            existing = deduped_entries.get(guid)
+            if not existing or parse_pub_date(normalized['pubDate']) > parse_pub_date(existing['pubDate']):
+                deduped_entries[guid] = normalized
+
+    sorted_entries = sorted(
+        deduped_entries.values(),
+        key=lambda e: parse_pub_date(e['pubDate']),
+        reverse=True,
+    )
+    return sorted_entries, "fallback"
 
 def get_existing_guids(filepath):
     """Reads the existing CSV file and returns a set of GUIDs."""
@@ -96,21 +162,22 @@ def main():
     existing_guids = get_existing_guids(ITEMS_CSV_PATH)
     print(f"Found {len(existing_guids)} existing policy documents.")
 
-    feed = feedparser.parse(RSS_URL)
-    if feed.bozo:
-        print(f"Error parsing RSS feed: {feed.bozo_exception}")
+    entries, source = fetch_entries_with_fallback()
+    if not entries:
+        print("Error: unable to fetch entries from both main and fallback RSS feeds.")
         return
+    print(f"Using {source} feed source with {len(entries)} entries.")
 
     new_items = []
-    for entry in feed.entries:
-        if entry.guid not in existing_guids:
-            print(f"New item found: {entry.title} ({entry.guid})")
-            category = entry.get('category', 'Uncategorized')
-            filename = download_policy_xml(entry.link, category, entry.title, entry.published)
+    for entry in entries:
+        if entry['guid'] not in existing_guids:
+            print(f"New item found: {entry['title']} ({entry['guid']})")
+            category = entry['category']
+            filename = download_policy_xml(entry['link'], category, entry['title'], entry['pubDate'])
             if filename:
                 new_items.append({
-                    "guid": entry.guid, "title": entry.title, "link": entry.link,
-                    "pubDate": entry.published, "category": category, "filename": filename,
+                    "guid": entry['guid'], "title": entry['title'], "link": entry['link'],
+                    "pubDate": entry['pubDate'], "category": category, "filename": filename,
                     "updated_date": datetime.now().strftime('%Y-%m-%d %H:%M:%S')
                 })
 
