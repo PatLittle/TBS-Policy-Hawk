@@ -29,7 +29,7 @@ jobs:
       - name: Install deps
         run: |
           python -m pip install --upgrade pip
-          pip install pandas requests feedparser
+          pip install -r requirements.txt
 
       - name: Run SCD2 update
         run: |
