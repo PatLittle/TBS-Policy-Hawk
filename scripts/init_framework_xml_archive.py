@@ -6,6 +6,8 @@ import requests
 import feedparser
 import xml.dom.minidom
 
+USER_AGENT = os.getenv("TBS_POLICY_HAWK_USER_AGENT", "TBS-Policy-Hawk/1.0 (+https://github.com/TBS-Policy-Hawk)")
+
 # Feeds and corresponding target directories
 feeds = {
     "Framework": "https://www.tbs-sct.canada.ca/pol/rssfeeds-filsrss-eng.aspx?feed=1&type=79",
@@ -25,7 +27,10 @@ for dir_name, feed_url in feeds.items():
     print(f"Processing {dir_name} feed...")
 
     # Parse feed
-    feed = feedparser.parse(feed_url)
+    try:
+        feed = feedparser.parse(feed_url, request_headers={"User-Agent": USER_AGENT})
+    except TypeError:
+        feed = feedparser.parse(feed_url)
 
     for entry in feed.entries:
         # Use HTTPS and add &section=xml
