@@ -17,10 +17,24 @@ FALLBACK_RSS_URLS = [
     "https://www.tbs-sct.canada.ca/pol/rssfeeds-filsrss-eng.aspx?feed=1&type=36",
     "https://www.tbs-sct.canada.ca/pol/rssfeeds-filsrss-eng.aspx?feed=1&type=83",
 ]
+MODIFICATIONS_TABLE_URLS = [
+    "https://www.tbs-sct.canada.ca/pol/modifications-eng.aspx",
+    "https://www.tbs-sct.canada.ca/pol/modifications-fra.aspx",
+]
 DATA_DIR = "data"
 ITEMS_CSV_PATH = os.path.join(DATA_DIR, "items.csv")
 NEW_ITEMS_CSV_PATH = os.path.join(DATA_DIR, "new_items.csv")
 CSV_HEADERS = ["guid", "title", "link", "pubDate", "category", "filename", "updated_date"]
+FRENCH_CATEGORY_MAP = {
+    "Politique": "Policy",
+    "Directive": "Directive",
+    "Norme": "Standard",
+    "Ligne directrice": "Guideline",
+    "Lignes directrices": "Guideline",
+    "Guide": "Guide",
+    "Cadre stratégique": "Framework",
+    "Cadre": "Framework",
+}
 
 # --- Helper Functions ---
 
@@ -55,6 +69,73 @@ def normalize_entry(entry):
         "pubDate": entry.get('published', ''),
         "category": entry.get('category', 'Uncategorized'),
     }
+
+
+def normalize_category(label):
+    """Normalize category labels to repository folder names where possible."""
+    if not label:
+        return "Uncategorized"
+    normalized = label.strip()
+    return FRENCH_CATEGORY_MAP.get(normalized, normalized)
+
+
+def format_iso_date_for_pub_date(date_text):
+    """Convert YYYY-MM-DD strings into RSS-like date text for compatibility."""
+    try:
+        dt = datetime.strptime(date_text.strip(), "%Y-%m-%d")
+    except (TypeError, ValueError, AttributeError):
+        return ""
+    return dt.strftime("%a, %d %b %Y 00:00:00 GMT")
+
+
+def fetch_entries_from_modifications_table(getter=requests.get):
+    """Scrape the modifications table as a last-resort source of updates."""
+    for page_url in MODIFICATIONS_TABLE_URLS:
+        try:
+            response = getter(page_url, timeout=30, headers={"User-Agent": USER_AGENT})
+            response.raise_for_status()
+        except requests.RequestException as exc:
+            print(f"Warning: unable to retrieve modifications table ({page_url}): {exc}")
+            continue
+
+        soup = BeautifulSoup(response.text, "html.parser")
+        table = soup.find("table", id="results-table")
+        if not table:
+            print(f"Warning: modifications table not found on {page_url}")
+            continue
+
+        entries = []
+        rows = table.select("tbody tr")
+        for row in rows:
+            title_link = row.select_one("td h2 a")
+            date_cell = row.select_one("td:nth-of-type(2)")
+            metadata = row.select_one("td p.text-muted")
+
+            if not title_link or not date_cell:
+                continue
+
+            title = title_link.get_text(strip=True)
+            link = requests.compat.urljoin(page_url, title_link.get("href", "").strip())
+            date_text = date_cell.get_text(strip=True)
+            category_text = "Uncategorized"
+            if metadata:
+                category_text = metadata.get_text(" ", strip=True).split("|", 1)[0].strip()
+
+            doc_id_match = re.search(r"id=(\d+)", link)
+            guid = doc_id_match.group(1) if doc_id_match else link
+
+            entries.append({
+                "guid": guid,
+                "title": title,
+                "link": link,
+                "pubDate": format_iso_date_for_pub_date(date_text),
+                "category": normalize_category(category_text),
+            })
+
+        if entries:
+            return entries
+
+    return []
 
 
 def fetch_entries_with_fallback(parser=feedparser.parse):
@@ -96,7 +177,19 @@ def fetch_entries_with_fallback(parser=feedparser.parse):
         key=lambda e: parse_pub_date(e['pubDate']),
         reverse=True,
     )
-    return sorted_entries, "fallback"
+    if sorted_entries:
+        return sorted_entries, "fallback"
+
+    table_entries = fetch_entries_from_modifications_table()
+    if table_entries:
+        sorted_table_entries = sorted(
+            table_entries,
+            key=lambda e: parse_pub_date(e['pubDate']),
+            reverse=True,
+        )
+        return sorted_table_entries, "modifications-table"
+
+    return [], "fallback"
 
 def get_existing_guids(filepath):
     """Reads the existing CSV file and returns a set of GUIDs."""
@@ -135,12 +228,15 @@ def download_policy_xml(url, category, title, pub_date):
             sanitized_title = sanitize_filename(title.replace(' ', '_'))
             base_filename = f"{sanitized_title}_{doc_id}"
 
-        try:
-            dt_object = datetime.strptime(pub_date, '%a, %d %b %Y %H:%M:%S %Z')
-            date_str = dt_object.strftime('%Y-%m-%d')
-        except ValueError:
-            date_str = datetime.now().strftime('%Y-%m-%d')
-            print(f"Warning: Could not parse date '{pub_date}'. Using current date.")
+        parsed_date = parse_pub_date(pub_date)
+        if parsed_date != datetime.min:
+            date_str = parsed_date.strftime('%Y-%m-%d')
+        else:
+            try:
+                date_str = datetime.strptime(pub_date, '%Y-%m-%d').strftime('%Y-%m-%d')
+            except (TypeError, ValueError):
+                date_str = datetime.now().strftime('%Y-%m-%d')
+                print(f"Warning: Could not parse date '{pub_date}'. Using current date.")
 
         filename = f"{base_filename}_{date_str}.xml"
         

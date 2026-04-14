@@ -38,6 +38,8 @@ The current workflow detects items and creates issues, but it does not consisten
 ## Assumptions and Constraints
 - The RSS feed remains the primary change detection source.
 - RSS requests must include a custom `User-Agent` header (project agent) or requests may be blocked by upstream firewall rules.
+- If RSS endpoints fail, workflows must fall back to scraping the TBS modifications table (`modifications-eng.aspx` / `modifications-fra.aspx`) so change detection can continue.
+- RSS endpoint URLs must be validated and must not include malformed trailing punctuation (for example, `type=83:` is invalid; `type=83` is valid).
 - The policy HTML page supports a simplified view via `section=HTML`.
 - The repository can store versioned policy content (SCD2 or similar).
 - GitHub Actions runtime is sufficient for screenshot capture and markdown conversion.
@@ -66,6 +68,8 @@ Refactor the project into a clear pipeline with these phases:
 1. RSS and Change Detection
    - Parse RSS feed and persist items with a stable GUID.
    - Send a project-specific `User-Agent` header on all RSS feed HTTP requests (both primary and fallback feeds, across scripts and workflows).
+   - When primary and instrument RSS feeds are unavailable, scrape `table#results-table` from TBS modifications pages and map rows into the same canonical item fields (`guid`, `title`, `link`, `pubDate`, and descriptive text).
+   - Keep RSS URL configuration sanitized across scripts/workflows (no trailing colon after query parameter values).
    - Detect updates vs new items with version tracking.
    - Avoid duplicates when a job re-runs.
 
