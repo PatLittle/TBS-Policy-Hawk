@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 
 import os
+import re
 import requests
 import xml.etree.ElementTree as ET
 import hashlib
 import pandas as pd
 import feedparser
+from bs4 import BeautifulSoup
 from datetime import datetime, timezone
 from pathlib import Path
 import subprocess
@@ -34,6 +36,10 @@ FALLBACK_FEEDS = {
         "https://www.tbs-sct.canada.ca/pol/rssfeeds-filsrss-fra.aspx?feed=1&type=36",
         "https://www.tbs-sct.canada.ca/pol/rssfeeds-filsrss-fra.aspx?feed=1&type=83",
     ],
+}
+MODIFICATIONS_TABLE_URLS = {
+    "en": "https://www.tbs-sct.canada.ca/pol/modifications-eng.aspx",
+    "fr": "https://www.tbs-sct.canada.ca/pol/modifications-fra.aspx",
 }
 
 SCD2_PATH = REPO_ROOT / "data" / "tbs_policy_feed_scd2.csv"
@@ -110,6 +116,41 @@ def fetch_and_union():
             })
         return pd.DataFrame(rows)
 
+    def parse_modifications_table(lang):
+        url = MODIFICATIONS_TABLE_URLS[lang]
+        response = requests.get(url, timeout=60, headers={"User-Agent": USER_AGENT})
+        response.raise_for_status()
+        soup = BeautifulSoup(response.text, "html.parser")
+        table = soup.find("table", id="results-table")
+        if not table:
+            return pd.DataFrame()
+
+        rows = []
+        for tr in table.select("tbody tr"):
+            title_link = tr.select_one("td h2 a")
+            date_cell = tr.select_one("td:nth-of-type(2)")
+            summary_cell = tr.select_one("td p.mrgn-bttm-0")
+            if not title_link or not date_cell:
+                continue
+
+            href = (title_link.get("href") or "").strip()
+            link = requests.compat.urljoin(url, href)
+            date_text = date_cell.get_text(strip=True)
+            pub_date = pd.to_datetime(date_text, errors="coerce")
+            pub_date_text = "" if pd.isna(pub_date) else pub_date.strftime("%a, %d %b %Y 00:00:00 GMT")
+            guid_match = re.search(r"id=(\d+)", link)
+            guid = guid_match.group(1) if guid_match else link
+
+            rows.append({
+                "guid": guid,
+                f"title_{lang}": title_link.get_text(strip=True),
+                f"link_{lang}": link,
+                f"description_{lang}": (summary_cell.get_text(strip=True) if summary_cell else ""),
+                f"pubDate_{lang}": pub_date_text,
+            })
+
+        return pd.DataFrame(rows)
+
     def load_lang_feed(lang):
         parsed = parse_feedparser(FEEDS[lang], lang)
         if parsed is not None and not parsed.empty:
@@ -117,10 +158,16 @@ def fetch_and_union():
 
         print(f"Primary {lang} feed unavailable. Falling back to instrument feeds.")
         fallback = parse_fallback_feeds(lang)
-        if fallback.empty:
-            # Keep the original parser as a last-resort attempt to preserve behaviour.
-            return parse_rss(FEEDS[lang], lang)
-        return fallback
+        if not fallback.empty:
+            return fallback
+
+        print(f"Fallback instrument feeds unavailable for {lang}. Falling back to modifications table.")
+        table_fallback = parse_modifications_table(lang)
+        if not table_fallback.empty:
+            return table_fallback
+
+        # Keep the original parser as a final last-resort attempt to preserve behaviour.
+        return parse_rss(FEEDS[lang], lang)
 
     en = load_lang_feed("en")
     fr = load_lang_feed("fr")
