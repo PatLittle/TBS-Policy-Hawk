@@ -17,6 +17,7 @@ FEEDS = {
     "en": "https://www.tbs-sct.canada.ca/pol/rssfeeds-filsrss-eng.aspx?feed=2&count=300",
     "fr": "https://www.tbs-sct.canada.ca/pol/rssfeeds-filsrss-fra.aspx?feed=2&count=300",
 }
+USER_AGENT = os.getenv("TBS_POLICY_HAWK_USER_AGENT", "TBS-Policy-Hawk/1.0 (+https://github.com/TBS-Policy-Hawk)")
 
 FALLBACK_FEEDS = {
     "en": [
@@ -60,7 +61,10 @@ def fetch_and_union():
         }
 
     def parse_feedparser(url, lang):
-        parsed = feedparser.parse(url)
+        try:
+            parsed = feedparser.parse(url, request_headers={"User-Agent": USER_AGENT})
+        except TypeError:
+            parsed = feedparser.parse(url)
         if getattr(parsed, "bozo", False) or not getattr(parsed, "entries", []):
             return None
         rows = [normalize_entry(entry, lang) for entry in parsed.entries]
@@ -88,7 +92,7 @@ def fetch_and_union():
         return pd.DataFrame(deduped.values())
 
     def parse_rss(url, lang):
-        resp = requests.get(url, timeout=60)
+        resp = requests.get(url, timeout=60, headers={"User-Agent": USER_AGENT})
         resp.raise_for_status()
         root = ET.fromstring(resp.content)
         rows = []

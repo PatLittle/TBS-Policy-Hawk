@@ -9,6 +9,7 @@ from email.utils import parsedate_to_datetime
 
 # --- Configuration ---
 RSS_URL = "https://www.tbs-sct.canada.ca/pol/rssfeeds-filsrss-eng.aspx?feed=2&count=100"
+USER_AGENT = os.getenv("TBS_POLICY_HAWK_USER_AGENT", "TBS-Policy-Hawk/1.0 (+https://github.com/TBS-Policy-Hawk)")
 FALLBACK_RSS_URLS = [
     "https://www.tbs-sct.canada.ca/pol/rssfeeds-filsrss-eng.aspx?feed=1&type=79",
     "https://www.tbs-sct.canada.ca/pol/rssfeeds-filsrss-eng.aspx?feed=1&type=27",
@@ -58,7 +59,13 @@ def normalize_entry(entry):
 
 def fetch_entries_with_fallback(parser=feedparser.parse):
     """Fetch entries from primary feed; use instrument feeds if main feed is unavailable."""
-    primary_feed = parser(RSS_URL)
+    def parse_feed(url):
+        try:
+            return parser(url, request_headers={"User-Agent": USER_AGENT})
+        except TypeError:
+            return parser(url)
+
+    primary_feed = parse_feed(RSS_URL)
     primary_entries = getattr(primary_feed, 'entries', [])
 
     if not getattr(primary_feed, 'bozo', False) and primary_entries:
@@ -71,7 +78,7 @@ def fetch_entries_with_fallback(parser=feedparser.parse):
 
     deduped_entries = {}
     for feed_url in FALLBACK_RSS_URLS:
-        fallback_feed = parser(feed_url)
+        fallback_feed = parse_feed(feed_url)
         if getattr(fallback_feed, 'bozo', False):
             print(f"Warning: fallback feed parse issue for {feed_url}: {fallback_feed.bozo_exception}")
             continue

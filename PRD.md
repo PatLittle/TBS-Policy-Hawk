@@ -37,6 +37,7 @@ The current workflow detects items and creates issues, but it does not consisten
 
 ## Assumptions and Constraints
 - The RSS feed remains the primary change detection source.
+- RSS requests must include a custom `User-Agent` header (project agent) or requests may be blocked by upstream firewall rules.
 - The policy HTML page supports a simplified view via `section=HTML`.
 - The repository can store versioned policy content (SCD2 or similar).
 - GitHub Actions runtime is sufficient for screenshot capture and markdown conversion.
@@ -64,6 +65,7 @@ Refactor the project into a clear pipeline with these phases:
 ## Functional Requirements
 1. RSS and Change Detection
    - Parse RSS feed and persist items with a stable GUID.
+   - Send a project-specific `User-Agent` header on all RSS feed HTTP requests (both primary and fallback feeds, across scripts and workflows).
    - Detect updates vs new items with version tracking.
    - Avoid duplicates when a job re-runs.
 
@@ -94,6 +96,7 @@ Refactor the project into a clear pipeline with these phases:
 
 ## Non-Functional Requirements
 - Reliability: workflows should not fail on transient network errors.
+- Network compatibility: all RSS feed requests must set `User-Agent: TBS-Policy-Hawk/1.0 (+https://github.com/TBS-Policy-Hawk)`.
 - Performance: end-to-end enrichment should finish within 15 minutes.
 - Cost: stay within GitHub Actions free-tier constraints.
 - Security: do not leak tokens; store secrets in GitHub Actions secrets (Gemini API key).

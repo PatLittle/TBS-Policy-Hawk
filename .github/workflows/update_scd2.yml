@@ -11,6 +11,8 @@ permissions:
 jobs:
   update:
     runs-on: ubuntu-latest
+    env:
+      TBS_POLICY_HAWK_USER_AGENT: "TBS-Policy-Hawk/1.0 (+https://github.com/TBS-Policy-Hawk)"
     steps:
 
       - name: Checkout repo
