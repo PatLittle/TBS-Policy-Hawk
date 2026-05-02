@@ -24,7 +24,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          curl -sSL "https://www.tbs-sct.canada.ca/pol/hierarch-eng.aspx" -o page.html
+          curl -sSL 'https://www.tbs-sct.canada.ca/pol/hierarch-eng.aspx' -H 'User-Agent: "TBS-Policy-Hawk/1.0 (+https://github.com/TBS-Policy-Hawk)"' -o page.html
 
       - name: Generate full CSV
         shell: bash
