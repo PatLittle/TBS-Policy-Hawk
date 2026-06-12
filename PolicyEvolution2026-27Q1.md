@@ -1,7 +1,7 @@
 # Policy Evolution 2026-27 Q1
 
 **Period covered:** 2026-04-01 to 2026-06-30  
-**Source:** Auto-analysis comments added to TBS-Policy-Hawk issues 252-255.
+**Source:** Auto-analysis comments added to TBS-Policy-Hawk issues 252-256.
 
 This file compiles the policy-change analysis comments for updates detected during the quarter. Entries are organized chronologically by the effective/update date in the issue GUID.
 
@@ -170,3 +170,42 @@ The amendment seems to streamline approval and maintenance of government-wide pr
 ### Non-substantive changes
 
 Most other differences look like formatting, whitespace, markdown/XML conversion, or character-encoding cleanup rather than policy changes. Examples include corrected curly apostrophes, non-breaking spaces, and removal of mojibake such as `Â` / `â` artifacts.
+
+---
+
+## 2026-06-08 — Policy on People Management
+
+**Issue:** [#256](https://github.com/PatLittle/TBS-Policy-Hawk/issues/256)
+
+**Document ID:** 32621
+
+**Category:** Policy
+
+**GUID:** `32621_2026-06-08`
+
+### Policy change analysis
+
+Compared the current captured version for `32621_2026-06-08` with the closest prior repository copy:
+
+- New/current capture: `data/Policy/32621_2026-06-08/20260608T192247Z.md`
+- Prior version used for comparison: `data/Policy/People Management Policy on_2025-10-09.xml`
+
+### Summary
+
+No substantive policy change was identified. A direct comparison of the prior and current HTML captures found that the policy's visible content is unchanged; only the page's `dateModified` metadata changed from **2025-03-28** to **2026-06-08**.
+
+### Substantive changes identified
+
+| Section | Prior version | New/current version | Interpretation |
+|---|---|---|---|
+| **Policy clauses, appendices, and definitions** | Contained the same requirements, application provisions, appendices, definitions, and visible links as the current capture. | No visible-content changes identified. | No new, removed, or revised policy obligations were detected. |
+| **Page metadata** | `dateModified: "2025-03-28"` | `dateModified: "2026-06-08"` | Administrative metadata update that triggered the new capture; it does not change policy meaning or operational requirements. |
+
+### Practical effect
+
+1. **No operational change:** Departments do not appear to have new or revised obligations arising from this update.
+2. **Metadata refresh only:** The detected update records a new modification date without a corresponding change to the policy text.
+
+### Non-substantive changes
+
+The current Markdown capture differs in presentation from the prior HTML/XML repository copy because of format conversion. Comparing the corresponding HTML captures confirms that the only content-level difference is the `dateModified` metadata value.
