@@ -1,7 +1,7 @@
 # Policy Evolution 2026-27 Q1
 
 **Period covered:** 2026-04-01 to 2026-06-30  
-**Source:** Auto-analysis comments added to TBS-Policy-Hawk issues 252-256.
+**Source:** Auto-analysis comments added to TBS-Policy-Hawk issues 252-258.
 
 This file compiles the policy-change analysis comments for updates detected during the quarter. Entries are organized chronologically by the effective/update date in the issue GUID.
 
@@ -209,3 +209,88 @@ No substantive policy change was identified. A direct comparison of the prior an
 ### Non-substantive changes
 
 The current Markdown capture differs in presentation from the prior HTML/XML repository copy because of format conversion. Comparing the corresponding HTML captures confirms that the only content-level difference is the `dateModified` metadata value.
+
+---
+
+## 2026-06-09 — Directive on Build Canada Exchange
+
+**Issue:** [#258](https://github.com/PatLittle/TBS-Policy-Hawk/issues/258)
+
+**Document ID:** 32831
+
+**Category:** Directive
+
+**GUID:** `32831_2026-06-09`
+
+### Policy change analysis
+
+Compared the current captured version for `32831_2026-06-09` with the closest prior repository copy:
+
+- New/current capture: `data/Directive/32831_2026-06-09/20260621T035819Z.md`
+- Prior version used for comparison: `data/Directive/Interchange Canada Directive on_2026-03-14.xml`
+
+### Summary
+
+This update renames **Interchange Canada** to **Build Canada Exchange** throughout the directive and its appendix. The new note to reader states that the program's mandate, policy requirements, and authorities have not changed.
+
+### Substantive changes identified
+
+| Section | Prior version | New/current version | Interpretation |
+|---|---|---|---|
+| **Note to reader** | No note explaining a program rename. | Adds a note that the directive was updated to reflect the renaming of Interchange Canada to Build Canada Exchange and that the mandate, requirements, and authorities have not changed. | Confirms the update is intended as terminology/branding alignment, not a policy redesign. |
+| **1.1.1 and Appendix A.1.1.1** | No June 2026 update note under the directive or standard effective-date sections. | Adds June 19, 2026 notes explaining that the directive and standard were updated to reflect the rename. | Adds traceability for the rename in both the directive and its appendix. |
+| **Title and program references throughout** | Used **Interchange Canada**, including assignment, agreement, participant, liaison officer, and appendix-standard references. | Uses **Build Canada Exchange** in the same places. | Terminology-change across the instrument; operational requirements appear otherwise retained. |
+| **4.2.5, 4.2.8, 4.4.4, 6.2** | Contained minor wording issues such as “information ... are recorded,” “waiting period in between,” “lost, stolen or damaged,” and “regardless their employer.” | Updates grammar/style to “information ... is recorded,” “waiting period between,” “lost, stolen, or damaged,” and “regardless of their employer.” | Administrative cleanup; no apparent change in obligation. |
+
+### Practical effect
+
+1. **Terminology alignment:** departments should now refer to the program, assignments, agreements, participants, and liaison officers as Build Canada Exchange.
+2. **No authority or requirement change:** the directive itself states that the mandate, policy requirements, and authorities have not changed.
+3. **Document traceability:** new effective-date notes make the June 2026 rename explicit in both the directive and the appendix standard.
+
+### Non-substantive changes
+
+Most differences are name replacement, grammar/style cleanup, formatting conversion from XML/HTML to Markdown, and page metadata or document-ID changes associated with the renamed instrument.
+
+---
+
+## 2026-06-19 — Guidelines on Making Communications Products and Activities Diverse and Inclusive
+
+**Issue:** [#257](https://github.com/PatLittle/TBS-Policy-Hawk/issues/257)
+
+**Document ID:** 32785
+
+**Category:** Guidelines
+
+**GUID:** `32785_2026-06-19`
+
+### Policy change analysis
+
+Compared the current captured version for `32785_2026-06-19` with the closest prior repository copy:
+
+- New/current capture: `data/Guidelines/Making Communications Products and Activities Diverse and Inclusive Guidelines on_2026-06-19.xml` (the stored XML is a `Request Rejected` page; comparison used the GitHub Actions current-Markdown artifact posted on issue #257)
+- Prior version used for comparison: `data/Guidelines/Making Communications Products and Activities Diverse and Inclusive Guidelines on_2025-08-31.xml`
+
+### Summary
+
+This is a targeted guidance and reference refresh. The main guidance remains intact, but the update broadens the description of communications products to include employee-facing products and varied media, changes the language guidance from generic inclusive communication to inclusive writing, and refreshes several reference links.
+
+### Substantive changes identified
+
+| Section | Prior version | New/current version | Interpretation |
+|---|---|---|---|
+| **1.1 – communications product scope** | Described communications products as informing the public about policies, programs, services, initiatives, and risks. | Adds that products may inform the public **or Government of Canada employees** and that communications products can be developed for a variety of media. | Broadens the framing so the guidance clearly applies to internal employee-facing communications and multiple media formats. |
+| **4.5 – language guidance** | Encouraged applying principles of plain language writing and inclusive communication. | Encourages applying plain language writing and **inclusive writing**, with links to current plain-language and inclusive-writing resources. | Reframes the language expectation around specific writing guidance and updated reference material. |
+| **5.2 – related policy instruments** | Referred to the “Directive on the Management of Communications” and a Canada.ca-labelled accessible communications guideline link. | Refers to the **Directive on the Management of Communications and Federal Identity** and the **Guidelines on Making Communications Products and Activities Accessible**. | Updates related-instrument names/labels for clearer alignment with current policy instruments. |
+| **5.3 – Government of Canada resources** | Included the CCO plain language/accessibility GCpedia page, Office of Public Service Accessibility, Centre on Diversity and Inclusion, 2019-2022 Anti-Racism Strategy, and other resources. | Adds/renames internal resources, including **Resources and tools – Accessible and inclusive communications**, marks several links as GC-network-only, removes the Centre on Diversity and Inclusion item, and updates the anti-racism reference to **Combatting systemic racism and discrimination in Canada**. | Refreshes resource references; most changes are reference maintenance, but users are pointed to different supporting resources. |
+| **5.5 – employee networks** | Listed GC Diversity Networks and the Equity, Diversity and Inclusion Communications Network. | Lists the Equity, Diversity and Inclusion Communications Network only. | Removes one employee-network reference; this appears to be link/resource cleanup rather than a change to the guideline's core advice. |
+
+### Practical effect
+
+1. **Broader communications framing:** departments should read the guidance as applying to products for both public and Government of Canada employee audiences.
+2. **More specific writing guidance:** the language section now points to inclusive-writing guidance rather than using the broader phrase “inclusive communication.”
+3. **Updated reference set:** users are directed to newer or renamed accessibility, anti-racism, and terminology resources.
+
+### Non-substantive changes
+
+There are formatting and link-label changes throughout the references section. The repository XML for the new GUID captured a `Request Rejected` page, so the substantive comparison relied on the current-Markdown artifact posted by the workflow to issue #257.
