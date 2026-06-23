@@ -254,6 +254,48 @@ Most differences are name replacement, grammar/style cleanup, formatting convers
 
 ---
 
+## 2026-06-19 — Directive on Build Canada Exchange
+
+**Issue:** [#259](https://github.com/PatLittle/TBS-Policy-Hawk/issues/259)
+
+**Document ID:** 12553
+
+**Category:** Directive
+
+**GUID:** `12553_2026-06-19`
+
+### Policy change analysis
+
+Ran the issue enrichment workflow for issue #259 before analysis:
+
+- Workflow run: `issue_enrich.yml` run `28041794747`
+- New/current capture: `data/Directive/12553_2026-06-19/20260623T164610Z.md`
+- Prior version used for comparison: `data/Directive/32831_2026-06-09/20260621T035819Z.md`
+
+### Summary
+
+This update appears to make document ID `12553` the active/canonical page for the renamed **Directive on Build Canada Exchange**, following the earlier `32831_2026-06-09` capture. The policy body and appendix requirements match the June 9 Build Canada Exchange capture; no new, removed, or revised policy obligations were identified.
+
+### Substantive changes identified
+
+| Section | Prior version | New/current version | Interpretation |
+|---|---|---|---|
+| **Policy body and appendix** | Contained the Build Canada Exchange requirements, note to reader, effective-date notes, and appendix standard captured for issue #258. | Contains the same requirements, note to reader, effective-date notes, and appendix standard. | No substantive policy-body change detected relative to the June 9 Build Canada Exchange capture. |
+| **Document ID and page status** | Build Canada Exchange text was captured under document ID `32831` with `dateModified: 2026-06-09`. | The enriched current capture is for document ID `12553`, GUID `12553_2026-06-19`. | Administrative/document-ID transition for the renamed instrument; downstream references should treat `12553` as the active page where applicable. |
+| **Footer metadata** | The prior Markdown capture ended after Appendix A.2.2.8. | The current Markdown also includes a copyright/ISBN footer. | Non-substantive page/footer metadata; it does not alter obligations or authorities. |
+
+### Practical effect
+
+1. **No operational change:** departments do not appear to receive new or changed obligations beyond the rename already analyzed in issue #258.
+2. **Canonical ID cleanup:** systems or links that tracked `32831` should verify whether `12553` is now the active document ID for the renamed directive.
+3. **Enrichment confirmation:** the workflow-generated same-GUID diff `data/Directive/12553_2026-06-19/20260623T164610Z.diff` is empty, confirming the rerun reproduced the same current text as the prior enrichment capture.
+
+### Non-substantive changes
+
+Differences are limited to document ID/page status, footer metadata, capture timing, and HTML/Markdown rendering. The earlier terminology change from Interchange Canada to Build Canada Exchange remains the substantive rename already analyzed in issue #258.
+
+---
+
 ## 2026-06-19 — Guidelines on Making Communications Products and Activities Diverse and Inclusive
 
 **Issue:** [#257](https://github.com/PatLittle/TBS-Policy-Hawk/issues/257)
