@@ -336,3 +336,47 @@ This is a targeted guidance and reference refresh. The main guidance remains int
 ### Non-substantive changes
 
 There are formatting and link-label changes throughout the references section. The repository XML for the new GUID captured a `Request Rejected` page, so the substantive comparison relied on the current-Markdown artifact posted by the workflow to issue #257.
+
+---
+
+## 2026-06-26 — Directive on the Management of Procurement
+
+**Issue:** [#260](https://github.com/PatLittle/TBS-Policy-Hawk/issues/260)
+
+**Document ID:** 32692
+
+**Category:** Directive
+
+**GUID:** `32692_2026-06-26`
+
+### Policy change analysis
+
+Ran the issue enrichment workflow for issue #260 before analysis:
+
+- Workflow run: `issue_enrich.yml` run `28315519427`
+- New/current capture: `data/Directive/32692_2026-06-26/20260628T074628Z.md`
+- Prior version used for comparison: `data/Directive/32692_2026-04-30/20260502T131434Z.md`
+
+### Summary
+
+This update adds targeted procurement authorities for the Privy Council Office's Major Projects Office, extends Shared Services Canada's interim cloud-hosting authority by one year, and creates a narrow exemption from standard Treasury Board liability and indemnification approvals for specified Indigenous suppliers supporting national-interest project authorizations.
+
+### Substantive changes identified
+
+| Section | Prior version | New/current version | Interpretation |
+|---|---|---|---|
+| **Appendix A.2 - Privy Council Office (including the Major Projects Office)** | No PCO/Major Projects Office exceptional contracting limit was listed. | Adds authority for services contracts related to the Authorization of a National Interest Project by the Major Projects Office up to **$500,000**. | Establishes a targeted exceptional contracting limit for this MPO activity. |
+| **Appendix A.2 - Shared Services Canada** | The authority for non-competitive interim cloud application hosting services up to **$15 million** ran from January 1, 2025, to March 31, **2026**. | Extends the same authority through March 31, **2027**. | Continues SSC's time-limited non-competitive cloud-hosting authority for one additional year. |
+| **Appendix B.1.4** | Departments had to seek Treasury Board approval under B.1.2.1.2, B.1.2.2, and Table B.1 when creating certain commodity groupings, limiting contractor liability, or indemnifying contractors. | Those provisions do not apply to contracts or arrangements with Indigenous small businesses or Indigenous individuals for services related to the Authorization of a National Interest Project when the MPO CEO has approved the indemnification. | Creates a narrow approval exception for the specified suppliers and MPO services, shifting the indemnification decision to the MPO CEO. |
+
+### Practical effect
+
+1. **Targeted MPO authority:** the Privy Council Office can enter into qualifying MPO services contracts up to $500,000 under the new exceptional limit.
+2. **Cloud-hosting continuity:** SSC can continue using its non-competitive interim cloud-hosting authority up to $15 million through March 31, 2027.
+3. **Indigenous supplier exception:** qualifying MPO contracts with Indigenous small businesses or individuals can bypass the listed Treasury Board liability and indemnification approval rules when the MPO CEO approves indemnification.
+
+### Non-substantive changes
+
+An expired Shared Services Canada authority for interim cloud-hosting contracts up to $26 million through December 31, 2024, was removed. The enrichment rerun reproduced the same current text as the earlier same-GUID capture; `data/Directive/32692_2026-06-26/20260628T074628Z.diff` is empty.
+
+---
