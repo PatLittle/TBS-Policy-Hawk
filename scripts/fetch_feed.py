@@ -7,6 +7,39 @@ from bs4 import BeautifulSoup
 from datetime import datetime
 from email.utils import parsedate_to_datetime
 
+try:
+    from scripts.policy_sources import (
+        GLOSSARY_URLS,
+        HIERARCHY_URL,
+        build_glossary_change_payload,
+        compare_glossary_rows,
+        compare_hierarchy,
+        fetch_glossary_rows,
+        fetch_hierarchy_records,
+        read_glossary_csv,
+        read_hierarchy_csv,
+        write_glossary_csv,
+        write_glossary_markdown,
+        write_hierarchy_csv,
+        write_json,
+    )
+except ModuleNotFoundError:
+    from policy_sources import (
+        GLOSSARY_URLS,
+        HIERARCHY_URL,
+        build_glossary_change_payload,
+        compare_glossary_rows,
+        compare_hierarchy,
+        fetch_glossary_rows,
+        fetch_hierarchy_records,
+        read_glossary_csv,
+        read_hierarchy_csv,
+        write_glossary_csv,
+        write_glossary_markdown,
+        write_hierarchy_csv,
+        write_json,
+    )
+
 # --- Configuration ---
 RSS_URL = "https://www.tbs-sct.canada.ca/pol/rssfeeds-filsrss-eng.aspx?feed=2&count=100"
 USER_AGENT = os.getenv("TBS_POLICY_HAWK_USER_AGENT", "TBS-Policy-Hawk/1.0 (+https://github.com/TBS-Policy-Hawk)")
@@ -24,7 +57,17 @@ MODIFICATIONS_TABLE_URLS = [
 DATA_DIR = "data"
 ITEMS_CSV_PATH = os.path.join(DATA_DIR, "items.csv")
 NEW_ITEMS_CSV_PATH = os.path.join(DATA_DIR, "new_items.csv")
+HIERARCHY_CSV_PATH = os.path.join(DATA_DIR, "tbs_policy_hierarchy_full.csv")
+GLOSSARY_CSV_PATH = os.path.join(DATA_DIR, "policy_glossary.csv")
+GLOSSARY_MD_PATH = os.path.join(DATA_DIR, "policy_glossary.md")
+GLOSSARY_CHANGES_JSON_PATH = os.path.join(DATA_DIR, "glossary_changes.json")
 CSV_HEADERS = ["guid", "title", "link", "pubDate", "category", "filename", "updated_date"]
+NEW_ITEMS_CSV_HEADERS = CSV_HEADERS + [
+    "change_type",
+    "change_summary",
+    "related_guid",
+    "source_id",
+]
 FRENCH_CATEGORY_MAP = {
     "Politique": "Policy",
     "Directive": "Directive",
@@ -206,6 +249,26 @@ def get_existing_guids(filepath):
             guids.add(row['guid'])
     return guids
 
+
+def today_iso():
+    return datetime.now().strftime("%Y-%m-%d")
+
+
+def new_item_row(guid, title, link, pub_date, category, filename="", change_type="policy_update", change_summary="", related_guid="", source_id=""):
+    return {
+        "guid": guid,
+        "title": title,
+        "link": link,
+        "pubDate": pub_date,
+        "category": category,
+        "filename": filename,
+        "updated_date": datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+        "change_type": change_type,
+        "change_summary": change_summary,
+        "related_guid": related_guid,
+        "source_id": source_id,
+    }
+
 def download_policy_xml(url, category, title, pub_date):
     """Downloads the policy HTML from a given URL and saves it to the correct category directory."""
     # Ensure the URL uses https and contains section=html
@@ -267,22 +330,107 @@ def main():
 
     entries, source = fetch_entries_with_fallback()
     if not entries:
-        print("Error: unable to fetch entries from both main and fallback RSS feeds.")
-        return
-    print(f"Using {source} feed source with {len(entries)} entries.")
+        print("Warning: unable to fetch entries from main, fallback RSS feeds, or modifications table. Continuing with hierarchy and glossary checks.")
+    else:
+        print(f"Using {source} feed source with {len(entries)} entries.")
 
     new_items = []
+    policy_issue_document_ids = set()
     for entry in entries:
         if entry['guid'] not in existing_guids:
             print(f"New item found: {entry['title']} ({entry['guid']})")
             category = entry['category']
             filename = download_policy_xml(entry['link'], category, entry['title'], entry['pubDate'])
             if filename:
-                new_items.append({
-                    "guid": entry['guid'], "title": entry['title'], "link": entry['link'],
-                    "pubDate": entry['pubDate'], "category": category, "filename": filename,
-                    "updated_date": datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-                })
+                new_items.append(new_item_row(
+                    entry['guid'], entry['title'], entry['link'], entry['pubDate'], category, filename,
+                    change_type="policy_update",
+                    change_summary="Detected from the TBS policy update feed.",
+                ))
+                doc_id_match = re.match(r"(\d+)", entry['guid'])
+                if doc_id_match:
+                    policy_issue_document_ids.add(doc_id_match.group(1))
+
+    print(f"Checking hierarchy tree at {HIERARCHY_URL}...")
+    previous_hierarchy = read_hierarchy_csv(HIERARCHY_CSV_PATH)
+    current_hierarchy = fetch_hierarchy_records(user_agent=USER_AGENT)
+    hierarchy_changes = compare_hierarchy(previous_hierarchy, current_hierarchy) if previous_hierarchy else {"added": [], "removed": []}
+    write_hierarchy_csv(HIERARCHY_CSV_PATH, current_hierarchy)
+    print(f"Captured {len(current_hierarchy)} hierarchy instruments.")
+
+    hierarchy_date = today_iso()
+    for record in hierarchy_changes["added"]:
+        doc_id = record["ID"]
+        print(f"Hierarchy addition found: {record['Name']} ({doc_id})")
+        filename = download_policy_xml(record["URL"], record.get("category", "Uncategorized"), record["Name"], hierarchy_date)
+        guid = f"{doc_id}_{hierarchy_date}"
+        new_items.append(new_item_row(
+            guid,
+            record["Name"],
+            record["URL"],
+            hierarchy_date,
+            record.get("category", "Uncategorized"),
+            filename or "",
+            change_type="hierarchy_added",
+            change_summary="Added to the TBS policy hierarchy tree.",
+            related_guid=doc_id,
+            source_id=doc_id,
+        ))
+        policy_issue_document_ids.add(doc_id)
+
+    for record in hierarchy_changes["removed"]:
+        doc_id = record["ID"]
+        print(f"Hierarchy removal found: {record['Name']} ({doc_id})")
+        new_items.append(new_item_row(
+            f"hierarchy_removed_{doc_id}_{hierarchy_date}",
+            f"Removed from hierarchy: {record['Name']}",
+            record.get("URL") or HIERARCHY_URL,
+            hierarchy_date,
+            "Hierarchy",
+            "",
+            change_type="hierarchy_removed",
+            change_summary="Removed from the TBS policy hierarchy tree.",
+            related_guid=doc_id,
+            source_id=doc_id,
+        ))
+
+    print("Checking policy glossary pages...")
+    previous_glossary_exists = os.path.exists(GLOSSARY_CSV_PATH) and os.path.getsize(GLOSSARY_CSV_PATH) > 0
+    previous_glossary = read_glossary_csv(GLOSSARY_CSV_PATH)
+    current_glossary = fetch_glossary_rows(user_agent=USER_AGENT)
+    glossary_changes = compare_glossary_rows(previous_glossary, current_glossary) if previous_glossary_exists else {"added": [], "removed": [], "changed": []}
+    glossary_payload = build_glossary_change_payload(glossary_changes)
+    write_glossary_csv(GLOSSARY_CSV_PATH, current_glossary)
+    write_glossary_markdown(GLOSSARY_MD_PATH, current_glossary)
+
+    changed_sources = glossary_payload["changes_by_source"]
+    if changed_sources:
+        write_json(GLOSSARY_CHANGES_JSON_PATH, glossary_payload)
+        print(f"Captured glossary changes for {len(changed_sources)} source instrument(s).")
+    elif os.path.exists(GLOSSARY_CHANGES_JSON_PATH):
+        os.remove(GLOSSARY_CHANGES_JSON_PATH)
+        print("Removed stale glossary change metadata.")
+    else:
+        print("No glossary term changes found.")
+
+    for source_id, payload in changed_sources.items():
+        if source_id in policy_issue_document_ids:
+            continue
+        source_title = payload.get("source_en") or payload.get("source_fr") or "Policy glossary"
+        guid = f"glossary_{source_id}_{hierarchy_date}"
+        change_count = len(payload["added"]) + len(payload["removed"]) + len(payload["changed"])
+        new_items.append(new_item_row(
+            guid,
+            f"Glossary terms for {source_title}",
+            GLOSSARY_URLS["en"],
+            hierarchy_date,
+            "Glossary",
+            "",
+            change_type="glossary",
+            change_summary=f"{change_count} glossary term change(s) detected for this source.",
+            related_guid=source_id,
+            source_id=source_id,
+        ))
 
     if not new_items:
         print("No new policy items found.")
@@ -291,14 +439,25 @@ def main():
 
     print(f"Found {len(new_items)} new items to add.")
     with open(NEW_ITEMS_CSV_PATH, 'w', newline='', encoding='utf-8') as f:
-        writer = csv.DictWriter(f, fieldnames=CSV_HEADERS); writer.writeheader(); writer.writerows(new_items)
+        writer = csv.DictWriter(f, fieldnames=NEW_ITEMS_CSV_HEADERS)
+        writer.writeheader()
+        writer.writerows([{header: row.get(header, "") for header in NEW_ITEMS_CSV_HEADERS} for row in new_items])
     print(f"Created {NEW_ITEMS_CSV_PATH} for issue creation.")
+
+    items_rows = [
+        {header: row.get(header, "") for header in CSV_HEADERS}
+        for row in new_items
+        if row.get("filename") and row.get("change_type") in {"policy_update", "hierarchy_added"}
+    ]
+    if not items_rows:
+        print("No policy document rows to append to items.csv.")
+        return
 
     file_exists = os.path.exists(ITEMS_CSV_PATH) and os.path.getsize(ITEMS_CSV_PATH) > 0
     with open(ITEMS_CSV_PATH, 'a', newline='', encoding='utf-8') as f:
         writer = csv.DictWriter(f, fieldnames=CSV_HEADERS)
         if not file_exists: writer.writeheader()
-        writer.writerows(new_items)
+        writer.writerows(items_rows)
     print("Successfully updated items.csv.")
 
 if __name__ == "__main__":
