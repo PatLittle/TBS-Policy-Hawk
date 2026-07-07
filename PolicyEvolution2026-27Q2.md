@@ -18,7 +18,7 @@ This file compiles policy-change analysis comments for updates detected during t
 
 Compared the current captured version for `32749_2026-07-06` with the closest prior repository copy:
 
-- New/current capture: `data/Directive/32749_2026-07-06/20260707T152541Z.md`
+- New/current capture: `data/Directive/32749_2026-07-06/20260707T163905Z.md`
 - Prior version used for comparison: `data/Directive/Digital Talent Directive on_2025-08-31.xml`
 
 #### Summary
