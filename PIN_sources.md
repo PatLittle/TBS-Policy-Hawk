@@ -6,6 +6,11 @@ Generated from the live source pages listed below.
 
 > Date modified: 2026-03-04
 
+> Notices: 18
+
+<details>
+<summary>Notice table</summary>
+
 | Date | Title | URL |
 |---|---|---|
 |2026-03-02|Direction on Information Communication Technologies Accessibility; towards regulatory implementation|https://www.canada.ca/en/government/system/digital-government/policies-standards/policy-service-digital-announcements/direction-information-communication-technologies-accessibility-towards-regulatory-implementation.html|
@@ -27,9 +32,16 @@ Generated from the live source pages listed below.
 |2022-06-10|Direction on the use of pronouns in display names|https://www.canada.ca/en/government/system/digital-government/policies-standards/policy-service-digital-announcements/direction-use-pronouns-display-names.html|
 |2022-05-10|Changes to the Policy on Service and Digital policy instruments – amendments to the Directive on Service and Digital and four new standards|https://www.canada.ca/en/government/system/digital-government/policies-standards/policy-service-digital-announcements/changes-policy-service-digital-policy-instruments-amendments-directive-service-digital-four-new-standards.html|
 
+</details>
+
 ## [Contracting policy notices (CPN)](https://www.canada.ca/en/treasury-board-secretariat/services/policy-notice.html)
 
 > Date modified: 2026-04-30
+
+> Notices: 46
+
+<details>
+<summary>Notice table</summary>
 
 | Date | Notice | Title | URL |
 |---|---|---|---|
@@ -80,9 +92,16 @@ Generated from the live source pages listed below.
 |2000-07-18|2000-3|Extension of Time Element of Contracts|https://webarchiveweb.wayback.bac-lac.canada.ca/web/20240625061548/https://www.canada.ca/en/treasury-board-secretariat/services/policy-notice/2000-3.html|
 |1998-11-13|1997-8|ADDENDUM – Amendments and Additions to the Implementation of Contracting Obligations under Comprehensive Land Claims Agreements, National Park Agreements, and DND Co-operation Agreements|https://webarchiveweb.wayback.bac-lac.canada.ca/web/20240625062211/https://www.canada.ca/en/treasury-board-secretariat/services/policy-notice/1997-8-addendum.html|
 
+</details>
+
 ## [Access to Information and Privacy Notices (ATIPN)](https://www.canada.ca/en/treasury-board-secretariat/services/access-information-privacy/access-information-privacy-notices.html)
 
 > Date modified: 2026-03-23
+
+> Notices: 26
+
+<details>
+<summary>Notice table</summary>
 
 | Date | Group | Notice | Title | URL |
 |---|---|---|---|---|
@@ -113,9 +132,16 @@ Generated from the live source pages listed below.
 |2026-03-23|Privacy implementation notices|2020-02|Definition of Personal Information - Ministerial Staff|https://www.canada.ca/en/treasury-board-secretariat/services/access-information-privacy/access-information-privacy-notices/privacy-implementation-notice-2020-02.html|
 |2026-03-23|Privacy implementation notices|2020-01|Collecting and disclosing employees’ personal information related to the novel Coronavirus (COVID-19) pandemic|https://www.canada.ca/en/treasury-board-secretariat/services/access-information-privacy/access-information-privacy-notices/privacy-implementation-notice-2020-01.html|
 
+</details>
+
 ## [Human Resources Information Notices (HRIN)](https://www.canada.ca/en/treasury-board-secretariat/services/information-notice.html)
 
 > Date modified: 2026-06-25
+
+> Notices: 412
+
+<details>
+<summary>Notice table</summary>
 
 | Date | Group | Title | URL |
 |---|---|---|---|
@@ -532,9 +558,16 @@ Generated from the live source pages listed below.
 |2007-07-04|Archived notices|UCCO-SACC-CSN – Change to Membership Dues|https://www.canada.ca/en/treasury-board-secretariat/services/information-notice/changes-membership-dues-union-canadian-correctional-officers.html|
 |2006-01-09|Archived notices|Union Dues Increase – Canadian Association of Professional Employees (CAPE)|https://www.canada.ca/en/treasury-board-secretariat/services/information-notice/union-dues-increase-canadian-association-professional-employees.html|
 
+</details>
+
 ## [Security Policy Implementation Notice (SPIN)](https://www.canada.ca/en/government/system/digital-government/policies-standards/spin.html)
 
 > Date modified: 2025-10-09
+
+> Notices: 5
+
+<details>
+<summary>Notice table</summary>
 
 | Date | Notice | Title | URL |
 |---|---|---|---|
@@ -544,12 +577,21 @@ Generated from the live source pages listed below.
 |2021-08-12|2021-01|Direction on the Use of Voice and Audio Communication Technology|https://www.canada.ca/en/government/system/digital-government/policies-standards/spin/direction-use-voice-audio-communication-technology.html|
 |2017-11-01|2017-01|Direction on the Secure Use of Commercial Cloud Services|https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/cloud-services/direction-secure-use-commercial-cloud-services-spin.html|
 
+</details>
+
 ## [Real Property Policy Notices (RPPN)](https://www.canada.ca/en/treasury-board-secretariat/services/federal-real-property-management/real-property-policy-notices.html)
 
 > Date modified: 2026-02-20
+
+> Notices: 3
+
+<details>
+<summary>Notice table</summary>
 
 | Date | Notice | Title | URL |
 |---|---|---|---|
 |2026-02-20|2025-03|Real Property Authority Pilot|https://www.canada.ca/en/treasury-board-secretariat/services/federal-real-property-management/real-property-policy-notices/2025-3.html|
 |2026-02-20|2025-2|Updates to the Transaction Approval Limits and Conditions for Real Property Transactions|https://www.canada.ca/en/treasury-board-secretariat/services/federal-real-property-management/real-property-policy-notices/2025-2.html|
 |2026-02-20|2025-1|Updates to the Treasury Board Real Property Policy Instruments|https://www.canada.ca/en/treasury-board-secretariat/services/federal-real-property-management/real-property-policy-notices/2025-1.html|
+
+</details>

@@ -569,7 +569,14 @@ def render_pin_sources_md(source_records: list[dict]) -> str:
         lines.append("")
         lines.append(f"> Date modified: {record['source_modified']}")
         lines.append("")
+        lines.append(f"> Notices: {len(record['notices'])}")
+        lines.append("")
+        lines.append("<details>")
+        lines.append("<summary>Notice table</summary>")
+        lines.append("")
         lines.extend(format_section_table(defn, record["notices"]))
+        lines.append("</details>")
+        lines.append("")
     return "\n".join(lines).rstrip() + "\n"
 
 
