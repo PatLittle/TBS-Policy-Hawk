@@ -13,6 +13,12 @@ For open `policy-update` issues:
 5. Add the label `🪄📝AutoAnalyzed` to the issue.
 6. Add the same analysis to the fiscal-quarter `PolicyEvolution{YYYY-YYQ#}.md` file in chronological order.
 
+Also analyze related source changes raised by the repository automation:
+
+- policy implementation notices (PINs) that are newly issued, changed, or newly captured
+- glossary terms that are added, changed, or deleted
+- policy hierarchy tree additions, removals, moves, redirects, or parent-child path changes
+
 ---
 
 ## Repository assumptions
@@ -48,6 +54,27 @@ Issue bodies usually include:
 **Category:** Directive
 **GUID:** 32692_2026-04-30
 ```
+
+Issue bodies may also include source-specific metadata:
+
+```markdown
+**Hierarchy document ID:** 32750
+**Source document ID:** 32692
+### Glossary changes
+**Added terms:**
+**Removed terms:**
+**Changed terms:**
+```
+
+PIN captures are stored under:
+
+```text
+PIN_sources.md
+data/PINs/{PIN family}/...
+data/PINs/pin_sources_manifest.json
+```
+
+Common PIN families include ATIPN, HRIN, SPIN, and RPPN. Treat these as implementation direction and operational evidence, not just supporting links.
 
 ---
 
@@ -99,6 +126,8 @@ For each issue, parse:
 - category
 - GUID
 - update date from GUID suffix
+- change type from the issue title or body, such as policy update, hierarchy addition, hierarchy removal, glossary update, or PIN-related update
+- hierarchy document ID or source document ID, when present
 
 Example parsing from `GUID: 32692_2026-04-30`:
 
@@ -106,6 +135,8 @@ Example parsing from `GUID: 32692_2026-04-30`:
 document_id = 32692
 update_date = 2026-04-30
 ```
+
+If the issue is not a standard policy document update, still complete the same analysis lifecycle: gather evidence, explain the change, comment on the issue, apply `🪄📝AutoAnalyzed`, and update the fiscal-quarter report.
 
 ---
 
@@ -121,6 +152,26 @@ Preferred current captures:
 4. `data/{CategoryPlural}/{GUID}/*.html`
 
 Prefer `.md` over `.html` because it is easier to diff semantically. If only `.html` exists, extract visible text from the HTML before comparing.
+
+For PIN analysis, search:
+
+1. `PIN_sources.md`
+2. `data/PINs/pin_sources_manifest.json`
+3. `data/PINs/{PIN family}/*.md`
+
+For glossary analysis, inspect:
+
+1. the issue body `### Glossary changes` section
+2. `data/glossary_changes.json`, if present in the same run
+3. `data/policy_glossary.csv`
+4. `data/policy_glossary.md`
+
+For hierarchy-tree analysis, inspect:
+
+1. the issue body hierarchy metadata
+2. `data/tbs_policy_hierarchy_full.csv`
+3. relevant current or prior policy captures for the affected document ID
+4. `screenshots/hierarchy_removed_{document_id}_{date}.png` or `screenshots/{GUID}.png`, when present
 
 ---
 
@@ -150,6 +201,12 @@ Priority order:
 4. Older canonical XML if no closer markdown exists.
 
 Avoid comparing against much older versions if a closer prior capture exists, because unrelated amendments may be mixed into the diff.
+
+For PINs, compare the newly captured notice against any prior capture with the same title, notice number, source URL, or PIN family. If there is no prior local copy, analyze the notice as newly issued and record its operational direction.
+
+For glossary changes, compare by source document ID and bilingual term key. Capture added terms, removed terms, changed English or French definitions, changed source labels, and date-modified changes. Do not treat a date-modified-only change as substantive unless it accompanies term or definition changes.
+
+For hierarchy changes, compare by document ID first, then by normalized title and URL. Determine whether the affected instrument was added, removed, renamed, redirected to another ID, moved under a different hierarchy path, or changed in minimum level.
 
 ---
 
@@ -191,6 +248,9 @@ Focus on substantive changes:
 - compliance / monitoring / consequences changes
 - appendix schedule/table changes
 - changes to application scope
+- new implementation notices, PIN effective dates, or operational direction
+- glossary additions, removals, or definition changes that affect interpretation
+- hierarchy additions, removals, moves, redirects, or parent/child relationship changes
 
 De-emphasize:
 
@@ -214,11 +274,57 @@ threshold-change
 deadline-change
 administrative-cleanup
 possible-regression
+pin-update
+glossary-change
+hierarchy-change
 ```
 
 ---
 
-### 6. Draft the issue comment
+### 6. Analyze source-specific changes
+
+#### PINs
+
+When a PIN is newly issued or changed, capture:
+
+- PIN family and notice identifier, if available
+- title and source URL
+- issue date or page date modified
+- linked or affected policy instruments
+- new direction, clarification, transitional instruction, deadline, threshold, implementation expectation, or operational obligation
+- whether the notice supersedes, amends, or points back to prior guidance
+
+In the interpretation, explain whether the PIN creates a new operational requirement, clarifies existing policy, changes timing or compliance expectations, or is only administrative/publication cleanup.
+
+#### Glossary terms
+
+When glossary terms are added, changed, or deleted, capture:
+
+- source document ID and source instrument title
+- added terms in English and French
+- removed terms in English and French
+- changed terms and the fields changed, including English definition, French definition, source title, or date modified
+- whether the change affects scope, eligibility, authority, delegated responsibility, compliance, reporting, or implementation terminology
+
+Do not stop at counting changed terms. Explain what the changed terminology means for interpreting the source instrument.
+
+#### Hierarchy tree
+
+When the policy hierarchy changes, capture:
+
+- affected document ID
+- affected title and URL
+- added or removed state
+- prior and current hierarchy paths, if both are available
+- parent, child, or sibling relationship changes
+- minimum hierarchy level changes
+- possible redirect, rename, retirement, consolidation, or replacement signals
+
+For removals, say whether the instrument appears retired, moved, redirected, or only absent from the hierarchy source. Use "appears removed" if the evidence does not prove retirement.
+
+---
+
+### 7. Draft the issue comment
 
 Use this structure:
 
@@ -255,11 +361,21 @@ Compared the current captured version for `{GUID}` with the closest prior reposi
 {Optional: include if something appears moved, removed, or possibly regressed.}
 ```
 
-Keep the comment concise but useful. Prefer a clear before/after table over long prose.
+For PIN, glossary, and hierarchy issues, adapt the table headings to the source:
+
+```markdown
+| Area | Evidence before / previous state | Evidence now | Interpretation |
+|---|---|---|---|
+| **PIN direction** | {prior notice state or no prior local copy} | {new or changed direction} | {operational impact} |
+| **Glossary term** | {old term or definition} | {new term or definition} | {interpretive impact} |
+| **Hierarchy path** | {prior path or absent} | {current path or removed} | {suite-structure impact} |
+```
+
+Keep the comment concise but useful. Prefer a clear before/after table over long prose. Include explicit "No substantive policy impact found" only after checking the relevant source evidence.
 
 ---
 
-### 7. Post the comment and add the label
+### 8. Post the comment and add the label
 
 After posting the analysis comment, add the label:
 
@@ -277,7 +393,7 @@ If the issue has the label but no analysis comment, inspect before deciding whet
 
 ---
 
-### 8. Maintain the quarterly PolicyEvolution file
+### 9. Maintain the quarterly PolicyEvolution file
 
 Determine the fiscal quarter from the issue GUID/update date.
 
@@ -320,6 +436,7 @@ Section format:
 **Document ID:** {document_id}  
 **Category:** {category}  
 **GUID:** `{GUID}`
+**Change type:** {policy_update | hierarchy_added | hierarchy_removed | glossary | pin}
 
 {analysis comment body, excluding the top `## Policy change analysis` heading if desired, or demoting headings so nesting is valid.}
 
@@ -343,10 +460,15 @@ For each open issue:
 ```text
 [ ] Fetch issue metadata
 [ ] Parse title, category, document ID, GUID, update date
+[ ] Identify whether the issue is a policy update, PIN update, glossary update, hierarchy addition, or hierarchy removal
 [ ] Find current capture path
 [ ] Find closest previous capture path
+[ ] Inspect PIN_sources.md and data/PINs when PIN evidence is relevant
+[ ] Inspect data/policy_glossary.* and glossary_changes.json when glossary evidence is relevant
+[ ] Inspect data/tbs_policy_hierarchy_full.csv and hierarchy screenshots when hierarchy evidence is relevant
 [ ] Normalize current and previous content
 [ ] Compare by clauses/sections
+[ ] Compare PIN direction, glossary terms, and hierarchy paths when applicable
 [ ] Draft analysis comment
 [ ] Post analysis comment
 [ ] Add 🪄📝AutoAnalyzed label
