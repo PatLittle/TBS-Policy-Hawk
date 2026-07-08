@@ -38,16 +38,21 @@ jobs:
 
       - name: Ensure data directories exist
         run: |
-          mkdir -p data screenshots
+          mkdir -p data data/PINs screenshots
 
       - name: Fetch RSS feed and policy documents
         id: fetch
         run: |
           python scripts/fetch_feed.py
-          git add -A
-          ls
-          # Check for new or updated files to control subsequent steps
-          if [[ -n $(git status --porcelain data/) ]]; then
+          if [[ -n "$(git status --porcelain -- data/)" ]]; then
+            echo "feed_changes_detected=true" >> $GITHUB_OUTPUT
+          else
+            echo "feed_changes_detected=false" >> $GITHUB_OUTPUT
+          fi
+          python scripts/sync_pin_sources.py
+          if [[ -n "$(git status --porcelain -- data/)" ]]; then
+            echo "changes_detected=true" >> $GITHUB_OUTPUT
+          elif [[ -n "$(git status --porcelain -- PIN_sources.md)" ]]; then
             echo "changes_detected=true" >> $GITHUB_OUTPUT
           else
             echo "changes_detected=false" >> $GITHUB_OUTPUT
@@ -58,19 +63,19 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
-          git add data/
+          git add data/ PIN_sources.md
           git commit -m 'chore: update policy data and documents'
           git push
 
       - name: Create issues with screenshots for new items
-        if: steps.fetch.outputs.changes_detected == 'true'
+        if: steps.fetch.outputs.feed_changes_detected == 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           python scripts/create_issues_with_screenshots.py
 
       - name: Commit and push issue map and screenshots
-        if: steps.fetch.outputs.changes_detected == 'true'
+        if: steps.fetch.outputs.feed_changes_detected == 'true'
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
@@ -81,14 +86,14 @@ jobs:
           fi
 
       - name: Analyze document changes with AI and comment on issues
-        if: steps.fetch.outputs.changes_detected == 'true'
+        if: steps.fetch.outputs.feed_changes_detected == 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           python scripts/analyze_changes.py --post-to-github --append-output --output-file grok-diff.md
 
       - name: Commit and push AI analysis
-        if: steps.fetch.outputs.changes_detected == 'true'
+        if: steps.fetch.outputs.feed_changes_detected == 'true'
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'

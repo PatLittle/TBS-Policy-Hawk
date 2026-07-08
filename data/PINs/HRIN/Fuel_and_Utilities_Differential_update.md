@@ -1,0 +1,30 @@
+# Fuel and Utilities Differential update
+
+- Notice source: Human Resources Information Notices (HRIN)
+- Source page URL: https://www.canada.ca/en/treasury-board-secretariat/services/information-notice.html
+- Source page modified: 2026-06-25
+- Notice URL: https://www.canada.ca/en/treasury-board-secretariat/services/information-notice/fuel-utilities-differential-update-2018.html
+- Notice modified: 2018-07-20
+- Notice group: Active notices
+- Listed date: 2018-07-23
+- Captured at (UTC): 2026-07-08T03:44:28Z
+
+---
+
+# Fuel and Utilities Differential update
+
+July 23, 2018
+
+To: Functional Heads of Administration, Human Resources, and Financial Services
+
+CC: Chairs and Executive Directors of Northern Federal Regional Councils, Departmental Designated Coordinators for the IPGHD and Committee Members of the NJC IPGHD
+
+Please distribute this notice to employees at your headquarters and regional offices who are involved in the administration of the allowances.
+
+Recently, the NJC IPGH committee approved changes to the Appendices [A](http://www.njc-cnm.gc.ca/directive/d4/v237/s624/en#s624-tc-tm) and [G](http://www.njc-cnm.gc.ca/directive/d4/v237/s630/en#s630-tc-tm). The Fuel and Utilities Differential (F&UD) classification levels are effective October 1, 2016. For locations where the F&UD level has increased, retroactive payments resulting from these changes are to be administered in the same manner as retroactive increases to employees' pay. For locations where there is a decrease in the F&UD level, departments shall provide a written notice to each employee affected by the change within 60 days of receiving this notification, pursuant to section 2.12 of the IPGHD. The reduction will be effective on the first day of the fourth calendar month after the month in which written notice was received. An e-mail is considered an acceptable written notice.
+
+Statistics Canada updates the indexes once per year by determining the major heating fuels used at each isolated post and establishing prices prevailing during the month of October in both the point of comparison cities and the isolated posts. Prices vary due to market prices, suppliers and delivery methods.
+
+Departmental employees or regional staff should direct any questions on this subject to the appropriate designated departmental contact. [View the list of Designated Departmental Contacts](http://www.tbs-sct.gc.ca/pubs_pol/hrpubs/ipgh-dpill/ddhc-cmdl-eng.asp).
+
+Claudia Zovatto Senior Director Union Engagement and National Joint Council support Compensation and Labour Relations Sector Office of the Chief Human Resources Officer

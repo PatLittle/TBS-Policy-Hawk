@@ -1,0 +1,39 @@
+# Fuel and Utilities Differential Update
+
+- Notice source: Human Resources Information Notices (HRIN)
+- Source page URL: https://www.canada.ca/en/treasury-board-secretariat/services/information-notice.html
+- Source page modified: 2026-06-25
+- Notice URL: https://www.canada.ca/en/treasury-board-secretariat/services/information-notice/fuel-utilities-differential-update.html
+- Notice modified: 2014-10-31
+- Notice group: Archived notices
+- Listed date: 2014-11-01
+- Captured at (UTC): 2026-07-08T03:44:28Z
+- Page title: Fuel and Utilities Differential Update - November 2014
+
+---
+
+# Fuel and Utilities Differential Update - November 2014
+
+## We have archived this page and will not be updating it.
+
+You can use it for research or reference.
+
+## We have archived this page and will not be updating it.
+
+You can use it for research or reference.
+
+Date: November 1, 2014
+
+To: Functional Heads of Administration, Human Resources, and Financial Services
+
+CC: Chairs and Executive Directors of Northern Federal Regional Councils, Departmental Designated Coordinators for the IPGHD and Committee members of the NJC IPGHD (for information)
+
+Please distribute this notice and the amended appendices of the National Joint Council (NJC) Isolated Posts and Government Housing Directive (IPGHD) to employees at your headquarters and regional offices who are involved in the administration of the allowances.
+
+Recently, the NJC IPGH committee approved changes to [Appendix A](http://www.njc-cnm.gc.ca/directive/index.php?lang=eng&svid=126-19) and [Appendix G](http://www.njc-cnm.gc.ca/directive/index.php?sid=132&lang=eng). The Fuel and Utilities Differential (FUD) classification levels are effective October 1, 2013. For locations where the FUD level has increased, retroactive payments resulting from these changes are to be administered in the same manner as retroactive increases to employees' pay. For locations where there is a decrease in the FUD level, departments shall provide a written notice to each employee affected by the change within 60 days (until December 30, 2014) of receiving this notification, pursuant to section 2.12 of the IPGHD. The reduction will be effective on the first day of the fourth calendar month after the month in which written notice was received. An e-mail is considered an acceptable written notice.
+
+FUD levels are established as per section 6.14 of the IPGHD. Statistics Canada updates the indexes once per year by determining the major heating fuels used at each isolated post and establishing prices prevailing during the month of October in both the point of comparison cities and the isolated posts. Prices vary due to market prices, suppliers and delivery methods.
+
+Departmental employees or regional staff should direct any questions on this subject to the appropriate departmental corporate official. [View the list of Designated Departmental Contacts](http://www.tbs-sct.gc.ca/psm-fpfm/pay-remuneration/other-autres/ddhc-cmdl-eng.asp).
+
+Claudia Zovatto Senior Director Union Engagement and National Joint Council support Compensation and Labour Relations Sector Office of the Chief Human Resources Officer
