@@ -1,7 +1,12 @@
 import unittest
+from pathlib import Path
+from tempfile import TemporaryDirectory
+
+import requests
 
 from scripts import policy_sources
 from scripts import create_issues_with_screenshots
+from scripts import fetch_feed
 
 
 class PolicySourcesHierarchyTests(unittest.TestCase):
@@ -50,6 +55,108 @@ class PolicySourcesHierarchyTests(unittest.TestCase):
         self.assertEqual(len(records), 1)
         self.assertEqual(records[0]["ID"], "200")
         self.assertEqual(records[0]["original_id"], "100")
+
+    def test_fetch_hierarchy_retries_transient_timeout(self):
+        html = """
+        <html><body>
+        <main>
+          <ul class="tv-ul">
+            <li><a href="doc-eng.aspx?id=100">Recovered Policy</a></li>
+          </ul>
+        </main>
+        </body></html>
+        """
+
+        class FakeResponse:
+            text = html
+            url = "https://www.tbs-sct.canada.ca/pol/hierarch-eng.aspx"
+
+            def raise_for_status(self):
+                return None
+
+        calls = {"count": 0}
+
+        def getter(url, **_kwargs):
+            calls["count"] += 1
+            if calls["count"] == 1:
+                raise requests.ReadTimeout("slow hierarchy page")
+            return FakeResponse()
+
+        records = policy_sources.fetch_hierarchy_records(
+            getter=getter,
+            resolve_redirects=False,
+            retry_backoff_seconds=0,
+        )
+
+        self.assertEqual(calls["count"], 2)
+        self.assertEqual(records[0]["ID"], "100")
+
+    def test_hierarchy_tree_text_includes_nested_items_and_urls(self):
+        records = [
+            {
+                "ID": "1",
+                "Name": "Root Policy",
+                "URL": "https://example.test/root",
+                "Hierarchy Paths": "",
+            },
+            {
+                "ID": "2",
+                "Name": "Child Directive",
+                "URL": "https://example.test/child",
+                "Hierarchy Paths": "Root Policy",
+            },
+            {
+                "ID": "32750",
+                "Name": "GC Digital Talent Platform",
+                "URL": "https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=32750",
+                "Hierarchy Paths": "Root Policy > Child Directive",
+            },
+        ]
+
+        tree = policy_sources.hierarchy_tree_text(records)
+
+        self.assertIn("Root Policy [1] - https://example.test/root", tree)
+        self.assertIn("Child Directive", tree)
+        self.assertIn("GC Digital Talent Platform [32750] - https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=32750", tree)
+
+    def test_capture_hierarchy_changes_falls_back_without_tree_write_on_timeout(self):
+        previous = [{
+            "ID": "32749",
+            "Name": "Digital Talent, Directive on",
+            "URL": "https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=32749",
+            "Min Level": "3",
+            "Hierarchy Paths": "Values and Ethics Code for the Public Sector",
+            "Other Names": "",
+        }]
+
+        with TemporaryDirectory() as tmp:
+            tmp_path = Path(tmp)
+            original_csv_path = fetch_feed.HIERARCHY_CSV_PATH
+            original_dir = fetch_feed.HIERARCHY_DIR
+            original_tree_path = fetch_feed.HIERARCHY_TREE_PATH
+            fetch_feed.HIERARCHY_CSV_PATH = str(tmp_path / "hierarchy.csv")
+            fetch_feed.HIERARCHY_DIR = str(tmp_path / "Hierarchy")
+            fetch_feed.HIERARCHY_TREE_PATH = str(tmp_path / "Hierarchy" / "hierarchy.txt")
+            try:
+                policy_sources.write_hierarchy_csv(fetch_feed.HIERARCHY_CSV_PATH, previous)
+
+                def failing_fetcher(**_kwargs):
+                    raise requests.ReadTimeout("slow hierarchy page")
+
+                current, changes, fetched = fetch_feed.capture_hierarchy_changes(
+                    "2026-07-08",
+                    fetcher=failing_fetcher,
+                )
+
+                self.assertFalse(fetched)
+                self.assertEqual(changes, {"added": [], "removed": []})
+                self.assertEqual(current, previous)
+                self.assertFalse(Path(fetch_feed.HIERARCHY_TREE_PATH).exists())
+                self.assertFalse((tmp_path / "Hierarchy" / "2026-07-08_hierarchy.txt").exists())
+            finally:
+                fetch_feed.HIERARCHY_CSV_PATH = original_csv_path
+                fetch_feed.HIERARCHY_DIR = original_dir
+                fetch_feed.HIERARCHY_TREE_PATH = original_tree_path
 
 
 class PolicySourcesGlossaryTests(unittest.TestCase):

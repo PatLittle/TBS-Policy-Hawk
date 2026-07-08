@@ -4,6 +4,7 @@ import html as html_lib
 import json
 import os
 import re
+import time
 from copy import copy
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
@@ -90,10 +91,39 @@ def resolve_policy_url(url, getter=requests.get, user_agent=None):
             close()
 
 
-def fetch_hierarchy_records(getter=requests.get, user_agent=None, resolve_redirects=True):
+def get_with_retries(url, getter=requests.get, *, attempts=3, backoff_seconds=5, **kwargs):
+    last_exc = None
+    for attempt in range(1, attempts + 1):
+        try:
+            response = getter(url, **kwargs)
+            response.raise_for_status()
+            return response
+        except requests.RequestException as exc:
+            last_exc = exc
+            if attempt >= attempts:
+                break
+            print(f"Warning: request failed for {url} on attempt {attempt}/{attempts}: {exc}. Retrying.")
+            if backoff_seconds:
+                time.sleep(backoff_seconds * attempt)
+    raise last_exc
+
+
+def fetch_hierarchy_records(
+    getter=requests.get,
+    user_agent=None,
+    resolve_redirects=True,
+    attempts=3,
+    retry_backoff_seconds=5,
+):
     headers = {"User-Agent": user_agent or DEFAULT_USER_AGENT}
-    response = getter(HIERARCHY_URL, timeout=60, headers=headers)
-    response.raise_for_status()
+    response = get_with_retries(
+        HIERARCHY_URL,
+        getter=getter,
+        attempts=attempts,
+        backoff_seconds=retry_backoff_seconds,
+        timeout=60,
+        headers=headers,
+    )
 
     soup = BeautifulSoup(response.text, "html.parser")
     date_modified = page_date_modified(soup)
@@ -165,6 +195,58 @@ def write_hierarchy_csv(path, records):
         writer.writeheader()
         for row in records:
             writer.writerow({header: row.get(header, "") for header in HIERARCHY_HEADERS})
+
+
+def hierarchy_tree_text(records):
+    roots = {}
+    name_counts = {}
+    labels_by_name = {}
+
+    def node_label(record):
+        label = f"{record.get('Name', '')} [{record.get('ID', '')}]"
+        url = record.get("URL", "")
+        return f"{label} - {url}" if url else label
+
+    for record in records:
+        name = record.get("Name", "")
+        name_counts[name] = name_counts.get(name, 0) + 1
+        labels_by_name[name] = node_label(record)
+
+    def path_label(name):
+        return labels_by_name[name] if name_counts.get(name) == 1 else name
+
+    def ensure_child(parent, name):
+        return parent.setdefault(name, {})
+
+    for record in records:
+        paths = [p for p in (record.get("Hierarchy Paths") or "").split(" || ") if p]
+        if not paths:
+            paths = [""]
+        for path in paths:
+            current = roots
+            if path:
+                for part in path.split(" > "):
+                    current = ensure_child(current, path_label(part))
+            ensure_child(current, node_label(record))
+
+    lines = []
+
+    def render(children, prefix=""):
+        items = sorted(children.items(), key=lambda item: clean_text(item[0]).casefold())
+        for index, (label, grandchildren) in enumerate(items):
+            is_last = index == len(items) - 1
+            connector = "`-- " if is_last else "|-- "
+            lines.append(f"{prefix}{connector}{label}")
+            extension = "    " if is_last else "|   "
+            render(grandchildren, prefix + extension)
+
+    render(roots)
+    return "\n".join(lines).rstrip() + "\n"
+
+
+def write_hierarchy_tree(path, records):
+    Path(path).parent.mkdir(parents=True, exist_ok=True)
+    Path(path).write_text(hierarchy_tree_text(records), encoding="utf-8")
 
 
 def compare_hierarchy(previous, current):

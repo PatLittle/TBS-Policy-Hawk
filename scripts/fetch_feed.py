@@ -21,6 +21,7 @@ try:
         write_glossary_csv,
         write_glossary_markdown,
         write_hierarchy_csv,
+        write_hierarchy_tree,
         write_json,
     )
 except ModuleNotFoundError:
@@ -37,6 +38,7 @@ except ModuleNotFoundError:
         write_glossary_csv,
         write_glossary_markdown,
         write_hierarchy_csv,
+        write_hierarchy_tree,
         write_json,
     )
 
@@ -58,6 +60,8 @@ DATA_DIR = "data"
 ITEMS_CSV_PATH = os.path.join(DATA_DIR, "items.csv")
 NEW_ITEMS_CSV_PATH = os.path.join(DATA_DIR, "new_items.csv")
 HIERARCHY_CSV_PATH = os.path.join(DATA_DIR, "tbs_policy_hierarchy_full.csv")
+HIERARCHY_DIR = os.path.join(DATA_DIR, "Hierarchy")
+HIERARCHY_TREE_PATH = os.path.join(HIERARCHY_DIR, "hierarchy.txt")
 GLOSSARY_CSV_PATH = os.path.join(DATA_DIR, "policy_glossary.csv")
 GLOSSARY_MD_PATH = os.path.join(DATA_DIR, "policy_glossary.md")
 GLOSSARY_CHANGES_JSON_PATH = os.path.join(DATA_DIR, "glossary_changes.json")
@@ -320,6 +324,29 @@ def download_policy_xml(url, category, title, pub_date):
         print(f"An error occurred while processing {url}: {e}")
         return None
 
+
+def capture_hierarchy_changes(hierarchy_date, fetcher=fetch_hierarchy_records):
+    print(f"Checking hierarchy tree at {HIERARCHY_URL}...")
+    previous_hierarchy = read_hierarchy_csv(HIERARCHY_CSV_PATH)
+    hierarchy_changes = {"added": [], "removed": []}
+    try:
+        current_hierarchy = fetcher(user_agent=USER_AGENT)
+    except requests.RequestException as exc:
+        print(f"Warning: unable to fetch hierarchy tree after retries: {exc}")
+        print("Continuing with the previous hierarchy snapshot and no hierarchy add/remove events for this run.")
+        return previous_hierarchy, hierarchy_changes, False
+
+    hierarchy_changes = compare_hierarchy(previous_hierarchy, current_hierarchy) if previous_hierarchy else hierarchy_changes
+    write_hierarchy_csv(HIERARCHY_CSV_PATH, current_hierarchy)
+    print(f"Captured {len(current_hierarchy)} hierarchy instruments.")
+    if hierarchy_changes["added"] or hierarchy_changes["removed"]:
+        dated_tree_path = os.path.join(HIERARCHY_DIR, f"{hierarchy_date}_hierarchy.txt")
+        write_hierarchy_tree(dated_tree_path, current_hierarchy)
+        write_hierarchy_tree(HIERARCHY_TREE_PATH, current_hierarchy)
+        print(f"Captured hierarchy tree snapshot at {dated_tree_path} and {HIERARCHY_TREE_PATH}.")
+    return current_hierarchy, hierarchy_changes, True
+
+
 def main():
     """Main function to fetch RSS feed, download new policies, and update CSV."""
     print("Starting policy fetch process...")
@@ -351,14 +378,9 @@ def main():
                 if doc_id_match:
                     policy_issue_document_ids.add(doc_id_match.group(1))
 
-    print(f"Checking hierarchy tree at {HIERARCHY_URL}...")
-    previous_hierarchy = read_hierarchy_csv(HIERARCHY_CSV_PATH)
-    current_hierarchy = fetch_hierarchy_records(user_agent=USER_AGENT)
-    hierarchy_changes = compare_hierarchy(previous_hierarchy, current_hierarchy) if previous_hierarchy else {"added": [], "removed": []}
-    write_hierarchy_csv(HIERARCHY_CSV_PATH, current_hierarchy)
-    print(f"Captured {len(current_hierarchy)} hierarchy instruments.")
-
     hierarchy_date = today_iso()
+    _, hierarchy_changes, _ = capture_hierarchy_changes(hierarchy_date)
+
     for record in hierarchy_changes["added"]:
         doc_id = record["ID"]
         print(f"Hierarchy addition found: {record['Name']} ({doc_id})")
