@@ -7,7 +7,7 @@
 - Notice modified: 2004-10-18
 - Notice group: Active notices
 - Listed date: 2004-10-18
-- Captured at (UTC): 2026-07-08T03:44:28Z
+- Captured at (UTC): 2026-07-08T10:07:51Z
 - Page title: Interpretation of the term incapacity in certain collective agreements
 
 ---

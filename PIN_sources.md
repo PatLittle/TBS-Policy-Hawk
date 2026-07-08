@@ -88,9 +88,9 @@ Generated from the live source pages listed below.
 |2020-08-30|2012-2|Contracting with Former Public Servants|https://www.canada.ca/en/treasury-board-secretariat/services/policy-notice/2012-2.html|
 |2007-09-24|2007-4|Non-Competitive Contracting|https://www.canada.ca/en/treasury-board-secretariat/services/policy-notice/2007-4.html|
 |2007-08-17|2007-2|Procurement Contracting and the Conflict of Interest Act|https://www.canada.ca/en/treasury-board-secretariat/services/policy-notice/2007-2.html|
-|2007-01-02|2006-4|Addition of two Comprehensive Land Claims Agreements to the information contained in CPN 1997-8|https://webarchiveweb.wayback.bac-lac.canada.ca/web/20240617180714/https://www.canada.ca/en/treasury-board-secretariat/services/policy-notice/2006-4.html|
-|2000-07-18|2000-3|Extension of Time Element of Contracts|https://webarchiveweb.wayback.bac-lac.canada.ca/web/20240625061548/https://www.canada.ca/en/treasury-board-secretariat/services/policy-notice/2000-3.html|
-|1998-11-13|1997-8|ADDENDUM – Amendments and Additions to the Implementation of Contracting Obligations under Comprehensive Land Claims Agreements, National Park Agreements, and DND Co-operation Agreements|https://webarchiveweb.wayback.bac-lac.canada.ca/web/20240625062211/https://www.canada.ca/en/treasury-board-secretariat/services/policy-notice/1997-8-addendum.html|
+||2006-4|Addition of two Comprehensive Land Claims Agreements to the information contained in CPN 1997-8|https://webarchiveweb.wayback.bac-lac.canada.ca/web/20240617180714/https://www.canada.ca/en/treasury-board-secretariat/services/policy-notice/2006-4.html|
+||2000-3|Extension of Time Element of Contracts|https://webarchiveweb.wayback.bac-lac.canada.ca/web/20240625061548/https://www.canada.ca/en/treasury-board-secretariat/services/policy-notice/2000-3.html|
+||1997-8|ADDENDUM – Amendments and Additions to the Implementation of Contracting Obligations under Comprehensive Land Claims Agreements, National Park Agreements, and DND Co-operation Agreements|https://webarchiveweb.wayback.bac-lac.canada.ca/web/20240625062211/https://www.canada.ca/en/treasury-board-secretariat/services/policy-notice/1997-8-addendum.html|
 
 </details>
 

@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-07-08T03:46:55Z",
+  "generated_at_utc": "2026-07-08T10:10:13Z",
   "sources": [
     {
       "key": "service_digital_announcements",
@@ -757,10 +757,10 @@
           "title": "Addition of two Comprehensive Land Claims Agreements to the information contained in CPN 1997-8",
           "url": "https://webarchiveweb.wayback.bac-lac.canada.ca/web/20240617180714/https://www.canada.ca/en/treasury-board-secretariat/services/policy-notice/2006-4.html",
           "listing_date": "",
-          "table_date": "2007-01-02",
+          "table_date": "",
           "notice_code": "2006-4",
           "group": "",
-          "detail_modified": "2007-01-02",
+          "detail_modified": "",
           "fetch_error": "",
           "filename": "Addition_of_two_Comprehensive_Land_Claims_Agreements_to_the_information_contained_in_CPN_1997-8.md",
           "path": "data/PINs/CPN/Addition_of_two_Comprehensive_Land_Claims_Agreements_to_the_information_contained_in_CPN_1997-8.md"
@@ -769,10 +769,10 @@
           "title": "Extension of Time Element of Contracts",
           "url": "https://webarchiveweb.wayback.bac-lac.canada.ca/web/20240625061548/https://www.canada.ca/en/treasury-board-secretariat/services/policy-notice/2000-3.html",
           "listing_date": "",
-          "table_date": "2000-07-18",
+          "table_date": "",
           "notice_code": "2000-3",
           "group": "",
-          "detail_modified": "2000-07-18",
+          "detail_modified": "",
           "fetch_error": "",
           "filename": "Extension_of_Time_Element_of_Contracts.md",
           "path": "data/PINs/CPN/Extension_of_Time_Element_of_Contracts.md"
@@ -781,10 +781,10 @@
           "title": "ADDENDUM – Amendments and Additions to the Implementation of Contracting Obligations under Comprehensive Land Claims Agreements, National Park Agreements, and DND Co-operation Agreements",
           "url": "https://webarchiveweb.wayback.bac-lac.canada.ca/web/20240625062211/https://www.canada.ca/en/treasury-board-secretariat/services/policy-notice/1997-8-addendum.html",
           "listing_date": "",
-          "table_date": "1998-11-13",
+          "table_date": "",
           "notice_code": "1997-8",
           "group": "",
-          "detail_modified": "1998-11-13",
+          "detail_modified": "",
           "fetch_error": "",
           "filename": "ADDENDUM_Amendments_and_Additions_to_the_Implementation_of_Contracting_Obligations_under_Comprehensive_Land_Claims_Agreements_National_Park_Agreements_and_DND_Co-operation_Agreements.md",
           "path": "data/PINs/CPN/ADDENDUM_Amendments_and_Additions_to_the_Implementation_of_Contracting_Obligations_under_Comprehensive_Land_Claims_Agreements_National_Park_Agreements_and_DND_Co-operation_Agreements.md"
@@ -4826,7 +4826,7 @@
           "table_date": "2015-06-10",
           "notice_code": "",
           "group": "Archived notices",
-          "detail_modified": "2015-06-26",
+          "detail_modified": "",
           "fetch_error": "",
           "filename": "Use_of_Family-Related_Leave.md",
           "path": "data/PINs/HRIN/Use_of_Family-Related_Leave.md"
