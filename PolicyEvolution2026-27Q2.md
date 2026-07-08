@@ -48,3 +48,47 @@ Most remaining differences appear to be formatting, link rendering, punctuation 
 Because the named GC Digital Talent platform references were removed rather than replaced with a specific alternate workflow, departments may need operational guidance from TBS-OCIO on the current channel for pool checks, questionnaire submission, and pre-qualified talent confirmation.
 
 ---
+
+## 2026-07-07 — Removed from hierarchy: GC Digital Talent Platform
+
+**Issue:** [#264](https://github.com/PatLittle/TBS-Policy-Hawk/issues/264)
+**Document ID:** 32750
+**Category:** Hierarchy
+**GUID:** `hierarchy_removed_32750_2026-07-07`
+**Change type:** hierarchy_removed
+
+### Policy change analysis
+
+Compared the current hierarchy-removal capture for `hierarchy_removed_32750_2026-07-07` with the closest prior repository hierarchy snapshot:
+
+- New/current capture: `data/Hierarchy/hierarchy_removed_32750_2026-07-07/20260707T231942Z.md`
+- Current hierarchy source: `data/tbs_policy_hierarchy_full.csv`
+- Prior version used for comparison: `data/tbs_policy_hierarchy_full.csv` from commit `2b3d38b^`
+
+#### Summary
+
+This is a hierarchy-tree removal for the GC Digital Talent Platform entry, not a full removal of the public page content. The removed hierarchy row had placed document `32750` as a level-4 child under `Directive on Digital Talent`; the captured page still resolves as a sparse GC Digital Talent Platform page with a 2023-04-04 page date.
+
+#### Substantive changes identified
+
+| Area | Evidence before / previous state | Evidence now | Interpretation |
+|---|---|---|---|
+| **Hierarchy path** | `GC Digital Talent Platform` appeared at minimum level 4 under `Values and Ethics Code for the Public Sector > Foundation Framework for Treasury Board Policies > Service and Digital, Policy on > Digital Talent, Directive on`. | Document `32750` no longer appears in `data/tbs_policy_hierarchy_full.csv`; `data/new_items.csv` records `hierarchy_removed_32750_2026-07-07` as `hierarchy_removed`. | The platform has been removed from the TBS policy hierarchy tree as a child/supporting item under the Directive on Digital Talent. |
+| **Public page state** | Prior hierarchy metadata linked to `https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=32750`. | The current capture still shows a standalone `GC Digital Talent Platform` page with minimal content and no substantive policy requirements. | The evidence supports hierarchy removal, but not complete retirement of the public URL. |
+| **Related policy context** | The previous Directive on Digital Talent text explicitly referenced the GC Digital Talent platform in talent-pool checks, questionnaire submission, and pre-qualified talent confirmation. | Issue #261's 2026-07-06 directive update removed those named platform references and made the relevant procedures platform-neutral or direct-to-TBS-OCIO. | The hierarchy removal is consistent with the directive no longer presenting the platform as the named procedural channel. |
+
+#### Practical effect
+
+1. **Hierarchy cleanup:** The GC Digital Talent Platform no longer appears as a level-4 policy hierarchy item under the Directive on Digital Talent.
+2. **Operational dependency reduced:** Together with the July 6 directive amendment, the policy suite no longer points departments to this named platform as the explicit route for key digital talent sourcing steps.
+3. **Standalone page still visible:** Because the captured page still resolves, departments should not infer from this evidence alone that the platform URL or service has been fully decommissioned.
+
+#### Non-substantive changes
+
+The capture includes ordinary Canada.ca page chrome and duplicate date-modified footer content. Those elements were not treated as policy hierarchy changes.
+
+#### Watch item
+
+Watch for TBS-OCIO guidance or further site updates that clarify the current operational channel replacing former GC Digital Talent Platform instructions.
+
+---
