@@ -1,6 +1,7 @@
 [![Policy Watch](https://github.com/PatLittle/TBS-Policy-Hawk/actions/workflows/policy_watch.yml/badge.svg?branch=main)](https://github.com/PatLittle/TBS-Policy-Hawk/actions/workflows/policy_watch.yml) ![GitHub repo size](https://img.shields.io/github/repo-size/PatLittle/TBS-Policy-Hawk?logo=github)
 
-# TBS Policy Hawk
+# TBS Policy Hawk - Watching Like a Hawk for Every Policy Suite Update.
+<img src="https://github.com/user-attachments/assets/2cade396-76a8-474a-8c17-f0f7ed1e69ab" width="300" height="300">
 
 TBS Policy Hawk monitors the Treasury Board of Canada Secretariat Policy Suite for changes, captures policy-source artifacts, and opens GitHub issues when there is something for a policy analyst to review.
 
