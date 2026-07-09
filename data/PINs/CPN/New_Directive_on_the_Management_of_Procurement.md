@@ -7,7 +7,7 @@
 - Notice modified: 2025-10-28
 - Notice identifier: 2021-3
 - Listed date: 
-- Captured at (UTC): 2026-07-09T01:59:20Z
+- Captured at (UTC): 2026-07-09T10:45:48Z
 - Page title: Contracting Policy Notice 2021-3: New Directive on the Management of Procurement
 
 ---

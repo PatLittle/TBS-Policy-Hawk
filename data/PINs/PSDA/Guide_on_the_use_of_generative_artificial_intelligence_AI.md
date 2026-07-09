@@ -6,7 +6,7 @@
 - Notice URL: https://www.canada.ca/en/government/system/digital-government/policies-standards/policy-service-digital-announcements/guide-use-generative-artificial-intelligence-ai.html
 - Notice modified: 2025-05-30
 - Listed date: 2023-09-06
-- Captured at (UTC): 2026-07-09T01:59:20Z
+- Captured at (UTC): 2026-07-09T10:45:48Z
 
 ---
 
