@@ -7,7 +7,7 @@
 - Notice modified: 2016-09-14
 - Notice group: Archived notices
 - Listed date: 2009-09-10
-- Captured at (UTC): 2026-07-08T10:07:51Z
+- Captured at (UTC): 2026-07-09T01:59:20Z
 - Page title: Changes to Membership Dues Rates for the Canadian Federal Pilots Association (CFPA) - September 2009
 
 ---

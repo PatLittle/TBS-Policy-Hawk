@@ -7,7 +7,7 @@
 - Notice modified: 2025-10-28
 - Notice identifier: 2021-6
 - Listed date: 
-- Captured at (UTC): 2026-07-08T10:07:51Z
+- Captured at (UTC): 2026-07-09T01:59:20Z
 - Page title: Contracting Policy Notice 2021-6 Trade Agreements: Thresholds Update
 
 ---

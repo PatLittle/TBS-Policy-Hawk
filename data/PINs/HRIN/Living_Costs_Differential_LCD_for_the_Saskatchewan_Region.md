@@ -7,7 +7,7 @@
 - Notice modified: 2015-02-09
 - Notice group: Archived notices
 - Listed date: 2015-02-01
-- Captured at (UTC): 2026-07-08T10:07:51Z
+- Captured at (UTC): 2026-07-09T01:59:20Z
 - Page title: Living Cost Differential (LCD) Survey Results for the Saskatchewan Region
 
 ---
