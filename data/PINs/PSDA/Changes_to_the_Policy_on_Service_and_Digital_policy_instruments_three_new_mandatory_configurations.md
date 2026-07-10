@@ -6,7 +6,7 @@
 - Notice URL: https://www.canada.ca/en/government/system/digital-government/policies-standards/policy-service-digital-announcements/changes-policy-service-digital-policy-instruments-three-new-mandatory-configurations.html
 - Notice modified: 2024-10-08
 - Listed date: 2023-08-01
-- Captured at (UTC): 2026-07-10T01:57:29Z
+- Captured at (UTC): 2026-07-10T10:44:57Z
 
 ---
 

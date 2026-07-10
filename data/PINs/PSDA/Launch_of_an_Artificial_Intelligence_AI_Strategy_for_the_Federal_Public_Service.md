@@ -6,7 +6,7 @@
 - Notice URL: https://www.canada.ca/en/government/system/digital-government/policies-standards/policy-service-digital-announcements/launch-artificial-intelligence-ai-strategy-federal-public-service.html
 - Notice modified: 2025-05-30
 - Listed date: 2023-12-22
-- Captured at (UTC): 2026-07-10T01:57:29Z
+- Captured at (UTC): 2026-07-10T10:44:57Z
 
 ---
 

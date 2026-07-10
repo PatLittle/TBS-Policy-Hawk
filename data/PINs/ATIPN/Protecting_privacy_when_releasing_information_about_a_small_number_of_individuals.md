@@ -8,7 +8,7 @@
 - Notice identifier: 2020-03
 - Notice group: Privacy implementation notices
 - Listed date: 
-- Captured at (UTC): 2026-07-10T01:57:29Z
+- Captured at (UTC): 2026-07-10T10:44:57Z
 - Page title: Privacy Implementation Notice 2020-03: Protecting privacy when releasing information about a small number of individuals
 
 ---

@@ -7,7 +7,7 @@
 - Notice modified: 2016-09-14
 - Notice group: Archived notices
 - Listed date: 2009-11-10
-- Captured at (UTC): 2026-07-10T01:57:29Z
+- Captured at (UTC): 2026-07-10T10:44:57Z
 - Page title: Change to Membership Dues - Professional Association of Foreign Service Officers (PAFSO)
 
 ---

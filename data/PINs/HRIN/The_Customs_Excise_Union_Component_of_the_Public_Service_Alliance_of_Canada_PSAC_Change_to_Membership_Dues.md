@@ -7,7 +7,7 @@
 - Notice modified: 2008-12-29
 - Notice group: Archived notices
 - Listed date: 2008-12-02
-- Captured at (UTC): 2026-07-10T01:57:29Z
+- Captured at (UTC): 2026-07-10T10:44:57Z
 - Page title: The Customs Excise Union Component of the Public Service Alliance of Canada (PSAC) - Change to Membership Dues
 
 ---

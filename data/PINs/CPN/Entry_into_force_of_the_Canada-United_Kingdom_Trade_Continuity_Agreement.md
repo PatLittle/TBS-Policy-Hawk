@@ -7,7 +7,7 @@
 - Notice modified: 2023-02-15
 - Notice identifier: 2021-1
 - Listed date: 
-- Captured at (UTC): 2026-07-10T01:57:29Z
+- Captured at (UTC): 2026-07-10T10:44:57Z
 - Page title: Contracting Policy Notice 2021-1: Entry into force of the Canada-United Kingdom Trade Continuity Agreement
 
 ---
