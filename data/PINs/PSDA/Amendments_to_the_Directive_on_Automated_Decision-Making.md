@@ -6,7 +6,7 @@
 - Notice URL: https://www.canada.ca/en/government/system/digital-government/policies-standards/policy-service-digital-announcements/amendments-directive-automated-decision-making.html
 - Notice modified: 2024-10-08
 - Listed date: 2023-04-26
-- Captured at (UTC): 2026-07-10T10:44:57Z
+- Captured at (UTC): 2026-07-10T17:41:34Z
 
 ---
 
