@@ -7,7 +7,7 @@
 - Notice modified: 2007-09-24
 - Notice identifier: 2007-4
 - Listed date: 
-- Captured at (UTC): 2026-07-09T17:48:02Z
+- Captured at (UTC): 2026-07-10T01:57:29Z
 - Page title: Contracting Policy Notice 2007-4 - Non-Competitive Contracting
 
 ---

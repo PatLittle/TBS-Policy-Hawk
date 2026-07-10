@@ -7,7 +7,7 @@
 - Notice modified: 2017-04-04
 - Notice group: Active notices
 - Listed date: 2017-04-01
-- Captured at (UTC): 2026-07-09T17:48:02Z
+- Captured at (UTC): 2026-07-10T01:57:29Z
 - Page title: Vacation Travel Assistance Update - April 2017
 
 ---

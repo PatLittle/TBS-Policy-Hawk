@@ -8,7 +8,7 @@
 - Notice identifier: 2023-01
 - Notice group: Access to Information implementation notices
 - Listed date: 
-- Captured at (UTC): 2026-07-09T17:48:02Z
+- Captured at (UTC): 2026-07-10T01:57:29Z
 - Page title: Access to Information Implementation Notice 2023-01: Amendments to Access to Information Regulations
 
 ---
