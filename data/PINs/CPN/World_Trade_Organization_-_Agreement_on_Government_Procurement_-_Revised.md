@@ -7,7 +7,7 @@
 - Notice modified: 2014-04-17
 - Notice identifier: 2014-2
 - Listed date: 
-- Captured at (UTC): 2026-07-11T01:45:52Z
+- Captured at (UTC): 2026-07-11T09:17:49Z
 - Page title: Trade Agreements: World Trade Organization – Agreement on Government Procurement - Revised
 
 ---
