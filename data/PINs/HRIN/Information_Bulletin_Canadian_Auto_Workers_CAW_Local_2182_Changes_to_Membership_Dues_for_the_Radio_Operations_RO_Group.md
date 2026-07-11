@@ -7,7 +7,7 @@
 - Notice modified: 2016-09-14
 - Notice group: Archived notices
 - Listed date: 2012-12-07
-- Captured at (UTC): 2026-07-10T17:41:34Z
+- Captured at (UTC): 2026-07-11T01:45:52Z
 - Page title: Canadian Auto Workers (CAW) Local 2182 - Changes to Membership Dues for the Radio Operations (RO) Group
 
 ---
