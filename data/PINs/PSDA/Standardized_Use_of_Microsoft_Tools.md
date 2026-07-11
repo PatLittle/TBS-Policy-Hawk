@@ -6,7 +6,7 @@
 - Notice URL: https://www.canada.ca/en/government/system/digital-government/policies-standards/policy-service-digital-announcements/standardized-use-microsoft-tools.html
 - Notice modified: 2026-06-11
 - Listed date: 2025-01-30
-- Captured at (UTC): 2026-07-11T09:17:49Z
+- Captured at (UTC): 2026-07-11T16:43:24Z
 - Page title: Standardized Use of Microsoft Tools - Policy Implementation Notice
 
 ---

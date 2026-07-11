@@ -7,7 +7,7 @@
 - Notice modified: 2012-12-17
 - Notice group: Active notices
 - Listed date: 2012-12-05
-- Captured at (UTC): 2026-07-11T09:17:49Z
+- Captured at (UTC): 2026-07-11T16:43:24Z
 - Page title: Information Bulletin - Applying Recognition of Prior Service in the Canadian Forces for Vacation Purposes to the FI Collective Agreement
 
 ---
