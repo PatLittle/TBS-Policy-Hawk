@@ -7,7 +7,7 @@
 - Notice modified: 2025-10-28
 - Notice identifier: 2019-2
 - Listed date: 
-- Captured at (UTC): 2026-07-11T16:43:24Z
+- Captured at (UTC): 2026-07-12T01:48:08Z
 - Page title: Contracting Policy Notice 2019-02: Amendments to the Government Contracts Regulations
 
 ---

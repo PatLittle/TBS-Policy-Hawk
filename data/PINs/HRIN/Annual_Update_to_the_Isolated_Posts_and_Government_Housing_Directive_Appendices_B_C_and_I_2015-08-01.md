@@ -7,7 +7,7 @@
 - Notice modified: 2015-07-27
 - Notice group: Active notices
 - Listed date: 2015-08-01
-- Captured at (UTC): 2026-07-11T16:43:24Z
+- Captured at (UTC): 2026-07-12T01:48:08Z
 - Page title: Annual Update to the Isolated Posts and Government Housing Directive - Appendices B, C, and I
 
 ---

@@ -8,7 +8,7 @@
 - Notice identifier: 2024-01
 - Notice group: Privacy implementation notices
 - Listed date: 
-- Captured at (UTC): 2026-07-11T16:43:24Z
+- Captured at (UTC): 2026-07-12T01:48:08Z
 - Page title: Privacy Implementation Notice 2024-01: Digital Advertising
 
 ---
