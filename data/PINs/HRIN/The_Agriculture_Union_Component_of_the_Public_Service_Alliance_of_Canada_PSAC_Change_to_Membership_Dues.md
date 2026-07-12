@@ -7,7 +7,7 @@
 - Notice modified: 2016-06-21
 - Notice group: Archived notices
 - Listed date: 2008-12-02
-- Captured at (UTC): 2026-07-12T01:48:08Z
+- Captured at (UTC): 2026-07-12T09:43:13Z
 - Page title: The Agriculture Union Component of the Public Service Alliance of Canada (PSAC) - Change to Membership Dues
 
 ---

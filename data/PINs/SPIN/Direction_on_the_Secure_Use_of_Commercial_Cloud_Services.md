@@ -7,7 +7,7 @@
 - Notice modified: 2025-10-22
 - Notice identifier: 2017-01
 - Listed date: 2017-11-01
-- Captured at (UTC): 2026-07-12T01:48:08Z
+- Captured at (UTC): 2026-07-12T09:43:13Z
 - Page title: Direction on the Secure Use of Commercial Cloud Services: Security Policy Implementation Notice (SPIN)
 
 ---
