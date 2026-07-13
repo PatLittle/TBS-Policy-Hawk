@@ -2,12 +2,12 @@
 
 - Notice source: Human Resources Information Notices (HRIN)
 - Source page URL: https://www.canada.ca/en/treasury-board-secretariat/services/information-notice.html
-- Source page modified: 2026-06-25
+- Source page modified: 2026-07-13
 - Notice URL: https://www.canada.ca/en/treasury-board-secretariat/services/information-notice/rates-pay-defence-scientific-service-group.html
 - Notice modified: 2014-07-03
 - Notice group: Active notices
 - Listed date: 2014-06-19
-- Captured at (UTC): 2026-07-13T10:50:42Z
+- Captured at (UTC): 2026-07-13T17:48:53Z
 - Page title: Rates of Pay for the Defence Scientific Service Group (levels 7A, 7B and 8).
 
 ---

@@ -2,12 +2,12 @@
 
 - Notice source: Human Resources Information Notices (HRIN)
 - Source page URL: https://www.canada.ca/en/treasury-board-secretariat/services/information-notice.html
-- Source page modified: 2026-06-25
+- Source page modified: 2026-07-13
 - Notice URL: https://webarchiveweb.wayback.bac-lac.canada.ca/web/20250421065300/https://www.canada.ca/en/treasury-board-secretariat/services/information-notice/use-family-related-leave.html
 - Notice modified: 
 - Notice group: Archived notices
 - Listed date: 2015-06-10
-- Captured at (UTC): 2026-07-13T10:50:42Z
+- Captured at (UTC): 2026-07-13T17:48:53Z
 - Page title: Rate limit reached
 
 ---

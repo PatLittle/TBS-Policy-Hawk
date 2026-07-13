@@ -2,12 +2,12 @@
 
 - Notice source: Human Resources Information Notices (HRIN)
 - Source page URL: https://www.canada.ca/en/treasury-board-secretariat/services/information-notice.html
-- Source page modified: 2026-06-25
+- Source page modified: 2026-07-13
 - Notice URL: https://www.canada.ca/en/treasury-board-secretariat/services/information-notice/living-costs-differential-survey-results-northwest-territories-northern-british-columbia-nunavut.html
 - Notice modified: 2014-02-03
 - Notice group: Archived notices
 - Listed date: 2014-01-31
-- Captured at (UTC): 2026-07-13T10:50:42Z
+- Captured at (UTC): 2026-07-13T17:48:53Z
 
 ---
 

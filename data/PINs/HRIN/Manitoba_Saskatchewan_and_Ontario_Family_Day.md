@@ -2,12 +2,12 @@
 
 - Notice source: Human Resources Information Notices (HRIN)
 - Source page URL: https://www.canada.ca/en/treasury-board-secretariat/services/information-notice.html
-- Source page modified: 2026-06-25
+- Source page modified: 2026-07-13
 - Notice URL: https://www.canada.ca/en/treasury-board-secretariat/services/information-notice/manitoba-saskatchewan-ontario-family-day.html
 - Notice modified: 2008-01-28
 - Notice group: Active notices
 - Listed date: 2007-10-16
-- Captured at (UTC): 2026-07-13T10:50:42Z
+- Captured at (UTC): 2026-07-13T17:48:53Z
 - Page title: 2007-10-16 - Manitoba, Saskatchewan and Ontario Family Day
 
 ---

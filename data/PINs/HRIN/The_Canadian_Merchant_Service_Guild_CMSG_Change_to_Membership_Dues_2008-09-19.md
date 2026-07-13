@@ -2,12 +2,12 @@
 
 - Notice source: Human Resources Information Notices (HRIN)
 - Source page URL: https://www.canada.ca/en/treasury-board-secretariat/services/information-notice.html
-- Source page modified: 2026-06-25
+- Source page modified: 2026-07-13
 - Notice URL: https://www.canada.ca/en/treasury-board-secretariat/services/information-notice/canadian-merchant-service-guild-change-membership-dues.html
 - Notice modified: 2008-09-04
 - Notice group: Archived notices
 - Listed date: 2008-09-19
-- Captured at (UTC): 2026-07-13T10:50:42Z
+- Captured at (UTC): 2026-07-13T17:48:53Z
 - Page title: The Canadian Merchant Service Guild (CMSG) - Change to Membership Dues - September 2008
 
 ---

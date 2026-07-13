@@ -2,12 +2,12 @@
 
 - Notice source: Human Resources Information Notices (HRIN)
 - Source page URL: https://www.canada.ca/en/treasury-board-secretariat/services/information-notice.html
-- Source page modified: 2026-06-25
+- Source page modified: 2026-07-13
 - Notice URL: https://www.canada.ca/en/treasury-board-secretariat/services/information-notice/applying-recognition-prior-service-canadian-forces-vacation-purposes-collective-agreements-september6-2012.html
 - Notice modified: 2012-09-17
 - Notice group: Active notices
 - Listed date: 2012-09-06
-- Captured at (UTC): 2026-07-13T10:50:42Z
+- Captured at (UTC): 2026-07-13T17:48:53Z
 - Page title: Applying Recognition of Prior Service in the Canadian Forces for Vacation Purposes to SR (E), PA, SV, TC, FB, EB, AI, AV, CS, NR, RE, SH and SP Collective Agreements
 
 ---

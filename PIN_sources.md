@@ -136,7 +136,7 @@ Generated from the live source pages listed below.
 
 ## [Human Resources Information Notices (HRIN)](https://www.canada.ca/en/treasury-board-secretariat/services/information-notice.html)
 
-> Date modified: 2026-06-25
+> Date modified: 2026-07-13
 
 > Notices: 412
 
@@ -442,7 +442,6 @@ Generated from the live source pages listed below.
 |2002-04-03|Active notices|Travel Status Leave|https://www.canada.ca/en/treasury-board-secretariat/services/information-notice/travel-status-leave.html|
 |2001-12-18|Active notices|Salary increment for a part-time employee|https://www.canada.ca/en/treasury-board-secretariat/services/information-notice/salary-increment-part-time-employee.html|
 |2001-12-10|Active notices|Volunteer Leave|https://www.canada.ca/en/treasury-board-secretariat/services/information-notice/volunteer-leave.html|
-|2001-11-30|Active notices|Personal Leave/Volunteer Leave|https://www.canada.ca/en/treasury-board-secretariat/services/information-notice/personal-leave-volunteer-leave.html|
 |2001-11-22|Active notices|Reduction of tax withholding on lump-sum employment income payments|https://www.canada.ca/en/treasury-board-secretariat/services/information-notice/reduction-tax-withholding-lump-sum-employment-income-payments.html|
 |2001-10-03|Active notices|Interpretation – Article 21 – Registration Fees Applied Science and Engineering Group|https://www.canada.ca/en/treasury-board-secretariat/services/information-notice/interpretation-article-registration-fees-applied-science-engineering-group.html|
 |2001-09-13|Active notices|Maternity/Parental Allowance - Return to Duty Obligation/Benefits "Clawbacks"|https://www.canada.ca/en/treasury-board-secretariat/services/information-notice/maternal-paternal-allowance-return-to-duty-obligation-benefits-clawbacks.html|
@@ -557,6 +556,7 @@ Generated from the live source pages listed below.
 |2008-01-14|Archived notices|Computer Systems (CS) Group – Carryover and/or Liquidation of One-time Vacation Leave Entitlement|https://www.canada.ca/en/treasury-board-secretariat/services/information-notice/computer-systems-group-carryover-liquidation-one-time-vacation-leave-entitlement.html|
 |2007-07-04|Archived notices|UCCO-SACC-CSN – Change to Membership Dues|https://www.canada.ca/en/treasury-board-secretariat/services/information-notice/changes-membership-dues-union-canadian-correctional-officers.html|
 |2006-01-09|Archived notices|Union Dues Increase – Canadian Association of Professional Employees (CAPE)|https://www.canada.ca/en/treasury-board-secretariat/services/information-notice/union-dues-increase-canadian-association-professional-employees.html|
+|2001-11-30|Archived notices|Personal Leave/Volunteer Leave|https://webarchiveweb.wayback.bac-lac.canada.ca/web/20250805150040/https://www.canada.ca/en/treasury-board-secretariat/services/information-notice/personal-leave-volunteer-leave.html|
 
 </details>
 

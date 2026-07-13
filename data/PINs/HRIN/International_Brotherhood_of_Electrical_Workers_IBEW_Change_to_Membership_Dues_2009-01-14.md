@@ -2,12 +2,12 @@
 
 - Notice source: Human Resources Information Notices (HRIN)
 - Source page URL: https://www.canada.ca/en/treasury-board-secretariat/services/information-notice.html
-- Source page modified: 2026-06-25
+- Source page modified: 2026-07-13
 - Notice URL: https://www.canada.ca/en/treasury-board-secretariat/services/information-notice/computer-systems-group-carryover-liquidation-one-time-vacation-leave-entitlement-january-2008.html
 - Notice modified: 2008-01-31
 - Notice group: Archived notices
 - Listed date: 2009-01-14
-- Captured at (UTC): 2026-07-13T10:50:42Z
+- Captured at (UTC): 2026-07-13T17:48:53Z
 - Page title: Computer Systems (CS) Group - Carryover and/or Liquidation of One-time Vacation Leave Entitlement
 
 ---

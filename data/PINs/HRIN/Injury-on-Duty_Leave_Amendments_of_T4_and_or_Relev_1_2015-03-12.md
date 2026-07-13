@@ -2,12 +2,12 @@
 
 - Notice source: Human Resources Information Notices (HRIN)
 - Source page URL: https://www.canada.ca/en/treasury-board-secretariat/services/information-notice.html
-- Source page modified: 2026-06-25
+- Source page modified: 2026-07-13
 - Notice URL: https://www.canada.ca/en/treasury-board-secretariat/services/information-notice/injury-on-duty-leave-amendments-2015.html
 - Notice modified: 2015-04-09
 - Notice group: Archived notices
 - Listed date: 2015-03-12
-- Captured at (UTC): 2026-07-13T10:50:42Z
+- Captured at (UTC): 2026-07-13T17:48:53Z
 - Page title: Injury-on-Duty Leave - Amendments of T4 and/or Relevé 1 - March 2015
 
 ---

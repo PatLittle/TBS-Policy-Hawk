@@ -2,12 +2,12 @@
 
 - Notice source: Human Resources Information Notices (HRIN)
 - Source page URL: https://www.canada.ca/en/treasury-board-secretariat/services/information-notice.html
-- Source page modified: 2026-06-25
+- Source page modified: 2026-07-13
 - Notice URL: https://www.canada.ca/en/treasury-board-secretariat/services/information-notice/cs-it-conversion-close-out-information-reminders.html
 - Notice modified: 2023-11-23
 - Notice group: Active notices
 - Listed date: 2022-02-03
-- Captured at (UTC): 2026-07-13T10:50:42Z
+- Captured at (UTC): 2026-07-13T17:48:53Z
 - Page title: Computer Systems (CS) to Information Technology (IT) Conversion Close-Out Information and Reminders
 
 ---

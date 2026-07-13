@@ -2,12 +2,12 @@
 
 - Notice source: Human Resources Information Notices (HRIN)
 - Source page URL: https://www.canada.ca/en/treasury-board-secretariat/services/information-notice.html
-- Source page modified: 2026-06-25
+- Source page modified: 2026-07-13
 - Notice URL: https://www.canada.ca/en/treasury-board-secretariat/services/information-notice/revocation-environment-allowance-atikameg-grande-cache-high-prairie-little-buffalo-manning-mclennan-alberta.html
 - Notice modified: 2016-09-14
 - Notice group: Archived notices
 - Listed date: 2013-03-01
-- Captured at (UTC): 2026-07-13T10:50:42Z
+- Captured at (UTC): 2026-07-13T17:48:53Z
 - Page title: Information notice - Revocation of Environment Allowance (EA) for Atikameg, Grande Cache, High Prairie, Little Buffalo, Manning and McLennan, Alberta
 
 ---

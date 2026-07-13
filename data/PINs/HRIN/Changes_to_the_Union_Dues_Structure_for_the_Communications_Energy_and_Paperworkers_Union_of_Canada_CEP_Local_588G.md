@@ -2,12 +2,12 @@
 
 - Notice source: Human Resources Information Notices (HRIN)
 - Source page URL: https://www.canada.ca/en/treasury-board-secretariat/services/information-notice.html
-- Source page modified: 2026-06-25
+- Source page modified: 2026-07-13
 - Notice URL: https://www.canada.ca/en/treasury-board-secretariat/services/information-notice/changes-union-dues-structure-communications-energy-paperworkers-union-canada.html
 - Notice modified: 2009-08-12
 - Notice group: Active notices
 - Listed date: 2009-08-05
-- Captured at (UTC): 2026-07-13T10:50:42Z
+- Captured at (UTC): 2026-07-13T17:48:53Z
 - Page title: Changes to the Union Dues Structure for the Communications, Energy and Paperworkers Union of Canada (CEP) - Local 588G
 
 ---

@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-07-13T10:53:10Z",
+  "generated_at_utc": "2026-07-13T17:51:18Z",
   "sources": [
     {
       "key": "service_digital_announcements",
@@ -1120,7 +1120,7 @@
       "short_name": "HRIN",
       "url": "https://www.canada.ca/en/treasury-board-secretariat/services/information-notice.html",
       "folder": "HRIN",
-      "source_modified": "2026-06-25",
+      "source_modified": "2026-07-13",
       "notice_count": 412,
       "notices": [
         {
@@ -4688,18 +4688,6 @@
           "path": "data/PINs/HRIN/Volunteer_Leave.md"
         },
         {
-          "title": "Personal Leave/Volunteer Leave",
-          "url": "https://www.canada.ca/en/treasury-board-secretariat/services/information-notice/personal-leave-volunteer-leave.html",
-          "listing_date": "2001-11-30",
-          "table_date": "2001-11-30",
-          "notice_code": "",
-          "group": "Active notices",
-          "detail_modified": "2016-06-03",
-          "fetch_error": "",
-          "filename": "Personal_Leave_Volunteer_Leave.md",
-          "path": "data/PINs/HRIN/Personal_Leave_Volunteer_Leave.md"
-        },
-        {
           "title": "Reduction of tax withholding on lump-sum employment income payments",
           "url": "https://www.canada.ca/en/treasury-board-secretariat/services/information-notice/reduction-tax-withholding-lump-sum-employment-income-payments.html",
           "listing_date": "2001-11-22",
@@ -6066,6 +6054,18 @@
           "fetch_error": "",
           "filename": "Union_Dues_Increase_Canadian_Association_of_Professional_Employees_CAPE.md",
           "path": "data/PINs/HRIN/Union_Dues_Increase_Canadian_Association_of_Professional_Employees_CAPE.md"
+        },
+        {
+          "title": "Personal Leave/Volunteer Leave",
+          "url": "https://webarchiveweb.wayback.bac-lac.canada.ca/web/20250805150040/https://www.canada.ca/en/treasury-board-secretariat/services/information-notice/personal-leave-volunteer-leave.html",
+          "listing_date": "2001-11-30",
+          "table_date": "2001-11-30",
+          "notice_code": "",
+          "group": "Archived notices",
+          "detail_modified": "",
+          "fetch_error": "",
+          "filename": "Personal_Leave_Volunteer_Leave.md",
+          "path": "data/PINs/HRIN/Personal_Leave_Volunteer_Leave.md"
         }
       ]
     },

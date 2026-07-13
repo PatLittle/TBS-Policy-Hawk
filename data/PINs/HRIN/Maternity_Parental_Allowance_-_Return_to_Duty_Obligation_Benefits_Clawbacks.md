@@ -2,12 +2,12 @@
 
 - Notice source: Human Resources Information Notices (HRIN)
 - Source page URL: https://www.canada.ca/en/treasury-board-secretariat/services/information-notice.html
-- Source page modified: 2026-06-25
+- Source page modified: 2026-07-13
 - Notice URL: https://www.canada.ca/en/treasury-board-secretariat/services/information-notice/maternal-paternal-allowance-return-to-duty-obligation-benefits-clawbacks.html
 - Notice modified: 2001-09-13
 - Notice group: Active notices
 - Listed date: 2001-09-13
-- Captured at (UTC): 2026-07-13T10:50:42Z
+- Captured at (UTC): 2026-07-13T17:48:53Z
 - Page title: Maternity/Parental Allowance Return to Duty Obligation/BenefitsClawbacks - September 2001
 
 ---

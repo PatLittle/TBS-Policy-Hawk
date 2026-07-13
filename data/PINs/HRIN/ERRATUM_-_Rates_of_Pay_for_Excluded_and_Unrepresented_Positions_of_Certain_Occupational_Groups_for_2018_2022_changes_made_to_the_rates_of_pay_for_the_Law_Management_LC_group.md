@@ -2,12 +2,12 @@
 
 - Notice source: Human Resources Information Notices (HRIN)
 - Source page URL: https://www.canada.ca/en/treasury-board-secretariat/services/information-notice.html
-- Source page modified: 2026-06-25
+- Source page modified: 2026-07-13
 - Notice URL: https://www.canada.ca/en/treasury-board-secretariat/services/information-notice/erratum-rates-pay-excluded-unrepresented-positions-certain-occupational-groups-2018-2022-changes-made-rates-pay-law-management-group.html
 - Notice modified: 2020-06-10
 - Notice group: Active notices
 - Listed date: 2020-06-09
-- Captured at (UTC): 2026-07-13T10:50:42Z
+- Captured at (UTC): 2026-07-13T17:48:53Z
 
 ---
 

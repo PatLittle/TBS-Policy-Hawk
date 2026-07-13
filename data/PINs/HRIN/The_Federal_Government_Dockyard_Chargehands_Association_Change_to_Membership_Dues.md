@@ -2,12 +2,12 @@
 
 - Notice source: Human Resources Information Notices (HRIN)
 - Source page URL: https://www.canada.ca/en/treasury-board-secretariat/services/information-notice.html
-- Source page modified: 2026-06-25
+- Source page modified: 2026-07-13
 - Notice URL: https://www.canada.ca/en/treasury-board-secretariat/services/information-notice/federal-government-dockyard-chargehands-association-change-membership-dues-may-2013.html
 - Notice modified: 2016-09-14
 - Notice group: Archived notices
 - Listed date: 2013-05-10
-- Captured at (UTC): 2026-07-13T10:50:42Z
+- Captured at (UTC): 2026-07-13T17:48:53Z
 - Page title: The Federal Government Dockyard Chargehands Association - Change to Membership Dues
 
 ---
