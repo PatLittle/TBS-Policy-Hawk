@@ -7,7 +7,7 @@
 - Notice modified: 2023-03-28
 - Notice identifier: 2023-1
 - Listed date: 
-- Captured at (UTC): 2026-07-12T16:46:16Z
+- Captured at (UTC): 2026-07-13T01:50:37Z
 - Page title: Contracting Policy Notice 2023-1: Amendments to the Directive on the Management of Procurement to integrate Human Rights; Environment, Social and Corporate Governance (ESG) Principles
 
 ---

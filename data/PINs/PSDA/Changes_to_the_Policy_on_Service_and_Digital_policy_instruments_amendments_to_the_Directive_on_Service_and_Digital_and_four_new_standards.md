@@ -6,7 +6,7 @@
 - Notice URL: https://www.canada.ca/en/government/system/digital-government/policies-standards/policy-service-digital-announcements/changes-policy-service-digital-policy-instruments-amendments-directive-service-digital-four-new-standards.html
 - Notice modified: 2024-10-08
 - Listed date: 2022-05-10
-- Captured at (UTC): 2026-07-12T16:46:16Z
+- Captured at (UTC): 2026-07-13T01:50:37Z
 
 ---
 
