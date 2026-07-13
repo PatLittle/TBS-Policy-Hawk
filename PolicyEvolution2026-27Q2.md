@@ -92,3 +92,45 @@ The capture includes ordinary Canada.ca page chrome and duplicate date-modified 
 Watch for TBS-OCIO guidance or further site updates that clarify the current operational channel replacing former GC Digital Talent Platform instructions.
 
 ---
+
+## 2026-07-13 — Transfer Payments, Directive on
+
+**Issue:** [#265](https://github.com/PatLittle/TBS-Policy-Hawk/issues/265)
+**Document ID:** 14208
+**Category:** Directive
+**GUID:** `14208_2026-07-13`
+**Change type:** policy_update
+
+### Policy change analysis
+
+Compared the current captured version for `14208_2026-07-13` with the closest prior repository copy:
+
+- New/current capture: `data/Directive/14208_2026-07-13/20260713T235223Z.html`
+- Current markdown capture: `data/Directive/14208_2026-07-13/20260713T235223Z.md`
+- Prior version used for comparison: `data/Directive/Transfer Payments Directive on_2025-08-31.xml`
+- Excluded capture: `data/Directive/Transfer Payments Directive on_2026-07-13.xml` because it contains a request-rejected page rather than policy content.
+
+#### Summary
+
+No substantive policy text changes were identified. The enriched current HTML capture and the prior repository copy both produced 579 comparable policy-content blocks. The only aligned block difference was a spacing/rendering change in Appendix F, section 13, around the phrase "federal funding," and it does not alter the funding-agreement recognition requirement.
+
+#### Substantive changes identified
+
+None.
+
+#### Non-substantive changes
+
+| Area | Prior version | New/current version | Interpretation |
+|---|---|---|---|
+| **Appendix F, section 13** | "A provision for adequate recognition of the federal funding, with an option..." | "A provision for adequate recognition of the federal funding , with an option..." | This is a punctuation/link-rendering spacing artifact. The requirement itself is unchanged. |
+| **Capture format** | The closest prior copy is an HTML/XML capture from August 31, 2025. | The enriched current capture includes normalized HTML and markdown artifacts from July 13, 2026. | Markdown line wrapping, links, emphasis, and list rendering created noisy raw diffs, but the underlying policy-content blocks are unchanged. |
+
+#### Glossary and related data check
+
+No glossary-specific added, removed, or changed item was associated with this issue in `data/new_items.csv`. The existing `data/policy_glossary.csv` rows for source `14208` therefore were not treated as part of the issue #265 policy-update change.
+
+#### Practical effect
+
+Departments should not need to change transfer-payment program design, terms and conditions, funding agreement provisions, or monitoring practices based on this detected update alone.
+
+---
