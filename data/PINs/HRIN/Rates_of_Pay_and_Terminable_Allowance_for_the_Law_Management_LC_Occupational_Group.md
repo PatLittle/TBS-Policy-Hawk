@@ -7,7 +7,7 @@
 - Notice modified: 2015-01-13
 - Notice group: Active notices
 - Listed date: 2014-12-11
-- Captured at (UTC): 2026-07-13T01:50:37Z
+- Captured at (UTC): 2026-07-13T10:50:42Z
 - Page title: Rates of Pay and Terminable Allowance for the Law Management (LC) Occupational Group - December 2014
 
 ---

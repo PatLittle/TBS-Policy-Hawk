@@ -7,7 +7,7 @@
 - Notice modified: 2024-08-02
 - Notice identifier: 2024-1
 - Listed date: 
-- Captured at (UTC): 2026-07-13T01:50:37Z
+- Captured at (UTC): 2026-07-13T10:50:42Z
 - Page title: Contracting Policy Notice 2024-1: Amendments to the Directive on the Management of Procurement to Strengthen Management and Oversight
 
 ---
