@@ -7,7 +7,7 @@
 - Notice modified: 2020-11-24
 - Notice group: Active notices
 - Listed date: 2020-02-27
-- Captured at (UTC): 2026-07-14T09:47:12Z
+- Captured at (UTC): 2026-07-14T17:03:27Z
 - Page title: Professional Association of Foreign Services Officers – Changes to Membership Dues
 
 ---

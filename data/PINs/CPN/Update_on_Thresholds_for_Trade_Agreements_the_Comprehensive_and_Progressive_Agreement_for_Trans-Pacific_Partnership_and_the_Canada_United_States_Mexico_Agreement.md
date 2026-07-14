@@ -7,7 +7,7 @@
 - Notice modified: 2025-10-28
 - Notice identifier: 2018-1
 - Listed date: 
-- Captured at (UTC): 2026-07-14T09:47:12Z
+- Captured at (UTC): 2026-07-14T17:03:27Z
 - Page title: Contracting Policy Notice 2018-01: Update on Thresholds for Trade Agreements, the Comprehensive and Progressive Agreement for Trans-Pacific Partnership, and the Canada–United States–Mexico Agreement
 
 ---

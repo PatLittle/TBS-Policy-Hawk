@@ -7,7 +7,7 @@
 - Notice modified: 2015-10-02
 - Notice group: Active notices
 - Listed date: 2015-10-01
-- Captured at (UTC): 2026-07-14T09:47:12Z
+- Captured at (UTC): 2026-07-14T17:03:27Z
 - Page title: Vacation Travel Assistance Update - October 2015
 
 ---
