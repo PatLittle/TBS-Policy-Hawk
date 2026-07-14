@@ -7,7 +7,7 @@
 - Notice modified: 2016-09-14
 - Notice group: Archived notices
 - Listed date: 2013-03-01
-- Captured at (UTC): 2026-07-14T01:27:24Z
+- Captured at (UTC): 2026-07-14T09:47:12Z
 - Page title: Information notice - Revocation of Environment Allowance (EA) for Atikameg, Grande Cache, High Prairie, Little Buffalo, Manning and McLennan, Alberta
 
 ---

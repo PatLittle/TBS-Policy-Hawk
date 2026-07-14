@@ -7,7 +7,7 @@
 - Notice modified: 2024-07-31
 - Notice identifier: 2024-3
 - Listed date: 
-- Captured at (UTC): 2026-07-14T01:27:24Z
+- Captured at (UTC): 2026-07-14T09:47:12Z
 - Page title: Contracting Policy Notice 2024-3: Entry into Force of the Modernized Canada–Ukraine Trade Continuity Agreement
 
 ---

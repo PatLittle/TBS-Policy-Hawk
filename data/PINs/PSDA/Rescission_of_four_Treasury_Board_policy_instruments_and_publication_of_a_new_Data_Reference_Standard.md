@@ -6,7 +6,7 @@
 - Notice URL: https://www.canada.ca/en/government/system/digital-government/policies-standards/policy-service-digital-announcements/rescission-four-treasury-board-policy-instruments-publication-new-data-reference-standard.html
 - Notice modified: 2025-05-30
 - Listed date: 2024-05-08
-- Captured at (UTC): 2026-07-14T01:27:24Z
+- Captured at (UTC): 2026-07-14T09:47:12Z
 
 ---
 

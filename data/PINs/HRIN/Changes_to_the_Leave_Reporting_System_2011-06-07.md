@@ -7,7 +7,7 @@
 - Notice modified: 2011-06-14
 - Notice group: Active notices
 - Listed date: 2011-06-07
-- Captured at (UTC): 2026-07-14T01:27:24Z
+- Captured at (UTC): 2026-07-14T09:47:12Z
 - Page title: Changes to the Leave Reporting System - June 2011
 
 ---

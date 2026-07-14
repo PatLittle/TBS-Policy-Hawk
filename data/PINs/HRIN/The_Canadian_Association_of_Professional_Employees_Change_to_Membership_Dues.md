@@ -7,7 +7,7 @@
 - Notice modified: 2023-09-25
 - Notice group: Active notices
 - Listed date: 2023-09-25
-- Captured at (UTC): 2026-07-14T01:27:24Z
+- Captured at (UTC): 2026-07-14T09:47:12Z
 - Page title: The Canadian Association of Professional Employees - Change to membership dues
 
 ---
