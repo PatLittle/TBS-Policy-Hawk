@@ -7,7 +7,7 @@
 - Notice modified: 2016-09-14
 - Notice group: Archived notices
 - Listed date: 2013-10-02
-- Captured at (UTC): 2026-07-14T17:03:27Z
+- Captured at (UTC): 2026-07-15T01:24:10Z
 - Page title: Canadian Air Traffic Control Association, Canadian Auto Workers (CATCA, CAW) Local 5454 - Changes to Membership Dues
 
 ---
