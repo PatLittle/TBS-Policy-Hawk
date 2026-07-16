@@ -7,7 +7,7 @@
 - Notice modified: 2009-01-09
 - Notice group: Archived notices
 - Listed date: 2008-12-02
-- Captured at (UTC): 2026-07-16T09:57:30Z
+- Captured at (UTC): 2026-07-16T17:03:51Z
 - Page title: The Union of Canadian Transportation Employees Component of the Public Service Alliance of Canada (PSAC) - Change to Membership Dues
 
 ---

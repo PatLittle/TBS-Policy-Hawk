@@ -7,7 +7,7 @@
 - Notice modified: 2015-10-14
 - Notice group: Active notices
 - Listed date: 2015-09-30
-- Captured at (UTC): 2026-07-16T09:57:30Z
+- Captured at (UTC): 2026-07-16T17:03:51Z
 - Page title: Interpretation: Contacts Factor and Benchmarks in Clerical and Regulatory Job Evaluation Standard
 
 ---

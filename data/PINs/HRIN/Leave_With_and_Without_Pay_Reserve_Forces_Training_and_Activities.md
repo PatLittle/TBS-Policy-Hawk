@@ -7,7 +7,7 @@
 - Notice modified: 2008-05-16
 - Notice group: Active notices
 - Listed date: 2008-05-16
-- Captured at (UTC): 2026-07-16T09:57:30Z
+- Captured at (UTC): 2026-07-16T17:03:51Z
 - Page title: Leave With and Without Pay - Reserve Forces Training and Activities
 
 ---

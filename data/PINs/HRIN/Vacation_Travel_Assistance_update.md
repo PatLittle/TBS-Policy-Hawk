@@ -7,7 +7,7 @@
 - Notice modified: 2015-03-30
 - Notice group: Archived notices
 - Listed date: 2015-04-01
-- Captured at (UTC): 2026-07-16T09:57:30Z
+- Captured at (UTC): 2026-07-16T17:03:51Z
 - Page title: Vacation Travel Assistance update - April 2015
 
 ---
