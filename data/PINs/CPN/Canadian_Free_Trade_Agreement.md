@@ -7,7 +7,7 @@
 - Notice modified: 2017-10-11
 - Notice identifier: 2017-3
 - Listed date: 
-- Captured at (UTC): 2026-07-16T01:44:19Z
+- Captured at (UTC): 2026-07-16T09:57:30Z
 - Page title: Contracting Policy Notice: 2017-3 – Canadian Free Trade Agreement
 
 ---

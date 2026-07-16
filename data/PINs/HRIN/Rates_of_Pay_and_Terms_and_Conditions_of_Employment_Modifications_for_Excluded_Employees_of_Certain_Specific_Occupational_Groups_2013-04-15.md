@@ -7,7 +7,7 @@
 - Notice modified: 2013-05-13
 - Notice group: Active notices
 - Listed date: 2013-04-15
-- Captured at (UTC): 2026-07-16T01:44:19Z
+- Captured at (UTC): 2026-07-16T09:57:30Z
 - Page title: Rates of Pay and Terms and Conditions of Employment Modifications for Excluded Employees of Certain Specific Occupational Groups - April 2013
 
 ---

@@ -8,7 +8,7 @@
 - Notice identifier: 2021-01
 - Notice group: Privacy implementation notices
 - Listed date: 
-- Captured at (UTC): 2026-07-16T01:44:19Z
+- Captured at (UTC): 2026-07-16T09:57:30Z
 - Page title: Privacy Implementation Notice 2021–01: Privacy Requirements for Official Social Media Accounts
 
 ---
