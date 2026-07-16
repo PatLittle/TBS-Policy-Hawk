@@ -7,7 +7,7 @@
 - Notice modified: 2020-11-24
 - Notice group: Active notices
 - Listed date: 2020-07-24
-- Captured at (UTC): 2026-07-15T17:05:56Z
+- Captured at (UTC): 2026-07-16T01:44:19Z
 - Page title: Federal Government Dockyard Chargehands Association – Change to Membership Dues
 
 ---
