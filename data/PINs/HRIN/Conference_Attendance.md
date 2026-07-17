@@ -7,7 +7,7 @@
 - Notice modified: 2019-02-01
 - Notice group: Active notices
 - Listed date: 2019-01-18
-- Captured at (UTC): 2026-07-16T17:03:51Z
+- Captured at (UTC): 2026-07-17T01:48:10Z
 - Page title: Conference Attendance 2019-01-18
 
 ---

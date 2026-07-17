@@ -7,7 +7,7 @@
 - Notice modified: 2020-11-24
 - Notice group: Active notices
 - Listed date: 2020-08-18
-- Captured at (UTC): 2026-07-16T17:03:51Z
+- Captured at (UTC): 2026-07-17T01:48:10Z
 - Page title: Association of Canadian Financial Officers – Change to Membership Dues
 
 ---
