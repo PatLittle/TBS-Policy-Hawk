@@ -7,7 +7,7 @@
 - Notice modified: 2026-02-20
 - Notice identifier: 2026-2
 - Listed date: 
-- Captured at (UTC): 2026-07-17T01:48:10Z
+- Captured at (UTC): 2026-07-17T09:50:51Z
 - Page title: Contracting Policy Notice 2026-2: Amendments to the Department of Public Works and Government Services Act to provide Ministerial Procurement Authority for Services and Construction Services and consequential amendments to the Directive on the Management of Procurement
 
 ---

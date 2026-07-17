@@ -7,7 +7,7 @@
 - Notice modified: 2015-04-09
 - Notice group: Active notices
 - Listed date: 2015-04-01
-- Captured at (UTC): 2026-07-17T01:48:10Z
+- Captured at (UTC): 2026-07-17T09:50:51Z
 - Page title: Amended interpretation related to the allocation of financial work and activities
 
 ---
