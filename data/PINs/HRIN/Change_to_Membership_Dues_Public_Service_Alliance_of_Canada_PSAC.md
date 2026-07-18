@@ -7,7 +7,7 @@
 - Notice modified: 2016-09-14
 - Notice group: Archived notices
 - Listed date: 2009-11-12
-- Captured at (UTC): 2026-07-18T09:15:42Z
+- Captured at (UTC): 2026-07-18T16:44:48Z
 - Page title: Change to Membership Dues - Public Service Alliance of Canada (PSAC)
 
 ---

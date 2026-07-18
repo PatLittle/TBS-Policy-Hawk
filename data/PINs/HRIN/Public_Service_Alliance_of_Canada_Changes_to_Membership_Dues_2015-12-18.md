@@ -7,7 +7,7 @@
 - Notice modified: 2015-12-31
 - Notice group: Active notices
 - Listed date: 2015-12-18
-- Captured at (UTC): 2026-07-18T09:15:42Z
+- Captured at (UTC): 2026-07-18T16:44:48Z
 - Page title: Public Service Alliance of Canada - Changes to Membership Dues
 
 ---

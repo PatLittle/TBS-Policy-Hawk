@@ -7,7 +7,7 @@
 - Notice modified: 2017-07-05
 - Notice identifier: 2017-4
 - Listed date: 
-- Captured at (UTC): 2026-07-18T09:15:42Z
+- Captured at (UTC): 2026-07-18T16:44:48Z
 - Page title: Contracting Policy Notice 2017-4: Canada-European Union Comprehensive Economic and Trade Agreement (CETA)
 
 ---
