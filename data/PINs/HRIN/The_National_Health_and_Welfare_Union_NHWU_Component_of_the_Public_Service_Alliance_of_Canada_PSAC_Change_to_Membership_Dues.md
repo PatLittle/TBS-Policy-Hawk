@@ -7,7 +7,7 @@
 - Notice modified: 2008-11-24
 - Notice group: Archived notices
 - Listed date: 2008-11-07
-- Captured at (UTC): 2026-07-18T01:28:35Z
+- Captured at (UTC): 2026-07-18T09:15:42Z
 - Page title: The National Health and Welfare Union (NHWU) Component of the Public Service Alliance of Canada (PSAC) - Change to Membership Dues
 
 ---
