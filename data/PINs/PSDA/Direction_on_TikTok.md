@@ -6,7 +6,7 @@
 - Notice URL: https://www.canada.ca/en/government/system/digital-government/policies-standards/policy-service-digital-announcements/direction-tiktok.html
 - Notice modified: 2024-10-08
 - Listed date: 2023-02-27
-- Captured at (UTC): 2026-07-18T16:44:48Z
+- Captured at (UTC): 2026-07-19T01:46:01Z
 
 ---
 

@@ -7,7 +7,7 @@
 - Notice modified: 2008-01-28
 - Notice group: Active notices
 - Listed date: 2007-10-16
-- Captured at (UTC): 2026-07-18T16:44:48Z
+- Captured at (UTC): 2026-07-19T01:46:01Z
 - Page title: 2007-10-16 - Manitoba, Saskatchewan and Ontario Family Day
 
 ---
