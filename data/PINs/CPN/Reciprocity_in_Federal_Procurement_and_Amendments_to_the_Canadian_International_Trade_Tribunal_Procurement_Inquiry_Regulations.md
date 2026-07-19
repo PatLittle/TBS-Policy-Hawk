@@ -7,7 +7,7 @@
 - Notice modified: 2026-01-06
 - Notice identifier: 2025-5
 - Listed date: 
-- Captured at (UTC): 2026-07-19T01:46:01Z
+- Captured at (UTC): 2026-07-19T09:44:51Z
 - Page title: Contracting Policy Notice 2025-5: Reciprocity in Federal Procurement and Amendments to the Canadian International Trade Tribunal Procurement Inquiry Regulations
 
 ---
