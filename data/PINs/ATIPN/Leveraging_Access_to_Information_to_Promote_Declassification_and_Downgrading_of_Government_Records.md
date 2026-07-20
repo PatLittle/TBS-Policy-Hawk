@@ -8,7 +8,7 @@
 - Notice identifier: 2023-02
 - Notice group: Access to Information implementation notices
 - Listed date: 
-- Captured at (UTC): 2026-07-19T16:44:59Z
+- Captured at (UTC): 2026-07-20T02:02:07Z
 - Page title: Access to Information Implementation Notice 2023-02: Leveraging Access to Information to Promote Declassification and Downgrading of Government Records
 
 ---
