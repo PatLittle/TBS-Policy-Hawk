@@ -7,7 +7,7 @@
 - Notice modified: 2016-06-23
 - Notice group: Archived notices
 - Listed date: 2009-02-02
-- Captured at (UTC): 2026-07-20T02:02:07Z
+- Captured at (UTC): 2026-07-20T10:41:26Z
 - Page title: International Brotherhood of Electrical Workers (IBEW) - Additional Change to Membership Dues
 
 ---
