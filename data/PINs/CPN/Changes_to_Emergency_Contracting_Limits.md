@@ -7,7 +7,7 @@
 - Notice modified: 2024-08-02
 - Notice identifier: 2024-2
 - Listed date: 
-- Captured at (UTC): 2026-07-20T10:41:26Z
+- Captured at (UTC): 2026-07-20T17:23:11Z
 - Page title: Contracting Policy Notice 2024-2: Changes to Emergency Contracting Limits
 
 ---

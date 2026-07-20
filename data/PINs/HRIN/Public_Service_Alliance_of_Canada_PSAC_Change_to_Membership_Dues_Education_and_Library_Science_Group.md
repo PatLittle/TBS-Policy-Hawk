@@ -7,7 +7,7 @@
 - Notice modified: 2016-09-14
 - Notice group: Archived notices
 - Listed date: 2009-05-29
-- Captured at (UTC): 2026-07-20T10:41:26Z
+- Captured at (UTC): 2026-07-20T17:23:11Z
 - Page title: Public Service Alliance of Canada (PSAC) - Change to Membership Dues - Education and Library Science Group
 
 ---

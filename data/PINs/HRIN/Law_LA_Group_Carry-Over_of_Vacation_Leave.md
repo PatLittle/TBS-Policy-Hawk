@@ -7,7 +7,7 @@
 - Notice modified: 2011-04-19
 - Notice group: Active notices
 - Listed date: 2011-04-15
-- Captured at (UTC): 2026-07-20T10:41:26Z
+- Captured at (UTC): 2026-07-20T17:23:11Z
 - Page title: Law (LA) Group - Carry-Over of Vacation Leave
 
 ---

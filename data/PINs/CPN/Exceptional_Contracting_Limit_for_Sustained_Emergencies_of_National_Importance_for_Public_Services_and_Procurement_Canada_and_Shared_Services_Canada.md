@@ -7,7 +7,7 @@
 - Notice modified: 2023-07-11
 - Notice identifier: 2023-4
 - Listed date: 
-- Captured at (UTC): 2026-07-20T10:41:26Z
+- Captured at (UTC): 2026-07-20T17:23:11Z
 - Page title: Contracting Policy Notice 2023-4: Exceptional Contracting Limit for Sustained Emergencies of National Importance for Public Services and Procurement Canada and Shared Services Canada
 
 ---
