@@ -8,7 +8,7 @@
 - Notice identifier: 2020-01
 - Notice group: Privacy implementation notices
 - Listed date: 
-- Captured at (UTC): 2026-07-20T17:23:11Z
+- Captured at (UTC): 2026-07-21T01:46:09Z
 - Page title: Privacy Implementation Notice 2020-01: Collecting and disclosing employees’ personal information related to the novel Coronavirus (COVID-19) pandemic
 
 ---
