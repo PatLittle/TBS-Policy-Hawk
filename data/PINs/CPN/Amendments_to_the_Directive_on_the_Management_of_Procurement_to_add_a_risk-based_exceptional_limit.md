@@ -7,7 +7,7 @@
 - Notice modified: 2026-01-16
 - Notice identifier: 2025-4
 - Listed date: 
-- Captured at (UTC): 2026-07-21T10:16:28Z
+- Captured at (UTC): 2026-07-21T17:07:07Z
 - Page title: Contracting Policy Notice 2025-4: Amendments to the Directive on the Management of Procurement to add a risk-based exceptional limit
 
 ---
