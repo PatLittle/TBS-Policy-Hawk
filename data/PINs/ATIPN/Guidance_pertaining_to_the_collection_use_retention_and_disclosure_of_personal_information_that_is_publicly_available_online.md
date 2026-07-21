@@ -8,7 +8,7 @@
 - Notice identifier: 2023-03
 - Notice group: Privacy implementation notices
 - Listed date: 
-- Captured at (UTC): 2026-07-21T01:46:09Z
+- Captured at (UTC): 2026-07-21T10:16:28Z
 - Page title: Privacy Implementation Notice 2023-03: Guidance pertaining to the collection, use, retention and disclosure of personal information that is publicly available online
 
 ---

@@ -7,7 +7,7 @@
 - Notice modified: 2009-01-09
 - Notice group: Archived notices
 - Listed date: 2008-12-02
-- Captured at (UTC): 2026-07-21T01:46:09Z
+- Captured at (UTC): 2026-07-21T10:16:28Z
 - Page title: The National Component of the Public Service Alliance of Canada (PSAC) - Change to Membership Dues
 
 ---
