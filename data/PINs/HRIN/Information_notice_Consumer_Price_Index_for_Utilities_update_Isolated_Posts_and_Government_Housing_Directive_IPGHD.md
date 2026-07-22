@@ -7,7 +7,7 @@
 - Notice modified: 2016-03-04
 - Notice group: Active notices
 - Listed date: 2016-02-19
-- Captured at (UTC): 2026-07-22T10:21:27Z
+- Captured at (UTC): 2026-07-22T17:07:49Z
 - Page title: Information notice - Consumer Price Index for Utilities update - Isolated Posts and Government Housing Directive (IPGHD)
 
 ---

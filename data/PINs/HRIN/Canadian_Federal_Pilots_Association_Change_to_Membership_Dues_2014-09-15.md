@@ -7,7 +7,7 @@
 - Notice modified: 2014-10-01
 - Notice group: Archived notices
 - Listed date: 2014-09-15
-- Captured at (UTC): 2026-07-22T10:21:27Z
+- Captured at (UTC): 2026-07-22T17:07:49Z
 - Page title: Canadian Federal Pilots Association - Change to Membership Dues
 
 ---
