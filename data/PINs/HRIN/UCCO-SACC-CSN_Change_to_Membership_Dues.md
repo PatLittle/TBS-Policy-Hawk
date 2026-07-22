@@ -7,7 +7,7 @@
 - Notice modified: 2007-07-17
 - Notice group: Archived notices
 - Listed date: 2007-07-04
-- Captured at (UTC): 2026-07-21T17:07:07Z
+- Captured at (UTC): 2026-07-22T01:44:58Z
 - Page title: UCCO-SACC-CSN - Change to Membership Dues
 
 ---
