@@ -8,7 +8,7 @@
 - Notice identifier: 2020-02
 - Notice group: Privacy implementation notices
 - Listed date: 
-- Captured at (UTC): 2026-07-22T01:44:58Z
+- Captured at (UTC): 2026-07-22T10:21:27Z
 - Page title: Privacy Implementation Notice 2020-02: Definition of Personal Information – Ministerial Staff
 
 ---
