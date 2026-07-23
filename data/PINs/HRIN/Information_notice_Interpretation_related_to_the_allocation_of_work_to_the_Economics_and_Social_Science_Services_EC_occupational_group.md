@@ -7,7 +7,7 @@
 - Notice modified: 2016-03-23
 - Notice group: Active notices
 - Listed date: 2016-03-16
-- Captured at (UTC): 2026-07-22T17:07:49Z
+- Captured at (UTC): 2026-07-23T01:52:42Z
 - Page title: Interpretation related to the allocation of work to the Economics and Social Science Services (EC) occupational group
 
 ---
