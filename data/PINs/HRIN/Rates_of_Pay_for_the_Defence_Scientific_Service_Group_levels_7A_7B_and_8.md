@@ -7,7 +7,7 @@
 - Notice modified: 2014-07-03
 - Notice group: Active notices
 - Listed date: 2014-06-19
-- Captured at (UTC): 2026-07-23T10:12:02Z
+- Captured at (UTC): 2026-07-23T17:09:25Z
 - Page title: Rates of Pay for the Defence Scientific Service Group (levels 7A, 7B and 8).
 
 ---

@@ -8,7 +8,7 @@
 - Notice identifier: 2022-03
 - Notice group: Privacy implementation notices
 - Listed date: 
-- Captured at (UTC): 2026-07-23T10:12:02Z
+- Captured at (UTC): 2026-07-23T17:09:25Z
 - Page title: Privacy Implementation Notice 2022–03: Requests for Accommodation
 
 ---

@@ -8,7 +8,7 @@
 - Notice identifier: 2025-01
 - Notice group: Access to Information and Privacy implementation notices
 - Listed date: 
-- Captured at (UTC): 2026-07-23T10:12:02Z
+- Captured at (UTC): 2026-07-23T17:09:25Z
 - Page title: Access to information and privacy implementation notice 2025-01: Disclosing personal information of deceased individuals on compassionate grounds
 
 ---

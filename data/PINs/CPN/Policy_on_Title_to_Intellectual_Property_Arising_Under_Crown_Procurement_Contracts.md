@@ -7,7 +7,7 @@
 - Notice modified: 2015-02-09
 - Notice identifier: 2015-1
 - Listed date: 
-- Captured at (UTC): 2026-07-23T10:12:02Z
+- Captured at (UTC): 2026-07-23T17:09:25Z
 - Page title: Contracting Policy Notice 2015-1: Policy on Title to Intellectual Property Arising Under Crown Procurement Contracts
 
 ---
