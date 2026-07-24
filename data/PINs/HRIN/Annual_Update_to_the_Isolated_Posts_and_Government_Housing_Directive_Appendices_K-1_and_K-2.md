@@ -7,7 +7,7 @@
 - Notice modified: 2018-09-20
 - Notice group: Active notices
 - Listed date: 2018-09-20
-- Captured at (UTC): 2026-07-24T10:08:28Z
+- Captured at (UTC): 2026-07-24T17:31:07Z
 - Page title: Annual Update to the Isolated Posts and Government Housing Directive - Appendices K-1 and K-2
 
 ---
