@@ -8,7 +8,7 @@
 - Notice identifier: 2023-02
 - Notice group: Privacy implementation notices
 - Listed date: 
-- Captured at (UTC): 2026-07-23T17:09:25Z
+- Captured at (UTC): 2026-07-24T01:48:09Z
 - Page title: Privacy Implementation Notice 2023-02: Personal information for program monitoring, evaluation and reporting purposes
 
 ---
