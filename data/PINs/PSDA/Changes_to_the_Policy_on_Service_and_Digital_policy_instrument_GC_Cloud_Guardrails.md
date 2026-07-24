@@ -6,7 +6,7 @@
 - Notice URL: https://www.canada.ca/en/government/system/digital-government/policies-standards/policy-service-digital-announcements/changes-policy-service-digital-policy-instrument-gc-cloud-guardrails.html
 - Notice modified: 2024-10-08
 - Listed date: 2024-02-02
-- Captured at (UTC): 2026-07-24T01:48:09Z
+- Captured at (UTC): 2026-07-24T10:08:28Z
 
 ---
 
