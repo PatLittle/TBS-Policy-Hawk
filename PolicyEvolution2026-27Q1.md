@@ -5,6 +5,8 @@
 
 This file compiles the policy-change analysis comments for updates detected during the quarter. Entries are organized chronologically by the effective/update date in the issue GUID.
 
+![heatmap](https://raw.githubusercontent.com/PatLittle/TBS-Policy-Hawk/refs/heads/main/screenshots/tbs_policy_hawk_heatmap_2026-04-01_to_2026-06-30.png)
+
 ---
 
 ## 2026-04-27 — Guidelines on Making Communications Products and Activities Accessible
