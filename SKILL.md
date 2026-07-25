@@ -428,10 +428,20 @@ If the file does not exist, create it with this header:
 
 This file compiles policy-change analysis comments for updates detected during the quarter. Entries are organized chronologically by the effective/update date in the issue GUID.
 
+![TBS Policy Hawk activity heatmap for {quarter_start} to {quarter_end}](https://raw.githubusercontent.com/PatLittle/TBS-Policy-Hawk/refs/heads/main/screenshots/tbs_policy_hawk_heatmap_{quarter_start}_to_{quarter_end}.png)
+
 ---
 ```
 
 If the file exists, append or update the issue section.
+
+Every quarterly `PolicyEvolution` file must include its matching fiscal-quarter heatmap after the introductory paragraph and before the first horizontal rule, following the placement used in `PolicyEvolution2026-27Q1.md`. Use the quarter’s fixed filename:
+
+```text
+screenshots/tbs_policy_hawk_heatmap_{quarter_start}_to_{quarter_end}.png
+```
+
+Reference the image through the raw GitHub URL shown in the header template so it renders from the report on GitHub. Do not point a prior-quarter report at the latest README heatmap; each report must retain its own quarter-specific image.
 
 Do **not** duplicate an issue section. If a section for the issue already exists, replace that section with the latest analysis comment.
 
@@ -482,6 +492,7 @@ For each open issue:
 [ ] Post every analysis-comment part
 [ ] Add 🪄📝AutoAnalyzed label
 [ ] Determine fiscal year/quarter
+[ ] Add the matching quarter heatmap to PolicyEvolution{YYYY-YYQ#}.md
 [ ] Create or update PolicyEvolution{YYYY-YYQ#}.md
 [ ] Insert or replace issue section
 [ ] Sort sections chronologically

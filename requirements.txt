@@ -6,3 +6,4 @@ pandas
 PyGithub
 playwright
 google-genai
+matplotlib

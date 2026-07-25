@@ -57,12 +57,17 @@ jobs:
             echo "changes_detected=false" >> $GITHUB_OUTPUT
           fi
 
+      - name: Generate quarterly policy activity heatmap
+        if: steps.fetch.outputs.changes_detected == 'true'
+        run: |
+          python scripts/generate_policy_heatmap.py
+
       - name: Commit and push data updates
         if: steps.fetch.outputs.changes_detected == 'true'
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
-          git add data/ PIN_sources.md
+          git add data/ PIN_sources.md README.md screenshots/tbs_policy_hawk_heatmap_*.png
           git commit -m 'chore: update policy data and documents'
           git push
 

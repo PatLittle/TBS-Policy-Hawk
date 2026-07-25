@@ -16,6 +16,9 @@ The result is a working evidence trail: machine-readable datasets under `data/`,
 
 [![Open in Flatdata Viewer](https://img.shields.io/badge/Open%20in%20Flatdata%20Viewer-FF00E8?style=for-the-badge&logo=github&logoColor=black)](https://flatgithub.com/PatLittle/TBS-Policy-Hawk/data/items.csv?filename=data%2Fitems.csv)
 
+<!-- policy-hawk:latest-heatmap -->
+![TBS Policy Hawk activity heatmap for 2026-07-01 to 2026-09-30](screenshots/tbs_policy_hawk_heatmap_2026-07-01_to_2026-09-30.png)
+
 ## Main Datasets
 
 ### `data/items.csv`
@@ -83,6 +86,10 @@ This script reads `data/new_items.csv`, captures screenshots, creates GitHub iss
 
 Issue bodies include the source title, link, category, GUID, screenshot, hierarchy-change context, and glossary-change summaries where available.
 
+### `scripts/generate_policy_heatmap.py`
+
+This script counts `data/items.csv` records by publication date for the current Government of Canada fiscal quarter, writes a constant quarter-specific PNG under `screenshots/`, and updates the latest-heatmap slot immediately before **Main Datasets** in this README. `policy_watch.yml` runs it whenever policy or PIN changes are detected, so repeated runs update the same image and retain its Git revision history.
+
 ### `scripts/enrich_issue.py`
 
 This script runs when a policy-update issue is opened or when `issue_enrich.yml` is dispatched manually for a specific issue. It fetches the policy page as HTML, converts it to Markdown, stores the current capture under `data/{Category}/{GUID}/`, computes a diff against the previous Markdown capture when one exists, captures a screenshot, and posts enrichment comments back to the issue. Content that exceeds the safe per-comment size is preserved across ordered, numbered comments; reruns resume any missing parts without duplicating parts already posted.
@@ -120,6 +127,7 @@ It:
 - installs Python dependencies and Playwright;
 - runs `scripts/fetch_feed.py`;
 - runs `scripts/sync_pin_sources.py`;
+- regenerates the current fiscal-quarter activity heatmap when changes are detected;
 - commits dataset, policy capture, glossary, hierarchy, and PIN updates;
 - creates issues and screenshots when new reviewable items are found;
 - commits screenshot and issue-map artifacts.
@@ -155,12 +163,17 @@ flowchart TD
     A --> H[scripts/sync_pin_sources.py]
     H --> I[PIN_sources.md]
     H --> J[data/PINs and manifest]
+    C --> Z[scripts/generate_policy_heatmap.py]
+    Z --> ZA[screenshots/quarter heatmap PNG]
+    Z --> ZB[README latest heatmap]
     C --> K[Commit policy data updates]
     E --> K
     F --> K
     G --> K
     I --> K
     J --> K
+    ZA --> K
+    ZB --> K
     D --> L[scripts/create_issues_with_screenshots.py]
     L --> M[GitHub policy-update issues]
     L --> N[screenshots]
@@ -173,6 +186,7 @@ flowchart TD
     R --> S
     S --> T[AutoAnalyzed issue comment and label]
     S --> U[PolicyEvolution fiscal-quarter report]
+    ZA --> U
     V[Update SCD2 schedule] --> W[scripts/update_scd2.py]
     W --> X[data/tbs_policy_feed_union_by_guid.csv]
     W --> Y[data/tbs_policy_feed_scd2.csv]
@@ -205,6 +219,12 @@ Run the primary detector locally:
 ```bash
 python scripts/fetch_feed.py
 python scripts/sync_pin_sources.py
+```
+
+Generate the current fiscal-quarter heatmap and update its README slot:
+
+```bash
+python scripts/generate_policy_heatmap.py
 ```
 
 Create issues from detected items:
