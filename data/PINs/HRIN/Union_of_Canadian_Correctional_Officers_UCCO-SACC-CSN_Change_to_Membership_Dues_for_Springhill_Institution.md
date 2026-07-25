@@ -7,7 +7,7 @@
 - Notice modified: 2016-09-14
 - Notice group: Archived notices
 - Listed date: 2012-03-16
-- Captured at (UTC): 2026-07-24T17:31:07Z
+- Captured at (UTC): 2026-07-25T02:13:22Z
 - Page title: Union of Canadian Correctional Officers (UCCO-SACC-CSN) - Change to Membership Dues for Springhill Institution
 
 ---
