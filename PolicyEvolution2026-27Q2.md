@@ -134,3 +134,95 @@ No glossary-specific added, removed, or changed item was associated with this is
 Departments should not need to change transfer-payment program design, terms and conditions, funding agreement provisions, or monitoring practices based on this detected update alone.
 
 ---
+
+## 2026-07-24 — Planning and Management of Investments, Policy on the
+
+**Issue:** [#266](https://github.com/PatLittle/TBS-Policy-Hawk/issues/266)
+**Document ID:** 32593
+**Category:** Policy
+**GUID:** `32593_2026-07-24`
+**Change type:** policy_update
+
+### Policy change analysis
+
+Compared the current captured version for `32593_2026-07-24` with the closest prior repository copy:
+
+- New/current capture: `data/Policy/32593_2026-07-24/20260725T014727Z.md`
+- Prior version used for comparison: `data/Policy/32593_2026-06-01/20260603T202106Z.md`
+
+#### Summary
+
+This is a targeted housing-policy amendment to the parent investment policy. It creates a net-book-value exception to the usual market-value justification requirement for specified housing-suitable real property disposals, separates real-property and materiel due-diligence references, and updates the reporting-appendix reference to match the concurrently restructured real-property directive.
+
+#### Substantive changes identified
+
+| Section | Prior version | New/current version | Interpretation |
+|---|---|---|---|
+| **4.1.21 — Due diligence** | Required due diligence in the acquisition, disposal or divestment of real property and materiel, without naming the applicable procedures. | Requires real-property due diligence under Appendix D of the *Directive on the Management of Real Property* and points materiel acquisition/divestment to the *Directive on the Management of Materiel*. | The obligation is now routed to source-specific procedures. This is primarily a clarification and reference update, not removal of due diligence. |
+| **4.1.22 — Market-value justification** | Required departments to justify consideration received or given against market value under Appendix B of the real-property directive. | Adds an exception for disposals of housing-suitable real property to Build Canada Homes, not-for-profits or Indigenous groups at a value not lower than net book value. | Specified housing disposals no longer need the usual market-value justification when the transaction meets the recipient and net-book-value conditions. |
+| **4.1.25 — Proceeds-of-sale reporting** | Referred to Appendix C: Mandatory Procedures for Reporting. | Refers to Appendix G: Mandatory Procedures for Reporting. | This is a consequential cross-reference update following appendix renumbering in the amended real-property directive; the proceeds-of-sale condition remains. |
+
+#### Practical effect
+
+1. **Housing-disposal flexibility:** Departments can dispose of housing-suitable property to Build Canada Homes, not-for-profits or Indigenous groups without the usual market-value justification, provided the value is not below net book value.
+2. **Procedure-specific due diligence:** Real-property and materiel transactions now point to their respective supporting instruments for due-diligence requirements.
+3. **No change to proceeds-of-sale eligibility:** The reporting precondition remains, but its appendix reference moves from C to G.
+
+#### Non-substantive changes
+
+The remaining differences are link formatting and typography associated with the new capture. The Appendix C-to-G change is structural renumbering rather than a new reporting obligation.
+
+#### Classification
+
+`scope-change`, `approval-change`, `reference-update`
+
+---
+
+## 2026-07-24 — Management of Real Property, Directive on the
+
+**Issue:** [#267](https://github.com/PatLittle/TBS-Policy-Hawk/issues/267)
+**Document ID:** 32691
+**Category:** Directive
+**GUID:** `32691_2026-07-24`
+**Change type:** policy_update
+
+### Policy change analysis
+
+Compared the current captured version for `32691_2026-07-24` with the closest prior repository copy:
+
+- New/current capture: `data/Directive/32691_2026-07-24/20260725T014912Z.md`
+- Prior version used for comparison: `data/Directive/Management of Real Property Directive on the_2025-08-31.xml`
+- Excluded capture: `data/Directive/Management of Real Property Directive on the_2026-07-24.xml` because it contains a request-rejected page rather than policy content.
+
+#### Summary
+
+This is a substantive redesign of the federal real-property disposal process to make housing the highest-priority public-purpose use. It introduces a mandatory housing-suitability assessment, creates separate disposal procedures for property intended and not intended for housing, changes appraisal thresholds and exceptions, and restructures due-diligence and heritage requirements.
+
+#### Substantive changes identified
+
+| Section | Prior version | New/current version | Interpretation |
+|---|---|---|---|
+| **4.2.7.2 and 4.2.26–4.2.28 — Disposal routing** | Required disposal of surplus property, notification and screening involving Canada Lands Company, and the general disposal/due-diligence process. | Requires practitioners to prioritize housing, notify Build Canada Homes so the Minister of Housing and Infrastructure can assess housing suitability, follow Appendix E if suitable and Appendix F if not, notify Public Services and Procurement Canada, and conduct disposal due diligence under Appendix D. | Every proposed disposal now enters a housing-suitability decision path before proceeding. Housing is expressly the first priority; other public purposes follow when property is not suitable for housing. |
+| **Appendix E — Housing-development disposals** | No separate accelerated housing-disposal appendix existed. | Requires use of PSPC disposal services unless the responsible minister grants an exception; gives Build Canada Homes or Canada Lands Company on its behalf priority at net book value; and establishes contamination and valuation procedures for other housing recipients. | Creates a dedicated, centralized route intended to accelerate housing-supporting disposals, with special recipient and valuation rules. |
+| **Appendix F — Other disposals** | Detailed disposal requirements were in 4.2.28–4.2.40, including CLC-specific screening criteria, public-purpose circulation, business cases, contamination controls and valuation rules. | Moves the non-housing process into Appendix F. It retains public-purpose circulation, ordered priority, business-case, contamination and valuation requirements, but no longer reproduces the former CLC screening criteria and confirmation steps. | Non-housing disposals retain core controls, while the former CLC-centred screening regime is replaced by the new housing/non-housing routing model. |
+| **Appendix B.2.2.1 — Appraisals** | For non-competitive transactions, the estimate exception applied only to leases or licences below $25,000 total consideration. | Extends the exception to any transaction below $100,000. It also adds no-appraisal exceptions for net-book-value disposals to Build Canada Homes/CLC on its behalf and qualifying housing disposals to not-for-profits or Indigenous groups at not less than net book value. | Broadens the low-value estimate threshold and reduces appraisal requirements for specified housing transactions. |
+| **Appendix D — Due diligence** | One disposal column generally required environmental condition, physical performance and market value; heritage value was “as appropriate.” Disposal consultation and notification duties were spread through section 4.2. | Separates housing and non-housing disposal columns. Several checks become “as appropriate” for housing disposals, heritage review becomes required for acquisitions and non-housing disposals, and disposal-specific legal, Indigenous-rights and official-languages steps are consolidated in D.2.2.2–D.2.2.5. | Due diligence is now tailored to the disposal path: the housing route is more flexible in several technical checks, while heritage review is strengthened for acquisitions and non-housing disposals and consultation duties remain explicit. |
+| **Appendix A.2.2 — Heritage procedures** | Heritage evaluation and conservation procedures applied generally. | Exempts real-property disposals intended to support housing development from Appendix A’s mandatory procedures. | Housing-route disposals are not subject to the full Appendix A heritage process, although heritage value remains an “as appropriate” due-diligence consideration in Appendix D. |
+
+#### Practical effect
+
+1. **Mandatory housing screen:** Custodians must obtain a housing-suitability assessment before disposing of surplus real property.
+2. **Centralized accelerated route:** Housing-suitable disposals normally use PSPC services and give Build Canada Homes/CLC acting for it priority at net book value.
+3. **Changed valuation controls:** The non-competitive estimate threshold rises from $25,000 for leases/licences to $100,000 for all transaction types, with additional housing-specific appraisal exceptions.
+4. **Two due-diligence standards:** Housing and non-housing disposals now carry different required-versus-as-appropriate checks.
+5. **Consequential suite restructuring:** Reporting moves from Appendix C to G, barrier-free access from D to C, due diligence from E to D, and definitions from F to H.
+
+#### Watch item
+
+Implementation will depend on the process and timing used by Build Canada Homes and the Minister of Housing and Infrastructure to determine housing suitability, and on how departments apply the Appendix A heritage-procedure exemption alongside Appendix D’s remaining heritage consideration.
+
+#### Classification
+
+`scope-change`, `approval-change`, `threshold-change`, `administrative-cleanup`
+
+---
