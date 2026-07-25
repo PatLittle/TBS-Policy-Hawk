@@ -8,7 +8,7 @@
 - Notice identifier: 2022-02
 - Notice group: Privacy implementation notices
 - Listed date: 
-- Captured at (UTC): 2026-07-25T02:13:22Z
+- Captured at (UTC): 2026-07-25T09:28:33Z
 - Page title: Privacy Implementation Notice 2022-02: Identity Verification for Personal Information Requests
 
 ---

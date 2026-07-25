@@ -7,7 +7,7 @@
 - Notice modified: 2023-06-26
 - Notice identifier: 2023-2
 - Listed date: 
-- Captured at (UTC): 2026-07-25T02:13:22Z
+- Captured at (UTC): 2026-07-25T09:28:33Z
 - Page title: Contracting Policy Notice 2023-2: Amendments to the Directive on the Management of Procurement to Strengthen Internal Controls
 
 ---
