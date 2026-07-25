@@ -18,6 +18,10 @@ try:
 except Exception:  # pragma: no cover
     Auth = None
 from playwright.sync_api import sync_playwright
+try:
+    from scripts.comment_parts import post_comment_parts
+except ModuleNotFoundError:  # Support `python scripts/enrich_issue.py`.
+    from comment_parts import post_comment_parts
 
 try:
     from markitdown import MarkItDown
@@ -224,10 +228,7 @@ def build_summary_prompt(current_md: str, previous_md: str, diff_md: str) -> str
 
 
 def post_comment(issue, body: str, marker: str) -> None:
-    if marker in body:
-        issue.create_comment(body)
-        return
-    issue.create_comment(f"{marker}\n{body}")
+    post_comment_parts(issue, body, marker)
 
 
 def comment_exists(issue, marker: str) -> bool:
@@ -235,12 +236,6 @@ def comment_exists(issue, marker: str) -> bool:
         if marker in (comment.body or ""):
             return True
     return False
-
-
-def truncate_comment(text: str, limit: int = 60000) -> str:
-    if len(text) <= limit:
-        return text
-    return text[:limit] + "\n\n...(truncated)"
 
 
 def main() -> None:
@@ -323,22 +318,30 @@ def main() -> None:
         body = f"### Screenshot\n\n![Screenshot]({screenshot_url})"
         post_comment(issue, body, COMMENT_MARKERS["screenshot"])
 
-    if not comment_exists(issue, COMMENT_MARKERS["current_md"]):
-        body = f"### Current Version (Markdown)\n\n{truncate_comment(current_md)}"
-        post_comment(issue, body, COMMENT_MARKERS["current_md"])
+    post_comment_parts(
+        issue,
+        current_md,
+        COMMENT_MARKERS["current_md"],
+        heading="Current Version (Markdown)",
+    )
 
-    if previous_md and not comment_exists(issue, COMMENT_MARKERS["previous_md"]):
-        body = f"### Previous Version (Markdown)\n\n{truncate_comment(previous_md)}"
-        post_comment(issue, body, COMMENT_MARKERS["previous_md"])
-
-    if diff_text and not comment_exists(issue, COMMENT_MARKERS["diff"]):
-        diff_body = (
-            "### Diff\n\n"
-            "<details><summary>View diff</summary>\n\n"
-            f"```diff\n{truncate_comment(diff_text)}\n```\n\n"
-            "</details>"
+    if previous_md:
+        post_comment_parts(
+            issue,
+            previous_md,
+            COMMENT_MARKERS["previous_md"],
+            heading="Previous Version (Markdown)",
         )
-        post_comment(issue, diff_body, COMMENT_MARKERS["diff"])
+
+    if diff_text:
+        post_comment_parts(
+            issue,
+            diff_text,
+            COMMENT_MARKERS["diff"],
+            heading="Diff",
+            fenced_language="diff",
+            collapsible=True,
+        )
 
     gemini_key = os.environ.get("GEMINI_API_KEY")
     if gemini_key and previous_md and diff_text and not comment_exists(issue, COMMENT_MARKERS["summary"]):
@@ -352,8 +355,12 @@ def main() -> None:
         summary = generate_gemini_summary(gemini_key, system_prompt, user_prompt, model)
         summary_path = base_dir / f"{timestamp}.summary.md"
         summary_path.write_text(summary, encoding="utf-8")
-        body = f"### Expert Summary of Changes\n\n{summary}"
-        post_comment(issue, body, COMMENT_MARKERS["summary"])
+        post_comment_parts(
+            issue,
+            summary,
+            COMMENT_MARKERS["summary"],
+            heading="Expert Summary of Changes",
+        )
 
 
 if __name__ == "__main__":

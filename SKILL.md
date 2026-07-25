@@ -373,17 +373,25 @@ For PIN, glossary, and hierarchy issues, adapt the table headings to the source:
 
 Keep the comment concise but useful. Prefer a clear before/after table over long prose. Include explicit "No substantive policy impact found" only after checking the relevant source evidence.
 
+GitHub issue comments have a finite body size. Before posting, measure the complete rendered comment, including headings, markers, and Markdown wrappers. If it would exceed 60,000 characters:
+
+1. Split it into as many comments as required; never slice off or summarize away the remaining text.
+2. Prefer splits between top-level sections, then paragraphs, table rows, or list items. Split inside a paragraph or line only when a single unit cannot fit.
+3. Add `Part {n} of {total}` to every comment and post the parts in order.
+4. Make each part independently valid Markdown. Reopen and close fenced code blocks, tables, and `<details>` blocks in each part rather than splitting through an unclosed wrapper.
+5. Preserve the complete analysis in the quarterly `PolicyEvolution` file as one continuous entry.
+
 ---
 
 ### 8. Post the comment and add the label
 
-After posting the analysis comment, add the label:
+Post every part of the analysis successfully before adding the label:
 
 ```text
 🪄📝AutoAnalyzed
 ```
 
-Only add the label after the analysis comment has been successfully created.
+Only add the label after every analysis-comment part has been successfully created. If posting stops partway through, detect the numbered parts already present and resume with the first missing part instead of duplicating earlier parts.
 
 If the issue already has an analysis comment and the label, skip unless explicitly asked to update it.
 
@@ -470,7 +478,8 @@ For each open issue:
 [ ] Compare by clauses/sections
 [ ] Compare PIN direction, glossary terms, and hierarchy paths when applicable
 [ ] Draft analysis comment
-[ ] Post analysis comment
+[ ] Split an oversized analysis into complete, ordered comments
+[ ] Post every analysis-comment part
 [ ] Add 🪄📝AutoAnalyzed label
 [ ] Determine fiscal year/quarter
 [ ] Create or update PolicyEvolution{YYYY-YYQ#}.md
@@ -491,6 +500,7 @@ For each open issue:
 - For removed requirements, say “appears removed” unless the diff clearly proves it was deleted and not moved elsewhere.
 - Use “watch item” when a removed requirement may have moved to another instrument or operational process.
 - Keep issue comments readable for policy owners, not just developers.
+- Never append `...(truncated)` or otherwise discard issue-comment content; use numbered multipart comments.
 
 ---
 

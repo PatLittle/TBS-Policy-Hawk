@@ -85,7 +85,7 @@ Issue bodies include the source title, link, category, GUID, screenshot, hierarc
 
 ### `scripts/enrich_issue.py`
 
-This script runs when a policy-update issue is opened or when `issue_enrich.yml` is dispatched manually for a specific issue. It fetches the policy page as HTML, converts it to Markdown, stores the current capture under `data/{Category}/{GUID}/`, computes a diff against the previous Markdown capture when one exists, captures a screenshot, and posts enrichment comments back to the issue.
+This script runs when a policy-update issue is opened or when `issue_enrich.yml` is dispatched manually for a specific issue. It fetches the policy page as HTML, converts it to Markdown, stores the current capture under `data/{Category}/{GUID}/`, computes a diff against the previous Markdown capture when one exists, captures a screenshot, and posts enrichment comments back to the issue. Content that exceeds the safe per-comment size is preserved across ordered, numbered comments; reruns resume any missing parts without duplicating parts already posted.
 
 If `GEMINI_API_KEY` is available, it also writes and comments an expert summary of the diff.
 
@@ -126,7 +126,7 @@ It:
 
 ### `.github/workflows/issue_enrich.yml`
 
-This workflow enriches individual issues. It runs automatically for newly opened issues and manually with an `issue_number` input. It writes HTML/Markdown/diff/summary artifacts under `data/{Category}/{GUID}/`, updates screenshots, and comments the captured evidence on the issue.
+This workflow enriches individual issues. It runs automatically for newly opened issues and manually with an `issue_number` input. It writes HTML/Markdown/diff/summary artifacts under `data/{Category}/{GUID}/`, updates screenshots, and comments the captured evidence on the issue. Oversized Markdown, diff, or summary evidence is split into complete multipart comments instead of being truncated.
 
 ### `.github/workflows/update_scd2.yml`
 
