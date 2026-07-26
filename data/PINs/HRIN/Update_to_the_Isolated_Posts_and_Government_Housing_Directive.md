@@ -7,7 +7,7 @@
 - Notice modified: 2016-09-14
 - Notice group: Archived notices
 - Listed date: 2011-10-01
-- Captured at (UTC): 2026-07-25T16:45:21Z
+- Captured at (UTC): 2026-07-26T01:51:15Z
 - Page title: Update to the Isolated Posts and Government Housing Directive - October 2011
 
 ---

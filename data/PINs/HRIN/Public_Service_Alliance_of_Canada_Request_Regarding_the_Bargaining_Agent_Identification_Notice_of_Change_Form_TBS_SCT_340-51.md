@@ -7,7 +7,7 @@
 - Notice modified: 2013-07-17
 - Notice group: Active notices
 - Listed date: 2013-07-11
-- Captured at (UTC): 2026-07-25T16:45:21Z
+- Captured at (UTC): 2026-07-26T01:51:15Z
 - Page title: Public Service Alliance of Canada - Request Regarding the Bargaining Agent Identification Notice of Change Form TBS/SCT 340-51
 
 ---

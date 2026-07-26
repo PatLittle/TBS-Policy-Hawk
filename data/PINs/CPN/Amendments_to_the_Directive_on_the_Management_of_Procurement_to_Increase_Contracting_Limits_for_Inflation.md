@@ -7,7 +7,7 @@
 - Notice modified: 2026-01-15
 - Notice identifier: 2026-1
 - Listed date: 
-- Captured at (UTC): 2026-07-25T16:45:21Z
+- Captured at (UTC): 2026-07-26T01:51:15Z
 - Page title: Contracting Policy Notice 2026-1: Amendments to the Directive on the Management of Procurement to Increase Contracting Limits for Inflation
 
 ---
