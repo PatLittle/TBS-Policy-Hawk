@@ -7,7 +7,7 @@
 - Notice modified: 2014-03-03
 - Notice group: Archived notices
 - Listed date: 2014-02-21
-- Captured at (UTC): 2026-07-26T01:51:15Z
+- Captured at (UTC): 2026-07-26T09:51:20Z
 - Page title: International Brotherhood of Electrical Workers - Changes to Membership Dues
 
 ---
