@@ -7,7 +7,7 @@
 - Notice modified: 2026-02-20
 - Notice identifier: 2025-1
 - Listed date: 
-- Captured at (UTC): 2026-07-26T09:51:20Z
+- Captured at (UTC): 2026-07-26T16:48:23Z
 - Page title: Real Property Policy Notice 2025-1: Updates to the Treasury Board Real Property Policy Instruments
 
 ---
