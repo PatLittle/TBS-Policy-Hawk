@@ -7,7 +7,7 @@
 - Notice modified: 2008-08-25
 - Notice group: Archived notices
 - Listed date: 2008-08-19
-- Captured at (UTC): 2026-07-27T01:58:52Z
+- Captured at (UTC): 2026-07-27T11:11:03Z
 - Page title: The Canadian Military Colleges Faculty Association (CMCFA) - Change to Membership Dues - August 2008
 
 ---

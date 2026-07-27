@@ -7,7 +7,7 @@
 - Notice modified: 2011-07-18
 - Notice group: Active notices
 - Listed date: 2011-07-12
-- Captured at (UTC): 2026-07-27T01:58:52Z
+- Captured at (UTC): 2026-07-27T11:11:03Z
 - Page title: Hours of Work - Law (LA) group Collective Agreement
 
 ---

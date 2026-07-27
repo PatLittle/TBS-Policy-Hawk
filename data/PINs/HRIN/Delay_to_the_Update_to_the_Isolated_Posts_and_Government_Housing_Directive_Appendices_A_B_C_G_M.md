@@ -7,7 +7,7 @@
 - Notice modified: 2016-09-14
 - Notice group: Archived notices
 - Listed date: 2008-07-23
-- Captured at (UTC): 2026-07-27T01:58:52Z
+- Captured at (UTC): 2026-07-27T11:11:03Z
 - Page title: Information Notice - Delay to the Update to the Isolated Posts and Government Housing Directive - Appendices A, B, C, G, M
 
 ---

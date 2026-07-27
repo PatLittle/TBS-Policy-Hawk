@@ -7,7 +7,7 @@
 - Notice modified: 2010-10-08
 - Notice group: Active notices
 - Listed date: 2010-10-08
-- Captured at (UTC): 2026-07-27T01:58:52Z
+- Captured at (UTC): 2026-07-27T11:11:03Z
 - Page title: Modifications to Form TBS/SCT 340-51 “Bargaining Agent Identification - Notice of Change”
 
 ---
