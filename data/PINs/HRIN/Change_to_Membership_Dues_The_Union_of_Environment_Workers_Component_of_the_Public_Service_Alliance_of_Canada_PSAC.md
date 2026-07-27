@@ -7,7 +7,7 @@
 - Notice modified: 2016-09-14
 - Notice group: Archived notices
 - Listed date: 2009-11-03
-- Captured at (UTC): 2026-07-27T11:11:03Z
+- Captured at (UTC): 2026-07-27T17:30:19Z
 - Page title: Change to Membership Dues -The Union of Environment Workers, Component of the Public Service Alliance of Canada (PSAC)
 
 ---
