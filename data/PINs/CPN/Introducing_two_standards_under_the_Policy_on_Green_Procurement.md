@@ -7,7 +7,7 @@
 - Notice modified: 2022-12-19
 - Notice identifier: 2022-3
 - Listed date: 
-- Captured at (UTC): 2026-07-27T17:30:19Z
+- Captured at (UTC): 2026-07-28T01:41:45Z
 - Page title: Contracting Policy Notice 2022-3: Introducing two standards under the Policy on Green Procurement
 
 ---
