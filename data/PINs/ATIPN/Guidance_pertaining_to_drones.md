@@ -8,7 +8,7 @@
 - Notice identifier: 2025-03
 - Notice group: Privacy implementation notices
 - Listed date: 
-- Captured at (UTC): 2026-07-29T01:43:33Z
+- Captured at (UTC): 2026-07-29T10:30:42Z
 - Page title: Privacy Implementation Notice 2025-03: Guidance pertaining to drones
 
 ---
