@@ -7,7 +7,7 @@
 - Notice modified: 2011-02-23
 - Notice group: Active notices
 - Listed date: 2011-02-11
-- Captured at (UTC): 2026-07-28T17:19:09Z
+- Captured at (UTC): 2026-07-29T01:43:33Z
 - Page title: Changes to the Leave Reporting System (LRS) - New Leave Codes
 
 ---

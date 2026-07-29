@@ -6,7 +6,7 @@
 - Notice URL: https://www.canada.ca/en/government/system/digital-government/policies-standards/policy-service-digital-announcements/amendments-policy-directive-service-digital.html
 - Notice modified: 2025-09-25
 - Listed date: 2025-08-29
-- Captured at (UTC): 2026-07-28T17:19:09Z
+- Captured at (UTC): 2026-07-29T01:43:33Z
 
 ---
 

@@ -7,7 +7,7 @@
 - Notice modified: 2016-09-14
 - Notice group: Archived notices
 - Listed date: 2013-03-01
-- Captured at (UTC): 2026-07-28T17:19:09Z
+- Captured at (UTC): 2026-07-29T01:43:33Z
 - Page title: Information notice - Living Cost Differential (LCD) Survey Results for the Manitoba Region
 
 ---
