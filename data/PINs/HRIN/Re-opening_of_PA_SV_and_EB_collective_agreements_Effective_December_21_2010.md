@@ -7,7 +7,7 @@
 - Notice modified: 2011-01-05
 - Notice group: Active notices
 - Listed date: 2010-10-21
-- Captured at (UTC): 2026-07-30T01:26:07Z
+- Captured at (UTC): 2026-07-30T10:13:24Z
 - Page title: Re-opening of PA, SV, and EB collective agreements - Effective December 21, 2010
 
 ---
