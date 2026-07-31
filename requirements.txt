@@ -7,3 +7,4 @@ PyGithub
 playwright
 google-genai
 matplotlib
+Pillow

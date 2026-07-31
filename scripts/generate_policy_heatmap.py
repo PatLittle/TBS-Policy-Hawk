@@ -15,6 +15,10 @@ from urllib.request import Request, urlopen
 README_HEATMAP_MARKER = "<!-- policy-hawk:latest-heatmap -->"
 README_DATASETS_HEADING = "## Main Datasets"
 VALID_DATE_COLUMNS = {"pubDate", "updated_date"}
+IMAGE_SOFTWARE = "TBS-Policy-Hawk (github.com/PatLittle/TBS-Policy-Hawk)"
+IMAGE_COPYRIGHT = "© Pat Little, 2026"
+IMAGE_COPYRIGHT_EXIF = "(c) Pat Little, 2026"
+IMAGE_SUBJECT_LOCATION = "90 Elgin St, Ottawa, ON"
 
 
 def current_gc_fiscal_quarter(today: Optional[date] = None) -> Tuple[date, date]:
@@ -108,6 +112,42 @@ def display_date(value: date) -> str:
 
 def heatmap_filename(start: date, end: date) -> str:
     return f"tbs_policy_hawk_heatmap_{start.isoformat()}_to_{end.isoformat()}.png"
+
+
+def embed_image_metadata(output: Path) -> None:
+    """Embed standards-compatible EXIF and exact Unicode PNG metadata."""
+    from PIL import Image, PngImagePlugin
+
+    png_metadata = PngImagePlugin.PngInfo()
+    png_metadata.add_itxt("Software", IMAGE_SOFTWARE)
+    png_metadata.add_itxt("Copyright", IMAGE_COPYRIGHT)
+    png_metadata.add_itxt("SubjectLocation", IMAGE_SUBJECT_LOCATION)
+
+    exif = Image.Exif()
+    exif[305] = IMAGE_SOFTWARE  # Software
+    # EXIF's Copyright field is ASCII-only, so use an ASCII-compatible form.
+    exif[33432] = IMAGE_COPYRIGHT_EXIF  # Copyright
+    # EXIF SubjectLocation (41492) requires pixel coordinates, not an address.
+    # Preserve the requested address and Unicode copyright in UserComment.
+    exif_comment = (
+        f"Copyright: {IMAGE_COPYRIGHT}\n"
+        f"SubjectLocation: {IMAGE_SUBJECT_LOCATION}"
+    )
+    exif[37510] = b"UNICODE\0" + exif_comment.encode("utf-16-be")  # UserComment
+
+    with Image.open(output) as source:
+        source.load()
+        image = source.copy()
+        save_options = {
+            "pnginfo": png_metadata,
+            "exif": exif,
+        }
+        if "dpi" in source.info:
+            save_options["dpi"] = source.info["dpi"]
+        if "icc_profile" in source.info:
+            save_options["icc_profile"] = source.info["icc_profile"]
+
+    image.save(output, format="PNG", **save_options)
 
 
 def draw_heatmap(
@@ -290,6 +330,7 @@ def draw_heatmap(
         facecolor=fig.get_facecolor(),
     )
     plt.close(fig)
+    embed_image_metadata(output)
 
 
 def update_readme_heatmap(

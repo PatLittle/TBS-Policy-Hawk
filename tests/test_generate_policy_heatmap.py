@@ -58,6 +58,50 @@ class HeatmapDataTests(unittest.TestCase):
         )
 
 
+class ImageMetadataTests(unittest.TestCase):
+    def test_embeds_exif_and_exact_png_metadata(self):
+        from PIL import Image
+
+        with TemporaryDirectory() as tmpdir:
+            output = Path(tmpdir) / "heatmap.png"
+            Image.new("RGB", (10, 10), color="white").save(output, dpi=(150, 150))
+
+            generate_policy_heatmap.embed_image_metadata(output)
+
+            with Image.open(output) as image:
+                self.assertEqual(
+                    image.info["Software"],
+                    generate_policy_heatmap.IMAGE_SOFTWARE,
+                )
+                self.assertEqual(
+                    image.info["Copyright"],
+                    generate_policy_heatmap.IMAGE_COPYRIGHT,
+                )
+                self.assertEqual(
+                    image.info["SubjectLocation"],
+                    generate_policy_heatmap.IMAGE_SUBJECT_LOCATION,
+                )
+                self.assertAlmostEqual(image.info["dpi"][0], 150, delta=0.1)
+
+                exif = image.getexif()
+                self.assertEqual(exif[305], generate_policy_heatmap.IMAGE_SOFTWARE)
+                self.assertEqual(
+                    exif[33432],
+                    generate_policy_heatmap.IMAGE_COPYRIGHT_EXIF,
+                )
+                self.assertTrue(exif[37510].startswith(b"UNICODE\0"))
+                comment = exif[37510][8:].decode("utf-16-be")
+                self.assertIn(
+                    f"Copyright: {generate_policy_heatmap.IMAGE_COPYRIGHT}",
+                    comment,
+                )
+                self.assertIn(
+                    "SubjectLocation: "
+                    f"{generate_policy_heatmap.IMAGE_SUBJECT_LOCATION}",
+                    comment,
+                )
+
+
 class ReadmeUpdateTests(unittest.TestCase):
     def test_heatmap_is_last_content_before_main_datasets(self):
         with TemporaryDirectory() as tmpdir:
