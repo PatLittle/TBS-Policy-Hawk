@@ -7,7 +7,7 @@
 - Notice modified: 2012-12-05
 - Notice group: Active notices
 - Listed date: 2012-11-30
-- Captured at (UTC): 2026-07-30T17:15:37Z
+- Captured at (UTC): 2026-07-31T01:52:56Z
 - Page title: Information Bulletin - Direct Deposit - November 2012
 
 ---

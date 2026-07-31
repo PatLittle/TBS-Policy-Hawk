@@ -7,7 +7,7 @@
 - Notice modified: 2001-01-31
 - Notice group: Active notices
 - Listed date: 2001-01-31
-- Captured at (UTC): 2026-07-30T17:15:37Z
+- Captured at (UTC): 2026-07-31T01:52:56Z
 - Page title: Lajoie Decision - Information Notice
 
 ---
