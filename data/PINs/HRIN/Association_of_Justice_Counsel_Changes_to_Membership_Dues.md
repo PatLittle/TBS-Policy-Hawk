@@ -7,7 +7,7 @@
 - Notice modified: 2015-06-10
 - Notice group: Archived notices
 - Listed date: 2015-05-22
-- Captured at (UTC): 2026-07-31T01:52:56Z
+- Captured at (UTC): 2026-07-31T10:29:00Z
 - Page title: Association of Justice Counsel - Changes to Membership Dues
 
 ---

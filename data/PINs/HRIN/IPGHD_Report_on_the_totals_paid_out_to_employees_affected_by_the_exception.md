@@ -7,7 +7,7 @@
 - Notice modified: 2016-09-14
 - Notice group: Archived notices
 - Listed date: 2009-10-23
-- Captured at (UTC): 2026-07-31T01:52:56Z
+- Captured at (UTC): 2026-07-31T10:29:00Z
 - Page title: IPGHD - Report on the totals paid out to employees affected by the exception
 
 ---

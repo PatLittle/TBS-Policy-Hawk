@@ -8,7 +8,7 @@
 - Notice identifier: 2020-01
 - Notice group: Access to Information and Privacy implementation notices
 - Listed date: 
-- Captured at (UTC): 2026-07-31T01:52:56Z
+- Captured at (UTC): 2026-07-31T10:29:00Z
 - Page title: ATIP Implementation Notice 2020-01: Guidance on delays resulting from measures to mitigate the impact of novel Coronavirus (COVID-19) on federal workplaces
 
 ---
