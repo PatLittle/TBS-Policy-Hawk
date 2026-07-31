@@ -226,3 +226,53 @@ Implementation will depend on the process and timing used by Build Canada Homes 
 `scope-change`, `approval-change`, `threshold-change`, `administrative-cleanup`
 
 ---
+
+## 2026-07-27 — Management of Procurement, Directive on the
+
+**Issue:** [#268](https://github.com/PatLittle/TBS-Policy-Hawk/issues/268)
+
+**Document ID:** 32692
+
+**Category:** Directive
+
+**GUID:** `32692_2026-07-27`
+
+**Change type:** policy_update
+
+### Policy change analysis
+
+Ran the issue enrichment workflow for issue #268 before analysis:
+
+- Workflow run: `issue_enrich.yml` run `30596356316`
+- New/current capture: `data/Directive/32692_2026-07-27/20260731T012803Z.md`
+- Prior version used for comparison: `data/Directive/32692_2026-06-26/20260628T074628Z.md`
+
+#### Summary
+
+This is a targeted rescission in Appendix A. Section A.6 no longer assigns Public Services and Procurement Canada responsibility for procuring specified mission-oriented science and technology goods and services. No other visible policy clauses changed.
+
+#### Substantive changes identified
+
+| Section | Prior version | New/current version | Interpretation |
+|---|---|---|---|
+| **A.6 — Mandatory goods and services** | A.6.1 made Public Services and Procurement Canada responsible for procuring goods and services relating to mission-oriented science and technology requirements in the natural sciences and the human-science fields of urban, regional and transportation studies. | The section heading is now **“A.6 Rescinded”** and A.6.1 is absent from the visible policy text. The current HTML retains the former clause only inside a comment. | The directive no longer provides this specific assignment of procurement responsibility to PSPC. The evidence does not establish whether the responsibility was eliminated, delegated elsewhere, or moved to another authority or instrument. |
+
+#### Practical effect
+
+1. **Directive-level assignment removed:** Organizations can no longer rely on A.6.1 of this directive as the operative statement assigning these mission-oriented science and technology procurements to PSPC.
+2. **Alternate authority may govern:** Departments handling procurements in the affected science and human-science fields should confirm the current service-delivery or delegation arrangement with PSPC rather than infer that the work has automatically devolved to departments.
+3. **Otherwise unchanged requirements:** The full-capture comparison found no changes to contracting limits, approval tables, standing-offer requirements, reporting, Indigenous procurement procedures, or professional-services procedures.
+
+#### Non-substantive changes
+
+Apart from the page date changing to July 27, 2026, no additional formatting-only or wording changes were identified in the normalized Markdown comparison.
+
+#### Watch item
+
+Subsection 4.3.4.12 still refers to “Appendix A: Contracting Approvals, section A.6 (Standing offers and supply arrangements),” while the current document labels A.6 as rescinded and places standing offers and supply arrangements in A.7. This appears to be an unresolved internal cross-reference and should be verified or corrected. The Note to reader also does not identify the July 27 rescission, so the capture does not state a separate effective date for the change.
+
+#### Classification
+
+`authority-change`, `scope-change`, `possible-regression`
+
+---
