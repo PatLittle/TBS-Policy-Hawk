@@ -22,6 +22,62 @@ class FiscalQuarterTests(unittest.TestCase):
                     expected,
                 )
 
+    def test_completed_quarters_begin_with_2026_27_q1(self):
+        cases = {
+            date(2026, 6, 30): [],
+            date(2026, 7, 1): ["2026-27Q1"],
+            date(2026, 10, 1): ["2026-27Q1", "2026-27Q2"],
+            date(2027, 4, 1): [
+                "2026-27Q1",
+                "2026-27Q2",
+                "2026-27Q3",
+                "2026-27Q4",
+            ],
+            date(2027, 7, 1): [
+                "2026-27Q1",
+                "2026-27Q2",
+                "2026-27Q3",
+                "2026-27Q4",
+                "2027-28Q1",
+            ],
+        }
+
+        for today, expected_labels in cases.items():
+            with self.subTest(today=today):
+                quarters = generate_policy_heatmap.completed_gc_fiscal_quarters(today)
+                self.assertEqual(
+                    [label for label, _, _ in quarters],
+                    expected_labels,
+                )
+
+    def test_quarters_to_date_include_current_quarter_with_td_suffix(self):
+        cases = {
+            date(2026, 3, 31): [],
+            date(2026, 4, 1): ["2026-27Q1TD"],
+            date(2026, 6, 30): ["2026-27Q1TD"],
+            date(2026, 7, 1): ["2026-27Q1", "2026-27Q2TD"],
+            date(2026, 10, 1): [
+                "2026-27Q1",
+                "2026-27Q2",
+                "2026-27Q3TD",
+            ],
+            date(2027, 4, 1): [
+                "2026-27Q1",
+                "2026-27Q2",
+                "2026-27Q3",
+                "2026-27Q4",
+                "2027-28Q1TD",
+            ],
+        }
+
+        for today, expected_labels in cases.items():
+            with self.subTest(today=today):
+                quarters = generate_policy_heatmap.gc_fiscal_quarters_to_date(today)
+                self.assertEqual(
+                    [label for label, _, _ in quarters],
+                    expected_labels,
+                )
+
     def test_resolve_dates_requires_both_explicit_bounds(self):
         with self.assertRaises(ValueError):
             generate_policy_heatmap.resolve_dates("2026-04-01", None)
@@ -33,13 +89,16 @@ class FiscalQuarterTests(unittest.TestCase):
 class HeatmapDataTests(unittest.TestCase):
     def test_collect_counts_uses_publication_dates_within_period(self):
         csv_text = (
-            "guid,pubDate,updated_date\n"
-            'a,"Wed, 01 Jul 2026 00:00:00 -0400",2026-07-02 10:00:00\n'
-            'b,"Wed, 01 Jul 2026 12:00:00 -0400",2026-07-03 10:00:00\n'
-            'c,"Tue, 30 Jun 2026 00:00:00 -0400",2026-07-01 10:00:00\n'
+            "guid,pubDate,updated_date,category\n"
+            'a,"Wed, 01 Jul 2026 00:00:00 -0400",'
+            "2026-07-02 10:00:00,Directive\n"
+            'b,"Wed, 01 Jul 2026 12:00:00 -0400",'
+            "2026-07-03 10:00:00,Policy\n"
+            'c,"Tue, 30 Jun 2026 00:00:00 -0400",'
+            "2026-07-01 10:00:00,Directive\n"
         )
 
-        counts = generate_policy_heatmap.collect_counts(
+        counts, instrument_counts = generate_policy_heatmap.collect_activity_counts(
             csv_text,
             date(2026, 7, 1),
             date(2026, 9, 30),
@@ -47,6 +106,75 @@ class HeatmapDataTests(unittest.TestCase):
         )
 
         self.assertEqual(counts, {date(2026, 7, 1): 2})
+        self.assertEqual(instrument_counts, {"Directive": 1, "Policy": 1})
+
+    def test_collect_counts_retains_daily_count_api(self):
+        csv_text = (
+            "guid,pubDate,updated_date\n"
+            'a,"Wed, 01 Jul 2026 00:00:00 -0400",2026-07-02 10:00:00\n'
+        )
+
+        self.assertEqual(
+            generate_policy_heatmap.collect_counts(
+                csv_text,
+                date(2026, 7, 1),
+                date(2026, 9, 30),
+                "pubDate",
+            ),
+            {date(2026, 7, 1): 1},
+        )
+
+    def test_collects_instrument_counts_for_each_completed_quarter(self):
+        csv_text = (
+            "guid,pubDate,updated_date,category\n"
+            'a,"Mon, 01 Jun 2026 00:00:00 -0400",'
+            "2026-06-01 10:00:00,Directive\n"
+            'b,"Wed, 01 Jul 2026 00:00:00 -0400",'
+            "2026-07-01 10:00:00,Policy\n"
+            'c,"Thu, 02 Jul 2026 00:00:00 -0400",'
+            "2026-07-02 10:00:00,Directive\n"
+        )
+
+        quarter_counts = (
+            generate_policy_heatmap.collect_completed_quarter_instrument_counts(
+                csv_text,
+                "pubDate",
+                today=date(2026, 10, 1),
+            )
+        )
+
+        self.assertEqual(
+            quarter_counts,
+            [
+                ("2026-27Q1", {"Directive": 1}),
+                ("2026-27Q2", {"Policy": 1, "Directive": 1}),
+            ],
+        )
+
+    def test_collects_current_quarter_instrument_counts_to_date(self):
+        csv_text = (
+            "guid,pubDate,updated_date,category\n"
+            'a,"Mon, 01 Jun 2026 00:00:00 -0400",'
+            "2026-06-01 10:00:00,Directive\n"
+            'b,"Wed, 01 Jul 2026 00:00:00 -0400",'
+            "2026-07-01 10:00:00,Policy\n"
+            'c,"Thu, 02 Jul 2026 00:00:00 -0400",'
+            "2026-07-02 10:00:00,Directive\n"
+        )
+
+        quarter_counts = generate_policy_heatmap.collect_quarter_instrument_counts(
+            csv_text,
+            "pubDate",
+            today=date(2026, 7, 1),
+        )
+
+        self.assertEqual(
+            quarter_counts,
+            [
+                ("2026-27Q1", {"Directive": 1}),
+                ("2026-27Q2TD", {"Policy": 1}),
+            ],
+        )
 
     def test_quarter_filename_is_constant(self):
         self.assertEqual(
@@ -56,6 +184,11 @@ class HeatmapDataTests(unittest.TestCase):
             ),
             "tbs_policy_hawk_heatmap_2026-04-01_to_2026-06-30.png",
         )
+
+    def test_pie_value_label_returns_whole_number_count(self):
+        self.assertEqual(generate_policy_heatmap.pie_value_label(80.0, 5), "4")
+        self.assertEqual(generate_policy_heatmap.pie_value_label(20.0, 5), "1")
+        self.assertEqual(generate_policy_heatmap.pie_value_label(0.0, 5), "")
 
 
 class ImageMetadataTests(unittest.TestCase):
