@@ -1,10 +1,14 @@
+<!-- policy-hawk:banner -->
+![banner](assets/PolicyHawkBanner.png)
+
 # Policy Evolution 2026-27 Q2
 
 **Period covered:** 2026-07-01 to 2026-09-30  
 **Source:** Auto-analysis comments added to TBS-Policy-Hawk issues.
 
 This file compiles policy-change analysis comments for updates detected during the quarter. Entries are organized chronologically by the effective/update date in the issue GUID.
-
+<!-- policy-hawk:latest-heatmap -->
+![TBS Policy Hawk activity heatmap for 2026-07-01 to 2026-09-30](screenshots/tbs_policy_hawk_heatmap_2026-07-01_to_2026-09-30.png)
 ---
 
 ## 2026-07-06 — Digital Talent, Directive on
