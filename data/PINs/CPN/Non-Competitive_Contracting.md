@@ -2,12 +2,12 @@
 
 - Notice source: Contracting policy notices (CPN)
 - Source page URL: https://www.canada.ca/en/treasury-board-secretariat/services/policy-notice.html
-- Source page modified: 2026-04-30
+- Source page modified: 2026-07-31
 - Notice URL: https://www.canada.ca/en/treasury-board-secretariat/services/policy-notice/2007-4.html
 - Notice modified: 2007-09-24
 - Notice identifier: 2007-4
 - Listed date: 
-- Captured at (UTC): 2026-07-31T17:19:46Z
+- Captured at (UTC): 2026-08-01T09:50:10Z
 - Page title: Contracting Policy Notice 2007-4 - Non-Competitive Contracting
 
 ---

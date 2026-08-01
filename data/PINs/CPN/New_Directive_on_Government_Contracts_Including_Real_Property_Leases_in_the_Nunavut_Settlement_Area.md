@@ -2,12 +2,12 @@
 
 - Notice source: Contracting policy notices (CPN)
 - Source page URL: https://www.canada.ca/en/treasury-board-secretariat/services/policy-notice.html
-- Source page modified: 2026-04-30
+- Source page modified: 2026-07-31
 - Notice URL: https://www.canada.ca/en/treasury-board-secretariat/services/policy-notice/contracting-policy-notice-2019-3-new-directive-government-contracts-including-real-property-leases-nunavut-settlement-area.html
 - Notice modified: 2025-10-28
 - Notice identifier: 2019-3
 - Listed date: 
-- Captured at (UTC): 2026-07-31T17:19:46Z
+- Captured at (UTC): 2026-08-01T09:50:10Z
 - Page title: Contracting Policy Notice 2019-03: New Directive on Government Contracts, Including Real Property Leases, in the Nunavut Settlement Area
 
 ---

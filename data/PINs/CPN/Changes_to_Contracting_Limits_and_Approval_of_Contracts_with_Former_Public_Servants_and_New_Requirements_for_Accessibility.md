@@ -2,12 +2,12 @@
 
 - Notice source: Contracting policy notices (CPN)
 - Source page URL: https://www.canada.ca/en/treasury-board-secretariat/services/policy-notice.html
-- Source page modified: 2026-04-30
+- Source page modified: 2026-07-31
 - Notice URL: https://www.canada.ca/en/treasury-board-secretariat/services/policy-notice/changes-contracting-limits-approval-new-requirements.html
 - Notice modified: 2025-10-28
 - Notice identifier: 2019-1
 - Listed date: 
-- Captured at (UTC): 2026-07-31T17:19:46Z
+- Captured at (UTC): 2026-08-01T09:50:10Z
 - Page title: Contracting Policy Notice 2019-01: Changes to Contracting Limits and Approval of Contracts with Former Public Servants, and New Requirements for Accessibility
 
 ---

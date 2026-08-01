@@ -2,12 +2,12 @@
 
 - Notice source: Contracting policy notices (CPN)
 - Source page URL: https://www.canada.ca/en/treasury-board-secretariat/services/policy-notice.html
-- Source page modified: 2026-04-30
+- Source page modified: 2026-07-31
 - Notice URL: https://www.canada.ca/en/treasury-board-secretariat/services/policy-notice/contracting-policy-notice-2023-2.html
 - Notice modified: 2023-07-11
 - Notice identifier: 2023-4
 - Listed date: 
-- Captured at (UTC): 2026-07-31T17:19:46Z
+- Captured at (UTC): 2026-08-01T09:50:10Z
 - Page title: Contracting Policy Notice 2023-4: Exceptional Contracting Limit for Sustained Emergencies of National Importance for Public Services and Procurement Canada and Shared Services Canada
 
 ---

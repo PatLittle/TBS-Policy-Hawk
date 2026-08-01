@@ -2,12 +2,12 @@
 
 - Notice source: Contracting policy notices (CPN)
 - Source page URL: https://www.canada.ca/en/treasury-board-secretariat/services/policy-notice.html
-- Source page modified: 2026-04-30
+- Source page modified: 2026-07-31
 - Notice URL: https://www.canada.ca/en/treasury-board-secretariat/services/policy-notice/2025-7.html
 - Notice modified: 2025-12-17
 - Notice identifier: 2025-7
 - Listed date: 
-- Captured at (UTC): 2026-07-31T17:19:46Z
+- Captured at (UTC): 2026-08-01T09:50:10Z
 - Page title: Contracting Policy Notice 2025-7: Buy Canadian Policies and associated amendments to the Canadian International Trade Tribunal Inquiry Regulations and Directive on the Management of Procurement
 
 ---

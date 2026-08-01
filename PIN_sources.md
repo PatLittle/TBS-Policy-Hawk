@@ -36,15 +36,16 @@ Generated from the live source pages listed below.
 
 ## [Contracting policy notices (CPN)](https://www.canada.ca/en/treasury-board-secretariat/services/policy-notice.html)
 
-> Date modified: 2026-04-30
+> Date modified: 2026-07-31
 
-> Notices: 46
+> Notices: 47
 
 <details>
 <summary>Notice table</summary>
 
 | Date | Notice | Title | URL |
 |---|---|---|---|
+|2026-07-31|2026-4|Small Business Procurement Program and Improving Opportunities for Small Businesses|https://www.canada.ca/en/treasury-board-secretariat/services/policy-notice/2026-4.html|
 |2026-04-30|2026-3|Amendments to the Directive on the Management of Procurement to Streamline Requirements for Reporting and for Collecting Information|https://www.canada.ca/en/treasury-board-secretariat/services/policy-notice/2026-3.html|
 |2026-02-20|2026-2|Amendments to the Department of Public Works and Government Services Act to provide Ministerial Procurement Authority for Services and Construction Services and consequential amendments to the Directive on the Management of Procurement|https://www.canada.ca/en/treasury-board-secretariat/services/policy-notice/2026-2.html|
 |2026-01-15|2026-1|Amendments to the Directive on the Management of Procurement to Increase Contracting Limits for Inflation|https://www.canada.ca/en/treasury-board-secretariat/services/policy-notice/2026-1.html|
