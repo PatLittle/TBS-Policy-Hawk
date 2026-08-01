@@ -7,7 +7,7 @@
 - Notice modified: 2026-01-05
 - Notice identifier: 2025-2
 - Listed date: 
-- Captured at (UTC): 2026-08-01T09:50:10Z
+- Captured at (UTC): 2026-08-01T16:49:22Z
 - Page title: Contracting Policy Notice 2025-2: Rescission of section D.5, “COVID-19 Vaccination Policy for Supplier Personnel,” from the Directive on the Management of Procurement
 
 ---

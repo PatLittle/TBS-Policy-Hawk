@@ -6,7 +6,7 @@
 - Notice URL: https://www.canada.ca/en/government/system/digital-government/policies-standards/policy-service-digital-announcements/direction-hybrid-work-exceptions-digital-talent.html
 - Notice modified: 2024-10-08
 - Listed date: 2023-01-18
-- Captured at (UTC): 2026-08-01T09:50:10Z
+- Captured at (UTC): 2026-08-01T16:49:22Z
 
 ---
 

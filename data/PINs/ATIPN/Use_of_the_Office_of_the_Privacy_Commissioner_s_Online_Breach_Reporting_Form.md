@@ -8,7 +8,7 @@
 - Notice identifier: 2024-02
 - Notice group: Privacy implementation notices
 - Listed date: 
-- Captured at (UTC): 2026-08-01T09:50:10Z
+- Captured at (UTC): 2026-08-01T16:49:22Z
 - Page title: Privacy Implementation Notice 2024-02: Use of the Office of the Privacy Commissioner’s Online Breach Reporting Form
 
 ---

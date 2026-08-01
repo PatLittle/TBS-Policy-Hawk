@@ -7,7 +7,7 @@
 - Notice modified: 2014-10-02
 - Notice group: Active notices
 - Listed date: 2014-09-30
-- Captured at (UTC): 2026-08-01T09:50:10Z
+- Captured at (UTC): 2026-08-01T16:49:22Z
 - Page title: Amended interpretation related to the designated levels of the supervision factor in some job evaluation standards
 
 ---
