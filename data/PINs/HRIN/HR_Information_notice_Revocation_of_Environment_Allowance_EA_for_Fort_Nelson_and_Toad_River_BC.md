@@ -7,7 +7,7 @@
 - Notice modified: 2014-02-05
 - Notice group: Archived notices
 - Listed date: 2014-02-01
-- Captured at (UTC): 2026-08-01T16:49:22Z
+- Captured at (UTC): 2026-08-02T01:50:27Z
 - Page title: HR Information notice - Revocation of Environment Allowance (EA) for Fort Nelson and Toad River, BC
 
 ---
