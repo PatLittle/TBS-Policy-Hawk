@@ -7,7 +7,7 @@
 - Notice modified: 2014-10-31
 - Notice group: Archived notices
 - Listed date: 2014-11-01
-- Captured at (UTC): 2026-08-02T01:50:27Z
+- Captured at (UTC): 2026-08-02T09:49:00Z
 - Page title: Fuel and Utilities Differential Update - November 2014
 
 ---
