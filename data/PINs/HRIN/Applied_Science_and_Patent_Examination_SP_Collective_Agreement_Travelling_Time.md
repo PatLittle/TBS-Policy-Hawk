@@ -7,7 +7,7 @@
 - Notice modified: 2011-08-31
 - Notice group: Active notices
 - Listed date: 2011-08-25
-- Captured at (UTC): 2026-08-02T09:49:00Z
+- Captured at (UTC): 2026-08-02T16:48:16Z
 - Page title: Applied Science and Patent Examination (SP) Collective Agreement - Travelling Time
 
 ---
