@@ -7,7 +7,7 @@
 - Notice modified: 2016-09-14
 - Notice group: Archived notices
 - Listed date: 2009-11-12
-- Captured at (UTC): 2026-08-03T11:13:07Z
+- Captured at (UTC): 2026-08-03T17:48:05Z
 - Page title: Change to Membership Dues - Canadian Auto Workers (CAW) Local 2182
 
 ---
