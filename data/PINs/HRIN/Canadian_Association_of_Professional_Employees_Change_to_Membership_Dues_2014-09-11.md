@@ -7,7 +7,7 @@
 - Notice modified: 2014-10-01
 - Notice group: Archived notices
 - Listed date: 2014-09-11
-- Captured at (UTC): 2026-08-02T16:48:16Z
+- Captured at (UTC): 2026-08-03T01:52:50Z
 - Page title: Canadian Association of Professional Employees - Change to Membership Dues
 
 ---
