@@ -7,7 +7,7 @@
 - Notice modified: 2023-08-15
 - Notice identifier: 2023-5
 - Listed date: 
-- Captured at (UTC): 2026-08-05T10:25:56Z
+- Captured at (UTC): 2026-08-05T17:20:48Z
 - Page title: Contracting Policy Notice 2023-5: Amendments to the Government Contracts Regulations
 
 ---

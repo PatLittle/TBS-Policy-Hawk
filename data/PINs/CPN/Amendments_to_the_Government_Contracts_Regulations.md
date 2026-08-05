@@ -7,7 +7,7 @@
 - Notice modified: 2026-01-09
 - Notice identifier: 2025-1
 - Listed date: 
-- Captured at (UTC): 2026-08-05T10:25:56Z
+- Captured at (UTC): 2026-08-05T17:20:48Z
 - Page title: Contracting Policy Notice 2025-1: Amendments to the Government Contracts Regulations
 
 ---

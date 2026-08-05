@@ -7,7 +7,7 @@
 - Notice modified: 2024-02-06
 - Notice identifier: 2023-6
 - Listed date: 
-- Captured at (UTC): 2026-08-05T10:25:56Z
+- Captured at (UTC): 2026-08-05T17:20:48Z
 - Page title: Contracting Policy Notice 2023-6 Trade Agreements: Thresholds Update
 
 ---
