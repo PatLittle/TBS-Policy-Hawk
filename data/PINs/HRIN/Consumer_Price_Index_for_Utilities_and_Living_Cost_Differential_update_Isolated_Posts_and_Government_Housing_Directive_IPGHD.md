@@ -7,7 +7,7 @@
 - Notice modified: 2016-09-14
 - Notice group: Archived notices
 - Listed date: 2011-03-01
-- Captured at (UTC): 2026-08-04T17:29:43Z
+- Captured at (UTC): 2026-08-05T01:42:28Z
 - Page title: Consumer Price Index for Utilities and Living Cost Differential update - Isolated Posts and Government Housing Directive (IPGHD)
 
 ---

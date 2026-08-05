@@ -7,7 +7,7 @@
 - Notice modified: 2016-08-08
 - Notice group: Archived notices
 - Listed date: 2009-02-20
-- Captured at (UTC): 2026-08-04T17:29:43Z
+- Captured at (UTC): 2026-08-05T01:42:28Z
 - Page title: Association of Canadian Financial Officers (ACFO) - Change to Membership Dues
 
 ---

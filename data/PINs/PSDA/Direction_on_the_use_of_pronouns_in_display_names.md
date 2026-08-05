@@ -6,7 +6,7 @@
 - Notice URL: https://www.canada.ca/en/government/system/digital-government/policies-standards/policy-service-digital-announcements/direction-use-pronouns-display-names.html
 - Notice modified: 2024-10-08
 - Listed date: 2022-06-10
-- Captured at (UTC): 2026-08-04T17:29:43Z
+- Captured at (UTC): 2026-08-05T01:42:28Z
 
 ---
 

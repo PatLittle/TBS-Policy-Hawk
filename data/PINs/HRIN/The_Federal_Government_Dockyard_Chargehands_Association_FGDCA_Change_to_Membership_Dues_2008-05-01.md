@@ -7,7 +7,7 @@
 - Notice modified: 2008-04-29
 - Notice group: Archived notices
 - Listed date: 2008-05-01
-- Captured at (UTC): 2026-08-04T17:29:43Z
+- Captured at (UTC): 2026-08-05T01:42:28Z
 - Page title: The Federal Government Dockyard Chargehands Association (FGDCA) - Change to Membership Dues - May 2008
 
 ---

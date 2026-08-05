@@ -7,7 +7,7 @@
 - Notice modified: 2025-02-28
 - Notice identifier: 2025-3
 - Listed date: 
-- Captured at (UTC): 2026-08-04T17:29:43Z
+- Captured at (UTC): 2026-08-05T01:42:28Z
 - Page title: Contracting Policy Notice 2025-3: New Guide to Mitigating Conflicts of Interest in Procurement
 
 ---

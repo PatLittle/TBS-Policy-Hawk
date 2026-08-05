@@ -7,7 +7,7 @@
 - Notice modified: 2013-06-28
 - Notice identifier: 2013-3
 - Listed date: 
-- Captured at (UTC): 2026-08-04T17:29:43Z
+- Captured at (UTC): 2026-08-05T01:42:28Z
 - Page title: Amendments to the Contracting Policy regarding the Federal Contractors Program for Employment Equity (FCP)
 
 ---
