@@ -7,7 +7,7 @@
 - Notice modified: 2001-11-22
 - Notice group: Active notices
 - Listed date: 2001-11-22
-- Captured at (UTC): 2026-08-05T01:42:28Z
+- Captured at (UTC): 2026-08-05T10:25:56Z
 - Page title: Reduction of tax withholding on lump-sum employment income payments - Information Notices
 
 ---

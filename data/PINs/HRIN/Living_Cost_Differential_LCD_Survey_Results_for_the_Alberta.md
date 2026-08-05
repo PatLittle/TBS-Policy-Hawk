@@ -7,7 +7,7 @@
 - Notice modified: 2017-04-13
 - Notice group: Active notices
 - Listed date: 2017-04-01
-- Captured at (UTC): 2026-08-05T01:42:28Z
+- Captured at (UTC): 2026-08-05T10:25:56Z
 - Page title: Living Cost Differential (LCD) Survey Results for Alberta
 
 ---
