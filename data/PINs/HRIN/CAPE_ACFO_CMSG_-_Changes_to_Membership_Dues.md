@@ -7,7 +7,7 @@
 - Notice modified: 2025-03-04
 - Notice group: Active notices
 - Listed date: 2025-02-25
-- Captured at (UTC): 2026-08-06T01:30:45Z
+- Captured at (UTC): 2026-08-06T10:28:30Z
 - Page title: Changes to Membership Dues to the Canadian Association of Professional Employees (CAPE), the Association of Canadian Financial Officers (ACFO), and the Canadian Merchant Service Guild (CMSG)
 
 ---

@@ -7,7 +7,7 @@
 - Notice modified: 2021-03-04
 - Notice group: Active notices
 - Listed date: 2021-02-10
-- Captured at (UTC): 2026-08-06T01:30:45Z
+- Captured at (UTC): 2026-08-06T10:28:30Z
 - Page title: Canadian Federal Pilots Association - Change to Membership Dues
 
 ---
