@@ -7,7 +7,7 @@
 - Notice modified: 2016-09-14
 - Notice group: Archived notices
 - Listed date: 2011-06-06
-- Captured at (UTC): 2026-08-06T10:28:30Z
+- Captured at (UTC): 2026-08-07T02:07:46Z
 - Page title: Public Service Alliance of Canada - Change to Membership Dues - June 2011
 
 ---

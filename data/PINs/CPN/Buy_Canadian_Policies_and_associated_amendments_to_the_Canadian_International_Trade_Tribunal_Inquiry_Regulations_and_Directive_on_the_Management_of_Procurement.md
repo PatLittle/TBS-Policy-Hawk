@@ -7,7 +7,7 @@
 - Notice modified: 2025-12-17
 - Notice identifier: 2025-7
 - Listed date: 
-- Captured at (UTC): 2026-08-06T10:28:30Z
+- Captured at (UTC): 2026-08-07T02:07:46Z
 - Page title: Contracting Policy Notice 2025-7: Buy Canadian Policies and associated amendments to the Canadian International Trade Tribunal Inquiry Regulations and Directive on the Management of Procurement
 
 ---
