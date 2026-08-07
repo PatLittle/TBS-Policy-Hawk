@@ -7,7 +7,7 @@
 - Notice modified: 2016-09-14
 - Notice group: Archived notices
 - Listed date: 2009-04-16
-- Captured at (UTC): 2026-08-07T02:07:46Z
+- Captured at (UTC): 2026-08-07T08:46:55Z
 - Page title: Amendments to the Isolated Posts and Government Housing Directive - Appendices A, B, C, K-1, K-2, M
 
 ---
