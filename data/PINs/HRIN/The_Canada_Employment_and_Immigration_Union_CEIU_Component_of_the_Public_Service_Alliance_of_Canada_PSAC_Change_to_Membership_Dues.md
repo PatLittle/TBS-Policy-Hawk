@@ -7,7 +7,7 @@
 - Notice modified: 2008-08-21
 - Notice group: Archived notices
 - Listed date: 2008-07-17
-- Captured at (UTC): 2026-08-07T08:46:55Z
+- Captured at (UTC): 2026-08-08T00:54:16Z
 - Page title: The Canada Employment and Immigration Union (CEIU) Component of the Public Service Alliance of Canada (PSAC) - Change to Membership Dues
 
 ---
