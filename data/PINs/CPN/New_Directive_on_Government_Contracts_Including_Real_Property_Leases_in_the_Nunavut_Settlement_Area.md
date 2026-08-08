@@ -7,7 +7,7 @@
 - Notice modified: 2025-10-28
 - Notice identifier: 2019-3
 - Listed date: 
-- Captured at (UTC): 2026-08-08T00:54:16Z
+- Captured at (UTC): 2026-08-08T16:21:33Z
 - Page title: Contracting Policy Notice 2019-03: New Directive on Government Contracts, Including Real Property Leases, in the Nunavut Settlement Area
 
 ---

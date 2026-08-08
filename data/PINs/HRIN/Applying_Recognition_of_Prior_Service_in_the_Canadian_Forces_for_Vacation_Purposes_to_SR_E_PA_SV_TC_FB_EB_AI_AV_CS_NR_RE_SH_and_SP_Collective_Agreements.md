@@ -7,7 +7,7 @@
 - Notice modified: 2012-09-17
 - Notice group: Active notices
 - Listed date: 2012-09-06
-- Captured at (UTC): 2026-08-08T00:54:16Z
+- Captured at (UTC): 2026-08-08T16:21:33Z
 - Page title: Applying Recognition of Prior Service in the Canadian Forces for Vacation Purposes to SR (E), PA, SV, TC, FB, EB, AI, AV, CS, NR, RE, SH and SP Collective Agreements
 
 ---
