@@ -7,7 +7,7 @@
 - Notice modified: 2017-07-05
 - Notice identifier: 2017-5
 - Listed date: 
-- Captured at (UTC): 2026-08-08T16:21:33Z
+- Captured at (UTC): 2026-08-09T00:56:37Z
 - Page title: Contracting Policy Notice 2017-5: Amendments to the Government Contracts Regulations
 
 ---

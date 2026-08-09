@@ -7,7 +7,7 @@
 - Notice modified: 2008-06-27
 - Notice group: Active notices
 - Listed date: 2008-06-20
-- Captured at (UTC): 2026-08-08T16:21:33Z
+- Captured at (UTC): 2026-08-09T00:56:37Z
 - Page title: Information Notice - Changes to Public Service Alliance of Canada (PSAC) Special Levy Contributions
 
 ---
