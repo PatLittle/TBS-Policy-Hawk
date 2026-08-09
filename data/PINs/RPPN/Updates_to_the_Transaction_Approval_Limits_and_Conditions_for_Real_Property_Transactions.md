@@ -7,7 +7,7 @@
 - Notice modified: 2026-02-20
 - Notice identifier: 2025-2
 - Listed date: 
-- Captured at (UTC): 2026-08-09T00:56:37Z
+- Captured at (UTC): 2026-08-09T08:30:41Z
 - Page title: Real Property Policy Notice 2025-2: Updates to the Transaction Approval Limits and Conditions for Real Property Transactions
 
 ---

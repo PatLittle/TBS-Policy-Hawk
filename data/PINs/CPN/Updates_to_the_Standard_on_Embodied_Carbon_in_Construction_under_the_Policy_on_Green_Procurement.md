@@ -7,7 +7,7 @@
 - Notice modified: 2025-07-22
 - Notice identifier: 2025-6
 - Listed date: 
-- Captured at (UTC): 2026-08-09T00:56:37Z
+- Captured at (UTC): 2026-08-09T08:30:41Z
 - Page title: Contracting Policy Notice 2025-6: Updates to the Standard on Embodied Carbon in Construction under the Policy on Green Procurement
 
 ---

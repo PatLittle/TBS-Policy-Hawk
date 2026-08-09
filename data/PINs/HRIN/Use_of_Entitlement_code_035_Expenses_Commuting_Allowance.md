@@ -7,7 +7,7 @@
 - Notice modified: 2009-09-10
 - Notice group: Active notices
 - Listed date: 2009-09-09
-- Captured at (UTC): 2026-08-09T00:56:37Z
+- Captured at (UTC): 2026-08-09T08:30:41Z
 - Page title: Use of Entitlement code 035, Expenses - Commuting Allowance
 
 ---
