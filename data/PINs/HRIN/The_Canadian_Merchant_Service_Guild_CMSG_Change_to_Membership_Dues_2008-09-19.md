@@ -7,7 +7,7 @@
 - Notice modified: 2008-09-04
 - Notice group: Archived notices
 - Listed date: 2008-09-19
-- Captured at (UTC): 2026-08-10T09:07:44Z
+- Captured at (UTC): 2026-08-10T16:43:19Z
 - Page title: The Canadian Merchant Service Guild (CMSG) - Change to Membership Dues - September 2008
 
 ---

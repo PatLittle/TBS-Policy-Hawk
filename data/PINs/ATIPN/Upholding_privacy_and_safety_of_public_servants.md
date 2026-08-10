@@ -8,7 +8,7 @@
 - Notice identifier: 2024-01
 - Notice group: Access to Information and Privacy implementation notices
 - Listed date: 
-- Captured at (UTC): 2026-08-10T09:07:44Z
+- Captured at (UTC): 2026-08-10T16:43:19Z
 - Page title: Access to Information and Privacy Implementation Notice 2024-01: Upholding privacy and safety of public servants
 
 ---
