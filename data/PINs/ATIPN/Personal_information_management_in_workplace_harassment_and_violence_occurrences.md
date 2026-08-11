@@ -8,7 +8,7 @@
 - Notice identifier: 2025-01
 - Notice group: Privacy implementation notices
 - Listed date: 
-- Captured at (UTC): 2026-08-11T00:58:19Z
+- Captured at (UTC): 2026-08-11T08:44:01Z
 - Page title: Privacy Implementation Notice 2025-01: Personal information management in workplace harassment and violence occurrences
 
 ---
