@@ -4,11 +4,11 @@
 - Source page URL: https://www.canada.ca/en/treasury-board-secretariat/services/access-information-privacy/access-information-privacy-notices.html
 - Source page modified: 2026-03-23
 - Notice URL: https://www.canada.ca/en/treasury-board-secretariat/services/access-information-privacy/access-information-privacy-notices/2022-01-cyber-security-incidents-involving-personal-information.html
-- Notice modified: 2026-03-23
+- Notice modified: 2026-08-11
 - Notice identifier: 2022-01
 - Notice group: Privacy implementation notices
 - Listed date: 
-- Captured at (UTC): 2026-08-11T16:47:29Z
+- Captured at (UTC): 2026-08-12T16:54:02Z
 - Page title: Privacy Implementation Notice 2022-01: Cyber security incidents involving personal information
 
 ---
@@ -33,7 +33,7 @@ This notice advises privacy officials, who are usually within the institution’
 
 Large-scale cyber incidents involving personal information held by federal institutions and by third parties on their behalf have highlighted the need to effectively manage resulting privacy breaches. Privacy breaches are defined as the improper or unauthorized creation, collection, use, disclosure, retention or disposition of personal information. Mitigating the risks and harms associated with cyber incidents involving personal information is increasingly important as the Government of Canada moves towards a model of digital government and online service delivery.
 
-It is essential that privacy officials are aware of their responsibilities and their institution’s plans and procedures for addressing privacy breaches, as well as the roles of program and security officials, in order to coordinate the institution’s response to breaches when necessary. This notice is part of ongoing TBS efforts to ensure appropriate management of cyber incidents involving personal information. It complements the forthcoming publication of an update to the [Government of Canada Cyber Security Event Management Plan](https://www.canada.ca/en/government/system/digital-government/online-security-privacy/security-identity-management/government-canada-cyber-security-event-management-plan.html) (GC CSEMP).
+It is essential that privacy officials are aware of their responsibilities and their institution’s plans and procedures for addressing privacy breaches, as well as the roles of program and security officials, in order to coordinate the institution’s response to breaches when necessary. This notice is part of ongoing TBS efforts to ensure appropriate management of cyber incidents involving personal information. It complements the forthcoming publication of an update to the [Government of Canada Cyber Security Event Management Plan](https://www.canada.ca/en/government/system/digital-government/online-security-privacy/cyber-security-guidance-policy/management-security-incidents/government-canada-cyber-security-event-management-plan.html) (GC CSEMP).
 
 ## 5. Guidance
 

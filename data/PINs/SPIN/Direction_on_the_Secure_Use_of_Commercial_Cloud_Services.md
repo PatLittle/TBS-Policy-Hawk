@@ -4,10 +4,10 @@
 - Source page URL: https://www.canada.ca/en/government/system/digital-government/policies-standards/spin.html
 - Source page modified: 2025-10-09
 - Notice URL: https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/cloud-services/direction-secure-use-commercial-cloud-services-spin.html
-- Notice modified: 2025-10-22
+- Notice modified: 2026-08-12
 - Notice identifier: 2017-01
 - Listed date: 2017-11-01
-- Captured at (UTC): 2026-08-11T16:47:29Z
+- Captured at (UTC): 2026-08-12T16:54:02Z
 - Page title: Direction on the Secure Use of Commercial Cloud Services: Security Policy Implementation Notice (SPIN)
 
 ---
@@ -295,7 +295,7 @@ Retention policies for the audit log function[Footnote 26](https://www.canada.ca
 
 #### 6.3.2 Security incident management
 
-Incident management is a key element of an active defence strategy.[Footnote 27](https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/cloud-services/direction-secure-use-commercial-cloud-services-spin.html#fn27) The GC must continue to have the ability to respond to cyber security events in a consistent, coordinated and timely manner across the GC enterprise, in alignment with the [Government of Canada Cyber Security Event Management Plan (GC CSEMP)](https://www.canada.ca/en/government/system/digital-government/online-security-privacy/security-identity-management/government-canada-cyber-security-event-management-plan.html) (GC CSEMP) and in coordination with the Canadian Centre for Cyber Security.
+Incident management is a key element of an active defence strategy.[Footnote 27](https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/cloud-services/direction-secure-use-commercial-cloud-services-spin.html#fn27) The GC must continue to have the ability to respond to cyber security events in a consistent, coordinated and timely manner across the GC enterprise, in alignment with the [Government of Canada Cyber Security Event Management Plan (GC CSEMP)](https://www.canada.ca/en/government/system/digital-government/online-security-privacy/cyber-security-guidance-policy/management-security-incidents/government-canada-cyber-security-event-management-plan.html) (GC CSEMP) and in coordination with the Canadian Centre for Cyber Security.
 
 Departments play a key role in GC-wide cyber security event management, whether directly affected by an event or not. Cloud-based services need to be accounted for within departmental incident management plans in order to ensure timely response and recovery.[Footnote 28](https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/cloud-services/direction-secure-use-commercial-cloud-services-spin.html#fn28)
 
@@ -331,7 +331,7 @@ For additional information or clarification regarding this SPIN, address inquiri
 - [Policy on Privacy Protection](https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=12510)
 - [Policy on Access to Information](https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=12453)
 - [Standard on Security Screening](https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=28115)
-- [Government of Canada Cyber Security Event Management Plan (GC CSEMP)](https://www.canada.ca/en/government/system/digital-government/online-security-privacy/security-identity-management/government-canada-cyber-security-event-management-plan.html)
+- [Government of Canada Cyber Security Event Management Plan (GC CSEMP)](https://www.canada.ca/en/government/system/digital-government/online-security-privacy/cyber-security-guidance-policy/management-security-incidents/government-canada-cyber-security-event-management-plan.html)
 
 ### 8.3 Additional references
 

@@ -7,7 +7,7 @@
 - Notice modified: 2013-01-04
 - Notice identifier: 2013-1
 - Listed date: 
-- Captured at (UTC): 2026-08-11T16:47:29Z
+- Captured at (UTC): 2026-08-12T16:54:02Z
 - Page title: Contracting Policy Notice - 2013-1 - Changes to Harmonized and Provincial Sales Taxes
 
 ---

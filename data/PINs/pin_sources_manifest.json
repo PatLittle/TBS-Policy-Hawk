@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-08-11T16:49:53Z",
+  "generated_at_utc": "2026-08-12T16:56:28Z",
   "sources": [
     {
       "key": "service_digital_announcements",
@@ -1068,10 +1068,10 @@
           "title": "Cyber Security Incidents involving Personal Information",
           "url": "https://www.canada.ca/en/treasury-board-secretariat/services/access-information-privacy/access-information-privacy-notices/2022-01-cyber-security-incidents-involving-personal-information.html",
           "listing_date": "",
-          "table_date": "2026-03-23",
+          "table_date": "2026-08-11",
           "notice_code": "2022-01",
           "group": "Privacy implementation notices",
-          "detail_modified": "2026-03-23",
+          "detail_modified": "2026-08-11",
           "fetch_error": "",
           "filename": "Cyber_Security_Incidents_involving_Personal_Information.md",
           "path": "data/PINs/ATIPN/Cyber_Security_Incidents_involving_Personal_Information.md"
@@ -6145,7 +6145,7 @@
           "table_date": "2017-11-01",
           "notice_code": "2017-01",
           "group": "",
-          "detail_modified": "2025-10-22",
+          "detail_modified": "2026-08-12",
           "fetch_error": "",
           "filename": "Direction_on_the_Secure_Use_of_Commercial_Cloud_Services.md",
           "path": "data/PINs/SPIN/Direction_on_the_Secure_Use_of_Commercial_Cloud_Services.md"

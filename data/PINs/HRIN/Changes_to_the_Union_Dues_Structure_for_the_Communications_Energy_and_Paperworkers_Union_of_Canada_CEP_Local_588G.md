@@ -7,7 +7,7 @@
 - Notice modified: 2009-08-12
 - Notice group: Active notices
 - Listed date: 2009-08-05
-- Captured at (UTC): 2026-08-11T16:47:29Z
+- Captured at (UTC): 2026-08-12T16:54:02Z
 - Page title: Changes to the Union Dues Structure for the Communications, Energy and Paperworkers Union of Canada (CEP) - Local 588G
 
 ---
