@@ -4,9 +4,9 @@
 - Source page URL: https://www.canada.ca/en/government/system/digital-government/policies-standards/policy-service-digital-announcements.html
 - Source page modified: 2026-03-04
 - Notice URL: https://www.canada.ca/en/government/system/digital-government/policies-standards/policy-service-digital-announcements/changes-policy-service-digital-policy-instruments-amendments-directive-service-digital-four-new-standards.html
-- Notice modified: 2024-10-08
+- Notice modified: 2026-08-13
 - Listed date: 2022-05-10
-- Captured at (UTC): 2026-08-13T09:03:06Z
+- Captured at (UTC): 2026-08-13T16:45:19Z
 
 ---
 
@@ -73,7 +73,7 @@ Catherine Luelo Chief Information Officer of Canada Treasury Board of Canada Sec
 
 In addition to these changes, OCIO is further streamlining policy instruments to provide flexibility and efficiency for policy maintenance, including:
 
-- rescission of both the Mandatory Procedures for Enterprise Architecture Assessment and the Mandatory Procedures on Application Programming Interfaces, following the amendments to the Directive on Service and Digital linking to relevant content on Canada.ca as the [Government of Canada Enterprise Architecture Framework](https://www.canada.ca/en/government/system/digital-government/policies-standards/government-canada-enterprise-architecture-framework.html) and [Government of Canada Standards on Application Programming Interfaces (API)](https://www.canada.ca/en/government/system/digital-government/modern-emerging-technologies/government-canada-standards-apis.html)
+- rescission of both the Mandatory Procedures for Enterprise Architecture Assessment and the Mandatory Procedures on Application Programming Interfaces, following the amendments to the Directive on Service and Digital linking to relevant content on Canada.ca as the [Government of Canada Enterprise Architecture Framework](https://www.canada.ca/en/government/system/digital-government/policies-standards/government-canada-enterprise-architecture-framework.html) and [Government of Canada Standards on Application Programming Interfaces (API)](https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/government-canada-standards-apis.html)
 - rescission of the Standard for Electronic Documents and Records Management Solutions
 - rescission of the Standard on Email Management
 - rescission of the following ITPINs following the integration of their requirements as configurations under the Standard on Enterprise Information Technology Service Common Configurations and the Standard on At-Risk Information Technology:
