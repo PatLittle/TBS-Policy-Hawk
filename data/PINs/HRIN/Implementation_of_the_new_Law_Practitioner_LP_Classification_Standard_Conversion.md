@@ -7,7 +7,7 @@
 - Notice modified: 2014-01-22
 - Notice group: Active notices
 - Listed date: 2013-12-16
-- Captured at (UTC): 2026-08-14T01:05:42Z
+- Captured at (UTC): 2026-08-14T08:59:19Z
 - Page title: Implementation of the new Law Practitioner (LP) Classification Standard - Conversion
 
 ---

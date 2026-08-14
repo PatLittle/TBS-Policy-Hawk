@@ -7,7 +7,7 @@
 - Notice modified: 2023-06-26
 - Notice identifier: 2023-3
 - Listed date: 
-- Captured at (UTC): 2026-08-14T01:05:42Z
+- Captured at (UTC): 2026-08-14T08:59:19Z
 - Page title: Contracting Policy Notice 2023-3: Updated Guide to the Proactive Publication of Contracts
 
 ---

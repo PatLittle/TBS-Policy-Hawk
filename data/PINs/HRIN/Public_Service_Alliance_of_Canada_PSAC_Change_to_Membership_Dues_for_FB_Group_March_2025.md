@@ -7,7 +7,7 @@
 - Notice modified: 2025-09-29
 - Notice group: Active notices
 - Listed date: 2025-03-10
-- Captured at (UTC): 2026-08-14T01:05:42Z
+- Captured at (UTC): 2026-08-14T08:59:19Z
 - Page title: Public Service Alliance of Canada (PSAC) – Change to Membership Dues for the Border Services (FB) Group
 
 ---
