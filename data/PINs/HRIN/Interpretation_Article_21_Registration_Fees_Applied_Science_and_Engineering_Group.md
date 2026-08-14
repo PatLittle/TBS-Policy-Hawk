@@ -7,7 +7,7 @@
 - Notice modified: 2001-10-03
 - Notice group: Active notices
 - Listed date: 2001-10-03
-- Captured at (UTC): 2026-08-14T08:59:19Z
+- Captured at (UTC): 2026-08-14T16:41:05Z
 - Page title: Interpretation Article 21 Registration Fees Applied Science and Engineering Group - October 2001
 
 ---

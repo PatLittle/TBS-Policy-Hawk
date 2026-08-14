@@ -7,7 +7,7 @@
 - Notice modified: 2013-09-16
 - Notice group: Active notices
 - Listed date: 2013-08-29
-- Captured at (UTC): 2026-08-14T08:59:19Z
+- Captured at (UTC): 2026-08-14T16:41:05Z
 - Page title: Continuous/Discontinuous Service for Employees Having Prior Service as a Student - Information notice
 
 ---
