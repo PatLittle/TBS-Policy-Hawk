@@ -8,7 +8,7 @@
 - Notice identifier: 2022-01
 - Notice group: Access to Information implementation notices
 - Listed date: 
-- Captured at (UTC): 2026-08-14T16:41:05Z
+- Captured at (UTC): 2026-08-15T00:39:43Z
 - Page title: Access to Information Implementation Notice 2022-01: Inter-institutional Consultations
 
 ---

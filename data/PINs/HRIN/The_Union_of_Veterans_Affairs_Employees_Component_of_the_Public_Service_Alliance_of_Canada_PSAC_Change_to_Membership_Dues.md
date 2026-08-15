@@ -7,7 +7,7 @@
 - Notice modified: 2008-12-30
 - Notice group: Archived notices
 - Listed date: 2008-12-02
-- Captured at (UTC): 2026-08-14T16:41:05Z
+- Captured at (UTC): 2026-08-15T00:39:43Z
 - Page title: The Union of Veterans' Affairs Employees Component of the Public Service Alliance of Canada (PSAC) - Change to Membership Dues
 
 ---

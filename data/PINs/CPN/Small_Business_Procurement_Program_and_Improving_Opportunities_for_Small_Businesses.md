@@ -7,7 +7,7 @@
 - Notice modified: 2026-07-31
 - Notice identifier: 2026-4
 - Listed date: 
-- Captured at (UTC): 2026-08-14T16:41:05Z
+- Captured at (UTC): 2026-08-15T00:39:43Z
 - Page title: Contracting Policy Notice 2026-4: Small Business Procurement Program and Improving Opportunities for Small Businesses
 
 ---
