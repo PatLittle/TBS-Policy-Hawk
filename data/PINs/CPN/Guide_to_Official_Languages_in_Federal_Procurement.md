@@ -7,7 +7,7 @@
 - Notice modified: 2022-12-21
 - Notice identifier: 2022-4
 - Listed date: 
-- Captured at (UTC): 2026-08-16T00:41:28Z
+- Captured at (UTC): 2026-08-16T08:17:50Z
 - Page title: Contracting Policy Notice 2022-4: Guide to Official Languages in Federal Procurement
 
 ---

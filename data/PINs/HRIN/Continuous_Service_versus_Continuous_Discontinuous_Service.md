@@ -7,7 +7,7 @@
 - Notice modified: 2001-05-09
 - Notice group: Active notices
 - Listed date: 2001-05-09
-- Captured at (UTC): 2026-08-16T00:41:28Z
+- Captured at (UTC): 2026-08-16T08:17:50Z
 - Page title: Update - Continuous Employment vs Continuous Service vs Continuous/discontinuous Service
 
 ---

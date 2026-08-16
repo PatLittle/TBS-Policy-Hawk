@@ -7,7 +7,7 @@
 - Notice modified: 2026-02-04
 - Notice identifier: 2025-8
 - Listed date: 
-- Captured at (UTC): 2026-08-16T00:41:28Z
+- Captured at (UTC): 2026-08-16T08:17:50Z
 - Page title: Contracting Policy Notice 2025-8 Trade Agreements: Thresholds Update
 
 ---
