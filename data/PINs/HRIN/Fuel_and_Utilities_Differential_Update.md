@@ -7,7 +7,7 @@
 - Notice modified: 2016-12-06
 - Notice group: Active notices
 - Listed date: 2016-12-05
-- Captured at (UTC): 2026-08-16T08:17:50Z
+- Captured at (UTC): 2026-08-16T16:13:20Z
 - Page title: Fuel and Utilities Differential Update - December 2016
 
 ---
