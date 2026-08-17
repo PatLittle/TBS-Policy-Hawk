@@ -7,7 +7,7 @@
 - Notice modified: 2014-08-29
 - Notice group: Archived notices
 - Listed date: 2014-09-01
-- Captured at (UTC): 2026-08-17T00:40:32Z
+- Captured at (UTC): 2026-08-17T08:32:05Z
 - Page title: Annual Update to the Isolated Posts and Government Housing Directive - Appendices B, C, I, K-1 and K-2
 
 ---
