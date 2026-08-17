@@ -7,7 +7,7 @@
 - Notice modified: 2014-01-31
 - Notice group: Archived notices
 - Listed date: 2014-02-01
-- Captured at (UTC): 2026-08-16T16:13:20Z
+- Captured at (UTC): 2026-08-17T00:40:32Z
 - Page title: Information notice update - Change in Environment Allowance (EA) Classification Levels
 
 ---
