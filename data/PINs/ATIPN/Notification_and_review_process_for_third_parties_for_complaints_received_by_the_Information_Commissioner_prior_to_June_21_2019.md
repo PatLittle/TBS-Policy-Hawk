@@ -8,7 +8,7 @@
 - Notice identifier: 2020-01
 - Notice group: Access to Information implementation notices
 - Listed date: 
-- Captured at (UTC): 2026-08-17T16:16:12Z
+- Captured at (UTC): 2026-08-18T00:41:43Z
 - Page title: Access to Information Implementation Notice 2020-01: Notification and review process for third parties for complaints received by the Information Commissioner prior to June 21, 2019
 
 ---

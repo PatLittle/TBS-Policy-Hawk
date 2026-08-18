@@ -7,7 +7,7 @@
 - Notice modified: 2001-09-13
 - Notice group: Active notices
 - Listed date: 2001-09-13
-- Captured at (UTC): 2026-08-17T16:16:12Z
+- Captured at (UTC): 2026-08-18T00:41:43Z
 - Page title: Maternity/Parental Allowance Return to Duty Obligation/BenefitsClawbacks - September 2001
 
 ---

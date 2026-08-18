@@ -7,7 +7,7 @@
 - Notice modified: 2016-06-16
 - Notice group: Archived notices
 - Listed date: 2006-01-09
-- Captured at (UTC): 2026-08-17T16:16:12Z
+- Captured at (UTC): 2026-08-18T00:41:43Z
 - Page title: Union Dues Increase - Canadian Association of Professional Employees (CAPE)
 
 ---
