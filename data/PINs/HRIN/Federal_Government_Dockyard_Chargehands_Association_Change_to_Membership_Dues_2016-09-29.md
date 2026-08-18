@@ -7,7 +7,7 @@
 - Notice modified: 2016-10-24
 - Notice group: Active notices
 - Listed date: 2016-09-29
-- Captured at (UTC): 2026-08-18T00:41:43Z
+- Captured at (UTC): 2026-08-18T08:24:40Z
 - Page title: Federal Government Dockyard Chargehands Association: Change to membership dues
 
 ---
