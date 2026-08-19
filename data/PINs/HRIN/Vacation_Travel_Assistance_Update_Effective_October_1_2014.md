@@ -7,7 +7,7 @@
 - Notice modified: 2014-10-01
 - Notice group: Archived notices
 - Listed date: 2014-10-01
-- Captured at (UTC): 2026-08-18T08:24:40Z
+- Captured at (UTC): 2026-08-19T00:39:48Z
 - Page title: Vacation Travel Assistance Update - October 2014
 
 ---

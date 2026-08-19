@@ -8,7 +8,7 @@
 - Notice identifier: 2022-01
 - Notice group: Privacy implementation notices
 - Listed date: 
-- Captured at (UTC): 2026-08-18T08:24:40Z
+- Captured at (UTC): 2026-08-19T00:39:48Z
 - Page title: Privacy Implementation Notice 2022-01: Cyber security incidents involving personal information
 
 ---
