@@ -7,7 +7,7 @@
 - Notice modified: 2017-05-30
 - Notice group: Active notices
 - Listed date: 2017-06-01
-- Captured at (UTC): 2026-08-19T00:39:48Z
+- Captured at (UTC): 2026-08-20T00:40:09Z
 - Page title: Living Cost Differential (LCD) Survey Results for the Yukon Territory and Northern British Columbia Region
 
 ---
