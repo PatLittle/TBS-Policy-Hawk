@@ -7,7 +7,7 @@
 - Notice modified: 2007-12-19
 - Notice group: Active notices
 - Listed date: 2007-12-12
-- Captured at (UTC): 2026-08-20T08:25:56Z
+- Captured at (UTC): 2026-08-20T16:23:03Z
 - Page title: PIPSC - Change to Membership Dues
 
 ---

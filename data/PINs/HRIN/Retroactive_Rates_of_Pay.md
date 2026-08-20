@@ -7,7 +7,7 @@
 - Notice modified: 2016-06-06
 - Notice group: Active notices
 - Listed date: 2003-03-13
-- Captured at (UTC): 2026-08-20T08:25:56Z
+- Captured at (UTC): 2026-08-20T16:23:03Z
 - Page title: Retroactive Rates of Pay - Information Notice
 
 ---
