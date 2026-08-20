@@ -7,7 +7,7 @@
 - Notice modified: 2025-10-28
 - Notice group: Active notices
 - Listed date: 2019-03-06
-- Captured at (UTC): 2026-08-20T00:40:09Z
+- Captured at (UTC): 2026-08-20T08:25:56Z
 - Page title: Performance Rating “Unable to Assess” and Lock Step Pay Increments
 
 ---

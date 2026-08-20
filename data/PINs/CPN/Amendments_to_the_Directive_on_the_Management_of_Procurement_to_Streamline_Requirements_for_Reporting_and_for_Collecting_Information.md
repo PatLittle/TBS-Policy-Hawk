@@ -7,7 +7,7 @@
 - Notice modified: 2026-04-30
 - Notice identifier: 2026-3
 - Listed date: 
-- Captured at (UTC): 2026-08-20T00:40:09Z
+- Captured at (UTC): 2026-08-20T08:25:56Z
 - Page title: Contracting Policy Notice 2026-3: Amendments to the Directive on the Management of Procurement to Streamline Requirements for Reporting and for Collecting Information
 
 ---
