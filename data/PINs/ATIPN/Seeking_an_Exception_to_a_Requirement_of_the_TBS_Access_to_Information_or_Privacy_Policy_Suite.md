@@ -8,7 +8,7 @@
 - Notice identifier: 2022-01
 - Notice group: Access to Information and Privacy implementation notices
 - Listed date: 
-- Captured at (UTC): 2026-08-21T00:42:09Z
+- Captured at (UTC): 2026-08-21T08:28:02Z
 - Page title: ATIP Implementation Notice 2022-01: Seeking an Exception to a Requirement of the TBS Access to Information or Privacy Policy Suite
 
 ---

@@ -7,7 +7,7 @@
 - Notice modified: 2022-04-25
 - Notice identifier: 2022-1
 - Listed date: 
-- Captured at (UTC): 2026-08-21T00:42:09Z
+- Captured at (UTC): 2026-08-21T08:28:02Z
 - Page title: Contracting Policy Notice 2022-01: New Appendix E – Mandatory Procedures for Contracts Awarded to Indigenous Businesses to the Directive on the Management of Procurement
 
 ---
