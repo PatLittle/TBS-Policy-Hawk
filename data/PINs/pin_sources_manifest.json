@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-08-20T16:25:36Z",
+  "generated_at_utc": "2026-08-21T00:44:27Z",
   "sources": [
     {
       "key": "service_digital_announcements",
@@ -6158,15 +6158,39 @@
       "short_name": "RPPN",
       "url": "https://www.canada.ca/en/treasury-board-secretariat/services/federal-real-property-management/real-property-policy-notices.html",
       "folder": "RPPN",
-      "source_modified": "2026-02-20",
-      "notice_count": 3,
+      "source_modified": "2026-08-20",
+      "notice_count": 5,
       "notices": [
+        {
+          "title": "Amendments to Appendix B: Mandatory Procedures for Appraisals and Estimates of the Directive on the Management of Real Property",
+          "url": "https://www.canada.ca/en/treasury-board-secretariat/services/federal-real-property-management/real-property-policy-notices/2026-2.html",
+          "listing_date": "",
+          "table_date": "2026-08-20",
+          "notice_code": "2026-2",
+          "group": "",
+          "detail_modified": "2026-08-20",
+          "fetch_error": "",
+          "filename": "Amendments_to_Appendix_B_Mandatory_Procedures_for_Appraisals_and_Estimates_of_the_Directive_on_the_Management_of_Real_Property.md",
+          "path": "data/PINs/RPPN/Amendments_to_Appendix_B_Mandatory_Procedures_for_Appraisals_and_Estimates_of_the_Directive_on_the_Management_of_Real_Property.md"
+        },
+        {
+          "title": "Amendments to the Directive on the Management of Real Property and the Policy on the Planning and Management of Investments in Support of Housing",
+          "url": "https://www.canada.ca/en/treasury-board-secretariat/services/federal-real-property-management/real-property-policy-notices/2026-1.html",
+          "listing_date": "",
+          "table_date": "2026-08-20",
+          "notice_code": "2026-1",
+          "group": "",
+          "detail_modified": "2026-08-20",
+          "fetch_error": "",
+          "filename": "Amendments_to_the_Directive_on_the_Management_of_Real_Property_and_the_Policy_on_the_Planning_and_Management_of_Investments_in_Support_of_Housing.md",
+          "path": "data/PINs/RPPN/Amendments_to_the_Directive_on_the_Management_of_Real_Property_and_the_Policy_on_the_Planning_and_Management_of_Investments_in_Support_of_Housing.md"
+        },
         {
           "title": "Real Property Authority Pilot",
           "url": "https://www.canada.ca/en/treasury-board-secretariat/services/federal-real-property-management/real-property-policy-notices/2025-3.html",
           "listing_date": "",
           "table_date": "2026-02-20",
-          "notice_code": "2025-03",
+          "notice_code": "2025-3",
           "group": "",
           "detail_modified": "2026-02-20",
           "fetch_error": "",

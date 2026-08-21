@@ -582,16 +582,18 @@ Generated from the live source pages listed below.
 
 ## [Real Property Policy Notices (RPPN)](https://www.canada.ca/en/treasury-board-secretariat/services/federal-real-property-management/real-property-policy-notices.html)
 
-> Date modified: 2026-02-20
+> Date modified: 2026-08-20
 
-> Notices: 3
+> Notices: 5
 
 <details>
 <summary>Notice table</summary>
 
 | Date | Notice | Title | URL |
 |---|---|---|---|
-|2026-02-20|2025-03|Real Property Authority Pilot|https://www.canada.ca/en/treasury-board-secretariat/services/federal-real-property-management/real-property-policy-notices/2025-3.html|
+|2026-08-20|2026-2|Amendments to Appendix B: Mandatory Procedures for Appraisals and Estimates of the Directive on the Management of Real Property|https://www.canada.ca/en/treasury-board-secretariat/services/federal-real-property-management/real-property-policy-notices/2026-2.html|
+|2026-08-20|2026-1|Amendments to the Directive on the Management of Real Property and the Policy on the Planning and Management of Investments in Support of Housing|https://www.canada.ca/en/treasury-board-secretariat/services/federal-real-property-management/real-property-policy-notices/2026-1.html|
+|2026-02-20|2025-3|Real Property Authority Pilot|https://www.canada.ca/en/treasury-board-secretariat/services/federal-real-property-management/real-property-policy-notices/2025-3.html|
 |2026-02-20|2025-2|Updates to the Transaction Approval Limits and Conditions for Real Property Transactions|https://www.canada.ca/en/treasury-board-secretariat/services/federal-real-property-management/real-property-policy-notices/2025-2.html|
 |2026-02-20|2025-1|Updates to the Treasury Board Real Property Policy Instruments|https://www.canada.ca/en/treasury-board-secretariat/services/federal-real-property-management/real-property-policy-notices/2025-1.html|
 
