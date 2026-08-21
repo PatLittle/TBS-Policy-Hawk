@@ -7,7 +7,7 @@
 - Notice modified: 2023-02-15
 - Notice identifier: 2020-2
 - Listed date: 
-- Captured at (UTC): 2026-08-21T08:28:02Z
+- Captured at (UTC): 2026-08-21T16:21:00Z
 - Page title: Contracting Policy Notice 2020-2: Replacement of the North American Free Trade Agreement (NAFTA)
 
 ---

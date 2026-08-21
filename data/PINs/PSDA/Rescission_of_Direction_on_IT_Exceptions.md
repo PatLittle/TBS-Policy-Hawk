@@ -6,7 +6,7 @@
 - Notice URL: https://www.canada.ca/en/government/system/digital-government/policies-standards/policy-service-digital-announcements/rescission-direction-it-exceptions.html
 - Notice modified: 2024-10-08
 - Listed date: 2024-05-01
-- Captured at (UTC): 2026-08-21T08:28:02Z
+- Captured at (UTC): 2026-08-21T16:21:00Z
 
 ---
 

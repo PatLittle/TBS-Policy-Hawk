@@ -6,7 +6,7 @@
 - Notice URL: https://www.canada.ca/en/government/system/digital-government/policies-standards/policy-service-digital-announcements/direction-wechat-kaspersky-products.html
 - Notice modified: 2024-10-28
 - Listed date: 2023-10-30
-- Captured at (UTC): 2026-08-21T08:28:02Z
+- Captured at (UTC): 2026-08-21T16:21:00Z
 
 ---
 
