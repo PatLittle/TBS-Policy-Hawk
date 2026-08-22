@@ -7,7 +7,7 @@
 - Notice modified: 2009-01-08
 - Notice group: Archived notices
 - Listed date: 2008-12-22
-- Captured at (UTC): 2026-08-22T00:39:27Z
+- Captured at (UTC): 2026-08-22T08:18:03Z
 - Page title: The Union of Solicitor General Employees Component of the Public Service Alliance of Canada (PSAC) - Change to Membership Dues
 
 ---

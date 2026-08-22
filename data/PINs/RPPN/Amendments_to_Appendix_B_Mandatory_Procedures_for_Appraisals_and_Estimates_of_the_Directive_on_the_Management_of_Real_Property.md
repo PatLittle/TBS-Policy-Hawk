@@ -7,7 +7,7 @@
 - Notice modified: 2026-08-20
 - Notice identifier: 2026-2
 - Listed date: 
-- Captured at (UTC): 2026-08-22T00:39:27Z
+- Captured at (UTC): 2026-08-22T08:18:03Z
 - Page title: Real Property Policy Notice 2026-2: Amendments to Appendix B: Mandatory Procedures for Appraisals and Estimates of the Directive on the Management of Real Property
 
 ---
