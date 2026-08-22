@@ -7,7 +7,7 @@
 - Notice modified: 2014-03-20
 - Notice group: Active notices
 - Listed date: 2014-03-05
-- Captured at (UTC): 2026-08-21T16:21:00Z
+- Captured at (UTC): 2026-08-22T00:39:27Z
 - Page title: Change to the Leave Reporting System - Foreign Service Leave
 
 ---

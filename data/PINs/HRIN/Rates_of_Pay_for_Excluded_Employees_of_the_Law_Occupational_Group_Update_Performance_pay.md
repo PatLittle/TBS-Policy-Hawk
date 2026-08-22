@@ -7,7 +7,7 @@
 - Notice modified: 2013-10-04
 - Notice group: Active notices
 - Listed date: 2013-08-30
-- Captured at (UTC): 2026-08-21T16:21:00Z
+- Captured at (UTC): 2026-08-22T00:39:27Z
 - Page title: Rates of Pay for Excluded Employees of the Law Occupational Group –Update: Performance pay
 
 ---

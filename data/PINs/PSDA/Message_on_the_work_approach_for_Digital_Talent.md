@@ -6,7 +6,7 @@
 - Notice URL: https://www.canada.ca/en/government/system/digital-government/policies-standards/policy-service-digital-announcements/message-work-approach-digital-talent.html
 - Notice modified: 2024-10-08
 - Listed date: 2022-10-21
-- Captured at (UTC): 2026-08-21T16:21:00Z
+- Captured at (UTC): 2026-08-22T00:39:27Z
 
 ---
 
