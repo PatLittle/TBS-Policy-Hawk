@@ -7,7 +7,7 @@
 - Notice modified: 2012-11-06
 - Notice group: Active notices
 - Listed date: 2012-10-31
-- Captured at (UTC): 2026-08-22T16:12:44Z
+- Captured at (UTC): 2026-08-23T00:42:48Z
 - Page title: Changes to the Leave Reporting System - New Leave Code - October 2012
 
 ---

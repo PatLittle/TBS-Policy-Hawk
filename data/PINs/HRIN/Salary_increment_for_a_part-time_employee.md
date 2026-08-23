@@ -7,7 +7,7 @@
 - Notice modified: 2001-12-18
 - Notice group: Active notices
 - Listed date: 2001-12-18
-- Captured at (UTC): 2026-08-22T16:12:44Z
+- Captured at (UTC): 2026-08-23T00:42:48Z
 - Page title: Salary increment for a part-time employee - Information Notices
 
 ---
