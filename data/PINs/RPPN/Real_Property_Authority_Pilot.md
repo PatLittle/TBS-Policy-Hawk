@@ -7,7 +7,7 @@
 - Notice modified: 2026-02-20
 - Notice identifier: 2025-3
 - Listed date: 
-- Captured at (UTC): 2026-08-23T08:18:55Z
+- Captured at (UTC): 2026-08-23T16:14:07Z
 - Page title: Real Property Policy Notice 2025-3: Real Property Authority Pilot
 
 ---
