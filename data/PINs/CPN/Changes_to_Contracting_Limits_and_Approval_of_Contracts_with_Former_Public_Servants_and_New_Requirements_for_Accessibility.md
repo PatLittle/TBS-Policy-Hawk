@@ -7,7 +7,7 @@
 - Notice modified: 2025-10-28
 - Notice identifier: 2019-1
 - Listed date: 
-- Captured at (UTC): 2026-08-24T00:41:25Z
+- Captured at (UTC): 2026-08-25T00:41:20Z
 - Page title: Contracting Policy Notice 2019-01: Changes to Contracting Limits and Approval of Contracts with Former Public Servants, and New Requirements for Accessibility
 
 ---

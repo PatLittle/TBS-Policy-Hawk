@@ -7,7 +7,7 @@
 - Notice modified: 
 - Notice group: Archived notices
 - Listed date: 2010-02-24
-- Captured at (UTC): 2026-08-24T00:41:25Z
+- Captured at (UTC): 2026-08-25T00:41:20Z
 - Fetch error: 404 Client Error: Not Found for url: https://www.canada.ca/en/treasury-board-secretariat/services/information-notice/2008-annual-report-board-trustees-public-service-management-insurance-plan.html
 
 ---
