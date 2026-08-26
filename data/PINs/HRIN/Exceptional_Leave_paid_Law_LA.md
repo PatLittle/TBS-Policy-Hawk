@@ -7,7 +7,7 @@
 - Notice modified: 2010-02-22
 - Notice group: Active notices
 - Listed date: 2010-02-19
-- Captured at (UTC): 2026-08-26T00:42:15Z
+- Captured at (UTC): 2026-08-26T09:00:24Z
 - Page title: Exceptional Leave (paid) - Law (LA)
 
 ---
