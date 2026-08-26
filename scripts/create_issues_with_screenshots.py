@@ -2,12 +2,22 @@ import os
 import csv
 import json
 import re
+import time
+
+import requests
+
+try:
+    from scripts.pin_change_evidence import load_pin_change
+except ModuleNotFoundError:
+    from pin_change_evidence import load_pin_change
 
 # --- Configuration ---
 DATA_DIR = "data"
 NEW_ITEMS_CSV_PATH = os.path.join(DATA_DIR, "new_items.csv")
 ISSUE_MAP_JSON_PATH = os.path.join(DATA_DIR, "issue_map.json")
 GLOSSARY_CHANGES_JSON_PATH = os.path.join(DATA_DIR, "glossary_changes.json")
+PENDING_ENRICHMENT_JSON_PATH = os.path.join(DATA_DIR, "pending_enrichment.json")
+AUTOANALYZED_LABEL = "🪄📝AutoAnalyzed"
 SCREENSHOTS_DIR = "screenshots"
 REPO_NAME = os.environ.get("GITHUB_REPOSITORY")
 
@@ -43,6 +53,106 @@ def load_glossary_changes():
         except json.JSONDecodeError:
             return {}
     return payload.get("changes_by_source", {})
+
+
+def load_pending_enrichment():
+    if not os.path.exists(PENDING_ENRICHMENT_JSON_PATH):
+        return []
+    try:
+        with open(PENDING_ENRICHMENT_JSON_PATH, "r", encoding="utf-8") as f:
+            payload = json.load(f)
+    except (json.JSONDecodeError, OSError) as exc:
+        raise RuntimeError(
+            f"Cannot safely read {PENDING_ENRICHMENT_JSON_PATH}; refusing to overwrite pending work."
+        ) from exc
+    if not isinstance(payload, list) or any(not isinstance(item, dict) for item in payload):
+        raise RuntimeError(f"Invalid pending enrichment data in {PENDING_ENRICHMENT_JSON_PATH}.")
+    return payload
+
+
+def save_pending_enrichment(items):
+    unique = {}
+    for item in items:
+        number = int(item["issue_number"])
+        normalized = {
+            "issue_number": number,
+            "guid": str(item.get("guid", "")),
+        }
+        if item.get("completion_label"):
+            normalized["completion_label"] = str(item["completion_label"])
+        previous = unique.get(number)
+        if previous and previous.get("completion_label") and not normalized.get("completion_label"):
+            continue
+        unique[number] = normalized
+    with open(PENDING_ENRICHMENT_JSON_PATH, "w", encoding="utf-8") as f:
+        json.dump([unique[number] for number in sorted(unique)], f, indent=2)
+        f.write("\n")
+
+
+def dispatch_enrichment(repo_name, issue_number, github_token, ref="main", request=requests.post):
+    """Explicitly dispatch enrichment; GITHUB_TOKEN-created issues do not trigger issue workflows."""
+    url = f"https://api.github.com/repos/{repo_name}/actions/workflows/issue_enrich.yml/dispatches"
+    headers = {
+        "Accept": "application/vnd.github+json",
+        "Authorization": f"Bearer {github_token}",
+        "X-GitHub-Api-Version": "2022-11-28",
+    }
+    for attempt in range(1, 4):
+        try:
+            response = request(
+                url,
+                headers=headers,
+                json={"ref": ref, "inputs": {"issue_number": str(issue_number)}},
+                timeout=30,
+            )
+            if response.status_code == 204:
+                return True
+            print(f"Enrichment dispatch attempt {attempt} failed: HTTP {response.status_code} {response.text[:300]}")
+        except requests.RequestException as exc:
+            print(f"Enrichment dispatch attempt {attempt} failed: {exc}")
+        if attempt < 3:
+            time.sleep(attempt)
+    return False
+
+
+def issue_has_label(repo, issue_number, label):
+    issue = repo.get_issue(number=int(issue_number))
+    return any(getattr(item, "name", str(item)) == label for item in issue.labels)
+
+
+def retry_pending_enrichment(items, repo, repo_name, github_token, ref):
+    remaining = []
+    for item in items:
+        completion_label = item.get("completion_label")
+        if completion_label:
+            try:
+                if issue_has_label(repo, item["issue_number"], completion_label):
+                    print(f"Confirmed enrichment complete for issue #{item['issue_number']}")
+                    continue
+            except Exception as exc:
+                print(f"Could not confirm enrichment status for issue #{item['issue_number']}: {exc}")
+
+            dispatch_enrichment(repo_name, item["issue_number"], github_token, ref=ref)
+            # A successful dispatch only queues work; retain the item until the
+            # completion label proves analysis and the report commit succeeded.
+            remaining.append(item)
+        elif dispatch_enrichment(repo_name, item["issue_number"], github_token, ref=ref):
+            print(f"Successfully re-dispatched enrichment for issue #{item['issue_number']}")
+        else:
+            remaining.append(item)
+    return remaining
+
+
+def pending_record_for_issue(change_type, issue_number, guid, dispatch_succeeded):
+    if change_type == "pin":
+        return {
+            "issue_number": int(issue_number),
+            "guid": guid,
+            "completion_label": AUTOANALYZED_LABEL,
+        }
+    if not dispatch_succeeded:
+        return {"issue_number": int(issue_number), "guid": guid}
+    return None
 
 
 def safe_filename(value):
@@ -108,7 +218,36 @@ def issue_body_for_row(row, screenshot_success, screenshot_url, glossary_changes
         "*Failed to capture screenshot.*"
     )
 
-    if change_type == "hierarchy_added":
+    if change_type == "pin":
+        metadata_path = row.get("filename", "")
+        evidence = load_pin_change(metadata_path)
+        metadata = evidence["metadata"]
+        pin_change = evidence["change_type"]
+        family = metadata.get("family") or metadata.get("pin_family") or row.get("source_id", "")
+        identifier = (
+            metadata.get("notice_identifier")
+            or metadata.get("identifier")
+            or metadata.get("notice_code")
+            or "Not stated"
+        )
+        detected = metadata.get("detected_date") or metadata.get("date") or row.get("updated_date", "")[:10]
+        previous_path = evidence["previous_path"] or "None (newly tracked notice)"
+        current_path = evidence["current_path"] or "None (notice removed)"
+        body = (
+            "A substantive change to a tracked policy implementation notice was detected.\n\n"
+            f"**Title:** {row['title']}\n**Link:** {row['link']}\n"
+            f"**Category:** PIN\n**GUID:** {row['guid']}\n"
+            "**Change type:** pin\n"
+            f"**PIN change:** {pin_change}\n"
+            f"**PIN family:** {family or 'Unknown'}\n"
+            f"**Notice identifier:** {identifier}\n"
+            f"**Detected date:** {detected}\n"
+            f"**PIN metadata:** {evidence['metadata_path']}\n"
+            f"**Previous evidence:** {previous_path}\n"
+            f"**Current evidence:** {current_path}\n\n"
+            f"{screenshot_section}"
+        )
+    elif change_type == "hierarchy_added":
         body = (
             "A policy instrument has been added to the TBS policy hierarchy tree.\n\n"
             f"**Title:** {row['title']}\n**Link:** {row['link']}\n"
@@ -148,15 +287,27 @@ def issue_body_for_row(row, screenshot_success, screenshot_url, glossary_changes
     return body
 
 
-def create_issue_with_fallback(repo, title, body, labels):
+def create_issue_with_fallback(repo, title, body, labels, fallback_labels=None):
     labels = [label for label in labels if label]
+    fallback_labels = [label for label in (fallback_labels or ["policy-update"]) if label]
     try:
         return repo.create_issue(title=title, body=body, labels=labels)
     except Exception as exc:
-        if labels != ["policy-update"]:
-            print(f"Warning: issue creation with labels {labels} failed: {exc}. Retrying with policy-update only.")
-            return repo.create_issue(title=title, body=body, labels=["policy-update"])
+        if labels != fallback_labels:
+            print(f"Warning: issue creation with labels {labels} failed: {exc}. Retrying with {fallback_labels}.")
+            return repo.create_issue(title=title, body=body, labels=fallback_labels)
         raise
+
+
+def ensure_pin_update_label(repo):
+    try:
+        repo.get_label("pin-update")
+    except Exception:
+        repo.create_label(
+            name="pin-update",
+            color="7a3e9d",
+            description="Tracked policy implementation notice change",
+        )
 
 def take_screenshot(url, filepath):
     """Takes a screenshot of a given URL with a Windows 11 user agent. On failure, retries with HTTPS."""
@@ -203,8 +354,9 @@ def main():
         print("Error: GITHUB_TOKEN environment variable not set.")
         return
 
-    if not os.path.exists(NEW_ITEMS_CSV_PATH):
-        print("No new items found (new_items.csv does not exist). Exiting.")
+    pending = load_pending_enrichment()
+    if not os.path.exists(NEW_ITEMS_CSV_PATH) and not pending:
+        print("No new items or pending enrichment dispatches. Exiting.")
         return
 
     from github import Github
@@ -213,8 +365,15 @@ def main():
     repo = g.get_repo(REPO_NAME)
     issue_map = load_issue_map()
     glossary_changes = load_glossary_changes()
+    ref = os.environ.get("GITHUB_REF_NAME") or os.environ.get("GITHUB_DEFAULT_BRANCH") or "main"
+    pending = retry_pending_enrichment(pending, repo, REPO_NAME, github_token, ref)
+    save_pending_enrichment(pending)
     
     ensure_dir(SCREENSHOTS_DIR)
+
+    if not os.path.exists(NEW_ITEMS_CSV_PATH):
+        print("Pending enrichment retry process complete.")
+        return
 
     with open(NEW_ITEMS_CSV_PATH, 'r', newline='', encoding='utf-8') as f:
         reader = csv.DictReader(f)
@@ -239,14 +398,34 @@ def main():
                 title_prefix = "Policy Hierarchy Removal"
             elif change_type == "glossary":
                 title_prefix = "Glossary Update"
+            elif change_type == "pin":
+                pin_change = load_pin_change(row.get("filename", ""))["change_type"]
+                title_prefix = f"PIN {pin_change.title()}"
 
             try:
                 labels = [row.get('category'), "policy-update"]
                 if change_type == "glossary":
                     labels.append("glossary-update")
-                issue = create_issue_with_fallback(repo, f"{title_prefix}: {row['title']}", issue_body, labels)
+                elif change_type == "pin":
+                    ensure_pin_update_label(repo)
+                    labels.append("pin-update")
+                fallback_labels = ["policy-update", "pin-update"] if change_type == "pin" else None
+                issue = create_issue_with_fallback(
+                    repo,
+                    f"{title_prefix}: {row['title']}",
+                    issue_body,
+                    labels,
+                    fallback_labels=fallback_labels,
+                )
                 print(f"Successfully created issue #{issue.number} for '{row['title']}'")
                 issue_map[guid] = issue.number
+                dispatched = dispatch_enrichment(REPO_NAME, issue.number, github_token, ref=ref)
+                pending_record = pending_record_for_issue(
+                    change_type, issue.number, guid, dispatched
+                )
+                if pending_record:
+                    pending.append(pending_record)
+                save_pending_enrichment(pending)
             except Exception as e:
                 print(f"Error creating GitHub issue for '{row['title']}': {e}")
 

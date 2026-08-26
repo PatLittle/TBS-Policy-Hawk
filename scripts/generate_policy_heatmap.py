@@ -30,6 +30,7 @@ INSTRUMENT_COLORS = {
     "Policy framework": "#bf3989",
     "Mandatory Procedure": "#d1242f",
     "Hierarchy": "#57606a",
+    "PIN": "#7a3e9d",
 }
 FALLBACK_INSTRUMENT_COLORS = (
     "#1f883d",
@@ -146,6 +147,29 @@ def read_csv(source: str) -> str:
         with urlopen(request, timeout=30) as response:
             return response.read().decode("utf-8-sig")
     return Path(source).read_text(encoding="utf-8-sig")
+
+
+def combine_csv_texts(*csv_texts: str) -> str:
+    """Combine compatible activity ledgers without changing either source file."""
+    fieldnames: List[str] = []
+    rows: List[Dict[str, str]] = []
+    for csv_text in csv_texts:
+        reader = csv.DictReader(io.StringIO(csv_text))
+        if reader.fieldnames is None:
+            continue
+        for fieldname in reader.fieldnames:
+            if fieldname not in fieldnames:
+                fieldnames.append(fieldname)
+        rows.extend(reader)
+
+    if not fieldnames:
+        return ""
+
+    output = io.StringIO()
+    writer = csv.DictWriter(output, fieldnames=fieldnames, lineterminator="\n")
+    writer.writeheader()
+    writer.writerows(rows)
+    return output.getvalue()
 
 
 def row_date(row: Dict[str, str], column: str) -> date:
@@ -523,7 +547,6 @@ def draw_heatmap(
             ncol=min(2, len(all_instruments)),
         )
 
-    date_label = "publication date" if date_column == "pubDate" else "collection date"
     fig.text(
         0.47 / fig_width,
         0.93,
@@ -535,7 +558,7 @@ def draw_heatmap(
     fig.text(
         0.47 / fig_width,
         0.87,
-        f"Policy records by {date_label} · {display_date(start)}–{display_date(end)}",
+        f"Tracked changes by activity date · {display_date(start)}–{display_date(end)}",
         fontsize=11.5,
         color="#57606a",
     )
@@ -594,7 +617,7 @@ def draw_heatmap(
     fig.text(
         (fig_width - 0.95) / fig_width,
         0.025,
-        "Source: PatLittle/TBS-Policy-Hawk · data/items.csv",
+        "Sources: PatLittle/TBS-Policy-Hawk · data/items.csv · data/pin_events.csv",
         fontsize=8.5,
         color="#6e7781",
         ha="right",
@@ -642,6 +665,11 @@ def parse_args() -> argparse.Namespace:
         description="Generate the current fiscal-quarter TBS Policy Hawk activity heatmap."
     )
     parser.add_argument("--source", default="data/items.csv")
+    parser.add_argument(
+        "--pin-events-source",
+        default="data/pin_events.csv",
+        help="Separate activity ledger for substantive PIN changes.",
+    )
     parser.add_argument("--start")
     parser.add_argument("--end")
     parser.add_argument(
@@ -668,7 +696,10 @@ def parse_args() -> argparse.Namespace:
 def main() -> None:
     args = parse_args()
     start, end = resolve_dates(args.start, args.end)
-    csv_text = read_csv(args.source)
+    csv_text = combine_csv_texts(
+        read_csv(args.source),
+        read_csv(args.pin_events_source),
+    )
     counts, _ = collect_activity_counts(
         csv_text,
         start,

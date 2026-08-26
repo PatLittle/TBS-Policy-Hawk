@@ -6,8 +6,14 @@ on:
     - cron: '0 0,8,16 * * *'
 
 permissions:
+  actions: write
   contents: write
   issues: write
+
+concurrency:
+  group: policy-hawk-content-writes
+  cancel-in-progress: false
+  queue: max
 
 jobs:
   policy-hawk:
@@ -18,7 +24,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v6
         with:
-          # Fetch all history to enable comparing with previous file versions
           fetch-depth: 0
           persist-credentials: true
 
@@ -28,39 +33,60 @@ jobs:
           python-version: '3.x'
 
       - name: Install Python dependencies
-        run: |
-          pip install -r requirements.txt
+        run: pip install -r requirements.txt
 
       - name: Install Playwright browsers
-        run: |
-          playwright install --with-deps chromium
+        run: playwright install --with-deps chromium
 
       - name: Ensure data directories exist
-        run: |
-          mkdir -p data data/PINs screenshots
+        run: mkdir -p data data/PINs screenshots
 
-      - name: Fetch RSS feed and policy documents
+      - name: Fetch policy and PIN sources
         id: fetch
         run: |
           python scripts/fetch_feed.py
-          if [[ -n "$(git status --porcelain -- data/)" ]]; then
-            echo "feed_changes_detected=true" >> $GITHUB_OUTPUT
-          else
-            echo "feed_changes_detected=false" >> $GITHUB_OUTPUT
-          fi
           python scripts/sync_pin_sources.py
-          if [[ -n "$(git status --porcelain -- data/)" ]]; then
-            echo "changes_detected=true" >> $GITHUB_OUTPUT
-          elif [[ -n "$(git status --porcelain -- PIN_sources.md)" ]]; then
-            echo "changes_detected=true" >> $GITHUB_OUTPUT
+
+          if [[ -n "$(git status --porcelain -- data/ PIN_sources.md)" ]]; then
+            echo "changes_detected=true" >> "$GITHUB_OUTPUT"
           else
-            echo "changes_detected=false" >> $GITHUB_OUTPUT
+            echo "changes_detected=false" >> "$GITHUB_OUTPUT"
           fi
 
+          if [[ -n "$(git status --porcelain -- data/items.csv data/pin_events.csv)" ]]; then
+            echo "activity_changes_detected=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "activity_changes_detected=false" >> "$GITHUB_OUTPUT"
+          fi
+
+          python - <<'PY'
+          import csv
+          import json
+          import os
+          from pathlib import Path
+
+          new_items = Path("data/new_items.csv")
+          reviewable = False
+          if new_items.is_file():
+              with new_items.open(encoding="utf-8-sig", newline="") as handle:
+                  reviewable = next(csv.DictReader(handle), None) is not None
+
+          pending_path = Path("data/pending_enrichment.json")
+          pending = False
+          if pending_path.is_file():
+              try:
+                  pending = bool(json.loads(pending_path.read_text(encoding="utf-8")))
+              except (json.JSONDecodeError, OSError):
+                  pending = True
+
+          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as output:
+              output.write(f"reviewable_changes_detected={str(reviewable).lower()}\n")
+              output.write(f"enrichment_pending={str(pending).lower()}\n")
+          PY
+
       - name: Generate quarterly policy activity heatmap
-        if: steps.fetch.outputs.changes_detected == 'true'
-        run: |
-          python scripts/generate_policy_heatmap.py
+        if: steps.fetch.outputs.activity_changes_detected == 'true'
+        run: python scripts/generate_policy_heatmap.py
 
       - name: Commit and push data updates
         if: steps.fetch.outputs.changes_detected == 'true'
@@ -71,24 +97,29 @@ jobs:
           git commit -m 'chore: update policy data and documents'
           git push
 
-      - name: Create issues with screenshots for new items
-        if: steps.fetch.outputs.feed_changes_detected == 'true'
+      - name: Create issues and dispatch enrichment
+        if: >-
+          steps.fetch.outputs.reviewable_changes_detected == 'true' ||
+          steps.fetch.outputs.enrichment_pending == 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          python scripts/create_issues_with_screenshots.py
+        run: python scripts/create_issues_with_screenshots.py
 
       - name: Commit and push issue map and screenshots
-        if: steps.fetch.outputs.feed_changes_detected == 'true'
+        if: >-
+          steps.fetch.outputs.reviewable_changes_detected == 'true' ||
+          steps.fetch.outputs.enrichment_pending == 'true'
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
-          git add screenshots/ data/issue_map.json README.md *.png
+          git add screenshots/ data/issue_map.json data/pending_enrichment.json README.md *.png
           if ! git diff --staged --quiet; then
             git commit -m 'chore: create issues and update screenshots'
             git push
           fi
 
-      - name: No changes detected
-        if: steps.fetch.outputs.changes_detected == 'false'
-        run: echo "No new policy items detected."
+      - name: No source changes detected
+        if: >-
+          steps.fetch.outputs.changes_detected == 'false' &&
+          steps.fetch.outputs.enrichment_pending == 'false'
+        run: echo "No new policy or PIN activity detected."

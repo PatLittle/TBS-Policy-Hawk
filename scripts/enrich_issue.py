@@ -22,6 +22,12 @@ try:
     from scripts.comment_parts import post_comment_parts
 except ModuleNotFoundError:  # Support `python scripts/enrich_issue.py`.
     from comment_parts import post_comment_parts
+try:
+    from scripts.pin_change_evidence import load_pin_change
+    from scripts.policy_evolution import upsert_pin_analysis
+except ModuleNotFoundError:  # Support `python scripts/enrich_issue.py`.
+    from pin_change_evidence import load_pin_change
+    from policy_evolution import upsert_pin_analysis
 
 try:
     from markitdown import MarkItDown
@@ -45,6 +51,10 @@ COMMENT_MARKERS = {
     "previous_md": "<!-- policy-hawk:previous-markdown -->",
     "diff": "<!-- policy-hawk:diff -->",
     "summary": "<!-- policy-hawk:summary -->",
+    "pin_current": "<!-- policy-hawk:pin-current -->",
+    "pin_previous": "<!-- policy-hawk:pin-previous -->",
+    "pin_diff": "<!-- policy-hawk:pin-diff -->",
+    "pin_analysis": "<!-- policy-hawk:pin-analysis -->",
 }
 
 def make_github_client(token: str) -> Github:
@@ -227,6 +237,162 @@ def build_summary_prompt(current_md: str, previous_md: str, diff_md: str) -> str
     )
 
 
+def build_pin_analysis_prompt(evidence: dict) -> str:
+    metadata = evidence["metadata"]
+    change_type = evidence["change_type"]
+    previous = evidence["canonical_previous"] or "[No prior local capture: this notice was added.]"
+    current = evidence["canonical_current"] or "[No current capture: this notice was removed from the source listing.]"
+    diff_text = compute_diff(previous, current)
+    return (
+        "Analyze this tracked Treasury Board policy implementation notice change. PINs are "
+        "operational implementation direction and should be assessed for practical obligations, "
+        "timing, thresholds, transitional instructions, affected instruments, and compliance effects. "
+        "Do not overstate publication-only or formatting changes. Clearly identify inferences.\n\n"
+        f"Change type: {change_type}\n"
+        f"PIN family: {metadata.get('family') or metadata.get('pin_family') or 'Unknown'}\n"
+        f"Notice identifier: {metadata.get('notice_identifier') or metadata.get('identifier') or metadata.get('notice_code') or 'Not stated'}\n"
+        f"Source URL: {metadata.get('url') or metadata.get('source_url') or ''}\n\n"
+        f"Previous evidence:\n{previous}\n\n"
+        f"Current evidence:\n{current}\n\n"
+        f"Normalized diff:\n{diff_text}\n\n"
+        "Return markdown using exactly these headings:\n"
+        "## Policy change analysis\n"
+        "### Summary\n"
+        "### Substantive changes identified\n"
+        "Use a table with columns Area, Evidence before / previous state, Evidence now, Interpretation.\n"
+        "### Practical effect\n"
+        "### Non-substantive changes\n"
+        "### Watch item\n"
+    )
+
+
+def _pin_field(body: str, label: str) -> str:
+    return _match_field(body, rf"^\*\*{re.escape(label)}:\*\*\s*(.+)$") or ""
+
+
+def _write_step_output(name: str, value: str) -> None:
+    output_path = os.environ.get("GITHUB_OUTPUT")
+    if output_path:
+        with open(output_path, "a", encoding="utf-8") as stream:
+            stream.write(f"{name}={value}\n")
+
+
+def _ensure_pin_evidence_preamble(analysis: str, evidence: dict, guid: str) -> str:
+    if not analysis.startswith("## Policy change analysis"):
+        raise RuntimeError("PIN analysis did not use the required Policy change analysis heading.")
+    if "Compared the PIN evidence for" in analysis:
+        return analysis
+    previous_path = evidence["previous_path"] or "No prior local copy (new notice)"
+    current_path = evidence["current_path"] or "No current capture (removed notice)"
+    preamble = (
+        f"Compared the PIN evidence for `{guid}`:\n\n"
+        f"- New/current evidence: `{current_path}`\n"
+        f"- Prior evidence used for comparison: `{previous_path}`"
+    )
+    return analysis.replace(
+        "## Policy change analysis",
+        f"## Policy change analysis\n\n{preamble}",
+        1,
+    )
+
+
+def enrich_pin_issue(issue, issue_body: str, repo_full_name: str) -> None:
+    metadata_path = _pin_field(issue_body, "PIN metadata")
+    evidence = load_pin_change(metadata_path)
+    metadata = evidence["metadata"]
+    change_type = evidence["change_type"]
+
+    prior_display = evidence["previous_text"] or (
+        "This notice had no prior local capture because it was newly added."
+    )
+    current_display = evidence["current_text"] or (
+        "This notice is no longer present in the successfully fetched source listing. "
+        "The previous capture is retained as evidence."
+    )
+    previous = evidence["canonical_previous"] or "[No prior local capture: notice added.]\n"
+    current = evidence["canonical_current"] or "[No current capture: notice removed from source listing.]\n"
+    diff_text = compute_diff(previous, current)
+
+    post_comment_parts(
+        issue,
+        current_display,
+        COMMENT_MARKERS["pin_current"],
+        heading="Current PIN evidence" if evidence["current_text"] else "PIN removal evidence",
+    )
+    if evidence["previous_text"]:
+        post_comment_parts(
+            issue,
+            prior_display,
+            COMMENT_MARKERS["pin_previous"],
+            heading="Previous PIN evidence",
+        )
+    post_comment_parts(
+        issue,
+        diff_text,
+        COMMENT_MARKERS["pin_diff"],
+        heading="Normalized PIN diff",
+        fenced_language="diff",
+        collapsible=True,
+    )
+
+    gemini_key = os.environ.get("GEMINI_API_KEY")
+    if not gemini_key:
+        raise RuntimeError("GEMINI_API_KEY is required to AutoAnalyze PIN changes.")
+    analysis_path = evidence["change_dir"] / "analysis.md"
+    if analysis_path.exists() and analysis_path.read_text(encoding="utf-8").strip():
+        analysis = analysis_path.read_text(encoding="utf-8").strip()
+    else:
+        system_prompt = (
+            "You are an expert Canadian federal policy analyst. Produce concise, evidence-based "
+            "analysis of policy implementation notices. Preserve uncertainty and distinguish "
+            "operational direction from administrative publication changes."
+        )
+        analysis = generate_gemini_summary(
+            gemini_key,
+            system_prompt,
+            build_pin_analysis_prompt(evidence),
+            os.environ.get("GEMINI_MODEL", "gemini-flash-lite-latest"),
+        )
+    guid = _pin_field(issue_body, "GUID")
+    analysis = _ensure_pin_evidence_preamble(analysis, evidence, guid)
+    analysis_path.write_text(analysis.rstrip() + "\n", encoding="utf-8")
+
+    post_comment_parts(issue, analysis, COMMENT_MARKERS["pin_analysis"])
+
+    detected = (
+        _pin_field(issue_body, "Detected date")
+        or str(metadata.get("detected_date") or metadata.get("date") or "")[:10]
+    )
+    if not detected:
+        match = re.search(r"(\d{4}-\d{2}-\d{2})$", guid)
+        detected = match.group(1) if match else ""
+    if not detected:
+        raise RuntimeError("PIN detected date was not found in issue metadata.")
+    title = _pin_field(issue_body, "Title") or metadata.get("title") or issue.title
+    family = _pin_field(issue_body, "PIN family") or metadata.get("family") or metadata.get("pin_family") or ""
+    identifier = (
+        _pin_field(issue_body, "Notice identifier")
+        or metadata.get("notice_identifier")
+        or metadata.get("identifier")
+        or metadata.get("notice_code")
+        or ""
+    )
+    upsert_pin_analysis(
+        Path("."),
+        issue_number=issue.number,
+        repo_full_name=repo_full_name,
+        title=title,
+        guid=guid,
+        detected_date=detected,
+        family=family,
+        identifier=identifier,
+        change_type=change_type,
+        analysis=analysis,
+    )
+    # The workflow applies the label after committing the report and evidence.
+    _write_step_output("pin_autoanalyzed", "true")
+
+
 def post_comment(issue, body: str, marker: str) -> None:
     post_comment_parts(issue, body, marker)
 
@@ -272,6 +438,10 @@ def main() -> None:
 
     if not issue_body:
         issue_body = issue.body or ""
+
+    if _pin_field(issue_body, "PIN metadata"):
+        enrich_pin_issue(issue, issue_body, repo_full_name)
+        return
 
     link, category, guid = parse_issue_metadata(issue_body)
     if not link:

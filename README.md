@@ -5,12 +5,13 @@
 
 TBS Policy Hawk monitors the Treasury Board of Canada Secretariat Policy Suite for changes, captures policy-source artifacts, and opens GitHub issues when there is something for a policy analyst to review.
 
-The repository tracks four related change surfaces:
+The repository tracks five related change surfaces:
 
 1. TBS Policy Suite update feed entries.
 2. Policy instrument pages and their archived XML, HTML, Markdown, diff, screenshot, and summary artifacts.
 3. Policy hierarchy tree additions and removals.
-4. TBS policy glossary and policy implementation notice source changes.
+4. TBS policy glossary changes.
+5. Substantive policy implementation notice (PIN) additions, changes, and removals.
 
 The result is a working evidence trail: machine-readable datasets under `data/`, screenshots under `screenshots/`, GitHub issues for analyst triage, and quarterly `PolicyEvolution{YYYY-YYQ#}.md` reports for completed analysis.
 
@@ -58,7 +59,17 @@ This temporary metadata file is written only when glossary changes are detected.
 
 ### `PIN_sources.md` and `data/PINs/`
 
-`scripts/sync_pin_sources.py` collects policy implementation notice sources, writes a readable index to `PIN_sources.md`, and stores captured notice content under `data/PINs/`. The manifest at `data/PINs/pin_sources_manifest.json` records the source inventory used for repeatable updates.
+`scripts/sync_pin_sources.py` collects policy implementation notice sources, writes a readable index to `PIN_sources.md`, and stores the latest stable notice content under `data/PINs/`. Volatile fetch timestamps and source-page modified dates are excluded from semantic comparisons, so an unchanged notice remains byte-identical and does not create a routine Git commit.
+
+The manifest at `data/PINs/pin_sources_manifest.json` records stable source identity and removal state. A missing notice must be absent from two successful source listings before it is treated as removed; failed detail fetches preserve the last good capture, and suspiciously large inventory drops stop the run for review. Confirmed additions, content changes, and removals receive immutable before/after evidence under `data/PINs/changes/`.
+
+### `data/pin_events.csv`
+
+This append-only ledger records confirmed PIN activity without changing the policy-feed semantics of `data/items.csv`. PIN events are also handed to `data/new_items.csv` so they follow the normal issue, enrichment, analysis, and quarterly-report lifecycle.
+
+### `data/pending_enrichment.json`
+
+This retry ledger records enrichment work that is not yet complete. Failed dispatches are retried, and PIN issues remain queued until the post-commit `🪄📝AutoAnalyzed` label confirms that their analysis and quarterly-report update finished. Later Policy Watch runs reconcile this ledger even when no new source change is detected.
 
 ### `PolicyEvolution*.md`
 
@@ -82,17 +93,17 @@ It:
 
 ### `scripts/create_issues_with_screenshots.py`
 
-This script reads `data/new_items.csv`, captures screenshots, creates GitHub issues, applies labels, and updates `data/issue_map.json`.
+This script reads `data/new_items.csv`, captures screenshots, creates GitHub issues, applies labels, and updates `data/issue_map.json`. It explicitly dispatches `issue_enrich.yml` after issue creation because events created with the workflow's `GITHUB_TOKEN` do not start another workflow. Failed dispatches are retained in `data/pending_enrichment.json` and retried on a later run.
 
 Issue bodies include the source title, link, category, GUID, screenshot, hierarchy-change context, and glossary-change summaries where available.
 
 ### `scripts/generate_policy_heatmap.py`
 
-This script counts `data/items.csv` records by publication date for the current Government of Canada fiscal quarter, writes a constant quarter-specific PNG under `screenshots/`, and updates the latest-heatmap slot immediately before **Main Datasets** in this README. `policy_watch.yml` runs it whenever policy or PIN changes are detected, so repeated runs update the same image and retain its Git revision history.
+This script combines policy activity from `data/items.csv` with confirmed PIN activity from `data/pin_events.csv`, counts records by activity date for the current Government of Canada fiscal quarter, writes a constant quarter-specific PNG under `screenshots/`, and updates the latest-heatmap slot immediately before **Main Datasets** in this README. PIN activity has its own colour in the instrument breakdown. `policy_watch.yml` regenerates the image only when one of the two activity ledgers changes.
 
 ### `scripts/enrich_issue.py`
 
-This script runs when a policy-update issue is opened or when `issue_enrich.yml` is dispatched manually for a specific issue. It fetches the policy page as HTML, converts it to Markdown, stores the current capture under `data/{Category}/{GUID}/`, computes a diff against the previous Markdown capture when one exists, captures a screenshot, and posts enrichment comments back to the issue. Content that exceeds the safe per-comment size is preserved across ordered, numbered comments; reruns resume any missing parts without duplicating parts already posted.
+This script runs for labelled policy-update issues or when `issue_enrich.yml` is dispatched for a specific issue. Standard policy issues capture the source page and diff as before. PIN issues use their immutable local before/after evidence, post the normalized change, create the substantive analysis, and update the appropriate `PolicyEvolution*.md` report. Content that exceeds the safe per-comment size is preserved across ordered, numbered comments; reruns resume any missing parts without duplicating parts already posted.
 
 If `GEMINI_API_KEY` is available, it also writes and comments an expert summary of the diff.
 
@@ -127,14 +138,18 @@ It:
 - installs Python dependencies and Playwright;
 - runs `scripts/fetch_feed.py`;
 - runs `scripts/sync_pin_sources.py`;
-- regenerates the current fiscal-quarter activity heatmap when changes are detected;
+- separates repository-data changes, activity-ledger changes, reviewable `new_items` rows, and pending enrichment retries;
+- regenerates the current fiscal-quarter activity heatmap when `data/items.csv` or `data/pin_events.csv` changes;
 - commits dataset, policy capture, glossary, hierarchy, and PIN updates;
 - creates issues and screenshots when new reviewable items are found;
-- commits screenshot and issue-map artifacts.
+- explicitly dispatches enrichment for created issues and retries pending dispatches;
+- commits screenshot, issue-map, and pending-enrichment artifacts.
+
+Policy Watch and Issue Enrichment share the `policy-hawk-content-writes` concurrency queue. This serializes their commits while retaining queued enrichment runs, avoiding competing pushes and dropped PIN analysis work.
 
 ### `.github/workflows/issue_enrich.yml`
 
-This workflow enriches individual issues. It runs automatically for newly opened issues and manually with an `issue_number` input. It writes HTML/Markdown/diff/summary artifacts under `data/{Category}/{GUID}/`, updates screenshots, and comments the captured evidence on the issue. Oversized Markdown, diff, or summary evidence is split into complete multipart comments instead of being truncated.
+This workflow enriches individual `policy-update` issues and can be dispatched with an `issue_number` input. It writes evidence under `data/`, updates screenshots and quarterly reports, and comments the captured evidence on the issue. For an automatically analyzed PIN, it commits the evidence and report before applying the `🪄📝AutoAnalyzed` label. Oversized evidence is split into complete multipart comments instead of being truncated.
 
 ### `.github/workflows/update_scd2.yml`
 
@@ -163,7 +178,11 @@ flowchart TD
     A --> H[scripts/sync_pin_sources.py]
     H --> I[PIN_sources.md]
     H --> J[data/PINs and manifest]
+    H --> JA[data/PINs/changes evidence]
+    H --> JB[data/pin_events.csv]
+    H --> D
     C --> Z[scripts/generate_policy_heatmap.py]
+    JB --> Z
     Z --> ZA[screenshots/quarter heatmap PNG]
     Z --> ZB[README latest heatmap]
     C --> K[Commit policy data updates]
@@ -172,16 +191,19 @@ flowchart TD
     G --> K
     I --> K
     J --> K
+    JA --> K
+    JB --> K
     ZA --> K
     ZB --> K
     D --> L[scripts/create_issues_with_screenshots.py]
     L --> M[GitHub policy-update issues]
     L --> N[screenshots]
     L --> O[data/issue_map.json]
-    M --> P[Issue Enrichment workflow]
+    L --> P[Explicit Issue Enrichment dispatch]
+    M --> P
     P --> Q[data/Category/GUID HTML Markdown diff summary]
     P --> R[Issue evidence comments]
-    M --> S[Codex policy analysis]
+    P --> S[Policy or PIN analysis]
     Q --> S
     R --> S
     S --> T[AutoAnalyzed issue comment and label]
@@ -192,7 +214,7 @@ flowchart TD
     W --> Y[data/tbs_policy_feed_scd2.csv]
 ```
 
-In short: `policy_watch.yml` detects source changes and opens issues, `issue_enrich.yml` captures detailed page evidence for each issue, Codex performs substantive policy analysis and updates quarterly reports, and `update_scd2.yml` maintains a separate feed-history dataset.
+In short: `policy_watch.yml` detects source changes and opens issues, then explicitly dispatches `issue_enrich.yml`. Enrichment captures detailed evidence and automatically analyzes PIN changes into the quarterly report before labelling them complete. `update_scd2.yml` maintains a separate feed-history dataset.
 
 ## Issue Types And Analyst Focus
 

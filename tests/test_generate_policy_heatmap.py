@@ -87,6 +87,38 @@ class FiscalQuarterTests(unittest.TestCase):
 
 
 class HeatmapDataTests(unittest.TestCase):
+    def test_combines_policy_and_pin_activity_ledgers(self):
+        policy_csv = (
+            "guid,pubDate,updated_date,category\n"
+            'policy-1,"Wed, 01 Jul 2026 00:00:00 -0400",'
+            "2026-07-01 10:00:00,Directive\n"
+        )
+        pin_csv = (
+            "guid,pubDate,updated_date,category\n"
+            'pin-1,"Thu, 02 Jul 2026 00:00:00 -0400",'
+            "2026-07-02 10:00:00,PIN\n"
+        )
+
+        combined = generate_policy_heatmap.combine_csv_texts(policy_csv, pin_csv)
+        counts, instrument_counts = generate_policy_heatmap.collect_activity_counts(
+            combined,
+            date(2026, 7, 1),
+            date(2026, 9, 30),
+            "pubDate",
+        )
+
+        self.assertEqual(
+            counts,
+            {date(2026, 7, 1): 1, date(2026, 7, 2): 1},
+        )
+        self.assertEqual(instrument_counts, {"Directive": 1, "PIN": 1})
+
+    def test_pin_has_a_distinct_instrument_color(self):
+        self.assertEqual(
+            generate_policy_heatmap.INSTRUMENT_COLORS["PIN"],
+            "#7a3e9d",
+        )
+
     def test_collect_counts_uses_publication_dates_within_period(self):
         csv_text = (
             "guid,pubDate,updated_date,category\n"
