@@ -1,5 +1,7 @@
 {
-  "generated_at_utc": "2026-08-26T09:02:49Z",
+  "schema_version": 2,
+  "generated_at_utc": "2026-08-26T11:34:37Z",
+  "pending_removals": {},
   "sources": [
     {
       "key": "service_digital_announcements",
