@@ -1,7 +1,11 @@
 {
   "schema_version": 2,
-  "generated_at_utc": "2026-08-26T11:34:37Z",
-  "pending_removals": {},
+  "generated_at_utc": "2026-09-03T15:21:57Z",
+  "pending_removals": {
+    "access_information_privacy_notices": {
+      "https://www.canada.ca/en/treasury-board-secretariat/services/access-information-privacy/access-information-privacy-notices/privacy-implementation-notice-2020-01.html": 1
+    }
+  },
   "sources": [
     {
       "key": "service_digital_announcements",
@@ -811,7 +815,7 @@
       "short_name": "ATIPN",
       "url": "https://www.canada.ca/en/treasury-board-secretariat/services/access-information-privacy/access-information-privacy-notices.html",
       "folder": "ATIPN",
-      "source_modified": "2026-03-23",
+      "source_modified": "2026-09-03",
       "notice_count": 26,
       "notices": [
         {
