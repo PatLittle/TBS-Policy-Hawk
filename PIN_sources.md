@@ -97,9 +97,9 @@ Generated from the live source pages listed below.
 
 ## [Access to Information and Privacy Notices (ATIPN)](https://www.canada.ca/en/treasury-board-secretariat/services/access-information-privacy/access-information-privacy-notices.html)
 
-> Date modified: 2026-03-23
+> Date modified: 2026-09-03
 
-> Notices: 26
+> Notices: 25
 
 <details>
 <summary>Notice table</summary>
@@ -131,7 +131,6 @@ Generated from the live source pages listed below.
 |2026-03-23|Privacy implementation notices|2021-01|Privacy Requirements for Official Social Media Accounts|https://www.canada.ca/en/treasury-board-secretariat/services/access-information-privacy/access-information-privacy-notices/privacy-implementation-notice-2021-01.html|
 |2026-03-23|Privacy implementation notices|2020-03|Protecting privacy when releasing information about a small number of individuals|https://www.canada.ca/en/treasury-board-secretariat/services/access-information-privacy/access-information-privacy-notices/2020-03-protecting-privacy-releasing-information-about-small-number-individuals.html|
 |2026-03-23|Privacy implementation notices|2020-02|Definition of Personal Information - Ministerial Staff|https://www.canada.ca/en/treasury-board-secretariat/services/access-information-privacy/access-information-privacy-notices/privacy-implementation-notice-2020-02.html|
-|2026-03-23|Privacy implementation notices|2020-01|Collecting and disclosing employees’ personal information related to the novel Coronavirus (COVID-19) pandemic|https://www.canada.ca/en/treasury-board-secretariat/services/access-information-privacy/access-information-privacy-notices/privacy-implementation-notice-2020-01.html|
 
 </details>
 

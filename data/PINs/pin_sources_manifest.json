@@ -1,11 +1,7 @@
 {
   "schema_version": 2,
-  "generated_at_utc": "2026-09-03T15:21:57Z",
-  "pending_removals": {
-    "access_information_privacy_notices": {
-      "https://www.canada.ca/en/treasury-board-secretariat/services/access-information-privacy/access-information-privacy-notices/privacy-implementation-notice-2020-01.html": 1
-    }
-  },
+  "generated_at_utc": "2026-09-03T19:01:36Z",
+  "pending_removals": {},
   "sources": [
     {
       "key": "service_digital_announcements",
@@ -816,7 +812,7 @@
       "url": "https://www.canada.ca/en/treasury-board-secretariat/services/access-information-privacy/access-information-privacy-notices.html",
       "folder": "ATIPN",
       "source_modified": "2026-09-03",
-      "notice_count": 26,
+      "notice_count": 25,
       "notices": [
         {
           "title": "Disclosing personal information of deceased individuals on compassionate grounds",
@@ -1117,18 +1113,6 @@
           "fetch_error": "",
           "filename": "Definition_of_Personal_Information_-_Ministerial_Staff.md",
           "path": "data/PINs/ATIPN/Definition_of_Personal_Information_-_Ministerial_Staff.md"
-        },
-        {
-          "title": "Collecting and disclosing employees’ personal information related to the novel Coronavirus (COVID-19) pandemic",
-          "url": "https://www.canada.ca/en/treasury-board-secretariat/services/access-information-privacy/access-information-privacy-notices/privacy-implementation-notice-2020-01.html",
-          "listing_date": "",
-          "table_date": "2026-03-23",
-          "notice_code": "2020-01",
-          "group": "Privacy implementation notices",
-          "detail_modified": "2026-03-23",
-          "fetch_error": "",
-          "filename": "Collecting_and_disclosing_employees_personal_information_related_to_the_novel_Coronavirus_COVID-19_pandemic.md",
-          "path": "data/PINs/ATIPN/Collecting_and_disclosing_employees_personal_information_related_to_the_novel_Coronavirus_COVID-19_pandemic.md"
         }
       ]
     },
