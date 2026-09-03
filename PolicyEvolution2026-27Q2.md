@@ -280,3 +280,58 @@ Subsection 4.3.4.12 still refers to “Appendix A: Contracting Approvals, sectio
 `authority-change`, `scope-change`, `possible-regression`
 
 ---
+
+## 2026-09-03 — Management of Projects and Programmes, Directive on the
+
+**Issue:** [#269](https://github.com/PatLittle/TBS-Policy-Hawk/issues/269)
+
+**Document ID:** 32594
+
+**Category:** Directive
+
+**GUID:** `32594_2026-09-03`
+
+**Change type:** policy_update
+
+### Policy change analysis
+
+Ran the issue enrichment workflow for issue #269 before analysis:
+
+- Workflow run: `issue_enrich.yml` run `33772913951`
+- New/current capture: `data/Directive/32594_2026-09-03/20260903T153038Z.md`
+- Prior version used for comparison: `data/Directive/32594_2025-11-25/20260114T130227Z.md`
+- Excluded capture: `data/Directive/Management of Projects and Programmes Directive on the_2026-09-03.xml` because it contains a request-rejected page rather than policy content.
+
+#### Summary
+
+This is a substantive expansion of cost-estimation evidence for project and programme approvals. Cost estimate ranges are now required alongside point estimates at multiple approval stages, detailed cost-range summaries must support expenditure-authority requests, and project/programme briefs must disclose range, funding-gap risk and estimate-credibility information. Approval thresholds and the underlying approval sequence are unchanged.
+
+#### Substantive changes identified
+
+| Section | Prior version | New/current version | Interpretation |
+|---|---|---|---|
+| **D.2 and D.2.1 — Project approval and expenditure authority** | Required an indicative or ROM estimate for project approval and a substantive or indicative estimate for expenditure authority, depending on PCRA level. Project-definition expenditure authority did not expressly require a total-project range for reference. | Each estimate must now include a cost estimate range or TBS-approved equivalent. At project definition, departments must also provide TBS with a total project cost estimate and range for reference. | Departments must present uncertainty as a range, not only a point estimate, at each Treasury Board project-approval stage and must surface the whole-project range during definition. |
+| **D.2.4 and Appendix E — Project submission evidence** | The Project Brief included project cost and associated life-cycle costs; PCRA results appeared as a separate E.2.15 item. No detailed cost-range summaries or annex were specified. | Expenditure-authority requests and amendments must include both a **Detailed Project Cost Estimate Range Summary** and **Detailed Expenditure Authority Cost Estimate Range Summary**. The Project Brief must state cost and range, integrate PCRA results with risk information, assess material discrepancies between funding and costs when appropriate, and annex the Detailed Project Cost Estimate Range. | The amendment creates new, named supporting-document requirements and makes cost uncertainty and potential funding gaps explicit decision evidence. Moving PCRA results into E.2.8 consolidates risk evidence rather than removing it. |
+| **F.3 — Programme approval, definition and tranches** | Programme approval used a ROM estimate; definition and tranche expenditure authority used an indicative estimate. Supporting-document lists did not name a detailed expenditure-authority range. | Each point estimate must include a cost estimate range or TBS-approved equivalent, and both definition-phase and tranche submissions must provide the **Detailed Expenditure Authority Cost Estimate Range** to TBS. | Programme sponsors must substantiate both programme approval and phased expenditure requests with ranges and a dedicated detailed range document. |
+| **Appendices G and H — Programme briefs** | Programme briefs described estimated cost and, for tranche projects, the cost and quality of the estimate. They did not expressly require a range, funding-gap risk assessment or annexed detailed programme range. | Definition and implementation briefs must include cost estimate ranges, assess discrepancies between available funding and costs when appropriate, and annex the **Detailed Programme Cost Estimate Range**. H.3.6.3 now requires each tranche project's cost and range plus the estimate's credibility-classification assessment. | Range and estimate-quality evidence is carried from the whole programme down to projects within a tranche, supporting more explicit affordability and uncertainty review. |
+
+#### Practical effect
+
+1. **Ranges become standard approval evidence:** Departments can no longer rely on point estimates alone for the affected project and programme approvals and expenditure authorities.
+2. **New supporting documents:** Project expenditure requests require separate detailed project and expenditure-authority range summaries; programme submissions require detailed expenditure-authority ranges and programme briefs require an annexed detailed programme range.
+3. **Earlier affordability visibility:** Total-project ranges must be supplied during project definition, while briefs must identify material discrepancies between available funding and estimated costs when appropriate.
+4. **No threshold change:** PCRA levels, ministerial approval limits and the sequence of Treasury Board approvals remain unchanged.
+
+#### Non-substantive changes
+
+The remaining differences are primarily punctuation normalization (many semicolons changed to periods), acronym expansion and list rendering. The current legacy XML artifact is a request-rejected page and was not treated as policy evidence.
+
+#### Watch item
+
+The directive permits a cost estimate range “or equivalent as approved by TBS” and introduces several specifically named range documents. Departments should confirm the current TBS templates and expected credibility methodology before preparing a submission.
+
+#### Classification
+
+`approval-change`, `reporting-change`
+
+---
