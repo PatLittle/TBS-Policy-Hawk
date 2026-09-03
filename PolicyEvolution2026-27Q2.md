@@ -139,49 +139,6 @@ Departments should not need to change transfer-payment program design, terms and
 
 ---
 
-## 2026-07-24 — Planning and Management of Investments, Policy on the
-
-**Issue:** [#266](https://github.com/PatLittle/TBS-Policy-Hawk/issues/266)
-**Document ID:** 32593
-**Category:** Policy
-**GUID:** `32593_2026-07-24`
-**Change type:** policy_update
-
-### Policy change analysis
-
-Compared the current captured version for `32593_2026-07-24` with the closest prior repository copy:
-
-- New/current capture: `data/Policy/32593_2026-07-24/20260725T014727Z.md`
-- Prior version used for comparison: `data/Policy/32593_2026-06-01/20260603T202106Z.md`
-
-#### Summary
-
-This is a targeted housing-policy amendment to the parent investment policy. It creates a net-book-value exception to the usual market-value justification requirement for specified housing-suitable real property disposals, separates real-property and materiel due-diligence references, and updates the reporting-appendix reference to match the concurrently restructured real-property directive.
-
-#### Substantive changes identified
-
-| Section | Prior version | New/current version | Interpretation |
-|---|---|---|---|
-| **4.1.21 — Due diligence** | Required due diligence in the acquisition, disposal or divestment of real property and materiel, without naming the applicable procedures. | Requires real-property due diligence under Appendix D of the *Directive on the Management of Real Property* and points materiel acquisition/divestment to the *Directive on the Management of Materiel*. | The obligation is now routed to source-specific procedures. This is primarily a clarification and reference update, not removal of due diligence. |
-| **4.1.22 — Market-value justification** | Required departments to justify consideration received or given against market value under Appendix B of the real-property directive. | Adds an exception for disposals of housing-suitable real property to Build Canada Homes, not-for-profits or Indigenous groups at a value not lower than net book value. | Specified housing disposals no longer need the usual market-value justification when the transaction meets the recipient and net-book-value conditions. |
-| **4.1.25 — Proceeds-of-sale reporting** | Referred to Appendix C: Mandatory Procedures for Reporting. | Refers to Appendix G: Mandatory Procedures for Reporting. | This is a consequential cross-reference update following appendix renumbering in the amended real-property directive; the proceeds-of-sale condition remains. |
-
-#### Practical effect
-
-1. **Housing-disposal flexibility:** Departments can dispose of housing-suitable property to Build Canada Homes, not-for-profits or Indigenous groups without the usual market-value justification, provided the value is not below net book value.
-2. **Procedure-specific due diligence:** Real-property and materiel transactions now point to their respective supporting instruments for due-diligence requirements.
-3. **No change to proceeds-of-sale eligibility:** The reporting precondition remains, but its appendix reference moves from C to G.
-
-#### Non-substantive changes
-
-The remaining differences are link formatting and typography associated with the new capture. The Appendix C-to-G change is structural renumbering rather than a new reporting obligation.
-
-#### Classification
-
-`scope-change`, `approval-change`, `reference-update`
-
----
-
 ## 2026-07-24 — Management of Real Property, Directive on the
 
 **Issue:** [#267](https://github.com/PatLittle/TBS-Policy-Hawk/issues/267)
@@ -228,6 +185,49 @@ Implementation will depend on the process and timing used by Build Canada Homes 
 #### Classification
 
 `scope-change`, `approval-change`, `threshold-change`, `administrative-cleanup`
+
+---
+
+## 2026-07-24 — Planning and Management of Investments, Policy on the
+
+**Issue:** [#266](https://github.com/PatLittle/TBS-Policy-Hawk/issues/266)
+**Document ID:** 32593
+**Category:** Policy
+**GUID:** `32593_2026-07-24`
+**Change type:** policy_update
+
+### Policy change analysis
+
+Compared the current captured version for `32593_2026-07-24` with the closest prior repository copy:
+
+- New/current capture: `data/Policy/32593_2026-07-24/20260725T014727Z.md`
+- Prior version used for comparison: `data/Policy/32593_2026-06-01/20260603T202106Z.md`
+
+#### Summary
+
+This is a targeted housing-policy amendment to the parent investment policy. It creates a net-book-value exception to the usual market-value justification requirement for specified housing-suitable real property disposals, separates real-property and materiel due-diligence references, and updates the reporting-appendix reference to match the concurrently restructured real-property directive.
+
+#### Substantive changes identified
+
+| Section | Prior version | New/current version | Interpretation |
+|---|---|---|---|
+| **4.1.21 — Due diligence** | Required due diligence in the acquisition, disposal or divestment of real property and materiel, without naming the applicable procedures. | Requires real-property due diligence under Appendix D of the *Directive on the Management of Real Property* and points materiel acquisition/divestment to the *Directive on the Management of Materiel*. | The obligation is now routed to source-specific procedures. This is primarily a clarification and reference update, not removal of due diligence. |
+| **4.1.22 — Market-value justification** | Required departments to justify consideration received or given against market value under Appendix B of the real-property directive. | Adds an exception for disposals of housing-suitable real property to Build Canada Homes, not-for-profits or Indigenous groups at a value not lower than net book value. | Specified housing disposals no longer need the usual market-value justification when the transaction meets the recipient and net-book-value conditions. |
+| **4.1.25 — Proceeds-of-sale reporting** | Referred to Appendix C: Mandatory Procedures for Reporting. | Refers to Appendix G: Mandatory Procedures for Reporting. | This is a consequential cross-reference update following appendix renumbering in the amended real-property directive; the proceeds-of-sale condition remains. |
+
+#### Practical effect
+
+1. **Housing-disposal flexibility:** Departments can dispose of housing-suitable property to Build Canada Homes, not-for-profits or Indigenous groups without the usual market-value justification, provided the value is not below net book value.
+2. **Procedure-specific due diligence:** Real-property and materiel transactions now point to their respective supporting instruments for due-diligence requirements.
+3. **No change to proceeds-of-sale eligibility:** The reporting precondition remains, but its appendix reference moves from C to G.
+
+#### Non-substantive changes
+
+The remaining differences are link formatting and typography associated with the new capture. The Appendix C-to-G change is structural renumbering rather than a new reporting obligation.
+
+#### Classification
+
+`scope-change`, `approval-change`, `reference-update`
 
 ---
 
@@ -281,6 +281,55 @@ Subsection 4.3.4.12 still refers to “Appendix A: Contracting Approvals, sectio
 
 ---
 
+<!-- policy-hawk:issue-270:start -->
+## 2026-09-03 — Collecting and disclosing employees’ personal information related to the novel Coronavirus (COVID-19) pandemic
+
+**Issue:** [#270](https://github.com/PatLittle/TBS-Policy-Hawk/issues/270)
+**Category:** PIN (ATIPN)
+**Notice identifier:** 2020-01
+**GUID:** `pin_atipn_7e0e2784c8e0_removed_91c3efc07e1c_2026-09-03`
+**Change type:** pin_removed
+
+### Policy change analysis
+
+Compared the PIN evidence for `pin_atipn_7e0e2784c8e0_removed_91c3efc07e1c_2026-09-03`:
+
+- New/current evidence: `data/PINs/changes/pin_atipn_7e0e2784c8e0_removed_91c3efc07e1c_2026-09-03/current.md`
+- Prior evidence used for comparison: `data/PINs/changes/pin_atipn_7e0e2784c8e0_removed_91c3efc07e1c_2026-09-03/previous.md`
+
+#### Summary
+
+Privacy Implementation Notice 2020-01 appears to have been withdrawn from active TBS guidance. It is absent from the Access to Information and Privacy Notices listing after two consecutive successful checks, its stable repository copy has been removed, and a live check on September 3, 2026 found that the direct Canada.ca URL returns 404. No express rescission notice, archive location or replacement guidance was identified, so the evidence supports removal but does not establish formal rescission of the notice or repeal of its underlying legal authorities.
+
+#### Substantive changes identified
+
+| Area | Evidence before / previous state | Evidence now | Interpretation |
+|---|---|---|---|
+| **PIN status and availability** | The ATIPN source listed Privacy Implementation Notice 2020-01, effective March 13, 2020, and the repository retained its full text. | The notice is absent from the tracked source after two successful checks; the stable copy is absent from the current tree; and the direct Canada.ca URL returns 404. | The notice appears withdrawn from the active TBS notice collection. Because no rescission or supersession statement was found, the evidence should not be read as proof of formal rescission. |
+| **COVID-19 employee privacy guidance** | The notice gave privacy officials nine questions and answers on collecting employee COVID-19 exposure, testing, infection and symptom information; consent and disclosures; section 8(2) disclosures; public-interest decisions; aggregation; confidentiality; and consultation with ATIP and legal advisers. | No current or replacement notice is identified in the removal evidence. | Institutions should no longer rely on this notice as current TBS operational guidance for COVID-19 employee information practices and should confirm the applicable contemporary advice. |
+| **Underlying authorities and safeguards** | The notice was issued under paragraph 71(1)(d) of the *Privacy Act* and discussed authorities or duties under the *Canada Labour Code*, the *Financial Administration Act* and the *Policy on Privacy Protection*. It emphasized necessity, minimum collection, case-by-case disclosure, delegated approval and confidentiality. | The source change removes the notice from publication; it does not amend those statutes, the policy, or institutional legal obligations. | The publication removal does not itself remove collection or disclosure authority, privacy safeguards, occupational-health duties, or the need for case-specific legal and ATIP advice. |
+
+#### Practical effect
+
+1. **Retire the notice as current guidance:** Institutions should not cite Privacy Implementation Notice 2020-01 as an active TBS implementation notice.
+2. **Revalidate COVID-19 practices:** Any continuing collection, use or disclosure of employee COVID-19 information should be reassessed against current law, policy, public-health context and institution-specific authority with ATIP and legal advisers.
+3. **Preserve the historical record:** The prior repository evidence remains useful for documenting the direction that applied during the pandemic, but it should be clearly identified as withdrawn historical guidance.
+
+#### Non-substantive changes
+
+The normalized diff shows deletion of the full notice because the source item was removed; it is not evidence that each underlying legal rule was individually repealed. No mere formatting or metadata-only change was treated as substantive.
+
+#### Watch item
+
+No express rescission date, superseding notice or archive link was found. In addition, the current 2025-01 notice *Disclosing personal information of deceased individuals on compassionate grounds* still links to the now-404 Privacy Implementation Notice 2020-01 URL, indicating a stale cross-reference that TBS may need to remove or replace.
+
+#### Classification
+
+`pin-update`, `scope-change`, `reference-update`
+
+<!-- policy-hawk:issue-270:end -->
+
+---
 ## 2026-09-03 — Management of Projects and Programmes, Directive on the
 
 **Issue:** [#269](https://github.com/PatLittle/TBS-Policy-Hawk/issues/269)
