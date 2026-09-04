@@ -384,3 +384,54 @@ The directive permits a cost estimate range “or equivalent as approved by TBS�
 `approval-change`, `reporting-change`
 
 ---
+
+<!-- policy-hawk:issue-271:start -->
+## 2026-09-04 — Management of Procurement, Directive on the
+
+**Issue:** [#271](https://github.com/PatLittle/TBS-Policy-Hawk/issues/271)  
+**Document ID:** 32692  
+**Category:** Directive  
+**GUID:** `32692_2026-09-04`  
+**Change type:** policy_update
+
+### Policy change analysis
+
+Compared the current Markdown capture attached to issue #271 for `32692_2026-09-04` with the closest prior repository copy:
+
+- New/current capture: issue #271 comments marked `policy-hawk:current-markdown` (Parts 1–3; the new capture was not yet available as a repository file)
+- Prior version used for comparison: `data/Directive/32692_2026-07-27/20260731T012803Z.md`
+
+#### Summary
+
+This is a targeted but substantive amendment. It explicitly adds the President of the Treasury Board to two approval-related provisions, materially increases Fisheries and Oceans Canada’s exceptional Small Craft Harbour contracting limits, and broadens a liability-table delegation note from goods to goods, services and construction services. The remaining change updates Indigenous procurement contacts.
+
+#### Substantive changes identified
+
+| Section | Prior version | New/current version | Interpretation |
+|---|---|---|---|
+| **4.2.9** | Business owners consulted TBS to determine requirements for seeking Cabinet or Treasury Board approval for government-wide procurement measures. | Adds the **President of the Treasury Board** as an expressly identified approval route. | Clarifies/expands the approval authorities that may need to be considered when procurement is used for government-wide socio-economic or environmental objectives. |
+| **6.6.2.2** | Agents of Parliament were exempt from requirements to obtain approval from a Minister, Treasury Board or TBS. | The exemption now also expressly covers approval by the **President of the Treasury Board**. | Keeps the Agents of Parliament exemption aligned with the expanded approval wording in 4.2.9; it does not impose a new approval requirement on Agents of Parliament. |
+| **Appendix A — Fisheries and Oceans Canada exceptional limits, Small Craft Harbour program** | Competitive construction contracts: **$2.5 million**. Competitive architectural and engineering services: **$400,000**. | Competitive construction contracts: **$25 million**. Competitive architectural and engineering services: **$750,000**. | Raises DFO’s program-specific competitive authority tenfold for construction and by 87.5% for architectural/engineering services, reducing the number of procurements at or below these amounts that require higher approval. |
+| **Appendix B, Table B.1 note 1** | Limits were subject to applicable **goods** delegations, including emergency provisions, from PSPC and SSC. | Limits are subject to applicable **goods, services and construction services** delegations. | Clarifies that the table’s liability authorities remain bounded by all relevant common-service-provider delegations, not goods delegations alone. |
+
+#### Practical effect
+
+1. **Higher DFO contracting authority:** For the Small Craft Harbour program, DFO may competitively contract for construction up to $25 million and architectural/engineering services up to $750,000 under the stated exceptional limits.
+2. **Approval terminology alignment:** The directive now explicitly recognizes the President of the Treasury Board in the relevant approval pathway and in the Agents of Parliament exemption.
+3. **Broader delegation constraint:** Users of Appendix B must check applicable services and construction-services delegations as well as goods delegations.
+
+#### Non-substantive changes
+
+Appendix E’s enquiries text replaces one Indigenous Services Canada mailbox with separate contacts for the Indigenous Business Directory and the Procurement Strategy for Indigenous Business. No operational requirement in Appendix E changed.
+
+#### Watch item
+
+The DFO increases are program-specific exceptional limits; they do not change the general basic contracting schedules or other departments’ limits.
+
+#### Classification
+
+`authority-change`, `approval-change`, `threshold-change`, `administrative-cleanup`
+
+<!-- policy-hawk:issue-271:end -->
+
+---
