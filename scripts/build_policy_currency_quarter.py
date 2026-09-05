@@ -1,24 +1,16 @@
 #!/usr/bin/env python3
 """Build deterministic quarter currency-profile input from repository history.
 
-The currency profile uses a consistent policy-instrument universe so historical
-quarters remain directly comparable with the current-quarter profile. The active
-instrument IDs and topic paths therefore come from the current canonical hierarchy,
-while each instrument's version is rolled back to the latest ``data/items.csv`` row
+The currency profile uses a consistent canonical policy-instrument universe so
+historical quarters remain directly comparable with the current-quarter profile.
+Each instrument's version is rolled back to the latest ``data/items.csv`` row
 whose publication/effective date is on or before the requested snapshot date.
 
-This avoids treating improvements in historical hierarchy scraping as real policy
-additions or deletions. Actual policy-suite additions/removals should still be
-reflected when their instrument IDs enter or leave the canonical hierarchy and the
-quarter data is regenerated.
-
-Example:
-
-    python scripts/build_policy_currency_quarter.py \
-      --quarter 2026-27Q1 \
-      --start 2026-04-01 \
-      --end 2026-06-30 \
-      --output data/policy_currency/2026-27Q1.json
+Some long-standing instruments are not attached to one of the ten requested
+reporting roots in the current hierarchy export. ``LEGACY_TOPIC_OVERRIDES`` keeps
+those established Policy Hawk classifications explicit and reviewable. Cross-cutting
+Foundation Framework document 13616 and transient Build Canada Exchange document
+32831 are intentionally excluded from the canonical population.
 """
 
 from __future__ import annotations
@@ -60,9 +52,9 @@ BINS = [
 EVENTS = [
     {"date": "2025-03-04", "label": "PM Carney in Office", "color": "#E22900"},
     {"date": "2025-01-25", "label": "Trump II Presidency", "color": "#E39B00"},
-    {"date": "2023-01-01", "label": "ChatGPT hits 100M users", "color": "#1267D8"},
+    {"date": "2023-01-01", "display_date": "2023-01", "label": "ChatGPT hits 100M users", "color": "#1267D8"},
     {"date": "2020-03-15", "label": "GC offices close for COVID", "color": "#168A50"},
-    {"date": "2018-02-01", "label": "1st GC Cloud Framework Contracts Award", "color": "#A06B00"},
+    {"date": "2018-02-01", "display_date": "2018-02", "label": "1st GC Cloud Framework Contracts Award", "color": "#A06B00"},
     {"date": "2015-11-04", "label": "PM Trudeau in Office", "color": "#7A56C2"},
 ]
 
@@ -100,6 +92,62 @@ TOPIC_ROOTS = [
     ),
 ]
 
+# Explicitly classified legacy/supporting instruments that are part of the ten
+# reporting suites but do not inherit a requested top-level root in the current
+# hierarchy CSV. These classifications preserve the established 185-instrument
+# currency-profile population.
+LEGACY_TOPIC_OVERRIDES = {
+    # People management
+    "12563": "People management",
+    "12583": "People management",
+    "12595": "People management",
+    "12601": "People management",
+    "12602": "People management",
+    "12610": "People management",
+    "14219": "People management",
+    "15772": "People management",
+    "15774": "People management",
+    "21104": "People management",
+    "22379": "People management",
+    "32625": "People management",
+    # Government security
+    "20008": "Government security",
+    "32613": "Government security",
+    # Results / Evaluation / Audit
+    "30656": "Results / Evaluation / Audit",
+    "32574": "Results / Evaluation / Audit",
+    # Official languages
+    "32788": "Official languages",
+    # Financial management
+    "24970": "Financial management",
+    "26332": "Financial management",
+    "26952": "Financial management",
+    "26953": "Financial management",
+    "26954": "Financial management",
+    "32663": "Financial management",
+    "32781": "Financial management",
+    "32782": "Financial management",
+    "32783": "Financial management",
+    "32798": "Financial management",
+    "32799": "Financial management",
+    # Service and digital
+    "25748": "Service and digital",
+    "25761": "Service and digital",
+    "26295": "Service and digital",
+    "27907": "Service and digital",
+    "32707": "Service and digital",
+    "32708": "Service and digital",
+    "32787": "Service and digital",
+    # Investment management
+    "13697": "Investment Management",
+    "27807": "Investment Management",
+}
+
+EXCLUDED_DOCUMENT_IDS = {
+    "13616",  # Foundation Framework for Treasury Board Policies: cross-cutting
+    "32831",  # transient Build Canada Exchange page; canonical instrument is 12553
+}
+
 
 def run_git(*args: str) -> str:
     return subprocess.check_output(["git", *args], text=True).strip()
@@ -128,7 +176,7 @@ def latest_item_versions(items_csv: str, snapshot: date) -> Dict[str, dict]:
     latest: Dict[str, dict] = {}
     for row in csv.DictReader(io.StringIO(items_csv)):
         doc_id = document_id_from_guid(row.get("guid", ""))
-        if not doc_id:
+        if not doc_id or doc_id in EXCLUDED_DOCUMENT_IDS:
             continue
         try:
             version_date = parse_pub_date(row.get("pubDate", ""))
@@ -158,11 +206,11 @@ def classify_topic(row: Mapping[str, str]) -> Optional[str]:
     return None
 
 
-def active_topics(hierarchy_csv: str) -> Dict[str, str]:
-    result: Dict[str, str] = {}
+def canonical_topics(hierarchy_csv: str) -> Dict[str, str]:
+    result: Dict[str, str] = dict(LEGACY_TOPIC_OVERRIDES)
     for row in csv.DictReader(io.StringIO(hierarchy_csv)):
         doc_id = (row.get("ID") or "").strip()
-        if not doc_id.isdigit():
+        if not doc_id.isdigit() or doc_id in EXCLUDED_DOCUMENT_IDS:
             continue
         topic = classify_topic(row)
         if topic:
@@ -183,11 +231,7 @@ def bin_index(age: float) -> int:
     raise ValueError(age)
 
 
-def build_snapshot(
-    snapshot_date: date,
-    topic_by_id: Mapping[str, str],
-    items_csv: str,
-) -> tuple[Dict[str, dict], Dict[str, dict]]:
+def build_snapshot(snapshot_date: date, topic_by_id: Mapping[str, str], items_csv: str):
     version_by_id = latest_item_versions(items_csv, snapshot_date)
     instruments: Dict[str, dict] = {}
     grouped = defaultdict(list)
@@ -195,8 +239,6 @@ def build_snapshot(
     for doc_id, topic in topic_by_id.items():
         version = version_by_id.get(doc_id)
         if version is None:
-            # A current supporting hierarchy page without a policy-instrument history
-            # record is outside the currency-profile population.
             continue
         instrument = {
             "id": doc_id,
@@ -224,7 +266,7 @@ def build_snapshot(
     return instruments, stats
 
 
-def change_counts(baseline: Mapping[str, dict], current: Mapping[str, dict]) -> Dict[str, dict]:
+def change_counts(baseline: Mapping[str, dict], current: Mapping[str, dict]):
     changes = {topic: {"added": 0, "modified": 0, "deleted": 0} for topic in TOPIC_ORDER}
     for doc_id in sorted(set(baseline) | set(current), key=int):
         before = baseline.get(doc_id)
@@ -258,7 +300,7 @@ def main() -> None:
     end_ref = commit_at_or_before(args.end)
     items_csv = Path("data/items.csv").read_text(encoding="utf-8-sig")
     hierarchy_csv = Path("data/tbs_policy_hierarchy_full.csv").read_text(encoding="utf-8-sig")
-    topic_by_id = active_topics(hierarchy_csv)
+    topic_by_id = canonical_topics(hierarchy_csv)
 
     baseline_instruments, baseline_stats = build_snapshot(args.start, topic_by_id, items_csv)
     current_instruments, current_stats = build_snapshot(args.end, topic_by_id, items_csv)
@@ -283,7 +325,7 @@ def main() -> None:
         "current_date": args.end.isoformat(),
         "baseline_commit": start_ref,
         "current_commit": end_ref,
-        "population_basis": "current canonical hierarchy; historical version dates rolled back from data/items.csv",
+        "population_basis": "canonical 10-topic instrument universe; version state rolled back from data/items.csv",
         "max_age_years": 15,
         "width": 1500,
         "topic_order": TOPIC_ORDER,
