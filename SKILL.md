@@ -503,7 +503,8 @@ When the quarterly `PolicyEvolution` Markdown file is first created:
 3. Create `data/policy_currency/{YYYY-YYQ#}.json` with the baseline and current snapshot initially set to that start-of-quarter state, and zero quarter-to-date added / modified / deleted counts.
 4. Generate the SVG using the repository logo at `assets/tbs-policy-hawk-logo-100px-transparent.png`.
 5. Use `--report` so the renderer inserts a dedicated `## Policy suite currency profile` section after the quarterly heatmap and before the first dated instrument entry.
-6. Commit the JSON, SVG and quarterly Markdown file together.
+6. Create a `### Currency profile synopsis` directly **under the currency-profile visual** and before the chart-reading notes. The synopsis is part of the quarter-level overview, not a dated policy-instrument entry.
+7. Commit the JSON, SVG and quarterly Markdown file together.
 
 Example:
 
@@ -530,6 +531,7 @@ Whenever later policy analysis is added to the same quarterly report:
 5. Do not treat PIN notices, glossary terms or non-policy supporting web pages as policy instruments in the currency-profile population. Their detailed changes remain in the dated report sections.
 6. Update the current counts, average current-version ages and age-bin distributions in the quarter JSON.
 7. Regenerate the same stable SVG filename and update the existing marked currency-profile section in the quarterly Markdown file.
+8. **Rewrite the currency-profile synopsis as a whole** using the latest quarter-to-date data. Do not append a new paragraph after every update and leave stale statements in place. The synopsis should always describe the current state of the quarter.
 
 Useful source data includes `data/items.csv`, `data/tbs_policy_feed_union_by_guid.csv`, `data/tbs_policy_feed_scd2.csv`, `data/tbs_policy_hierarchy_full.csv`, preserved hierarchy snapshots, and the quarter's issue/change evidence. Prefer document ID as the instrument identity key.
 
@@ -547,6 +549,63 @@ Use these top-level reporting topics consistently:
 - Transfer payments
 
 The chart's age distribution bins are `<12 months`, `1–3 years`, `3–5 years`, `5–10 years`, and `10+ years`.
+
+#### Currency profile synopsis
+
+Every quarterly currency-profile section must include a short narrative synopsis immediately below the SVG. Write for both a general reader who wants to know **where the policy suite is concentrated and where change is happening**, and an expert policy analyst who wants to understand **relative age, renewal, and concentration of change across policy topics**.
+
+Use the quarter JSON as the numerical source. Calculate percentages from the topic counts rather than estimating them from the chart. Normally use one decimal place for percentages and one decimal place for average age. The synopsis should usually be **three compact paragraphs** under a `### Currency profile synopsis` heading:
+
+1. **Suite composition.** Describe the distribution of current policy instruments across topics. State the total number of current instruments and identify the largest topic areas by both count and **share of the total suite**. Mention combined shares when they convey concentration clearly, for example that the two or three largest topic areas account for a majority of instruments. Do not imply that a larger topic is more important; this is a description of the instrument population.
+2. **Age and renewal profile.** Compare the average current-version age and the age-bin distribution across topics. Highlight the clearest contrasts between relatively newer and older suites, especially where a topic has a large share of instruments in the `5–10 years` or `10+ years` bins or where another topic is concentrated in the `<12 months` or `1–3 years` bins. A useful contrast is generally an average-age gap of about **3 years or more**, or a difference of about **20 percentage points or more** in the share of instruments at least five years old. Describe these as differences in **current-version age** or **recency of revision**, not as proof that a policy is obsolete, stale, ineffective, or overdue for amendment.
+3. **Quarter-to-date change pattern.** Once the quarter has changes, describe which policy topics are receiving the changes and how concentrated those changes are. For each topic, use `added + modified + deleted` as the quarter-to-date change count shown by the profile, while also naming the change types when that distinction matters. State the topic's **share of all quarter-to-date changes** when it is meaningful. Compare that share with the topic's share of the policy-suite population to identify areas receiving disproportionately high or low change activity. Explicitly mention a large topic with no changes when that contrast is analytically useful. For example: a topic representing 10% of the suite but 40% of quarter-to-date changes is experiencing a much greater share of change than its instrument population would suggest.
+
+Use judgment rather than mechanically mentioning all ten topics. Focus on patterns that materially help interpretation. Especially useful observations include:
+
+- the largest and smallest policy-topic populations and how concentrated the overall suite is;
+- the oldest and youngest topic areas by average **current-version** age;
+- topics with unusually large `10+ years` populations or unusually high shares less than three years old;
+- whether a topic's average age is falling because several instruments have been revised, or rising mainly because the quarter is passing without revisions;
+- movement between age bins that shows a meaningful renewal pattern;
+- concentration of quarter-to-date added / modified / deleted instruments in one or two policy topics;
+- topics whose share of changes is substantially higher than their share of the suite;
+- large topic areas receiving no changes while much smaller areas receive repeated change;
+- whether change is broad across the suite or narrowly concentrated;
+- at quarter end, which topic or topics accounted for the plurality or majority of distinct changed instruments.
+
+For **the first snapshot of a quarter**, when no changes have occurred yet, omit the change-concentration paragraph or state briefly that the quarter begins with no recorded changes; concentrate the synopsis on suite composition and age structure.
+
+For **subsequent updates**, make the change paragraph cumulative for the quarter to date. Do not describe only the newest issue. If, for example, Investment Management has received 5 of 8 distinct quarter-to-date changes, say that it accounts for **62.5% of recorded changes so far**, and contrast that with its share of current instruments when useful.
+
+For **the final quarter snapshot**, write the change paragraph in retrospective quarter language: identify the topic or topics that received the plurality or majority of updates, the topics with little or no activity, and whether the pattern of change was concentrated or broadly distributed. This paragraph should serve as a concise quarter-level analytical conclusion before the detailed instrument entries.
+
+Keep causal claims disciplined:
+
+- The currency profile shows **distribution, age and observed change**, not why an instrument changed.
+- Do not attribute policy changes to the contextual event lines in the lollipop chart; those markers are historical context only.
+- Do not equate current-version age with policy quality or policy effectiveness.
+- Distinguish a change in page metadata from a substantive instrument amendment when the detailed issue analysis establishes that distinction; the currency profile may record a modified version date, but the synopsis can note when the underlying quarter evidence shows that some detected updates were administrative or metadata-only.
+- Prefer phrases such as **"received a larger share of recorded changes"**, **"has a more recently revised instrument population"**, **"has a higher proportion of long-unedited current versions"**, or **"recorded no distinct instrument changes this quarter"** over normative language.
+
+Suggested Markdown placement:
+
+```markdown
+## Policy suite currency profile
+
+![Policy suite currency profile](screenshots/tbs_policy_hawk_currency_profile_{quarter_start}_to_{quarter_end}.svg)
+
+### Currency profile synopsis
+
+{Paragraph 1: suite composition and proportions.}
+
+{Paragraph 2: major age / recency contrasts between policy topics.}
+
+{Paragraph 3: cumulative quarter-to-date concentration of changes, or omit at the opening snapshot.}
+
+- **Muted upper rows** show the start-of-quarter baseline ({quarter_start}).
+- **Saturated lower rows** show the current snapshot ({current_snapshot}).
+- ...
+```
 
 The lollipop context-event legend should include:
 
@@ -585,6 +644,9 @@ For each open issue:
 [ ] Determine fiscal year/quarter
 [ ] Add the matching quarter heatmap to PolicyEvolution{YYYY-YYQ#}.md
 [ ] Create or update PolicyEvolution{YYYY-YYQ#}.md
+[ ] Create or refresh the quarter currency-profile JSON and SVG
+[ ] Rewrite the currency profile synopsis from the current quarter data
+[ ] Keep the synopsis immediately below the currency-profile visual
 [ ] Insert or replace issue section
 [ ] Sort sections chronologically
 [ ] Commit changes
