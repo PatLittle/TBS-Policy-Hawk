@@ -7,6 +7,23 @@ This file compiles the policy-change analysis comments for updates detected duri
 
 ![heatmap](https://raw.githubusercontent.com/PatLittle/TBS-Policy-Hawk/refs/heads/main/screenshots/tbs_policy_hawk_heatmap_2026-04-01_to_2026-06-30.png)
 
+
+<!-- policy-hawk:currency-profile:start -->
+## Policy suite currency profile
+
+This quarter-level view tracks the **currency and change profile of the policy suite as a whole**. It is intentionally kept separate from the instrument-by-instrument analyses below.
+
+![Policy suite currency profile](screenshots/tbs_policy_hawk_currency_profile_2026-04-01_to_2026-06-30.svg)
+
+- **Muted upper rows** show the start-of-quarter baseline (2026-04-01).
+- **Saturated lower rows** show the current snapshot (2026-06-30).
+- Quarter-to-date changes are shown as **added** (green), **modified** (yellow), and **deleted** (red) instruments.
+- The lollipop chart compares average current-version age at the baseline and current snapshot.
+- The distribution strips group current-version ages into `<12 months`, `1–3 years`, `3–5 years`, `5–10 years`, and `10+ years`.
+- Vertical reference lines provide historical context only; they do **not** imply causation.
+
+<!-- policy-hawk:currency-profile:end -->
+
 ---
 
 ## 2026-04-27 — Guidelines on Making Communications Products and Activities Accessible

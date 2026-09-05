@@ -1,0 +1,384 @@
+{
+  "title": "Policy suite currency profile",
+  "view_label": "Fiscal Q1 change view",
+  "quarter": "2026-27Q1",
+  "baseline_date": "2026-04-01",
+  "current_date": "2026-06-30",
+  "baseline_commit": "38928a91a4803a2d185a8a53b80d8662f3e6833c",
+  "current_commit": "43bfafdaa27bf3d76a25da6c766fb413f63c1f6f",
+  "max_age_years": 15,
+  "width": 1500,
+  "topic_order": [
+    "People management",
+    "Government security",
+    "Results / Evaluation / Audit",
+    "Official languages",
+    "Financial management",
+    "Service and digital",
+    "Transfer payments",
+    "ATIP",
+    "Investment Management",
+    "Communications & Federal Identity"
+  ],
+  "bins": [
+    {
+      "label": "<12 months",
+      "min_years": 0,
+      "max_years": 1
+    },
+    {
+      "label": "1–3 yr",
+      "min_years": 1,
+      "max_years": 3
+    },
+    {
+      "label": "3–5 yr",
+      "min_years": 3,
+      "max_years": 5
+    },
+    {
+      "label": "5–10 yr",
+      "min_years": 5,
+      "max_years": 10
+    },
+    {
+      "label": "10+ yr",
+      "min_years": 10,
+      "max_years": null
+    }
+  ],
+  "events": [
+    {
+      "date": "2025-03-04",
+      "label": "PM Carney in Office",
+      "color": "#E22900"
+    },
+    {
+      "date": "2025-01-25",
+      "label": "Trump II Presidency",
+      "color": "#E39B00"
+    },
+    {
+      "date": "2023-01-01",
+      "label": "ChatGPT hits 100M users",
+      "color": "#1267D8"
+    },
+    {
+      "date": "2020-03-15",
+      "label": "GC offices close for COVID",
+      "color": "#168A50"
+    },
+    {
+      "date": "2018-02-01",
+      "label": "1st GC Cloud Framework Contracts Award",
+      "color": "#A06B00"
+    },
+    {
+      "date": "2015-11-04",
+      "label": "PM Trudeau in Office",
+      "color": "#7A56C2"
+    }
+  ],
+  "topics": [
+    {
+      "name": "People management",
+      "changes": {
+        "added": 0,
+        "modified": 2,
+        "deleted": 0
+      },
+      "baseline": {
+        "count": 29,
+        "avg_age": 13.956,
+        "bins": [
+          3,
+          4,
+          4,
+          5,
+          13
+        ]
+      },
+      "current": {
+        "count": 29,
+        "avg_age": 13.947,
+        "bins": [
+          4,
+          3,
+          4,
+          5,
+          13
+        ]
+      }
+    },
+    {
+      "name": "Government security",
+      "changes": {
+        "added": 0,
+        "modified": 0,
+        "deleted": 0
+      },
+      "baseline": {
+        "count": 6,
+        "avg_age": 7.482,
+        "bins": [
+          0,
+          1,
+          0,
+          3,
+          2
+        ]
+      },
+      "current": {
+        "count": 6,
+        "avg_age": 7.728,
+        "bins": [
+          0,
+          1,
+          0,
+          3,
+          2
+        ]
+      }
+    },
+    {
+      "name": "Results / Evaluation / Audit",
+      "changes": {
+        "added": 0,
+        "modified": 0,
+        "deleted": 0
+      },
+      "baseline": {
+        "count": 10,
+        "avg_age": 6.582,
+        "bins": [
+          2,
+          4,
+          0,
+          0,
+          4
+        ]
+      },
+      "current": {
+        "count": 10,
+        "avg_age": 6.828,
+        "bins": [
+          2,
+          4,
+          0,
+          0,
+          4
+        ]
+      }
+    },
+    {
+      "name": "Official languages",
+      "changes": {
+        "added": 0,
+        "modified": 0,
+        "deleted": 0
+      },
+      "baseline": {
+        "count": 4,
+        "avg_age": 7.815,
+        "bins": [
+          1,
+          0,
+          1,
+          0,
+          2
+        ]
+      },
+      "current": {
+        "count": 4,
+        "avg_age": 8.062,
+        "bins": [
+          0,
+          1,
+          1,
+          0,
+          2
+        ]
+      }
+    },
+    {
+      "name": "Financial management",
+      "changes": {
+        "added": 0,
+        "modified": 0,
+        "deleted": 0
+      },
+      "baseline": {
+        "count": 48,
+        "avg_age": 4.044,
+        "bins": [
+          0,
+          36,
+          4,
+          4,
+          4
+        ]
+      },
+      "current": {
+        "count": 48,
+        "avg_age": 4.29,
+        "bins": [
+          0,
+          16,
+          21,
+          7,
+          4
+        ]
+      }
+    },
+    {
+      "name": "Service and digital",
+      "changes": {
+        "added": 1,
+        "modified": 0,
+        "deleted": 0
+      },
+      "baseline": {
+        "count": 16,
+        "avg_age": 3.321,
+        "bins": [
+          3,
+          3,
+          9,
+          0,
+          1
+        ]
+      },
+      "current": {
+        "count": 17,
+        "avg_age": 3.385,
+        "bins": [
+          3,
+          4,
+          9,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "name": "Transfer payments",
+      "changes": {
+        "added": 0,
+        "modified": 0,
+        "deleted": 0
+      },
+      "baseline": {
+        "count": 7,
+        "avg_age": 3.443,
+        "bins": [
+          0,
+          6,
+          0,
+          0,
+          1
+        ]
+      },
+      "current": {
+        "count": 7,
+        "avg_age": 3.69,
+        "bins": [
+          0,
+          6,
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "name": "ATIP",
+      "changes": {
+        "added": 0,
+        "modified": 0,
+        "deleted": 0
+      },
+      "baseline": {
+        "count": 7,
+        "avg_age": 2.428,
+        "bins": [
+          0,
+          6,
+          1,
+          0,
+          0
+        ]
+      },
+      "current": {
+        "count": 7,
+        "avg_age": 2.675,
+        "bins": [
+          0,
+          4,
+          3,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "name": "Investment Management",
+      "changes": {
+        "added": 0,
+        "modified": 3,
+        "deleted": 0
+      },
+      "baseline": {
+        "count": 16,
+        "avg_age": 1.802,
+        "bins": [
+          6,
+          7,
+          3,
+          0,
+          0
+        ]
+      },
+      "current": {
+        "count": 16,
+        "avg_age": 1.792,
+        "bins": [
+          6,
+          4,
+          6,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "name": "Communications & Federal Identity",
+      "changes": {
+        "added": 0,
+        "modified": 2,
+        "deleted": 0
+      },
+      "baseline": {
+        "count": 4,
+        "avg_age": 0.793,
+        "bins": [
+          3,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      "current": {
+        "count": 4,
+        "avg_age": 0.384,
+        "bins": [
+          4,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    }
+  ]
+}

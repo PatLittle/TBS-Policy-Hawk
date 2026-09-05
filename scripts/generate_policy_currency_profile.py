@@ -225,6 +225,8 @@ text {{ font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-
     colw = dist_plot_w / len(bins)
     for i, b in enumerate(bins):
         out.append(svg_text(dist_x0 + colw*(i+0.5), axis_y - 9, str(b["label"]), "axis", "middle"))
+    baseline_day = parse_date(cfg["baseline_date"])
+    baseline_label = f"{baseline_day.strftime('%b')} {baseline_day.day}"
     for idx, topic in enumerate(topics):
         group_top = table_y + idx * row_pair_h; base_y = group_top + 21; cur_y = group_top + 48
         name = topic["name"]; label_y = group_top + 35
@@ -236,7 +238,7 @@ text {{ font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-
             out.append(svg_text(x_topic + 12, label_y + 2, name, "topic"))
         out.append(f'<rect x="{row_x}" y="{group_top+2}" width="{topic_w-topic_name_w-4}" height="27" rx="4" fill="{palette["row_baseline"]}"/>')
         out.append(f'<rect x="{row_x}" y="{group_top+31}" width="{topic_w-topic_name_w-4}" height="29" rx="4" fill="{palette["row_current"]}"/>')
-        out.append(svg_text(row_x + 10, base_y, "Jul 1", "base")); out.append(svg_text(current_num_x, base_y, str(topic["baseline"]["count"]), "metric", "end"))
+        out.append(svg_text(row_x + 10, base_y, baseline_label, "base")); out.append(svg_text(current_num_x, base_y, str(topic["baseline"]["count"]), "metric", "end"))
         out.append(svg_text(row_x + 10, cur_y, "Current", "current"))
         out.append(svg_text(changes_start_x + 0, cur_y, str(topic["changes"]["added"]), "change-add"))
         out.append(svg_text(changes_start_x + 47, cur_y, str(topic["changes"]["modified"]), "change-mod"))
