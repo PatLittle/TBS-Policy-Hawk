@@ -1,0 +1,60 @@
+        yy = bin_box_y + 40 + i * 19
+        out.append(f'<rect x="{bin_box_x+15}" y="{yy-10}" width="15" height="15" rx="3" fill="{current_bins[i]}"/>')
+        out.append(svg_text(bin_box_x + 41, yy + 1, str(b["label"]), "legend"))
+    panel_y = header_h; panel_h = H - panel_y - 28
+    for x, w in ((x_topic, topic_w), (x_age, age_w), (x_dist, dist_w)):
+        out.append(f'<rect x="{x}" y="{panel_y}" width="{w}" height="{panel_h}" rx="10" fill="white" stroke="#DCE3EA"/>')
+    out.append(svg_text(x_topic + 12, header_h + 25, "Policy topic", "section"))
+    out.append(svg_text(row_x + 120, header_h + 25, "Changes", "section", "middle"))
+    ly = header_h + 47; cx = row_x + 20
+    for label, color in (("Added", palette["added"]), ("Modified", palette["modified"]), ("Deleted", palette["deleted"])):
+        out.append(f'<circle cx="{cx}" cy="{ly-4}" r="5.5" fill="{color}"/>'); out.append(svg_text(cx + 10, ly, label, "subsection")); cx += 72
+    out.append(svg_text(current_num_x, header_h + 25, "Current", "section", "end")); out.append(svg_text(current_num_x, header_h + 43, "instruments", "subsection", "end"))
+    out.append(svg_text(x_age + 14, header_h + 25, "Average current-version age", "section"))
+    out.append(svg_text(x_dist + 14, header_h + 25, "Age distribution of current versions", "section"))
+    axis_y = table_y - 10
+    out.append(f'<line x1="{age_plot_x0}" y1="{axis_y}" x2="{age_plot_x1}" y2="{axis_y}" stroke="{palette["grid"]}" stroke-width="1"/>')
+    for t in [0, 5, 10, 15]:
+        x = age_x(t); out.append(f'<line x1="{x}" y1="{axis_y-5}" x2="{x}" y2="{table_y+table_h}" stroke="{palette["grid"]}" stroke-width="1"/>'); out.append(svg_text(x, axis_y - 9, f"{t}y", "axis", "middle"))
+    for i, ev in enumerate(events):
+        x = age_x(years_between(cfg["current_date_obj"], parse_date(ev["date"]))); c = ev.get("color") or event_colors[i % len(event_colors)]
+        out.append(f'<line x1="{x}" y1="{axis_y}" x2="{x}" y2="{table_y+table_h}" stroke="{c}" stroke-width="1.3" stroke-dasharray="5 4" opacity="0.85"/>')
+        out.append(f'<circle cx="{x}" cy="{axis_y}" r="9" fill="{c}" stroke="white" stroke-width="1.4"/>')
+        out.append(svg_text(x, axis_y + 3.5, str(i+1), "badge", "middle"))
+    colw = dist_plot_w / len(bins)
+    for i, b in enumerate(bins):
+        out.append(svg_text(dist_x0 + colw*(i+0.5), axis_y - 9, str(b["label"]), "axis", "middle"))
+    for idx, topic in enumerate(topics):
+        group_top = table_y + idx * row_pair_h; base_y = group_top + 21; cur_y = group_top + 48
+        name = topic["name"]; label_y = group_top + 35
+        if len(name) > 30 and " / " in name:
+            a,b = name.split(" / ", 1); out.append(svg_text(x_topic + 12, label_y - 6, a + " /", "topic")); out.append(svg_text(x_topic + 12, label_y + 10, b, "topic"))
+        elif len(name) > 31 and " & " in name:
+            a,b = name.split(" & ", 1); out.append(svg_text(x_topic + 12, label_y - 6, a + " &", "topic")); out.append(svg_text(x_topic + 12, label_y + 10, b, "topic"))
+        else:
+            out.append(svg_text(x_topic + 12, label_y + 2, name, "topic"))
+        out.append(f'<rect x="{row_x}" y="{group_top+2}" width="{topic_w-topic_name_w-4}" height="27" rx="4" fill="{palette["row_baseline"]}"/>')
+        out.append(f'<rect x="{row_x}" y="{group_top+31}" width="{topic_w-topic_name_w-4}" height="29" rx="4" fill="{palette["row_current"]}"/>')
+        out.append(svg_text(row_x + 10, base_y, "Jul 1", "base")); out.append(svg_text(current_num_x, base_y, str(topic["baseline"]["count"]), "metric", "end"))
+        out.append(svg_text(row_x + 10, cur_y, "Current", "current"))
+        out.append(svg_text(changes_start_x + 0, cur_y, str(topic["changes"]["added"]), "change-add"))
+        out.append(svg_text(changes_start_x + 47, cur_y, str(topic["changes"]["modified"]), "change-mod"))
+        out.append(svg_text(changes_start_x + 94, cur_y, str(topic["changes"]["deleted"]), "change-del"))
+        out.append(svg_text(current_num_x, cur_y, str(topic["current"]["count"]), "current", "end"))
+        bx = age_x(topic["baseline"]["avg_age"]); cx2 = age_x(topic["current"]["avg_age"])
+        out.append(f'<line x1="{age_plot_x0}" y1="{base_y-5}" x2="{bx}" y2="{base_y-5}" stroke="{palette["baseline_line"]}" stroke-width="1.8"/>'); out.append(f'<circle cx="{bx}" cy="{base_y-5}" r="5.5" fill="{palette["baseline_line"]}"/>'); out.append(svg_text(min(bx+9, age_plot_x1-2), base_y - 1, fmt_age(topic["baseline"]["avg_age"]), "age-base"))
+        out.append(f'<line x1="{age_plot_x0}" y1="{cur_y-5}" x2="{cx2}" y2="{cur_y-5}" stroke="{palette["current_line"]}" stroke-width="2.1"/>'); out.append(f'<circle cx="{cx2}" cy="{cur_y-5}" r="6" fill="{palette["current_line"]}"/>'); out.append(svg_text(min(cx2+9, age_plot_x1-2), cur_y - 1, fmt_age(topic["current"]["avg_age"]), "age-current"))
+        for snap, yy, colors, opacity in (("baseline", base_y-14, baseline_bins, 0.48), ("current", cur_y-14, current_bins, 1.0)):
+            total = topic[snap]["count"]; x = dist_x0
+            for bi, n in enumerate(topic[snap]["bins"]):
+                w = dist_plot_w * (n / total) if total else 0
+                if w <= 0: continue
+                out.append(f'<rect x="{x:.1f}" y="{yy:.1f}" width="{w:.1f}" height="22" fill="{colors[bi]}" opacity="{opacity}"/>')
+                if w >= 34:
+                    label = f"{n} · {fmt_pct(n, total)}" if w >= 64 else str(n); fill = "#3A3200" if bi == 2 else "#FFFFFF"; out.append(svg_text(x + w/2, yy + 15, label, "bintext", "middle", fill=fill))
+                x += w
+            out.append(f'<rect x="{dist_x0}" y="{yy}" width="{dist_plot_w}" height="22" fill="none" stroke="#E2E6EA"/>')
+        if idx < len(topics)-1:
+            sy = group_top + row_pair_h; out.append(f'<line x1="{x_topic+8}" y1="{sy}" x2="{W-margin-8}" y2="{sy}" stroke="#E6EBF0" stroke-width="1"/>')
+    fy = table_y + table_h + 24
+    out.append(svg_text(30, fy, "Muted upper sub-row = start-of-quarter baseline. Sa
