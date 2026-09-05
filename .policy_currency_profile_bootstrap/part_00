@@ -1,0 +1,119 @@
+#!/usr/bin/env python3
+from __future__ import annotations
+import argparse, base64, html, json, mimetypes
+from datetime import date, datetime
+from pathlib import Path
+from typing import Any, Dict, List, Mapping, Optional, Sequence
+
+DEFAULT_PALETTE = {
+    "background": "#F8F9FB",
+    "card": "#FFFFFF",
+    "ink": "#15264A",
+    "muted_ink": "#6B7280",
+    "grid": "#D9E0E8",
+    "baseline_line": "#98A2B3",
+    "current_line": "#1267D8",
+    "row_baseline": "#F4F5F7",
+    "row_current": "#EAF4FF",
+    "added": "#148A3B",
+    "modified": "#D69E00",
+    "deleted": "#D7263D",
+    "baseline_bins": ["#233C39", "#323E47", "#9A854F", "#A57249", "#8C4A3E"],
+    "current_bins":  ["#076A61", "#1D526E", "#FCB400", "#FF7402", "#E22900"],
+    "event_colors": ["#E22900", "#E39B00", "#1267D8", "#168A50", "#7A56C2", "#A06B00"],
+}
+DEFAULT_BINS = [
+    {"label": "<12 months", "min_years": 0.0, "max_years": 1.0},
+    {"label": "1–3 yr", "min_years": 1.0, "max_years": 3.0},
+    {"label": "3–5 yr", "min_years": 3.0, "max_years": 5.0},
+    {"label": "5–10 yr", "min_years": 5.0, "max_years": 10.0},
+    {"label": "10+ yr", "min_years": 10.0, "max_years": None},
+]
+def parse_date(value: str) -> date:
+    return datetime.strptime(value, "%Y-%m-%d").date()
+def years_between(later: date, earlier: date) -> float:
+    return (later - earlier).days / 365.25
+def clamp(value: float, low: float, high: float) -> float:
+    return max(low, min(high, value))
+def fmt_age(value: float) -> str:
+    return f"{value:.1f} yr"
+def fmt_pct(n: int, total: int) -> str:
+    return "0%" if total <= 0 else f"{round(n / total * 100):d}%"
+def load_logo_data_uri(path: Optional[Path]) -> Optional[str]:
+    if not path:
+        return None
+    raw = path.read_bytes()
+    mime, _ = mimetypes.guess_type(str(path))
+    mime = mime or "image/png"
+    return f"data:{mime};base64,{base64.b64encode(raw).decode('ascii')}"
+def merge_palette(user: Optional[Mapping[str, Any]]) -> Dict[str, Any]:
+    p = dict(DEFAULT_PALETTE)
+    if user:
+        p.update(user)
+    return p
+def assign_bin(age: float, bins: Sequence[Mapping[str, Any]]) -> int:
+    for i, b in enumerate(bins):
+        lo = float(b.get("min_years", 0.0)); hi = b.get("max_years")
+        if age >= lo and (hi is None or age < float(hi)):
+            return i
+    raise ValueError(f"Age {age} did not match any bin")
+def aggregate_snapshot(instruments, snapshot_date: date, bins, topic_order):
+    grouped = {t: [] for t in topic_order}
+    for row in instruments:
+        grouped.setdefault(str(row["topic"]), []).append(row)
+    result = {}
+    for topic in topic_order:
+        items = grouped.get(topic, [])
+        ages = []; bin_counts = [0] * len(bins)
+        for item in items:
+            vdate = parse_date(str(item["version_date"]))
+            if vdate > snapshot_date:
+                raise ValueError(f"{item['id']} has version_date {vdate} after snapshot {snapshot_date}")
+            age = years_between(snapshot_date, vdate)
+            ages.append(age)
+            bin_counts[assign_bin(age, bins)] += 1
+        result[topic] = {"count": len(items), "avg_age": (sum(ages) / len(ages)) if ages else 0.0, "bins": bin_counts}
+    return result
+def infer_changes(baseline, current, topic_order):
+    changes = {t: {"added": 0, "modified": 0, "deleted": 0} for t in topic_order}
+    b = {str(x["id"]): x for x in baseline}; c = {str(x["id"]): x for x in current}
+    for iid in sorted(set(b) | set(c)):
+        br = b.get(iid); cr = c.get(iid)
+        if br is None:
+            changes.setdefault(str(cr["topic"]), {"added": 0, "modified": 0, "deleted": 0})
+            changes[str(cr["topic"])]["added"] += 1; continue
+        if cr is None:
+            changes.setdefault(str(br["topic"]), {"added": 0, "modified": 0, "deleted": 0})
+            changes[str(br["topic"])]["deleted"] += 1; continue
+        btopic = str(br["topic"]); ctopic = str(cr["topic"])
+        if btopic != ctopic:
+            changes.setdefault(btopic, {"added": 0, "modified": 0, "deleted": 0})
+            changes.setdefault(ctopic, {"added": 0, "modified": 0, "deleted": 0})
+            changes[btopic]["deleted"] += 1; changes[ctopic]["added"] += 1
+        elif str(br["version_date"]) != str(cr["version_date"]):
+            changes[btopic]["modified"] += 1
+    return changes
+def normalize_input(cfg):
+    bins = cfg.get("bins") or DEFAULT_BINS
+    baseline_date = parse_date(str(cfg["baseline_date"])); current_date = parse_date(str(cfg["current_date"]))
+    topic_order = list(cfg.get("topic_order") or [x["name"] for x in cfg.get("topics", [])])
+    if "topics" in cfg:
+        topics = []
+        for t in cfg["topics"]:
+            topics.append({
+                "name": str(t["name"]),
+                "changes": {"added": int(t.get("changes", {}).get("added", 0)),
+                            "modified": int(t.get("changes", {}).get("modified", 0)),
+                            "deleted": int(t.get("changes", {}).get("deleted", 0))},
+                "baseline": {"count": int(t["baseline"]["count"]), "avg_age": float(t["baseline"]["avg_age"]), "bins": [int(x) for x in t["baseline"]["bins"]]},
+                "current": {"count": int(t["current"]["count"]), "avg_age": float(t["current"]["avg_age"]), "bins": [int(x) for x in t["current"]["bins"]]},
+            })
+    else:
+        baseline_instruments = cfg["baseline_instruments"]; current_instruments = cfg["current_instruments"]
+        if not topic_order:
+            topic_order = sorted({str(x["topic"]) for x in baseline_instruments} | {str(x["topic"]) for x in current_instruments})
+        bstats = aggregate_snapshot(baseline_instruments, baseline_date, bins, topic_order)
+        cstats = aggregate_snapshot(current_instruments, current_date, bins, topic_order)
+        changes = infer_changes(baseline_instruments, current_instruments, topic_order)
+        topics = [{"name": topic, "changes": changes[topic], "baseline": bstats[topic], "current": cstats[topic]} for topic in topic_order]
+  
