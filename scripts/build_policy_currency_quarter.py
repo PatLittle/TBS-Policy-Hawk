@@ -29,7 +29,7 @@ from collections import defaultdict
 from datetime import date
 from email.utils import parsedate_to_datetime
 from pathlib import Path
-from typing import Dict, Iterable, Mapping, Optional
+from typing import Dict, Mapping, Optional
 
 
 TOPIC_ORDER = [
@@ -104,7 +104,6 @@ def run_git(*args: str) -> str:
 
 
 def commit_at_or_before(snapshot: date) -> str:
-    # End-of-day UTC is intentional: policy feed commits are captured throughout the day.
     ref = run_git("rev-list", "-1", f"--before={snapshot.isoformat()}T23:59:59Z", "HEAD")
     if not ref:
         raise RuntimeError(f"No repository commit exists on or before {snapshot}")
@@ -149,7 +148,6 @@ def latest_item_versions(items_csv: str, snapshot: date) -> Dict[str, dict]:
         if previous is None or version_date > previous["version_date"]:
             latest[doc_id] = candidate
         elif version_date == previous["version_date"]:
-            # Deterministic tie-breaker for repeated captures of the same version.
             if (candidate.get("updated_date") or "") > (previous.get("updated_date") or ""):
                 latest[doc_id] = candidate
     return latest
@@ -204,8 +202,6 @@ def build_snapshot(
     for doc_id, topic in topic_by_id.items():
         version = version_by_id.get(doc_id)
         if version is None:
-            # Supporting hierarchy pages without an items.csv policy-instrument record
-            # are not part of the currency-profile population.
             continue
         instrument = {
             "id": doc_id,
@@ -274,26 +270,26 @@ def main() -> None:
     current_instruments, current_stats = build_snapshot(args.end, end_hierarchy, current_items)
     changes = change_counts(baseline_instruments, current_instruments)
 
-    topics = []
-    for topic in TOPIC_ORDER:
-        topics.append(
-            {
-                "name": topic,
-                "changes": changes[topic],
-                "baseline": baseline_stats[topic],
-                "current": current_stats[topic],
-            }
-        )
+    topics = [
+        {
+            "name": topic,
+            "changes": changes[topic],
+            "baseline": baseline_stats[topic],
+            "current": current_stats[topic],
+        }
+        for topic in TOPIC_ORDER
+    ]
 
+    quarter_short = args.quarter.split("Q")[-1]
     payload = {
         "title": "Policy suite currency profile",
-        "view_label": f"Fiscal {args.quarter[-2:]} change view" if args.quarter[-2:].startswith("Q") else f"Fiscal {args.quarter} change view",
+        "view_label": f"Fiscal Q{quarter_short} change view",
         "quarter": args.quarter,
         "baseline_date": args.start.isoformat(),
         "current_date": args.end.isoformat(),
         "baseline_commit": start_ref,
         "current_commit": end_ref,
-        "max_age_years": 35,
+        "max_age_years": 15,
         "width": 1500,
         "topic_order": TOPIC_ORDER,
         "bins": BINS,
