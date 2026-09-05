@@ -1,0 +1,40 @@
+{
+  "title": "Policy suite currency profile",
+  "view_label": "Fiscal Q2 change view",
+  "baseline_date": "2026-07-01",
+  "current_date": "2026-09-05",
+  "max_age_years": 15,
+  "width": 1500,
+  "topic_order": [
+    "People management",
+    "Government security",
+    "Results / Evaluation / Audit",
+    "Official languages",
+    "Financial management",
+    "Service and digital",
+    "Transfer payments",
+    "ATIP",
+    "Investment Management",
+    "Communications & Federal Identity"
+  ],
+  "events": [
+    {"date": "2025-03-04", "label": "PM Carney in Office", "color": "#E22900"},
+    {"date": "2025-01-25", "label": "Trump II Presidency", "color": "#E39B00"},
+    {"date": "2023-01-01", "display_date": "2023-01", "label": "ChatGPT hits 100M users", "color": "#1267D8"},
+    {"date": "2020-03-15", "label": "GC offices close for COVID", "color": "#168A50"},
+    {"date": "2018-02-01", "display_date": "2018-02", "label": "1st GC Cloud Framework Contracts Award", "color": "#A06B00"},
+    {"date": "2015-11-04", "label": "PM Trudeau in Office", "color": "#7A56C2"}
+  ],
+  "topics": [
+    {"name":"People management","changes":{"added":0,"modified":0,"deleted":0},"baseline":{"count":41,"avg_age":13.8,"bins":[6,5,4,6,20]},"current":{"count":41,"avg_age":14.0,"bins":[5,5,4,7,20]}},
+    {"name":"Government security","changes":{"added":0,"modified":0,"deleted":0},"baseline":{"count":8,"avg_age":8.0,"bins":[0,2,0,3,3]},"current":{"count":8,"avg_age":8.2,"bins":[0,2,0,3,3]}},
+    {"name":"Results / Evaluation / Audit","changes":{"added":0,"modified":0,"deleted":0},"baseline":{"count":12,"avg_age":7.1,"bins":[2,4,0,2,4]},"current":{"count":12,"avg_age":7.3,"bins":[2,4,0,2,4]}},
+    {"name":"Official languages","changes":{"added":0,"modified":0,"deleted":0},"baseline":{"count":5,"avg_age":6.9,"bins":[0,2,1,0,2]},"current":{"count":5,"avg_age":7.1,"bins":[0,2,1,0,2]}},
+    {"name":"Financial management","changes":{"added":0,"modified":0,"deleted":0},"baseline":{"count":59,"avg_age":4.9,"bins":[0,21,21,7,10]},"current":{"count":59,"avg_age":5.1,"bins":[0,20,22,7,10]}},
+    {"name":"Service and digital","changes":{"added":0,"modified":1,"deleted":0},"baseline":{"count":24,"avg_age":5.0,"bins":[3,6,10,0,5]},"current":{"count":24,"avg_age":5.0,"bins":[2,7,10,0,5]}},
+    {"name":"Transfer payments","changes":{"added":0,"modified":1,"deleted":0},"baseline":{"count":7,"avg_age":3.7,"bins":[0,6,0,0,1]},"current":{"count":7,"avg_age":3.7,"bins":[1,5,0,0,1]}},
+    {"name":"ATIP","changes":{"added":0,"modified":0,"deleted":0},"baseline":{"count":7,"avg_age":2.7,"bins":[0,4,3,0,0]},"current":{"count":7,"avg_age":2.9,"bins":[0,3,4,0,0]}},
+    {"name":"Investment Management","changes":{"added":0,"modified":4,"deleted":0},"baseline":{"count":18,"avg_age":2.4,"bins":[6,4,7,0,1]},"current":{"count":18,"avg_age":2.5,"bins":[5,5,7,0,1]}},
+    {"name":"Communications & Federal Identity","changes":{"added":0,"modified":0,"deleted":0},"baseline":{"count":4,"avg_age":0.4,"bins":[4,0,0,0,0]},"current":{"count":4,"avg_age":0.6,"bins":[4,0,0,0,0]}}
+  ]
+}
