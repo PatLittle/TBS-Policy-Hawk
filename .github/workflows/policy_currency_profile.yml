@@ -1,0 +1,180 @@
+name: Policy Currency Profile
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/policy_currency_profile.yml'
+      - '.policy_currency_profile_bootstrap/**'
+      - 'scripts/generate_policy_currency_profile.py'
+      - 'data/policy_currency/**'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: policy-hawk-content-writes
+  cancel-in-progress: false
+
+jobs:
+  currency-profile:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.x'
+
+      - name: Assemble renderer bootstrap if present
+        run: |
+          if [[ -d .policy_currency_profile_bootstrap ]]; then
+            cat .policy_currency_profile_bootstrap/part_* > scripts/generate_policy_currency_profile.py
+            chmod +x scripts/generate_policy_currency_profile.py
+          fi
+          python -m py_compile scripts/generate_policy_currency_profile.py
+
+      - name: Generate current-quarter currency profile
+        run: |
+          python scripts/generate_policy_currency_profile.py \
+            --input data/policy_currency/2026-27Q2.json \
+            --output screenshots/tbs_policy_hawk_currency_profile_2026-07-01_to_2026-09-30.svg \
+            --logo assets/tbs-policy-hawk-logo-100px-transparent.png \
+            --report PolicyEvolution2026-27Q2.md \
+            --image-path screenshots/tbs_policy_hawk_currency_profile_2026-07-01_to_2026-09-30.svg
+
+      - name: Update SKILL currency-profile instructions
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path('SKILL.md')
+          text = path.read_text(encoding='utf-8')
+          start = '<!-- policy-hawk:currency-profile-skill:start -->'
+          end = '<!-- policy-hawk:currency-profile-skill:end -->'
+          block = r'''<!-- policy-hawk:currency-profile-skill:start -->
+
+### 10. Maintain the quarterly policy suite currency profile
+
+Keep a **separate quarter-level currency profile** in every `PolicyEvolution{YYYY-YYQ#}.md` report. This overview must remain separate from the dated instrument-by-instrument analysis sections.
+
+The deterministic renderer is:
+
+```text
+scripts/generate_policy_currency_profile.py
+```
+
+Quarter data is stored at:
+
+```text
+data/policy_currency/{YYYY-YYQ#}.json
+```
+
+The stable quarter image path is:
+
+```text
+screenshots/tbs_policy_hawk_currency_profile_{quarter_start}_to_{quarter_end}.svg
+```
+
+#### First commit of a fiscal quarter
+
+When the quarterly `PolicyEvolution` Markdown file is first created:
+
+1. Determine the fixed quarter start and end dates using the Government of Canada fiscal calendar.
+2. Reconstruct the policy-instrument state **as of the first day of the quarter**. That snapshot becomes the immutable baseline for the quarter.
+3. Create `data/policy_currency/{YYYY-YYQ#}.json` with the baseline and current snapshot initially set to that start-of-quarter state, and zero quarter-to-date added / modified / deleted counts.
+4. Generate the SVG using the repository logo at `assets/tbs-policy-hawk-logo-100px-transparent.png`.
+5. Use `--report` so the renderer inserts a dedicated `## Policy suite currency profile` section after the quarterly heatmap and before the first dated instrument entry.
+6. Commit the JSON, SVG and quarterly Markdown file together.
+
+Example:
+
+```bash
+python scripts/generate_policy_currency_profile.py \
+  --input data/policy_currency/2026-27Q2.json \
+  --output screenshots/tbs_policy_hawk_currency_profile_2026-07-01_to_2026-09-30.svg \
+  --logo assets/tbs-policy-hawk-logo-100px-transparent.png \
+  --report PolicyEvolution2026-27Q2.md \
+  --image-path screenshots/tbs_policy_hawk_currency_profile_2026-07-01_to_2026-09-30.svg
+```
+
+#### Subsequent updates within the quarter
+
+Whenever later policy analysis is added to the same quarterly report:
+
+1. Preserve the quarter-start baseline exactly; do not roll it forward.
+2. Refresh the current snapshot through the latest policy-suite state available for the commit.
+3. Recalculate quarter-to-date change counts by **distinct policy instrument**:
+   - **added**: an instrument ID that was not in the quarter baseline but is in the current population;
+   - **modified**: a baseline instrument whose current version/effective date changed during the quarter;
+   - **deleted**: a baseline policy instrument that is no longer in the current population.
+4. Count a policy instrument as modified only once even if it is amended multiple times during the quarter.
+5. Do not treat PIN notices, glossary terms or non-policy supporting web pages as policy instruments in the currency-profile population. Their detailed changes remain in the dated report sections.
+6. Update the current counts, average current-version ages and age-bin distributions in the quarter JSON.
+7. Regenerate the same stable SVG filename and update the existing marked currency-profile section in the quarterly Markdown file.
+
+Useful source data includes `data/items.csv`, `data/tbs_policy_feed_union_by_guid.csv`, `data/tbs_policy_feed_scd2.csv`, `data/tbs_policy_hierarchy_full.csv`, preserved hierarchy snapshots, and the quarter's issue/change evidence. Prefer document ID as the instrument identity key.
+
+Use these top-level reporting topics consistently:
+
+- People management
+- Government security
+- Access to information and privacy / ATIP
+- Investment Management
+- Communications and Federal Identity
+- Financial management
+- Results, Evaluation, and Internal Audit
+- Service and digital
+- Official languages
+- Transfer payments
+
+The chart's age distribution bins are `<12 months`, `1–3 years`, `3–5 years`, `5–10 years`, and `10+ years`.
+
+The lollipop context-event legend should include:
+
+- `2025-03-04` — PM Carney in Office
+- `2025-01-25` — Trump II Presidency
+- `2023-01` — ChatGPT hits 100M users
+- `2020-03-15` — GC offices close for COVID
+- `2018-02` — 1st GC Cloud Framework Contracts Award
+- `2015-11-04` — PM Trudeau in Office
+
+Do **not** create this image with an image-generation model. The SVG must be generated by the deterministic repository script so the visualization is reproducible and diffable in Git.
+
+<!-- policy-hawk:currency-profile-skill:end -->'''
+
+          if start in text and end in text:
+              a = text.index(start)
+              b = text.index(end) + len(end)
+              text = text[:a] + block + text[b:]
+          else:
+              anchor = '\n---\n\n## Implementation checklist'
+              if anchor in text:
+                  text = text.replace(anchor, '\n\n' + block + anchor, 1)
+              else:
+                  text = text.rstrip() + '\n\n' + block + '\n'
+          path.write_text(text.rstrip() + '\n', encoding='utf-8')
+          PY
+
+      - name: Commit generated profile and instructions
+        run: |
+          rm -rf .policy_currency_profile_bootstrap
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add -A scripts/generate_policy_currency_profile.py \
+            data/policy_currency/ \
+            screenshots/tbs_policy_hawk_currency_profile_*.svg \
+            PolicyEvolution2026-27Q2.md \
+            SKILL.md \
+            .policy_currency_profile_bootstrap
+          if ! git diff --staged --quiet; then
+            git commit -m 'feat: add quarterly policy currency profile'
+            git push
+          fi
