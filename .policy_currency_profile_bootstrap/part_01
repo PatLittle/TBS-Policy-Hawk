@@ -1,0 +1,83 @@
+  if topic_order:
+        by_name = {t["name"]: t for t in topics}
+        topics = [by_name[n] for n in topic_order if n in by_name]
+    for t in topics:
+        for snap in ("baseline", "current"):
+            if len(t[snap]["bins"]) != len(bins):
+                raise ValueError(f"{t['name']} {snap} bins mismatch")
+            if sum(t[snap]["bins"]) != t[snap]["count"]:
+                raise ValueError(f"{t['name']} {snap}: bin counts sum mismatch")
+    out = dict(cfg); out.update({"bins": bins, "topics": topics, "baseline_date_obj": baseline_date, "current_date_obj": current_date})
+    return out
+def svg_text(x, y, text, cls="", anchor="start", fill=None):
+    attrs = []
+    if cls: attrs.append(f'class="{cls}"')
+    if anchor != "start": attrs.append(f'text-anchor="{anchor}"')
+    if fill: attrs.append(f'fill="{fill}"')
+    extra = (" " + " ".join(attrs)) if attrs else ""
+    return f'<text x="{x:.1f}" y="{y:.1f}"{extra}>{html.escape(text)}</text>'
+def render_svg(cfg, logo_uri=None):
+    cfg = normalize_input(cfg); palette = merge_palette(cfg.get("palette")); topics = cfg["topics"]; bins = cfg["bins"]; events = cfg.get("events", [])
+    W = int(cfg.get("width", 1500)); margin = 24; header_h = 165; topic_w = 505; age_w = 535; dist_w = W - (margin * 2) - topic_w - age_w
+    row_pair_h = 64; table_y = header_h + 58; table_h = row_pair_h * len(topics); footer_h = 62; H = table_y + table_h + footer_h
+    x_topic = margin; x_age = x_topic + topic_w; x_dist = x_age + age_w
+    topic_name_w = 240; row_x = x_topic + topic_name_w; current_num_x = x_topic + topic_w - 24; changes_start_x = row_x + 90
+    age_plot_x0 = x_age + 18; age_plot_x1 = x_age + age_w - 26; age_plot_w = age_plot_x1 - age_plot_x0; max_age = float(cfg.get("max_age_years", 15))
+    def age_x(v): return age_plot_x0 + clamp(v, 0.0, max_age) / max_age * age_plot_w
+    dist_x0 = x_dist + 18; dist_x1 = x_dist + dist_w - 20; dist_plot_w = dist_x1 - dist_x0
+    baseline_bins = palette["baseline_bins"]; current_bins = palette["current_bins"]; event_colors = palette["event_colors"]
+    out = []
+    out.append(f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img" aria-labelledby="title desc">')
+    out.append('<title id="title">Policy suite currency profile — fiscal-quarter change view</title>')
+    out.append('<desc id="desc">A deterministic SVG dashboard showing baseline and current policy-suite age distribution and changes by topic.</desc>')
+    out.append(f'''
+<style>
+text {{ font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; fill:{palette["ink"]}; }}
+.title {{ font-size:33px; font-weight:760; }}
+.subtitle {{ font-size:13px; fill:{palette["muted_ink"]}; }}
+.badge {{ font-size:14px; font-weight:700; fill:white; }}
+.section {{ font-size:14px; font-weight:720; }}
+.subsection {{ font-size:11px; fill:{palette["muted_ink"]}; }}
+.topic {{ font-size:13px; font-weight:620; }}
+.base {{ font-size:11px; fill:{palette["muted_ink"]}; }}
+.current {{ font-size:11px; font-weight:720; fill:{palette["current_line"]}; }}
+.metric {{ font-size:12px; font-weight:700; }}
+.age-base {{ font-size:11px; font-weight:650; fill:{palette["muted_ink"]}; }}
+.age-current {{ font-size:11px; font-weight:760; fill:{palette["ink"]}; }}
+.axis {{ font-size:10px; fill:{palette["muted_ink"]}; }}
+.legend {{ font-size:10px; fill:{palette["ink"]}; }}
+.legend-title {{ font-size:11px; font-weight:720; }}
+.bintext {{ font-size:9px; font-weight:720; }}
+.foot {{ font-size:10px; fill:{palette["muted_ink"]}; }}
+.change-add {{ font-size:11px; font-weight:800; fill:{palette["added"]}; }}
+.change-mod {{ font-size:11px; font-weight:800; fill:{palette["modified"]}; }}
+.change-del {{ font-size:11px; font-weight:800; fill:{palette["deleted"]}; }}
+</style>
+''')
+    out.append(f'<rect width="100%" height="100%" fill="{palette["background"]}"/>')
+    out.append(f'<rect x="10" y="10" width="{W-20}" height="{H-20}" rx="18" fill="{palette["card"]}" stroke="#DDE3EA"/>')
+    out.append(svg_text(30, 54, cfg.get("title", "Policy suite currency profile"), "title"))
+    out.append(f'<rect x="30" y="70" width="190" height="31" rx="15.5" fill="#357DA8"/>')
+    out.append(svg_text(125, 91, cfg.get("view_label", "Fiscal Q2 change view"), "badge", "middle"))
+    out.append(svg_text(238, 91, f'Baseline: {cfg["baseline_date"]}  ·  Current snapshot: {cfg["current_date"]}', "subtitle"))
+    if logo_uri: out.append(f'<image href="{logo_uri}" x="{W-135}" y="24" width="102" height="102" preserveAspectRatio="xMidYMid meet"/>')
+    # Keep contextual events readable as their count grows: two compact columns.
+    event_box_x = x_age + 20; event_box_y = 18; event_box_w = 520; event_box_h = 112
+    out.append(f'<rect x="{event_box_x}" y="{event_box_y}" width="{event_box_w}" height="{event_box_h}" rx="12" fill="#FBFCFE" stroke="#DCE3EA"/>')
+    out.append(svg_text(event_box_x + 14, event_box_y + 19, "Context events (vertical lines on age chart)", "legend-title"))
+    event_columns = 2
+    rows_per_column = max(1, (len(events) + event_columns - 1) // event_columns)
+    column_width = 250
+    for i, ev in enumerate(events):
+        column = i // rows_per_column
+        row = i % rows_per_column
+        xx = event_box_x + 17 + column * column_width
+        yy = event_box_y + 42 + row * 22
+        c = ev.get("color") or event_colors[i % len(event_colors)]
+        out.append(f'<circle cx="{xx}" cy="{yy-4}" r="9" fill="{c}"/>')
+        out.append(svg_text(xx, yy, str(i+1), "badge", "middle"))
+        out.append(svg_text(xx + 20, yy, f'{ev.get("display_date", ev["date"])} — {ev["label"]}', "legend"))
+    bin_box_x = x_dist + 34; bin_box_y = 18; bin_box_w = 242; bin_box_h = 128
+    out.append(f'<rect x="{bin_box_x}" y="{bin_box_y}" width="{bin_box_w}" height="{bin_box_h}" rx="12" fill="#FBFCFE" stroke="#DCE3EA"/>')
+    out.append(svg_text(bin_box_x + 14, bin_box_y + 19, "Age (current version) bins", "legend-title"))
+    for i, b in enumerate(bins):
