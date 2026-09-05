@@ -6,6 +6,7 @@
   "current_date": "2026-06-30",
   "baseline_commit": "38928a91a4803a2d185a8a53b80d8662f3e6833c",
   "current_commit": "43bfafdaa27bf3d76a25da6c766fb413f63c1f6f",
+  "population_basis": "current canonical hierarchy; historical version dates rolled back from data/items.csv",
   "max_age_years": 15,
   "width": 1500,
   "topic_order": [
@@ -233,15 +234,15 @@
     {
       "name": "Service and digital",
       "changes": {
-        "added": 1,
+        "added": 0,
         "modified": 0,
         "deleted": 0
       },
       "baseline": {
-        "count": 16,
-        "avg_age": 3.321,
+        "count": 17,
+        "avg_age": 3.139,
         "bins": [
-          3,
+          4,
           3,
           9,
           0,
