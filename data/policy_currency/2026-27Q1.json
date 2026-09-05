@@ -6,7 +6,7 @@
   "current_date": "2026-06-30",
   "baseline_commit": "38928a91a4803a2d185a8a53b80d8662f3e6833c",
   "current_commit": "43bfafdaa27bf3d76a25da6c766fb413f63c1f6f",
-  "population_basis": "current canonical hierarchy; historical version dates rolled back from data/items.csv",
+  "population_basis": "canonical 10-topic instrument universe; version state rolled back from data/items.csv",
   "max_age_years": 15,
   "width": 1500,
   "topic_order": [
@@ -61,6 +61,7 @@
     },
     {
       "date": "2023-01-01",
+      "display_date": "2023-01",
       "label": "ChatGPT hits 100M users",
       "color": "#1267D8"
     },
@@ -71,6 +72,7 @@
     },
     {
       "date": "2018-02-01",
+      "display_date": "2018-02",
       "label": "1st GC Cloud Framework Contracts Award",
       "color": "#A06B00"
     },
@@ -89,25 +91,25 @@
         "deleted": 0
       },
       "baseline": {
-        "count": 29,
-        "avg_age": 13.956,
+        "count": 41,
+        "avg_age": 13.706,
         "bins": [
-          3,
-          4,
-          4,
           5,
-          13
+          6,
+          4,
+          6,
+          20
         ]
       },
       "current": {
-        "count": 29,
-        "avg_age": 13.947,
+        "count": 41,
+        "avg_age": 13.772,
         "bins": [
-          4,
-          3,
-          4,
+          6,
           5,
-          13
+          4,
+          6,
+          20
         ]
       }
     },
@@ -119,25 +121,25 @@
         "deleted": 0
       },
       "baseline": {
-        "count": 6,
-        "avg_age": 7.482,
+        "count": 8,
+        "avg_age": 7.771,
         "bins": [
           0,
-          1,
+          2,
           0,
           3,
-          2
+          3
         ]
       },
       "current": {
-        "count": 6,
-        "avg_age": 7.728,
+        "count": 8,
+        "avg_age": 8.017,
         "bins": [
           0,
-          1,
+          2,
           0,
           3,
-          2
+          3
         ]
       }
     },
@@ -149,25 +151,25 @@
         "deleted": 0
       },
       "baseline": {
-        "count": 10,
-        "avg_age": 6.582,
+        "count": 12,
+        "avg_age": 6.895,
         "bins": [
           2,
           4,
           0,
-          0,
-          4
+          1,
+          5
         ]
       },
       "current": {
-        "count": 10,
-        "avg_age": 6.828,
+        "count": 12,
+        "avg_age": 7.142,
         "bins": [
           2,
           4,
           0,
-          0,
-          4
+          1,
+          5
         ]
       }
     },
@@ -179,22 +181,22 @@
         "deleted": 0
       },
       "baseline": {
-        "count": 4,
-        "avg_age": 7.815,
+        "count": 5,
+        "avg_age": 6.62,
         "bins": [
           1,
-          0,
+          1,
           1,
           0,
           2
         ]
       },
       "current": {
-        "count": 4,
-        "avg_age": 8.062,
+        "count": 5,
+        "avg_age": 6.867,
         "bins": [
           0,
-          1,
+          2,
           1,
           0,
           2
@@ -209,25 +211,25 @@
         "deleted": 0
       },
       "baseline": {
-        "count": 48,
-        "avg_age": 4.044,
+        "count": 59,
+        "avg_age": 4.68,
         "bins": [
           0,
-          36,
+          42,
           4,
           4,
-          4
+          9
         ]
       },
       "current": {
-        "count": 48,
-        "avg_age": 4.29,
+        "count": 59,
+        "avg_age": 4.927,
         "bins": [
           0,
-          16,
+          22,
           21,
           7,
-          4
+          9
         ]
       }
     },
@@ -239,25 +241,25 @@
         "deleted": 0
       },
       "baseline": {
-        "count": 17,
-        "avg_age": 3.139,
+        "count": 24,
+        "avg_age": 4.696,
         "bins": [
           4,
-          3,
-          9,
-          0,
-          1
+          5,
+          10,
+          1,
+          4
         ]
       },
       "current": {
-        "count": 17,
-        "avg_age": 3.385,
+        "count": 24,
+        "avg_age": 4.943,
         "bins": [
           3,
-          4,
-          9,
+          6,
+          10,
           0,
-          1
+          5
         ]
       }
     },
@@ -329,25 +331,25 @@
         "deleted": 0
       },
       "baseline": {
-        "count": 16,
-        "avg_age": 1.802,
+        "count": 18,
+        "avg_age": 2.465,
         "bins": [
           6,
           7,
-          3,
+          4,
           0,
-          0
+          1
         ]
       },
       "current": {
-        "count": 16,
-        "avg_age": 1.792,
+        "count": 18,
+        "avg_age": 2.484,
         "bins": [
           6,
           4,
-          6,
+          7,
           0,
-          0
+          1
         ]
       }
     },
