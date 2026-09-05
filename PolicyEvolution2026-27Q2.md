@@ -17,6 +17,16 @@ This quarter-level view tracks the **currency and change profile of the policy s
 
 ![Policy suite currency profile](screenshots/tbs_policy_hawk_currency_profile_2026-07-01_to_2026-09-30.svg)
 
+<!-- policy-hawk:currency-profile-synopsis:start -->
+### Currency profile synopsis
+
+The profile contains **185 current policy instruments** across the ten reporting topics. **Financial management** is the largest area with 59 instruments (31.9% of the suite), followed by **People management** with 41 (22.2%) and **Service and digital** with 24 (13.0%). Together, those three areas account for **67.0%** of current instruments. At the other end of the distribution, **Communications & Federal Identity** contains 4 instruments (2.2%).
+
+The age profile differs sharply across topics. **People management** has the oldest current-version population, averaging **14.0 years**; 65.9% of its instruments are at least five years since their current version, including 48.8% at 10+ years. **Government security** also has a comparatively older profile at **8.2 years** on average, with 75.0% at five years or more. By contrast, **Communications & Federal Identity** averages just **0.6 years**, with 100.0% of instruments revised within the last three years; **Investment Management** is also relatively recent at **2.5 years** on average. These are differences in recency of the current versions, not assessments of policy quality or effectiveness.
+
+So far in Q2, the profile records **6 distinct instrument changes**. The changes are concentrated in **Investment Management** 4 (66.7%), **Service and digital** 1 (16.7%), and **Transfer payments** 1 (16.7%). **Investment Management** accounts for **66.7% of all recorded changes** while containing only 9.7% of current instruments (4 modified), indicating substantially higher change activity than its share of the suite would suggest. **Financial management**, despite representing 31.9% of the suite, recorded no distinct instrument changes in this period.
+<!-- policy-hawk:currency-profile-synopsis:end -->
+
 - **Muted upper rows** show the start-of-quarter baseline (2026-07-01).
 - **Saturated lower rows** show the current snapshot (2026-09-05).
 - Quarter-to-date changes are shown as **added** (green), **modified** (yellow), and **deleted** (red) instruments.
