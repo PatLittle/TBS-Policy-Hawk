@@ -9,6 +9,7 @@ on:
       - '.github/workflows/policy_currency_profile.yml'
       - 'scripts/generate_policy_currency_profile.py'
       - 'scripts/build_policy_currency_quarter.py'
+      - 'scripts/update_policy_currency_synopsis.py'
       - 'data/policy_currency/**'
 
 permissions:
@@ -37,6 +38,7 @@ jobs:
         run: |
           python -m py_compile scripts/generate_policy_currency_profile.py
           python -m py_compile scripts/build_policy_currency_quarter.py
+          python -m py_compile scripts/update_policy_currency_synopsis.py
 
       - name: Reconstruct FY 2026-27 Q1 currency profile
         run: |
@@ -54,6 +56,9 @@ jobs:
             --logo assets/tbs-policy-hawk-logo-100px-transparent.png \
             --report PolicyEvolution2026-27Q1.md \
             --image-path screenshots/tbs_policy_hawk_currency_profile_2026-04-01_to_2026-06-30.svg
+          python scripts/update_policy_currency_synopsis.py \
+            --input data/policy_currency/2026-27Q1.json \
+            --report PolicyEvolution2026-27Q1.md
 
       - name: Regenerate current-quarter currency profile
         run: |
@@ -63,6 +68,9 @@ jobs:
             --logo assets/tbs-policy-hawk-logo-100px-transparent.png \
             --report PolicyEvolution2026-27Q2.md \
             --image-path screenshots/tbs_policy_hawk_currency_profile_2026-07-01_to_2026-09-30.svg
+          python scripts/update_policy_currency_synopsis.py \
+            --input data/policy_currency/2026-27Q2.json \
+            --report PolicyEvolution2026-27Q2.md
 
       - name: Commit generated profiles
         run: |
@@ -71,11 +79,12 @@ jobs:
           git add \
             scripts/generate_policy_currency_profile.py \
             scripts/build_policy_currency_quarter.py \
+            scripts/update_policy_currency_synopsis.py \
             data/policy_currency/ \
             screenshots/tbs_policy_hawk_currency_profile_*.svg \
             PolicyEvolution2026-27Q1.md \
             PolicyEvolution2026-27Q2.md
           if ! git diff --staged --quiet; then
-            git commit -m 'feat: add FY 2026-27 Q1 policy currency profile'
+            git commit -m 'docs: add currency profile narratives to quarterly reports'
             git push
           fi
