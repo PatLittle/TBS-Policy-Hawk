@@ -1,10 +1,16 @@
 #!/usr/bin/env python3
 """Build deterministic quarter currency-profile input from repository history.
 
-The quarter baseline and end state are reconstructed from the TBS policy hierarchy
-as it existed at each snapshot date, combined with the latest policy-instrument
-version in ``data/items.csv`` whose publication/effective date is on or before the
-snapshot.
+The currency profile uses a consistent policy-instrument universe so historical
+quarters remain directly comparable with the current-quarter profile. The active
+instrument IDs and topic paths therefore come from the current canonical hierarchy,
+while each instrument's version is rolled back to the latest ``data/items.csv`` row
+whose publication/effective date is on or before the requested snapshot date.
+
+This avoids treating improvements in historical hierarchy scraping as real policy
+additions or deletions. Actual policy-suite additions/removals should still be
+reflected when their instrument IDs enter or leave the canonical hierarchy and the
+quarter data is regenerated.
 
 Example:
 
@@ -13,8 +19,6 @@ Example:
       --start 2026-04-01 \
       --end 2026-06-30 \
       --output data/policy_currency/2026-27Q1.json
-
-The output is consumed by ``scripts/generate_policy_currency_profile.py``.
 """
 
 from __future__ import annotations
@@ -62,8 +66,6 @@ EVENTS = [
     {"date": "2015-11-04", "label": "PM Trudeau in Office", "color": "#7A56C2"},
 ]
 
-# Match the broad reporting topics used by the Policy Hawk currency profile.
-# Order matters where one instrument title contains terminology from another suite.
 TOPIC_ROOTS = [
     ("Official languages", ("Official Languages, Policy on",)),
     ("Transfer payments", ("Transfer Payments, Policy on",)),
@@ -108,13 +110,6 @@ def commit_at_or_before(snapshot: date) -> str:
     if not ref:
         raise RuntimeError(f"No repository commit exists on or before {snapshot}")
     return ref
-
-
-def git_file(ref: str, path: str) -> str:
-    try:
-        return subprocess.check_output(["git", "show", f"{ref}:{path}"], text=True)
-    except subprocess.CalledProcessError as exc:
-        raise RuntimeError(f"Could not read {path} at {ref}") from exc
 
 
 def document_id_from_guid(guid: str) -> Optional[str]:
@@ -190,18 +185,18 @@ def bin_index(age: float) -> int:
 
 def build_snapshot(
     snapshot_date: date,
-    hierarchy_csv: str,
+    topic_by_id: Mapping[str, str],
     items_csv: str,
 ) -> tuple[Dict[str, dict], Dict[str, dict]]:
-    topic_by_id = active_topics(hierarchy_csv)
     version_by_id = latest_item_versions(items_csv, snapshot_date)
-
     instruments: Dict[str, dict] = {}
     grouped = defaultdict(list)
 
     for doc_id, topic in topic_by_id.items():
         version = version_by_id.get(doc_id)
         if version is None:
+            # A current supporting hierarchy page without a policy-instrument history
+            # record is outside the currency-profile population.
             continue
         instrument = {
             "id": doc_id,
@@ -261,13 +256,12 @@ def main() -> None:
 
     start_ref = commit_at_or_before(args.start)
     end_ref = commit_at_or_before(args.end)
-    current_items = Path("data/items.csv").read_text(encoding="utf-8-sig")
+    items_csv = Path("data/items.csv").read_text(encoding="utf-8-sig")
+    hierarchy_csv = Path("data/tbs_policy_hierarchy_full.csv").read_text(encoding="utf-8-sig")
+    topic_by_id = active_topics(hierarchy_csv)
 
-    start_hierarchy = git_file(start_ref, "data/tbs_policy_hierarchy_full.csv")
-    end_hierarchy = git_file(end_ref, "data/tbs_policy_hierarchy_full.csv")
-
-    baseline_instruments, baseline_stats = build_snapshot(args.start, start_hierarchy, current_items)
-    current_instruments, current_stats = build_snapshot(args.end, end_hierarchy, current_items)
+    baseline_instruments, baseline_stats = build_snapshot(args.start, topic_by_id, items_csv)
+    current_instruments, current_stats = build_snapshot(args.end, topic_by_id, items_csv)
     changes = change_counts(baseline_instruments, current_instruments)
 
     topics = [
@@ -289,6 +283,7 @@ def main() -> None:
         "current_date": args.end.isoformat(),
         "baseline_commit": start_ref,
         "current_commit": end_ref,
+        "population_basis": "current canonical hierarchy; historical version dates rolled back from data/items.csv",
         "max_age_years": 15,
         "width": 1500,
         "topic_order": TOPIC_ORDER,
@@ -300,8 +295,8 @@ def main() -> None:
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
-    print(f"Baseline commit: {start_ref}")
-    print(f"Current commit:  {end_ref}")
+    print(f"Baseline reference commit: {start_ref}")
+    print(f"End reference commit:      {end_ref}")
     print(f"Baseline instruments mapped: {len(baseline_instruments)}")
     print(f"Current instruments mapped:  {len(current_instruments)}")
     print("Topic summary:")
