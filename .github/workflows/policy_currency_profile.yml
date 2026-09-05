@@ -7,8 +7,8 @@ on:
       - main
     paths:
       - '.github/workflows/policy_currency_profile.yml'
-      - '.policy_currency_profile_bootstrap/**'
       - 'scripts/generate_policy_currency_profile.py'
+      - 'scripts/build_policy_currency_quarter.py'
       - 'data/policy_currency/**'
 
 permissions:
@@ -33,15 +33,51 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Assemble renderer bootstrap if present
+      - name: Make baseline label date-driven
         run: |
-          if [[ -d .policy_currency_profile_bootstrap ]]; then
-            cat .policy_currency_profile_bootstrap/part_* > scripts/generate_policy_currency_profile.py
-            chmod +x scripts/generate_policy_currency_profile.py
-          fi
-          python -m py_compile scripts/generate_policy_currency_profile.py
+          python - <<'PY'
+          from pathlib import Path
 
-      - name: Generate current-quarter currency profile
+          path = Path('scripts/generate_policy_currency_profile.py')
+          text = path.read_text(encoding='utf-8')
+          marker = '    for idx, topic in enumerate(topics):\n'
+          insert = (
+              '    baseline_day = parse_date(cfg["baseline_date"])\n'
+              '    baseline_label = f"{baseline_day.strftime(\'%b\')} {baseline_day.day}"\n'
+              '    for idx, topic in enumerate(topics):\n'
+          )
+          if 'baseline_label = f"{baseline_day.strftime' not in text:
+              text = text.replace(marker, insert, 1)
+          text = text.replace(
+              'out.append(svg_text(row_x + 10, base_y, "Jul 1", "base"))',
+              'out.append(svg_text(row_x + 10, base_y, baseline_label, "base"))',
+          )
+          path.write_text(text, encoding='utf-8')
+          PY
+
+      - name: Validate profile scripts
+        run: |
+          python -m py_compile scripts/generate_policy_currency_profile.py
+          python -m py_compile scripts/build_policy_currency_quarter.py
+
+      - name: Reconstruct FY 2026-27 Q1 currency profile
+        run: |
+          python scripts/build_policy_currency_quarter.py \
+            --quarter 2026-27Q1 \
+            --start 2026-04-01 \
+            --end 2026-06-30 \
+            --output data/policy_currency/2026-27Q1.json
+
+      - name: Generate FY 2026-27 Q1 currency profile
+        run: |
+          python scripts/generate_policy_currency_profile.py \
+            --input data/policy_currency/2026-27Q1.json \
+            --output screenshots/tbs_policy_hawk_currency_profile_2026-04-01_to_2026-06-30.svg \
+            --logo assets/tbs-policy-hawk-logo-100px-transparent.png \
+            --report PolicyEvolution2026-27Q1.md \
+            --image-path screenshots/tbs_policy_hawk_currency_profile_2026-04-01_to_2026-06-30.svg
+
+      - name: Regenerate current-quarter currency profile
         run: |
           python scripts/generate_policy_currency_profile.py \
             --input data/policy_currency/2026-27Q2.json \
@@ -50,43 +86,18 @@ jobs:
             --report PolicyEvolution2026-27Q2.md \
             --image-path screenshots/tbs_policy_hawk_currency_profile_2026-07-01_to_2026-09-30.svg
 
-      - name: Update SKILL currency-profile instructions
+      - name: Commit generated profiles
         run: |
-          python - <<'PY'
-          from pathlib import Path
-
-          path = Path('SKILL.md')
-          text = path.read_text(encoding='utf-8')
-          block = Path('.policy_currency_profile_bootstrap/skill_addendum.md').read_text(encoding='utf-8').strip()
-          start = '<!-- policy-hawk:currency-profile-skill:start -->'
-          end = '<!-- policy-hawk:currency-profile-skill:end -->'
-
-          if start in text and end in text:
-              a = text.index(start)
-              b = text.index(end) + len(end)
-              text = text[:a] + block + text[b:]
-          else:
-              anchor = '\n---\n\n## Implementation checklist'
-              if anchor in text:
-                  text = text.replace(anchor, '\n\n' + block + anchor, 1)
-              else:
-                  text = text.rstrip() + '\n\n' + block + '\n'
-
-          path.write_text(text.rstrip() + '\n', encoding='utf-8')
-          PY
-
-      - name: Commit generated profile and instructions
-        run: |
-          rm -rf .policy_currency_profile_bootstrap
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
-          git add -A scripts/generate_policy_currency_profile.py \
+          git add \
+            scripts/generate_policy_currency_profile.py \
+            scripts/build_policy_currency_quarter.py \
             data/policy_currency/ \
             screenshots/tbs_policy_hawk_currency_profile_*.svg \
-            PolicyEvolution2026-27Q2.md \
-            SKILL.md \
-            .policy_currency_profile_bootstrap
+            PolicyEvolution2026-27Q1.md \
+            PolicyEvolution2026-27Q2.md
           if ! git diff --staged --quiet; then
-            git commit -m 'feat: add quarterly policy currency profile'
+            git commit -m 'feat: add FY 2026-27 Q1 policy currency profile'
             git push
           fi
