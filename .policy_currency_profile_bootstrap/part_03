@@ -1,0 +1,62 @@
+turated lower sub-row = current snapshot.", "foot"))
+    out.append(svg_text(30, fy + 17, "Quarter changes: green = added, yellow = modified, red = deleted. Context lines situate policy age and do not imply causation.", "foot"))
+    out.append('</svg>')
+    return ''.join(out)
+
+PROFILE_START = "<!-- policy-hawk:currency-profile:start -->"
+PROFILE_END = "<!-- policy-hawk:currency-profile:end -->"
+
+
+def currency_profile_section(cfg, image_path: str) -> str:
+    return f"""{PROFILE_START}\n## Policy suite currency profile\n\nThis quarter-level view tracks the **currency and change profile of the policy suite as a whole**. It is intentionally kept separate from the instrument-by-instrument analyses below.\n\n![Policy suite currency profile]({image_path})\n\n- **Muted upper rows** show the start-of-quarter baseline ({cfg['baseline_date']}).\n- **Saturated lower rows** show the current snapshot ({cfg['current_date']}).\n- Quarter-to-date changes are shown as **added** (green), **modified** (yellow), and **deleted** (red) instruments.\n- The lollipop chart compares average current-version age at the baseline and current snapshot.\n- The distribution strips group current-version ages into `<12 months`, `1–3 years`, `3–5 years`, `5–10 years`, and `10+ years`.\n- Vertical reference lines provide historical context only; they do **not** imply causation.\n\n{PROFILE_END}"""
+
+
+def update_quarterly_report(report_path: Path, cfg, image_path: str) -> None:
+    section = currency_profile_section(cfg, image_path)
+    if report_path.exists():
+        text = report_path.read_text(encoding="utf-8")
+    else:
+        text = ""
+
+    if PROFILE_START in text and PROFILE_END in text:
+        start = text.index(PROFILE_START)
+        end = text.index(PROFILE_END) + len(PROFILE_END)
+        text = text[:start] + section + text[end:]
+    else:
+        # Keep the overview beside the heatmap and ahead of detailed dated entries.
+        heatmap_marker = "<!-- policy-hawk:latest-heatmap -->"
+        if heatmap_marker in text:
+            marker_pos = text.index(heatmap_marker)
+            rule_pos = text.find("\n---", marker_pos)
+            if rule_pos != -1:
+                text = text[:rule_pos] + "\n\n" + section + "\n" + text[rule_pos:]
+            else:
+                text = text + "\n\n" + section + "\n"
+        elif text:
+            first_rule = text.find("\n---")
+            if first_rule != -1:
+                text = text[:first_rule] + "\n\n" + section + "\n" + text[first_rule:]
+            else:
+                text = text.rstrip() + "\n\n" + section + "\n"
+        else:
+            text = section + "\n"
+
+    report_path.write_text(text.rstrip() + "\n", encoding="utf-8")
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--input", required=True, type=Path)
+    parser.add_argument("--output", required=True, type=Path)
+    parser.add_argument("--logo", type=Path, default=None)
+    parser.add_argument("--report", type=Path, default=None, help="Optional quarterly Markdown report to insert/update")
+    parser.add_argument("--image-path", default=None, help="Markdown image path; defaults to the output path")
+    args = parser.parse_args()
+    cfg = json.loads(args.input.read_text(encoding="utf-8"))
+    svg = render_svg(cfg, load_logo_data_uri(args.logo))
+    args.output.parent.mkdir(parents=True, exist_ok=True)
+    args.output.write_text(svg, encoding="utf-8")
+    if args.report:
+        image_path = args.image_path or args.output.as_posix()
+        update_quarterly_report(args.report, cfg, image_path)
+if __name__ == "__main__":
+    main()
