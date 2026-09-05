@@ -33,53 +33,10 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Make baseline label date-driven
-        run: |
-          python - <<'PY'
-          from pathlib import Path
-
-          path = Path('scripts/generate_policy_currency_profile.py')
-          text = path.read_text(encoding='utf-8')
-          marker = '    for idx, topic in enumerate(topics):\n'
-          insert = (
-              '    baseline_day = parse_date(cfg["baseline_date"])\n'
-              '    baseline_label = f"{baseline_day.strftime(\'%b\')} {baseline_day.day}"\n'
-              '    for idx, topic in enumerate(topics):\n'
-          )
-          if 'baseline_label = f"{baseline_day.strftime' not in text:
-              text = text.replace(marker, insert, 1)
-          text = text.replace(
-              'out.append(svg_text(row_x + 10, base_y, "Jul 1", "base"))',
-              'out.append(svg_text(row_x + 10, base_y, baseline_label, "base"))',
-          )
-          path.write_text(text, encoding='utf-8')
-          PY
-
       - name: Validate profile scripts
         run: |
           python -m py_compile scripts/generate_policy_currency_profile.py
           python -m py_compile scripts/build_policy_currency_quarter.py
-
-      - name: Diagnose policy-topic coverage
-        run: |
-          python - <<'PY'
-          import importlib.util
-          from datetime import date
-          from pathlib import Path
-
-          spec = importlib.util.spec_from_file_location('currency_builder', 'scripts/build_policy_currency_quarter.py')
-          mod = importlib.util.module_from_spec(spec)
-          spec.loader.exec_module(mod)
-          items = Path('data/items.csv').read_text(encoding='utf-8-sig')
-          hierarchy = Path('data/tbs_policy_hierarchy_full.csv').read_text(encoding='utf-8-sig')
-          topic_by_id = mod.active_topics(hierarchy)
-          versions = mod.latest_item_versions(items, date(2026, 6, 30))
-          print('UNMAPPED POLICY IDS/TITLES AS OF 2026-06-30')
-          for doc_id in sorted(set(versions) - set(topic_by_id), key=int):
-              row = versions[doc_id]
-              print(f"{doc_id}\t{row.get('category','')}\t{row.get('title','')}\t{row['version_date'].isoformat()}")
-          print(f"mapped={len(set(versions) & set(topic_by_id))} total_versions={len(versions)} unmapped={len(set(versions)-set(topic_by_id))}")
-          PY
 
       - name: Reconstruct FY 2026-27 Q1 currency profile
         run: |
