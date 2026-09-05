@@ -9,6 +9,23 @@
 This file compiles policy-change analysis comments for updates detected during the quarter. Entries are organized chronologically by the effective/update date in the issue GUID.
 <!-- policy-hawk:latest-heatmap -->
 ![TBS Policy Hawk activity heatmap for 2026-07-01 to 2026-09-30](screenshots/tbs_policy_hawk_heatmap_2026-07-01_to_2026-09-30.png)
+
+<!-- policy-hawk:currency-profile:start -->
+## Policy suite currency profile
+
+This quarter-level view tracks the **currency and change profile of the policy suite as a whole**. It is intentionally kept separate from the instrument-by-instrument analyses below.
+
+![Policy suite currency profile](screenshots/tbs_policy_hawk_currency_profile_2026-07-01_to_2026-09-30.svg)
+
+- **Muted upper rows** show the start-of-quarter baseline (2026-07-01).
+- **Saturated lower rows** show the current snapshot (2026-09-05).
+- Quarter-to-date changes are shown as **added** (green), **modified** (yellow), and **deleted** (red) instruments.
+- The lollipop chart compares average current-version age at the baseline and current snapshot.
+- The distribution strips group current-version ages into `<12 months`, `1–3 years`, `3–5 years`, `5–10 years`, and `10+ years`.
+- Vertical reference lines provide historical context only; they do **not** imply causation.
+
+<!-- policy-hawk:currency-profile:end -->
+
 ---
 
 ## 2026-07-06 — Digital Talent, Directive on
