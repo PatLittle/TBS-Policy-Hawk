@@ -122,7 +122,7 @@ def build_synopsis(cfg: dict) -> str:
         leader_change_share = pct(leader_changes, total_changes)
 
         change_breakdown = []
-        for t in changed[:3]:
+        for t in changed:
             c = change_count(t)
             change_breakdown.append(
                 f"**{t['name']}** {c} ({fmt_pct(pct(c, total_changes))})"

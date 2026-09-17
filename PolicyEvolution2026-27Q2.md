@@ -8,7 +8,7 @@
 
 This file compiles policy-change analysis comments for updates detected during the quarter. Entries are organized chronologically by the effective/update date in the issue GUID.
 <!-- policy-hawk:latest-heatmap -->
-![TBS Policy Hawk activity heatmap for 2026-07-01 to 2026-09-30](screenshots/tbs_policy_hawk_heatmap_2026-07-01_to_2026-09-30.png)
+![TBS Policy Hawk activity heatmap for 2026-07-01 to 2026-09-30](https://raw.githubusercontent.com/PatLittle/TBS-Policy-Hawk/refs/heads/main/screenshots/tbs_policy_hawk_heatmap_2026-07-01_to_2026-09-30.png)
 
 <!-- policy-hawk:currency-profile:start -->
 ## Policy suite currency profile
@@ -20,15 +20,15 @@ This quarter-level view tracks the **currency and change profile of the policy s
 <!-- policy-hawk:currency-profile-synopsis:start -->
 ### Currency profile synopsis
 
-The profile contains **185 current policy instruments** across the ten reporting topics. **Financial management** is the largest area with 59 instruments (31.9% of the suite), followed by **People management** with 41 (22.2%) and **Service and digital** with 24 (13.0%). Together, those three areas account for **67.0%** of current instruments. At the other end of the distribution, **Communications & Federal Identity** contains 4 instruments (2.2%).
+The profile contains **186 current policy instruments** across the ten reporting topics. **Financial management** is the largest area with 59 instruments (31.7% of the suite), followed by **People management** with 41 (22.0%) and **Service and digital** with 24 (12.9%). Together, those three areas account for **66.7%** of current instruments. At the other end of the distribution, **Communications & Federal Identity** contains 4 instruments (2.2%).
 
-The age profile differs sharply across topics. **People management** has the oldest current-version population, averaging **14.0 years**; 65.9% of its instruments are at least five years since their current version, including 48.8% at 10+ years. **Government security** also has a comparatively older profile at **8.2 years** on average, with 75.0% at five years or more. By contrast, **Communications & Federal Identity** averages just **0.6 years**, with 100.0% of instruments revised within the last three years; **Investment Management** is also relatively recent at **2.5 years** on average. These are differences in recency of the current versions, not assessments of policy quality or effectiveness.
+The age profile differs sharply across topics. **People management** has the oldest current-version population, averaging **14.0 years**; 65.9% of its instruments are at least five years since their current version, including 48.8% at 10+ years. **Government security** also has a comparatively older profile at **8.2 years** on average, with 75.0% at five years or more. By contrast, **Communications & Federal Identity** averages just **0.6 years**, with 100.0% of instruments revised within the last three years; **Investment Management** is also relatively recent at **2.6 years** on average. These are differences in recency of the current versions, not assessments of policy quality or effectiveness.
 
-So far in Q2, the profile records **6 distinct instrument changes**. The changes are concentrated in **Investment Management** 4 (66.7%), **Service and digital** 1 (16.7%), and **Transfer payments** 1 (16.7%). **Investment Management** accounts for **66.7% of all recorded changes** while containing only 9.7% of current instruments (4 modified), indicating substantially higher change activity than its share of the suite would suggest. **Financial management**, despite representing 31.9% of the suite, recorded no distinct instrument changes in this period.
+So far in 2026-27Q2, the profile records **7 distinct instrument changes**. The changes are concentrated in **Investment Management** 4 (57.1%), **Official languages** 1 (14.3%), **Service and digital** 1 (14.3%), and **Transfer payments** 1 (14.3%). **Investment Management** accounts for **57.1% of all recorded changes** while containing only 9.7% of current instruments (4 modified), indicating substantially higher change activity than its share of the suite would suggest. **Financial management**, despite representing 31.7% of the suite, recorded no distinct instrument changes in this period.
 <!-- policy-hawk:currency-profile-synopsis:end -->
 
 - **Muted upper rows** show the start-of-quarter baseline (2026-07-01).
-- **Saturated lower rows** show the current snapshot (2026-09-05).
+- **Saturated lower rows** show the current snapshot (2026-09-17).
 - Quarter-to-date changes are shown as **added** (green), **modified** (yellow), and **deleted** (red) instruments.
 - The lollipop chart compares average current-version age at the baseline and current snapshot.
 - The distribution strips group current-version ages into `<12 months`, `1–3 years`, `3–5 years`, `5–10 years`, and `10+ years`.
@@ -305,6 +305,57 @@ Subsection 4.3.4.12 still refers to “Appendix A: Contracting Approvals, sectio
 #### Classification
 
 `authority-change`, `scope-change`, `possible-regression`
+
+---
+
+<!-- policy-hawk:issue-272:start -->
+## 2026-08-18 — Section 91 of the *Official Languages Act*: How to Determine the Linguistic Identification and Linguistic Profile of Positions, Guidelines on
+
+- **Issue:** [#272](https://github.com/PatLittle/TBS-Policy-Hawk/issues/272)
+- **Document ID:** 32838
+- **Category:** Guidelines
+- **GUID:** `32838_2026-08-18`
+- **Change type:** policy_update (first capture)
+
+### Policy change analysis
+
+Reviewed the first repository capture for `32838_2026-08-18`:
+
+- Current capture: `data/Guidelines/32838_2026-08-18/20260917T160710Z.md` (preserved from the [issue's source-capture comment](https://github.com/PatLittle/TBS-Policy-Hawk/issues/272#issuecomment-5703175592))
+- Prior version: none found for document 32838 in the repository history. The legacy `data/Guidelines/Section 91 of the emOfficial Languages Act_em_ How to Determine the Linguistic Identification and Linguistic Profile of Positions Guidelines on_2026-08-18.xml` contains only a “Request Rejected” page and is not a usable comparator.
+
+#### Summary
+
+This is a newly captured guideline explaining how managers should objectively identify a position's official language requirements and, for a bilingual position, its proficiency profile under section 91 of the *Official Languages Act*. It organizes existing statutory and directive requirements into a three-step decision process and describes documentation and monitoring practices. With no earlier usable copy, the evidence does not establish which passages are new relative to any previous guidance or that the guideline itself changes binding requirements.
+
+#### Guidance identified
+
+| Area | Earlier repository evidence | Current guidance | Practical interpretation |
+|---|---|---|---|
+| **3.2, step 1: position duties** | No prior capture for document 32838. | Assess an accurate, current job description against public service, language-of-work, supervision and other official languages obligations; consult HR and the official languages unit. | Identify language requirements from actual functions and institutional obligations, as section 91 requires. |
+| **3.2, step 2: team capacity** | No prior capture. | Determine whether existing team capacity can meet bilingual demand at all times, including during absences; do not shift extra duties to employees in different roles or levels merely to cover language obligations. The guideline also points to predetermined bilingual identification for specified executive positions under the Directive. | Document a defensible position designation in the context of service continuity and the Directive's prescribed cases. |
+| **3.2, step 3: bilingual profile** | No prior capture. | Set reading, writing and oral proficiency levels from the position's bilingual tasks, using the qualification standards and TBS profile tool. The incumbent's language skills, recruitment difficulty, test expiry and similar personal or administrative factors should not drive the profile. | The profile attaches to the work, not to a particular candidate or incumbent; avoid both insufficient and unnecessarily high levels. |
+| **3.3–3.6: application and assurance** | No prior capture. | Standardized job descriptions do not necessarily mean identical linguistic identification; bilingual staffing generally requires incumbents to meet the qualifications at appointment, subject to the Directive's exceptions. Institutions are encouraged to train stakeholders, review procedures annually and retain rationales that can support monitoring or a complaint. | HR processes should retain a position-specific rationale and check compliance over time. The guideline's encouragement to establish training and annual reviews should not be misread as a new standalone mandatory rule. |
+
+#### Practical effect
+
+1. **For a new or changed position:** assess actual duties, team capacity and required proficiency in that order, consulting HR and official languages specialists.
+2. **For staffing and review:** reconsider the identification during staffing, reorganization or reclassification, and preserve the job description and decision rationale.
+3. **For compliance:** apply the cited *Act*, Policy and Directive as the governing requirements; use this guideline to explain and document their application.
+
+#### Non-substantive changes
+
+No earlier usable version exists to distinguish editorial revisions from substantive amendments. The XML artifact is an access-error page, not evidence of policy text.
+
+#### Watch item
+
+Confirm the guideline's relationship to any superseded section 91 materials outside this repository before describing it as a replacement. Its publication does not by itself prove a change to the underlying Act, Policy or Directive.
+
+#### Classification
+
+`scope-change` (new guidance coverage), `reference-update` (cross-references to existing official languages requirements and tools); **first capture, not a verified amendment to binding policy**.
+
+<!-- policy-hawk:issue-272:end -->
 
 ---
 

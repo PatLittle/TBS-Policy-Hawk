@@ -118,6 +118,7 @@ LEGACY_TOPIC_OVERRIDES = {
     "32574": "Results / Evaluation / Audit",
     # Official languages
     "32788": "Official languages",
+    "32838": "Official languages",  # section 91 guideline, absent from hierarchy export
     # Financial management
     "24970": "Financial management",
     "26332": "Financial management",
@@ -315,6 +316,18 @@ def main() -> None:
         }
         for topic in TOPIC_ORDER
     ]
+
+    # A quarter's published opening snapshot is fixed, even if a later
+    # hierarchy export or a revised classification changes reconstruction.
+    if args.output.exists():
+        previous = json.loads(args.output.read_text(encoding="utf-8"))
+        if previous.get("baseline_date") == args.start.isoformat():
+            published_baseline = {
+                row["name"]: row["baseline"] for row in previous.get("topics", [])
+            }
+            for row in topics:
+                if row["name"] in published_baseline:
+                    row["baseline"] = published_baseline[row["name"]]
 
     quarter_short = args.quarter.split("Q")[-1]
     payload = {
