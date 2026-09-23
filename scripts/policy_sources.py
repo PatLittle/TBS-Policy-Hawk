@@ -38,6 +38,70 @@ GLOSSARY_HEADERS = [
     "def_fr",
     "date_modified",
 ]
+INVALID_SOURCE_MARKERS = (
+    "request rejected",
+    "access denied",
+    "the requested url was rejected",
+)
+
+
+class SourceValidationError(RuntimeError):
+    """Raised when an HTTP-success response is not a usable source snapshot."""
+
+
+def validate_source_response(source_name, response_text, row_count):
+    normalized = clean_text(response_text).casefold()
+    marker = next((item for item in INVALID_SOURCE_MARKERS if item in normalized), None)
+    if marker:
+        raise SourceValidationError(
+            f"{source_name} returned an application error page containing {marker!r}."
+        )
+    if row_count <= 0:
+        raise SourceValidationError(
+            f"{source_name} returned HTTP success but no usable records."
+        )
+
+
+def validate_snapshot_membership(
+    source_name,
+    previous,
+    current,
+    key,
+    *,
+    minimum_retention_ratio=0.80,
+    maximum_membership_changes=25,
+):
+    """Fail closed when a new snapshot is implausibly different from its baseline."""
+    if not previous:
+        return
+
+    previous_keys = {key(row) for row in previous if key(row)}
+    current_keys = {key(row) for row in current if key(row)}
+    if not previous_keys:
+        return
+
+    retained = previous_keys & current_keys
+    removed = previous_keys - current_keys
+    added = current_keys - previous_keys
+    retention_ratio = len(retained) / len(previous_keys)
+    membership_changes = len(removed) + len(added)
+
+    reasons = []
+    if retention_ratio < minimum_retention_ratio:
+        reasons.append(
+            f"retained only {len(retained)}/{len(previous_keys)} baseline records "
+            f"({retention_ratio:.1%})"
+        )
+    if membership_changes > maximum_membership_changes:
+        reasons.append(
+            f"reported {membership_changes} membership changes "
+            f"({len(added)} added, {len(removed)} removed)"
+        )
+    if reasons:
+        raise SourceValidationError(
+            f"Refusing suspicious {source_name} snapshot: {'; '.join(reasons)}. "
+            "The previous snapshot has been preserved for manual review."
+        )
 
 
 def clean_text(value):
@@ -128,6 +192,7 @@ def fetch_hierarchy_records(
     soup = BeautifulSoup(response.text, "html.parser")
     date_modified = page_date_modified(soup)
     records = build_full_records(extract_rows_with_hierarchy(response.text))
+    validate_source_response("TBS policy hierarchy", response.text, len(records))
 
     def resolve_record(record):
         original_url = urljoin(BASE_URL, record["URL"])
@@ -376,6 +441,11 @@ def fetch_glossary_rows(getter=requests.get, user_agent=None):
         response = getter(url, timeout=60, headers=headers)
         response.raise_for_status()
         parsed[lang] = parse_glossary_html(response.text, lang)
+        validate_source_response(
+            f"TBS policy glossary ({lang})",
+            response.text,
+            len(parsed[lang]),
+        )
     return merge_glossary_rows(parsed["en"], parsed["fr"])
 
 

@@ -15,6 +15,16 @@ The repository tracks five related change surfaces:
 
 The result is a working evidence trail: machine-readable datasets under `data/`, screenshots under `screenshots/`, GitHub issues for analyst triage, and quarterly `PolicyEvolution{YYYY-YYQ#}.md` reports for completed analysis.
 
+## September 23, 2026 Source-Validation Incident
+
+On September 23, 2026, the scheduled Policy Watch run received HTTP-success responses from the TBS Policy Suite application that did not contain complete, usable source data. The hierarchy endpoint at <https://www.tbs-sct.canada.ca/pol/hierarch-eng.aspx> parsed as zero instruments even though the previous repository snapshot contained 199. The same run also received an incomplete glossary result, while fallback policy feeds exposed nine historical records as though they were newly detected.
+
+Because the detector previously trusted a successful HTTP status without validating the parsed snapshot against the last known-good baseline, it interpreted the incomplete responses as real source changes. Commit [`9e23710`](https://github.com/PatLittle/TBS-Policy-Hawk/commit/9e23710b6574fae76930b2a638b725163c56030f) therefore recorded an empty hierarchy CSV and tree, 199 apparent hierarchy removals, 36 apparent glossary updates, and nine stale policy updates. Commit [`d58c80b`](https://github.com/PatLittle/TBS-Policy-Hawk/commit/d58c80bdc) then created the corresponding screenshots and issue-map entries. This produced issues #275 through #518; all 244 were incident artifacts rather than verified policy changes and were deleted. GitHub does not reuse deleted issue numbers, so that range remains intentionally absent from the issue history.
+
+The public Git history has not been rewritten. The two incident commits remain as an auditable record of what the automation produced, and the subsequent incident-repair commit restores every affected generated dataset, current hierarchy tree, issue-map entry, stale policy capture, transient handoff file, and screenshot to the pre-incident state. The dated empty hierarchy snapshot was removed because it was an application failure response, not policy evidence.
+
+The repair adds three fail-closed controls. Source pages that contain application-error markers or parse to zero records are rejected; hierarchy and glossary snapshots are compared with the previous baseline and rejected when retention or membership-change thresholds are implausible; and issue creation stops before any new issue is opened when a batch exceeds 25 items unless an operator deliberately raises `TBS_POLICY_HAWK_MAX_NEW_ISSUES` after review. Historical fallback-feed entries older than 120 days are also ignored. A rejected snapshot preserves the last known-good files and produces no hierarchy or glossary events.
+
 [![Open in Flatdata Viewer](https://img.shields.io/badge/Open%20in%20Flatdata%20Viewer-FF00E8?style=for-the-badge&logo=github&logoColor=black)](https://flatgithub.com/PatLittle/TBS-Policy-Hawk/data/items.csv?filename=data%2Fitems.csv)
 
 <!-- policy-hawk:latest-heatmap -->
@@ -91,9 +101,13 @@ It:
 - refreshes bilingual glossary data and detects term additions, removals, or definition/source changes;
 - writes `data/glossary_changes.json` when glossary changes need to be included in issue bodies.
 
+It also validates hierarchy and glossary responses before replacing repository snapshots, preserves the previous files when a response is empty or implausibly different, and filters stale historical entries returned by fallback feeds.
+
 ### `scripts/create_issues_with_screenshots.py`
 
 This script reads `data/new_items.csv`, captures screenshots, creates GitHub issues, applies labels, and updates `data/issue_map.json`. It explicitly dispatches `issue_enrich.yml` after issue creation because events created with the workflow's `GITHUB_TOKEN` do not start another workflow. Failed dispatches are retained in `data/pending_enrichment.json` and retried on a later run.
+
+Before creating any new issue, the script validates the complete handoff batch and refuses more than 25 unmapped items by default. A verified exceptional batch requires an explicit `TBS_POLICY_HAWK_MAX_NEW_ISSUES` override.
 
 Issue bodies include the source title, link, category, GUID, screenshot, hierarchy-change context, and glossary-change summaries where available.
 

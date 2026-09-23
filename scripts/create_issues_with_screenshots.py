@@ -20,6 +20,7 @@ PENDING_ENRICHMENT_JSON_PATH = os.path.join(DATA_DIR, "pending_enrichment.json")
 AUTOANALYZED_LABEL = "🪄📝AutoAnalyzed"
 SCREENSHOTS_DIR = "screenshots"
 REPO_NAME = os.environ.get("GITHUB_REPOSITORY")
+MAX_NEW_ISSUES_PER_RUN = int(os.environ.get("TBS_POLICY_HAWK_MAX_NEW_ISSUES", "25"))
 
 # --- Helper Functions ---
 
@@ -37,6 +38,34 @@ def load_issue_map():
             except json.JSONDecodeError:
                 return {} # Return empty dict if file is corrupted or empty
     return {}
+
+
+def validate_issue_batch(rows, issue_map, maximum=MAX_NEW_ISSUES_PER_RUN):
+    """Refuse an unexpectedly large issue batch before any GitHub writes occur."""
+    seen = set()
+    candidates = []
+    for row in rows:
+        guid = (row.get("guid") or "").strip()
+        if not guid:
+            raise RuntimeError("Refusing issue batch containing an item without a GUID.")
+        if guid in seen:
+            raise RuntimeError(f"Refusing issue batch containing duplicate GUID {guid!r}.")
+        seen.add(guid)
+        if guid not in issue_map:
+            candidates.append(row)
+
+    if len(candidates) > maximum:
+        counts = {}
+        for row in candidates:
+            change_type = row.get("change_type") or "policy_update"
+            counts[change_type] = counts.get(change_type, 0) + 1
+        breakdown = ", ".join(f"{name}={count}" for name, count in sorted(counts.items()))
+        raise RuntimeError(
+            f"Refusing to create {len(candidates)} issues in one run; safety limit is {maximum} "
+            f"({breakdown}). Inspect source snapshots and raise "
+            "TBS_POLICY_HAWK_MAX_NEW_ISSUES only for a verified large batch."
+        )
+    return candidates
 
 def save_issue_map(issue_map):
     """Saves the GUID to issue number mapping."""
@@ -376,58 +405,60 @@ def main():
         return
 
     with open(NEW_ITEMS_CSV_PATH, 'r', newline='', encoding='utf-8') as f:
-        reader = csv.DictReader(f)
-        for row in reader:
-            guid = row['guid']
-            if guid in issue_map:
-                print(f"Issue for '{row['title']}' ({guid}) already exists: #{issue_map[guid]}")
-                continue
+        rows = list(csv.DictReader(f))
+    validate_issue_batch(rows, issue_map)
 
-            print(f"Creating issue for new item: {row['title']}")
-            screenshot_filename = f"{safe_filename(guid)}.png"
-            screenshot_filepath = os.path.join(SCREENSHOTS_DIR, screenshot_filename)
-            screenshot_success = take_screenshot(row['link'], screenshot_filepath)
-            
-            screenshot_url = f"https://github.com/{REPO_NAME}/blob/main/{screenshot_filepath}?raw=true"
-            issue_body = issue_body_for_row(row, screenshot_success, screenshot_url, glossary_changes)
-            change_type = row.get("change_type") or "policy_update"
-            title_prefix = "Policy Update"
-            if change_type == "hierarchy_added":
-                title_prefix = "Policy Hierarchy Addition"
-            elif change_type == "hierarchy_removed":
-                title_prefix = "Policy Hierarchy Removal"
-            elif change_type == "glossary":
-                title_prefix = "Glossary Update"
+    for row in rows:
+        guid = row['guid']
+        if guid in issue_map:
+            print(f"Issue for '{row['title']}' ({guid}) already exists: #{issue_map[guid]}")
+            continue
+
+        print(f"Creating issue for new item: {row['title']}")
+        screenshot_filename = f"{safe_filename(guid)}.png"
+        screenshot_filepath = os.path.join(SCREENSHOTS_DIR, screenshot_filename)
+        screenshot_success = take_screenshot(row['link'], screenshot_filepath)
+
+        screenshot_url = f"https://github.com/{REPO_NAME}/blob/main/{screenshot_filepath}?raw=true"
+        issue_body = issue_body_for_row(row, screenshot_success, screenshot_url, glossary_changes)
+        change_type = row.get("change_type") or "policy_update"
+        title_prefix = "Policy Update"
+        if change_type == "hierarchy_added":
+            title_prefix = "Policy Hierarchy Addition"
+        elif change_type == "hierarchy_removed":
+            title_prefix = "Policy Hierarchy Removal"
+        elif change_type == "glossary":
+            title_prefix = "Glossary Update"
+        elif change_type == "pin":
+            pin_change = load_pin_change(row.get("filename", ""))["change_type"]
+            title_prefix = f"PIN {pin_change.title()}"
+
+        try:
+            labels = [row.get('category'), "policy-update"]
+            if change_type == "glossary":
+                labels.append("glossary-update")
             elif change_type == "pin":
-                pin_change = load_pin_change(row.get("filename", ""))["change_type"]
-                title_prefix = f"PIN {pin_change.title()}"
-
-            try:
-                labels = [row.get('category'), "policy-update"]
-                if change_type == "glossary":
-                    labels.append("glossary-update")
-                elif change_type == "pin":
-                    ensure_pin_update_label(repo)
-                    labels.append("pin-update")
-                fallback_labels = ["policy-update", "pin-update"] if change_type == "pin" else None
-                issue = create_issue_with_fallback(
-                    repo,
-                    f"{title_prefix}: {row['title']}",
-                    issue_body,
-                    labels,
-                    fallback_labels=fallback_labels,
-                )
-                print(f"Successfully created issue #{issue.number} for '{row['title']}'")
-                issue_map[guid] = issue.number
-                dispatched = dispatch_enrichment(REPO_NAME, issue.number, github_token, ref=ref)
-                pending_record = pending_record_for_issue(
-                    change_type, issue.number, guid, dispatched
-                )
-                if pending_record:
-                    pending.append(pending_record)
-                save_pending_enrichment(pending)
-            except Exception as e:
-                print(f"Error creating GitHub issue for '{row['title']}': {e}")
+                ensure_pin_update_label(repo)
+                labels.append("pin-update")
+            fallback_labels = ["policy-update", "pin-update"] if change_type == "pin" else None
+            issue = create_issue_with_fallback(
+                repo,
+                f"{title_prefix}: {row['title']}",
+                issue_body,
+                labels,
+                fallback_labels=fallback_labels,
+            )
+            print(f"Successfully created issue #{issue.number} for '{row['title']}'")
+            issue_map[guid] = issue.number
+            dispatched = dispatch_enrichment(REPO_NAME, issue.number, github_token, ref=ref)
+            pending_record = pending_record_for_issue(
+                change_type, issue.number, guid, dispatched
+            )
+            if pending_record:
+                pending.append(pending_record)
+            save_pending_enrichment(pending)
+        except Exception as e:
+            print(f"Error creating GitHub issue for '{row['title']}': {e}")
 
     save_issue_map(issue_map)
     print("Issue creation process complete.")

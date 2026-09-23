@@ -1,4 +1,5 @@
 import unittest
+from datetime import datetime, timezone
 from pathlib import Path
 from tempfile import TemporaryDirectory
 
@@ -91,6 +92,20 @@ class PolicySourcesHierarchyTests(unittest.TestCase):
         self.assertEqual(calls["count"], 2)
         self.assertEqual(records[0]["ID"], "100")
 
+    def test_fetch_hierarchy_rejects_http_success_error_page(self):
+        class FakeResponse:
+            text = "<html><main><h1>Request Rejected</h1></main></html>"
+            url = "https://www.tbs-sct.canada.ca/pol/hierarch-eng.aspx"
+
+            def raise_for_status(self):
+                return None
+
+        with self.assertRaisesRegex(policy_sources.SourceValidationError, "application error"):
+            policy_sources.fetch_hierarchy_records(
+                getter=lambda *_args, **_kwargs: FakeResponse(),
+                resolve_redirects=False,
+            )
+
     def test_hierarchy_tree_text_includes_nested_items_and_urls(self):
         records = [
             {
@@ -153,6 +168,47 @@ class PolicySourcesHierarchyTests(unittest.TestCase):
                 self.assertEqual(current, previous)
                 self.assertFalse(Path(fetch_feed.HIERARCHY_TREE_PATH).exists())
                 self.assertFalse((tmp_path / "Hierarchy" / "2026-07-08_hierarchy.txt").exists())
+            finally:
+                fetch_feed.HIERARCHY_CSV_PATH = original_csv_path
+                fetch_feed.HIERARCHY_DIR = original_dir
+                fetch_feed.HIERARCHY_TREE_PATH = original_tree_path
+
+    def test_capture_hierarchy_changes_rejects_catastrophic_partial_snapshot(self):
+        previous = [
+            {
+                "ID": str(number),
+                "Name": f"Policy {number}",
+                "URL": f"https://example.test/{number}",
+                "Min Level": "1",
+                "Hierarchy Paths": "",
+                "Other Names": "",
+            }
+            for number in range(30)
+        ]
+
+        with TemporaryDirectory() as tmp:
+            tmp_path = Path(tmp)
+            original_csv_path = fetch_feed.HIERARCHY_CSV_PATH
+            original_dir = fetch_feed.HIERARCHY_DIR
+            original_tree_path = fetch_feed.HIERARCHY_TREE_PATH
+            fetch_feed.HIERARCHY_CSV_PATH = str(tmp_path / "hierarchy.csv")
+            fetch_feed.HIERARCHY_DIR = str(tmp_path / "Hierarchy")
+            fetch_feed.HIERARCHY_TREE_PATH = str(tmp_path / "Hierarchy" / "hierarchy.txt")
+            try:
+                policy_sources.write_hierarchy_csv(fetch_feed.HIERARCHY_CSV_PATH, previous)
+                current, changes, fetched = fetch_feed.capture_hierarchy_changes(
+                    "2026-09-23",
+                    fetcher=lambda **_kwargs: previous[:1],
+                )
+
+                self.assertFalse(fetched)
+                self.assertEqual(changes, {"added": [], "removed": []})
+                self.assertEqual(current, previous)
+                self.assertEqual(
+                    policy_sources.read_hierarchy_csv(fetch_feed.HIERARCHY_CSV_PATH),
+                    previous,
+                )
+                self.assertFalse(Path(fetch_feed.HIERARCHY_TREE_PATH).exists())
             finally:
                 fetch_feed.HIERARCHY_CSV_PATH = original_csv_path
                 fetch_feed.HIERARCHY_DIR = original_dir
@@ -240,6 +296,31 @@ class IssueBodyTests(unittest.TestCase):
         self.assertIn("A new or updated policy document has been detected.", body)
         self.assertIn("### Glossary changes", body)
         self.assertIn("new term", body)
+
+    def test_issue_batch_guard_rejects_mass_creation(self):
+        rows = [
+            {"guid": f"hierarchy_removed_{number}", "change_type": "hierarchy_removed"}
+            for number in range(26)
+        ]
+
+        with self.assertRaisesRegex(RuntimeError, "Refusing to create 26 issues"):
+            create_issues_with_screenshots.validate_issue_batch(rows, {})
+
+
+class FeedFallbackSafetyTests(unittest.TestCase):
+    def test_stale_fallback_entries_are_not_treated_as_new_updates(self):
+        entries = [
+            {"title": "Historical", "pubDate": "Wed, 18 Aug 2021 00:00:00 GMT"},
+            {"title": "Recent", "pubDate": "Tue, 22 Sep 2026 00:00:00 GMT"},
+        ]
+
+        filtered = fetch_feed.filter_recent_fallback_entries(
+            entries,
+            now=datetime(2026, 9, 23, tzinfo=timezone.utc),
+            max_age_days=120,
+        )
+
+        self.assertEqual([entry["title"] for entry in filtered], ["Recent"])
 
 
 if __name__ == "__main__":

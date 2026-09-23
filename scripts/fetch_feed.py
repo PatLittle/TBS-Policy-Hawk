@@ -4,13 +4,14 @@ import re
 import requests
 import feedparser
 from bs4 import BeautifulSoup
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
 from email.utils import parsedate_to_datetime
 
 try:
     from scripts.policy_sources import (
         GLOSSARY_URLS,
         HIERARCHY_URL,
+        SourceValidationError,
         build_glossary_change_payload,
         compare_glossary_rows,
         compare_hierarchy,
@@ -23,11 +24,13 @@ try:
         write_hierarchy_csv,
         write_hierarchy_tree,
         write_json,
+        validate_snapshot_membership,
     )
 except ModuleNotFoundError:
     from policy_sources import (
         GLOSSARY_URLS,
         HIERARCHY_URL,
+        SourceValidationError,
         build_glossary_change_payload,
         compare_glossary_rows,
         compare_hierarchy,
@@ -40,11 +43,13 @@ except ModuleNotFoundError:
         write_hierarchy_csv,
         write_hierarchy_tree,
         write_json,
+        validate_snapshot_membership,
     )
 
 # --- Configuration ---
 RSS_URL = "https://www.tbs-sct.canada.ca/pol/rssfeeds-filsrss-eng.aspx?feed=2&count=100"
 USER_AGENT = os.getenv("TBS_POLICY_HAWK_USER_AGENT", "TBS-Policy-Hawk/1.0 (+https://github.com/TBS-Policy-Hawk)")
+FALLBACK_MAX_ENTRY_AGE_DAYS = int(os.getenv("TBS_POLICY_HAWK_FALLBACK_MAX_AGE_DAYS", "120"))
 FALLBACK_RSS_URLS = [
     "https://www.tbs-sct.canada.ca/pol/rssfeeds-filsrss-eng.aspx?feed=1&type=79",
     "https://www.tbs-sct.canada.ca/pol/rssfeeds-filsrss-eng.aspx?feed=1&type=27",
@@ -104,6 +109,28 @@ def parse_pub_date(pub_date):
         return parsedate_to_datetime(pub_date)
     except (TypeError, ValueError):
         return datetime.min
+
+
+def filter_recent_fallback_entries(entries, now=None, max_age_days=FALLBACK_MAX_ENTRY_AGE_DAYS):
+    """Do not reinterpret old fallback-feed inventory as newly published updates."""
+    now = now or datetime.now(timezone.utc)
+    cutoff = now - timedelta(days=max_age_days)
+    recent = []
+    for entry in entries:
+        published = parse_pub_date(entry.get("pubDate"))
+        if published == datetime.min:
+            print(f"Warning: ignoring fallback entry with no valid date: {entry.get('title', '')}")
+            continue
+        if published.tzinfo is None:
+            published = published.replace(tzinfo=timezone.utc)
+        if cutoff <= published <= now + timedelta(days=1):
+            recent.append(entry)
+        else:
+            print(
+                "Warning: ignoring stale fallback entry "
+                f"{entry.get('title', '')!r} dated {entry.get('pubDate', '')!r}."
+            )
+    return recent
 
 
 def normalize_entry(entry):
@@ -331,8 +358,14 @@ def capture_hierarchy_changes(hierarchy_date, fetcher=fetch_hierarchy_records):
     hierarchy_changes = {"added": [], "removed": []}
     try:
         current_hierarchy = fetcher(user_agent=USER_AGENT)
-    except requests.RequestException as exc:
-        print(f"Warning: unable to fetch hierarchy tree after retries: {exc}")
+        validate_snapshot_membership(
+            "TBS policy hierarchy",
+            previous_hierarchy,
+            current_hierarchy,
+            key=lambda row: row.get("ID", ""),
+        )
+    except (requests.RequestException, SourceValidationError) as exc:
+        print(f"Warning: unable to accept hierarchy tree snapshot: {exc}")
         print("Continuing with the previous hierarchy snapshot and no hierarchy add/remove events for this run.")
         return previous_hierarchy, hierarchy_changes, False
 
@@ -345,6 +378,35 @@ def capture_hierarchy_changes(hierarchy_date, fetcher=fetch_hierarchy_records):
         write_hierarchy_tree(HIERARCHY_TREE_PATH, current_hierarchy)
         print(f"Captured hierarchy tree snapshot at {dated_tree_path} and {HIERARCHY_TREE_PATH}.")
     return current_hierarchy, hierarchy_changes, True
+
+
+def capture_glossary_changes(fetcher=fetch_glossary_rows):
+    print("Checking policy glossary pages...")
+    previous_exists = os.path.exists(GLOSSARY_CSV_PATH) and os.path.getsize(GLOSSARY_CSV_PATH) > 0
+    previous = read_glossary_csv(GLOSSARY_CSV_PATH)
+    no_changes = {"added": [], "removed": [], "changed": []}
+    try:
+        current = fetcher(user_agent=USER_AGENT)
+        validate_snapshot_membership(
+            "TBS policy glossary",
+            previous,
+            current,
+            key=lambda row: "||".join([
+                row.get("source_id", ""),
+                (row.get("term_en") or "").strip().casefold(),
+                (row.get("term_fr") or "").strip().casefold(),
+            ]),
+        )
+    except (requests.RequestException, SourceValidationError) as exc:
+        print(f"Warning: unable to accept policy glossary snapshot: {exc}")
+        print("Continuing with the previous glossary snapshot and no glossary events for this run.")
+        return previous, no_changes, {"changes_by_source": {}}, False
+
+    changes = compare_glossary_rows(previous, current) if previous_exists else no_changes
+    payload = build_glossary_change_payload(changes)
+    write_glossary_csv(GLOSSARY_CSV_PATH, current)
+    write_glossary_markdown(GLOSSARY_MD_PATH, current)
+    return current, changes, payload, True
 
 
 def main():
@@ -360,6 +422,9 @@ def main():
         print("Warning: unable to fetch entries from main, fallback RSS feeds, or modifications table. Continuing with hierarchy and glossary checks.")
     else:
         print(f"Using {source} feed source with {len(entries)} entries.")
+        if source != "primary":
+            entries = filter_recent_fallback_entries(entries)
+            print(f"Retained {len(entries)} recent fallback entries after freshness validation.")
 
     new_items = []
     policy_issue_document_ids = set()
@@ -416,20 +481,13 @@ def main():
             source_id=doc_id,
         ))
 
-    print("Checking policy glossary pages...")
-    previous_glossary_exists = os.path.exists(GLOSSARY_CSV_PATH) and os.path.getsize(GLOSSARY_CSV_PATH) > 0
-    previous_glossary = read_glossary_csv(GLOSSARY_CSV_PATH)
-    current_glossary = fetch_glossary_rows(user_agent=USER_AGENT)
-    glossary_changes = compare_glossary_rows(previous_glossary, current_glossary) if previous_glossary_exists else {"added": [], "removed": [], "changed": []}
-    glossary_payload = build_glossary_change_payload(glossary_changes)
-    write_glossary_csv(GLOSSARY_CSV_PATH, current_glossary)
-    write_glossary_markdown(GLOSSARY_MD_PATH, current_glossary)
+    _, glossary_changes, glossary_payload, glossary_fetched = capture_glossary_changes()
 
     changed_sources = glossary_payload["changes_by_source"]
     if changed_sources:
         write_json(GLOSSARY_CHANGES_JSON_PATH, glossary_payload)
         print(f"Captured glossary changes for {len(changed_sources)} source instrument(s).")
-    elif os.path.exists(GLOSSARY_CHANGES_JSON_PATH):
+    elif glossary_fetched and os.path.exists(GLOSSARY_CHANGES_JSON_PATH):
         os.remove(GLOSSARY_CHANGES_JSON_PATH)
         print("Removed stale glossary change metadata.")
     else:
