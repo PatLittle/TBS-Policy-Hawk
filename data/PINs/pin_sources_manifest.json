@@ -1,7 +1,11 @@
 {
   "schema_version": 2,
-  "generated_at_utc": "2026-09-03T19:01:36Z",
-  "pending_removals": {},
+  "generated_at_utc": "2026-09-24T19:39:46Z",
+  "pending_removals": {
+    "access_information_privacy_notices": {
+      "https://www.canada.ca/en/treasury-board-secretariat/services/access-information-privacy/access-information-privacy-notices/2020-01-guidance-delays-mitigate-coronavirus.html": 1
+    }
+  },
   "sources": [
     {
       "key": "service_digital_announcements",
@@ -811,7 +815,7 @@
       "short_name": "ATIPN",
       "url": "https://www.canada.ca/en/treasury-board-secretariat/services/access-information-privacy/access-information-privacy-notices.html",
       "folder": "ATIPN",
-      "source_modified": "2026-09-03",
+      "source_modified": "2026-09-24",
       "notice_count": 25,
       "notices": [
         {
