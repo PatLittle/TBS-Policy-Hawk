@@ -159,6 +159,22 @@ For PIN analysis, search:
 2. `data/PINs/pin_sources_manifest.json`
 3. `data/PINs/{PIN family}/*.md`
 
+For any issue involving a **removed, delisted, retired, redirected, or missing web source**, verify the current state of the **direct source URL** before interpreting the change. Repository removal markers and index/listing changes are not enough on their own.
+
+Record the live-page result using these distinctions:
+
+- **200 with substantive source content:** the page is still live. If it disappeared only from an index or source listing, describe it as **delisted/unlisted but still directly accessible**, not deleted or withdrawn.
+- **404 Not Found or 410 Gone:** the direct page is no longer available at that URL. Describe it as **returning 404/410 and no longer live at the recorded URL**. This is stronger evidence of publication withdrawal than delisting alone, but it does **not by itself prove formal rescission** of the underlying direction unless an authoritative source says so.
+- **Redirect (3xx or browser redirect):** follow the redirect and inspect the destination. State whether the source moved, was replaced, was consolidated, or redirects to a generic page.
+- **Soft 404:** if the server returns 200 but the visible page says “Page not found,” “404,” “not available,” or equivalent, treat it as unavailable and record it as a **soft 404**, not as a live source page.
+- **403, 429, 5xx, timeout, bot challenge, or other fetch failure:** treat page status as **indeterminate**. Do not infer deletion, withdrawal, or continued availability from the failed request alone.
+
+For removals, check both:
+1. the tracked index/listing state; and
+2. the direct notice/document URL.
+
+When possible, include the HTTP/browser-visible status and the date checked in the analysis. If those two sources disagree, explain the disagreement explicitly.
+
 For glossary analysis, inspect:
 
 1. the issue body `### Glossary changes` section
@@ -293,6 +309,8 @@ When a PIN is newly issued or changed, capture:
 - linked or affected policy instruments
 - new direction, clarification, transitional instruction, deadline, threshold, implementation expectation, or operational obligation
 - whether the notice supersedes, amends, or points back to prior guidance
+
+For a PIN reported as **removed**, also verify the direct notice URL at analysis time and record whether it is live, redirected, 404/410, a soft 404, or indeterminate. Do not describe a 404/410 page as “live” or “publicly accessible.” If the notice is both absent from the tracked index and 404/410 at its direct URL, say that the notice is **no longer available at the recorded public URL** while keeping any claim of formal rescission separate unless explicitly documented.
 
 In the interpretation, explain whether the PIN creates a new operational requirement, clarifies existing policy, changes timing or compliance expectations, or is only administrative/publication cleanup.
 
@@ -632,6 +650,7 @@ For each open issue:
 [ ] Find current capture path
 [ ] Find closest previous capture path
 [ ] Inspect PIN_sources.md and data/PINs when PIN evidence is relevant
+[ ] Verify direct source URL status for removals/delistings (live, redirect, 404/410, soft 404, or indeterminate)
 [ ] Inspect data/policy_glossary.* and glossary_changes.json when glossary evidence is relevant
 [ ] Inspect data/tbs_policy_hierarchy_full.csv and hierarchy screenshots when hierarchy evidence is relevant
 [ ] Normalize current and previous content
