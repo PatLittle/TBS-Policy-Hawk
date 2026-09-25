@@ -97,9 +97,9 @@ Generated from the live source pages listed below.
 
 ## [Access to Information and Privacy Notices (ATIPN)](https://www.canada.ca/en/treasury-board-secretariat/services/access-information-privacy/access-information-privacy-notices.html)
 
-> Date modified: 2026-09-03
+> Date modified: 2026-09-24
 
-> Notices: 25
+> Notices: 24
 
 <details>
 <summary>Notice table</summary>
@@ -110,7 +110,6 @@ Generated from the live source pages listed below.
 |2026-03-23|Access to Information and Privacy implementation notices|2024-01|Upholding privacy and safety of public servants|https://www.canada.ca/en/treasury-board-secretariat/services/access-information-privacy/access-information-privacy-notices/2024-01-upholding-privacy-safety-public-servants.html|
 |2026-03-23|Access to Information and Privacy implementation notices|2023-01|Advancing Indigenous Reconciliation - Culturally Appropriate Services|https://www.canada.ca/en/treasury-board-secretariat/services/access-information-privacy/access-information-privacy-notices/2023-01-advancing-reconciliation-indigenous-peoples.html|
 |2026-03-23|Access to Information and Privacy implementation notices|2022-01|Seeking an Exception to a Requirement of the TBS Access to Information or Privacy Policy Suite|https://www.canada.ca/en/treasury-board-secretariat/services/access-information-privacy/access-information-privacy-notices/2022-01-seeking-exception.html|
-|2026-03-23|Access to Information and Privacy implementation notices|2020-01|Guidance on delays resulting from measures to mitigate the impact of novel Coronavirus (COVID-19) on federal workplace|https://www.canada.ca/en/treasury-board-secretariat/services/access-information-privacy/access-information-privacy-notices/2020-01-guidance-delays-mitigate-coronavirus.html|
 |2026-03-23|Access to Information implementation notices|2024-01|Advancing Indigenous Reconciliation: Waiver of $5 Application Fee|https://www.canada.ca/en/treasury-board-secretariat/services/access-information-privacy/access-information-privacy-notices/2024-01-advancing-indigenous-reconciliation.html|
 |2026-03-23|Access to Information implementation notices|2023-02|Leveraging Access to Information to Promote Declassification and Downgrading of Government Records|https://www.canada.ca/en/treasury-board-secretariat/services/access-information-privacy/access-information-privacy-notices/2023-02-leveraging-access-information.html|
 |2026-03-23|Access to Information implementation notices|2023-01|Amendments to Access to Information Regulations|https://www.canada.ca/en/treasury-board-secretariat/services/access-information-privacy/access-information-privacy-notices/2023-01-amendments-access-information-regulations.html|

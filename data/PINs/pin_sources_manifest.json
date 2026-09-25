@@ -1,11 +1,7 @@
 {
   "schema_version": 2,
-  "generated_at_utc": "2026-09-24T19:39:46Z",
-  "pending_removals": {
-    "access_information_privacy_notices": {
-      "https://www.canada.ca/en/treasury-board-secretariat/services/access-information-privacy/access-information-privacy-notices/2020-01-guidance-delays-mitigate-coronavirus.html": 1
-    }
-  },
+  "generated_at_utc": "2026-09-25T02:33:25Z",
+  "pending_removals": {},
   "sources": [
     {
       "key": "service_digital_announcements",
@@ -816,7 +812,7 @@
       "url": "https://www.canada.ca/en/treasury-board-secretariat/services/access-information-privacy/access-information-privacy-notices.html",
       "folder": "ATIPN",
       "source_modified": "2026-09-24",
-      "notice_count": 25,
+      "notice_count": 24,
       "notices": [
         {
           "title": "Disclosing personal information of deceased individuals on compassionate grounds",
@@ -865,18 +861,6 @@
           "fetch_error": "",
           "filename": "Seeking_an_Exception_to_a_Requirement_of_the_TBS_Access_to_Information_or_Privacy_Policy_Suite.md",
           "path": "data/PINs/ATIPN/Seeking_an_Exception_to_a_Requirement_of_the_TBS_Access_to_Information_or_Privacy_Policy_Suite.md"
-        },
-        {
-          "title": "Guidance on delays resulting from measures to mitigate the impact of novel Coronavirus (COVID-19) on federal workplace",
-          "url": "https://www.canada.ca/en/treasury-board-secretariat/services/access-information-privacy/access-information-privacy-notices/2020-01-guidance-delays-mitigate-coronavirus.html",
-          "listing_date": "",
-          "table_date": "2026-03-23",
-          "notice_code": "2020-01",
-          "group": "Access to Information and Privacy implementation notices",
-          "detail_modified": "2026-03-23",
-          "fetch_error": "",
-          "filename": "Guidance_on_delays_resulting_from_measures_to_mitigate_the_impact_of_novel_Coronavirus_COVID-19_on_federal_workplace.md",
-          "path": "data/PINs/ATIPN/Guidance_on_delays_resulting_from_measures_to_mitigate_the_impact_of_novel_Coronavirus_COVID-19_on_federal_workplace.md"
         },
         {
           "title": "Advancing Indigenous Reconciliation: Waiver of $5 Application Fee",
