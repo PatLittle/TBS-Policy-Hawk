@@ -525,7 +525,7 @@ The DFO increases are program-specific exceptional limits; they do not change th
 **GUID:** `pin_atipn_75643a64ad25_removed_39e4eaf379dd_2026-09-24`  
 **Change type:** pin_removed
 
-### Policy change analysis
+#### Policy change analysis
 
 Compared the PIN evidence for `pin_atipn_75643a64ad25_removed_39e4eaf379dd_2026-09-24`:
 
@@ -534,34 +534,35 @@ Compared the PIN evidence for `pin_atipn_75643a64ad25_removed_39e4eaf379dd_2026-
 - PIN family: **ATIPN**
 - Notice identifier: **2020-01**
 - Source URL: https://www.canada.ca/en/treasury-board-secretariat/services/access-information-privacy/access-information-privacy-notices/2020-01-guidance-delays-mitigate-coronavirus.html
+- Direct URL check: **404 Not Found** (verified September 25, 2026)
 
 #### Summary
 
-ATIP Implementation Notice 2020-01 has been **delisted from the active Access to Information and Privacy Notices index** after two consecutive successful repository checks. The index page was updated on September 24, 2026 and no longer includes this notice. However, the notice's direct Canada.ca page remains publicly accessible with the full March 20, 2020 guidance. The evidence therefore supports a change in the notice's **active-listing status**, but does **not** establish formal rescission, deletion of the page, or repeal of the underlying statutory authorities.
+ATIP Implementation Notice 2020-01 has been **removed from the active Access to Information and Privacy Notices index**, and its former direct Canada.ca URL now returns **404 Not Found**. Together, those signals show that the notice is no longer available as a live publication at its recorded public URL. The evidence supports withdrawal/removal of the published notice, but does **not by itself establish a formal legal rescission** of the notice or alter the underlying statutory authorities.
 
 #### Substantive changes identified
 
 | Area | Evidence before / previous state | Evidence now | Interpretation |
 |---|---|---|---|
-| **Active ATIPN listing** | The tracked ATIPN source listed this 2020-01 implementation notice and the repository retained its full text. | The notice is absent from the active ATIP Notices index after two consecutive successful checks; the source index shows a September 24, 2026 page date. | The notice appears to have been removed from the active implementation-notice collection. This is stronger than a transient fetch failure, but does not by itself prove formal rescission. |
-| **Direct notice page** | The prior capture contained the complete notice issued March 20, 2020 under paragraph 70(1)(c) of the *Access to Information Act* and subsection 71(1) of the *Privacy Act*. | The direct Canada.ca URL remains live and continues to display the full notice, with a page date of March 23, 2026. | This is a **delisting rather than a confirmed content withdrawal**. Users can still reach the historical guidance directly even though it is no longer surfaced in the active notices index. |
-| **COVID-19 delay guidance** | The notice advised institutions on best efforts during exceptional COVID-19 workplace measures, including requester communications, documentation of operational constraints, possible statutory extensions, and proactive-publication delays. | No replacement notice or superseding direction is identified in the removal evidence or current ATIP Notices index. | Institutions should be cautious about treating this pandemic-era notice as current active TBS implementation guidance. Current statutory and policy requirements continue to govern; the delisting itself does not alter them. |
-| **Underlying authorities** | The notice referenced the *Access to Information Act* and *Privacy Act* and described options available within those statutes. | The source-list change does not amend either Act or any policy instrument. | The delisting changes the status and discoverability of the guidance, not the legislation or institutions' continuing legal obligations. |
+| **Active ATIPN listing** | The tracked ATIPN source listed this 2020-01 implementation notice and the repository retained its full text. | The notice is absent from the tracked ATIP Notices index after two consecutive successful checks. | The notice has been removed from the active implementation-notice collection rather than merely experiencing a transient capture failure. |
+| **Direct notice page** | The prior capture contained the complete notice issued March 20, 2020 under paragraph 70(1)(c) of the *Access to Information Act* and subsection 71(1) of the *Privacy Act*. | The recorded Canada.ca URL now returns **404 Not Found**. | The notice is **no longer live at its former public URL**. This materially strengthens the evidence that the publication has been withdrawn from current public availability. |
+| **COVID-19 delay guidance** | The notice advised institutions on best efforts during exceptional COVID-19 workplace measures, including requester communications, documentation of operational constraints, possible statutory extensions, and proactive-publication delays. | The notice is no longer listed and its direct URL is unavailable; no replacement or superseding notice is identified in the captured removal evidence. | Institutions should not rely on this notice as current TBS operational guidance. Any continuing practice should be validated against current legislation, policy and contemporary TBS direction. |
+| **Underlying authorities** | The notice referenced the *Access to Information Act* and *Privacy Act* and described options available within those statutes. | Removal of the notice and the 404 response do not amend either Act or any policy instrument. | Publication withdrawal is distinct from repeal or amendment of the governing legal authorities. |
 
 #### Practical effect
 
-1. **Treat as inactive-list guidance:** The notice is no longer presented by TBS in the current ATIP implementation-notice collection, so it should not be relied on as an actively listed implementation notice without confirming current TBS advice.
-2. **Do not infer rescission from delisting alone:** Because the direct page remains live and no explicit rescission or supersession statement was found, the evidence does not support saying that the notice has been formally rescinded.
-3. **Revalidate pandemic-era practices:** Any continuing reliance on the notice's COVID-19-specific operational accommodations should be checked against current legislation, policy, institutional circumstances and contemporary TBS direction.
-4. **Preserve the historical record:** The prior repository capture remains useful evidence of the operational direction published during the pandemic.
+1. **Treat the notice as withdrawn from current public availability:** It is neither listed in the active ATIP notice collection nor available at its former direct URL.
+2. **Do not treat the 404 as proof of formal rescission:** The publication has been removed, but no express rescission instrument, superseding notice or replacement statement has been identified in the available evidence.
+3. **Revalidate pandemic-era practices:** Any continuing reliance on the notice's COVID-19-specific operational accommodations should be checked against current legislation, policy, institutional circumstances and current TBS direction.
+4. **Preserve the historical record:** The repository's previous capture remains evidence of the operational direction that was published during the pandemic.
 
 #### Non-substantive changes
 
-The normalized repository diff represents removal of the notice from the tracked source by replacing the captured notice body with a removal marker. It should not be read as if every paragraph of the former guidance was individually repealed.
+The normalized repository diff replaces the former notice text with a removal marker. The **404 verification is separate live-source evidence** confirming that the old public URL is no longer serving the notice; it should still not be interpreted as repealing each legal rule or authority discussed in the former notice.
 
 #### Watch item
 
-Monitor whether TBS later removes the direct page, adds an archive or rescission statement, redirects the URL, or publishes replacement guidance. The present evidence supports **delisting from the active index**, not confirmed formal rescission.
+Monitor for an archived copy, redirect, express rescission statement, or replacement guidance. If one appears, update the characterization from “removed and 404 at the recorded URL” to the more specific status supported by that evidence.
 
 #### Classification
 
