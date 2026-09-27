@@ -9,7 +9,7 @@ DEFAULT_PALETTE = {
     "background": "#F8F9FB",
     "card": "#FFFFFF",
     "ink": "#15264A",
-    "muted_ink": "#6B7280",
+    "muted_ink": "#4B5563",
     "grid": "#D9E0E8",
     "baseline_line": "#98A2B3",
     "current_line": "#1267D8",
@@ -131,13 +131,15 @@ def svg_text(x, y, text, cls="", anchor="start", fill=None):
     attrs = []
     if cls: attrs.append(f'class="{cls}"')
     if anchor != "start": attrs.append(f'text-anchor="{anchor}"')
-    if fill: attrs.append(f'fill="{fill}"')
+    # An inline style deliberately wins over the global text fill rule. This is
+    # needed for high-contrast labels on the dark age-distribution segments.
+    if fill: attrs.append(f'style="fill:{fill}"')
     extra = (" " + " ".join(attrs)) if attrs else ""
     return f'<text x="{x:.1f}" y="{y:.1f}"{extra}>{html.escape(text)}</text>'
 def render_svg(cfg, logo_uri=None):
     cfg = normalize_input(cfg); palette = merge_palette(cfg.get("palette")); topics = cfg["topics"]; bins = cfg["bins"]; events = cfg.get("events", [])
-    W = int(cfg.get("width", 1500)); margin = 24; header_h = 165; topic_w = 505; age_w = 535; dist_w = W - (margin * 2) - topic_w - age_w
-    row_pair_h = 64; table_y = header_h + 58; table_h = row_pair_h * len(topics); footer_h = 62; H = table_y + table_h + footer_h
+    W = int(cfg.get("width", 1500)); margin = 24; header_h = 165; topic_w = 490; age_w = 550; dist_w = W - (margin * 2) - topic_w - age_w
+    row_pair_h = 64; table_y = header_h + 78; table_h = row_pair_h * len(topics); footer_h = 78; H = table_y + table_h + footer_h
     x_topic = margin; x_age = x_topic + topic_w; x_dist = x_age + age_w
     topic_name_w = 240; row_x = x_topic + topic_name_w; current_num_x = x_topic + topic_w - 24; changes_start_x = row_x + 90
     age_plot_x0 = x_age + 18; age_plot_x1 = x_age + age_w - 26; age_plot_w = age_plot_x1 - age_plot_x0; max_age = float(cfg.get("max_age_years", 15))
@@ -152,21 +154,22 @@ def render_svg(cfg, logo_uri=None):
 <style>
 text {{ font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; fill:{palette["ink"]}; }}
 .title {{ font-size:33px; font-weight:760; }}
-.subtitle {{ font-size:13px; fill:{palette["muted_ink"]}; }}
+.subtitle {{ font-size:14px; fill:{palette["muted_ink"]}; }}
 .badge {{ font-size:14px; font-weight:700; fill:white; }}
-.section {{ font-size:14px; font-weight:720; }}
-.subsection {{ font-size:11px; fill:{palette["muted_ink"]}; }}
-.topic {{ font-size:13px; font-weight:620; }}
-.base {{ font-size:11px; fill:{palette["muted_ink"]}; }}
-.current {{ font-size:11px; font-weight:720; fill:{palette["current_line"]}; }}
-.metric {{ font-size:12px; font-weight:700; }}
-.age-base {{ font-size:11px; font-weight:650; fill:{palette["muted_ink"]}; }}
-.age-current {{ font-size:11px; font-weight:760; fill:{palette["ink"]}; }}
-.axis {{ font-size:10px; fill:{palette["muted_ink"]}; }}
-.legend {{ font-size:10px; fill:{palette["ink"]}; }}
-.legend-title {{ font-size:11px; font-weight:720; }}
-.bintext {{ font-size:9px; font-weight:720; }}
-.foot {{ font-size:10px; fill:{palette["muted_ink"]}; }}
+.section {{ font-size:15px; font-weight:740; }}
+.subsection {{ font-size:12px; fill:{palette["muted_ink"]}; }}
+.topic {{ font-size:13px; font-weight:650; }}
+.base {{ font-size:12px; fill:{palette["muted_ink"]}; }}
+.current {{ font-size:12px; font-weight:740; fill:{palette["current_line"]}; }}
+.metric {{ font-size:13px; font-weight:720; }}
+.age-base {{ font-size:12px; font-weight:670; fill:{palette["muted_ink"]}; paint-order:stroke; stroke:white; stroke-width:3px; stroke-linejoin:round; }}
+.age-current {{ font-size:12px; font-weight:780; fill:{palette["ink"]}; paint-order:stroke; stroke:white; stroke-width:3px; stroke-linejoin:round; }}
+.axis {{ font-size:11px; font-weight:600; fill:{palette["muted_ink"]}; }}
+.legend {{ font-size:11px; fill:{palette["ink"]}; }}
+.event-legend {{ font-size:10px; font-weight:600; fill:{palette["ink"]}; }}
+.legend-title {{ font-size:12px; font-weight:740; }}
+.bintext {{ font-size:10px; font-weight:760; }}
+.foot {{ font-size:11px; fill:{palette["muted_ink"]}; }}
 .change-add {{ font-size:11px; font-weight:800; fill:{palette["added"]}; }}
 .change-mod {{ font-size:11px; font-weight:800; fill:{palette["modified"]}; }}
 .change-del {{ font-size:11px; font-weight:800; fill:{palette["deleted"]}; }}
@@ -177,24 +180,27 @@ text {{ font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-
     out.append(svg_text(30, 54, cfg.get("title", "Policy suite currency profile"), "title"))
     out.append(f'<rect x="30" y="70" width="190" height="31" rx="15.5" fill="#357DA8"/>')
     out.append(svg_text(125, 91, cfg.get("view_label", "Fiscal Q2 change view"), "badge", "middle"))
-    out.append(svg_text(238, 91, f'Baseline: {cfg["baseline_date"]}  ·  Current snapshot: {cfg["current_date"]}', "subtitle"))
+    out.append(svg_text(238, 91, f'Start: {cfg["baseline_date"]}  ·  Snapshot: {cfg["current_date"]}', "subtitle"))
     if logo_uri: out.append(f'<image href="{logo_uri}" x="{W-135}" y="24" width="102" height="102" preserveAspectRatio="xMidYMid meet"/>')
     # Keep contextual events readable as their count grows: two compact columns.
-    event_box_x = x_age + 20; event_box_y = 18; event_box_w = 520; event_box_h = 112
+    event_box_x = max(x_age + 36, 565); event_box_y = 18; event_box_w = 520; event_box_h = 112
     out.append(f'<rect x="{event_box_x}" y="{event_box_y}" width="{event_box_w}" height="{event_box_h}" rx="12" fill="#FBFCFE" stroke="#DCE3EA"/>')
     out.append(svg_text(event_box_x + 14, event_box_y + 19, "Context events (vertical lines on age chart)", "legend-title"))
     event_columns = 2
     rows_per_column = max(1, (len(events) + event_columns - 1) // event_columns)
-    column_width = 250
+    column_width = 210
     for i, ev in enumerate(events):
         column = i // rows_per_column
         row = i % rows_per_column
-        xx = event_box_x + 17 + column * column_width
+        # The last first-column label is the longest in the standard event set;
+        # give the matching second-column badge a little extra breathing room.
+        row_offset = 20 if column > 0 and row == rows_per_column - 1 else 0
+        xx = event_box_x + 17 + column * column_width + row_offset
         yy = event_box_y + 42 + row * 22
         c = ev.get("color") or event_colors[i % len(event_colors)]
         out.append(f'<circle cx="{xx}" cy="{yy-4}" r="9" fill="{c}"/>')
         out.append(svg_text(xx, yy, str(i+1), "badge", "middle"))
-        out.append(svg_text(xx + 20, yy, f'{ev.get("display_date", ev["date"])} — {ev["label"]}', "legend"))
+        out.append(svg_text(xx + 20, yy, f'{ev.get("display_date", ev["date"])} — {ev["label"]}', "event-legend"))
     bin_box_x = x_dist + 34; bin_box_y = 18; bin_box_w = 242; bin_box_h = 128
     out.append(f'<rect x="{bin_box_x}" y="{bin_box_y}" width="{bin_box_w}" height="{bin_box_h}" rx="12" fill="#FBFCFE" stroke="#DCE3EA"/>')
     out.append(svg_text(bin_box_x + 14, bin_box_y + 19, "Age (current version) bins", "legend-title"))
@@ -206,10 +212,10 @@ text {{ font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-
     for x, w in ((x_topic, topic_w), (x_age, age_w), (x_dist, dist_w)):
         out.append(f'<rect x="{x}" y="{panel_y}" width="{w}" height="{panel_h}" rx="10" fill="white" stroke="#DCE3EA"/>')
     out.append(svg_text(x_topic + 12, header_h + 25, "Policy topic", "section"))
-    out.append(svg_text(row_x + 120, header_h + 25, "Changes", "section", "middle"))
-    ly = header_h + 47; cx = row_x + 20
+    out.append(svg_text(row_x + 102, header_h + 25, "Changes", "section", "middle"))
+    ly = header_h + 58; cx = row_x + 8
     for label, color in (("Added", palette["added"]), ("Modified", palette["modified"]), ("Deleted", palette["deleted"])):
-        out.append(f'<circle cx="{cx}" cy="{ly-4}" r="5.5" fill="{color}"/>'); out.append(svg_text(cx + 10, ly, label, "subsection")); cx += 72
+        out.append(f'<circle cx="{cx}" cy="{ly-4}" r="5.5" fill="{color}"/>'); out.append(svg_text(cx + 10, ly, label, "subsection")); cx += 65
     out.append(svg_text(current_num_x, header_h + 25, "Current", "section", "end")); out.append(svg_text(current_num_x, header_h + 43, "instruments", "subsection", "end"))
     out.append(svg_text(x_age + 14, header_h + 25, "Average current-version age", "section"))
     out.append(svg_text(x_dist + 14, header_h + 25, "Age distribution of current versions", "section"))
@@ -217,11 +223,19 @@ text {{ font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-
     out.append(f'<line x1="{age_plot_x0}" y1="{axis_y}" x2="{age_plot_x1}" y2="{axis_y}" stroke="{palette["grid"]}" stroke-width="1"/>')
     for t in [0, 5, 10, 15]:
         x = age_x(t); out.append(f'<line x1="{x}" y1="{axis_y-5}" x2="{x}" y2="{table_y+table_h}" stroke="{palette["grid"]}" stroke-width="1"/>'); out.append(svg_text(x, axis_y - 9, f"{t}y", "axis", "middle"))
+    event_marker_xs = []
     for i, ev in enumerate(events):
         x = age_x(years_between(cfg["current_date_obj"], parse_date(ev["date"]))); c = ev.get("color") or event_colors[i % len(event_colors)]
-        out.append(f'<line x1="{x}" y1="{axis_y}" x2="{x}" y2="{table_y+table_h}" stroke="{c}" stroke-width="1.3" stroke-dasharray="5 4" opacity="0.85"/>')
-        out.append(f'<circle cx="{x}" cy="{axis_y}" r="9" fill="{c}" stroke="white" stroke-width="1.4"/>')
-        out.append(svg_text(x, axis_y + 3.5, str(i+1), "badge", "middle"))
+        # Closely spaced dates retain their exact vertical reference lines, but
+        # their numbered badges use separate lanes so both remain legible.
+        lane = 0
+        while any(abs(x - prior_x) < 22 and prior_lane == lane for prior_x, prior_lane in event_marker_xs):
+            lane += 1
+        event_marker_xs.append((x, lane))
+        marker_y = axis_y - lane * 21
+        out.append(f'<line x1="{x}" y1="{marker_y}" x2="{x}" y2="{table_y+table_h}" stroke="{c}" stroke-width="1.3" stroke-dasharray="5 4" opacity="0.85"/>')
+        out.append(f'<circle cx="{x}" cy="{marker_y}" r="9" fill="{c}" stroke="white" stroke-width="1.4"/>')
+        out.append(svg_text(x, marker_y + 3.5, str(i+1), "badge", "middle"))
     colw = dist_plot_w / len(bins)
     for i, b in enumerate(bins):
         out.append(svg_text(dist_x0 + colw*(i+0.5), axis_y - 9, str(b["label"]), "axis", "middle"))
@@ -247,14 +261,16 @@ text {{ font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-
         bx = age_x(topic["baseline"]["avg_age"]); cx2 = age_x(topic["current"]["avg_age"])
         out.append(f'<line x1="{age_plot_x0}" y1="{base_y-5}" x2="{bx}" y2="{base_y-5}" stroke="{palette["baseline_line"]}" stroke-width="1.8"/>'); out.append(f'<circle cx="{bx}" cy="{base_y-5}" r="5.5" fill="{palette["baseline_line"]}"/>'); out.append(svg_text(min(bx+9, age_plot_x1-2), base_y - 1, fmt_age(topic["baseline"]["avg_age"]), "age-base"))
         out.append(f'<line x1="{age_plot_x0}" y1="{cur_y-5}" x2="{cx2}" y2="{cur_y-5}" stroke="{palette["current_line"]}" stroke-width="2.1"/>'); out.append(f'<circle cx="{cx2}" cy="{cur_y-5}" r="6" fill="{palette["current_line"]}"/>'); out.append(svg_text(min(cx2+9, age_plot_x1-2), cur_y - 1, fmt_age(topic["current"]["avg_age"]), "age-current"))
-        for snap, yy, colors, opacity in (("baseline", base_y-14, baseline_bins, 0.48), ("current", cur_y-14, current_bins, 1.0)):
+        for snap, yy, colors, opacity in (("baseline", base_y-14, baseline_bins, 0.62), ("current", cur_y-14, current_bins, 1.0)):
             total = topic[snap]["count"]; x = dist_x0
             for bi, n in enumerate(topic[snap]["bins"]):
                 w = dist_plot_w * (n / total) if total else 0
                 if w <= 0: continue
                 out.append(f'<rect x="{x:.1f}" y="{yy:.1f}" width="{w:.1f}" height="22" fill="{colors[bi]}" opacity="{opacity}"/>')
                 if w >= 34:
-                    label = f"{n} · {fmt_pct(n, total)}" if w >= 64 else str(n); fill = "#3A3200" if bi == 2 else "#FFFFFF"; out.append(svg_text(x + w/2, yy + 15, label, "bintext", "middle", fill=fill))
+                    label = f"{n} · {fmt_pct(n, total)}" if w >= 64 else str(n)
+                    fill = palette["ink"] if snap == "baseline" or bi == 2 else "#FFFFFF"
+                    out.append(svg_text(x + w/2, yy + 15, label, "bintext", "middle", fill=fill))
                 x += w
             out.append(f'<rect x="{dist_x0}" y="{yy}" width="{dist_plot_w}" height="22" fill="none" stroke="#E2E6EA"/>')
         if idx < len(topics)-1:
@@ -262,6 +278,7 @@ text {{ font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-
     fy = table_y + table_h + 24
     out.append(svg_text(30, fy, "Muted upper sub-row = start-of-quarter baseline. Saturated lower sub-row = current snapshot.", "foot"))
     out.append(svg_text(30, fy + 17, "Quarter changes: green = added, yellow = modified, red = deleted. Context lines situate policy age and do not imply causation.", "foot"))
+    out.append(svg_text(30, fy + 34, "Scope: true policy instruments in the listed policy hierarchy only; excludes PINs, glossary changes, and material outside that hierarchy.", "foot"))
     out.append('</svg>')
     return ''.join(out)
 

@@ -15,6 +15,10 @@ PROFILE_START = "<!-- policy-hawk:currency-profile:start -->"
 PROFILE_END = "<!-- policy-hawk:currency-profile:end -->"
 SYNOPSIS_START = "<!-- policy-hawk:currency-profile-synopsis:start -->"
 SYNOPSIS_END = "<!-- policy-hawk:currency-profile-synopsis:end -->"
+SCOPE_NOTE = (
+    "> **Scope note:** The Policy Suite currency profile includes only true policy instruments in the listed "
+    "policy hierarchy. It excludes PINs, glossary changes, and anything outside that hierarchy."
+)
 
 
 def pct(n: int, total: int) -> float:
@@ -162,7 +166,7 @@ def build_synopsis(cfg: dict) -> str:
             + zero_note
         )
 
-    parts = ["### Currency profile synopsis", "", composition, "", age_text]
+    parts = ["### Currency profile synopsis", "", SCOPE_NOTE, "", composition, "", age_text]
     if change_paragraph:
         parts.extend(["", change_paragraph])
     return "\n".join(parts)

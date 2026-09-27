@@ -572,6 +572,8 @@ The chart's age distribution bins are `<12 months`, `1–3 years`, `3–5 years`
 
 Every quarterly currency-profile section must include a short narrative synopsis immediately below the SVG. Write for both a general reader who wants to know **where the policy suite is concentrated and where change is happening**, and an expert policy analyst who wants to understand **relative age, renewal, and concentration of change across policy topics**.
 
+Begin the synopsis with a scope note stating that the Policy Suite currency profile includes only true policy instruments in the listed policy hierarchy. Explicitly exclude PINs, glossary changes, and anything outside that hierarchy from the profile population and its change counts.
+
 Use the quarter JSON as the numerical source. Calculate percentages from the topic counts rather than estimating them from the chart. Normally use one decimal place for percentages and one decimal place for average age. The synopsis should usually be **three compact paragraphs** under a `### Currency profile synopsis` heading:
 
 1. **Suite composition.** Describe the distribution of current policy instruments across topics. State the total number of current instruments and identify the largest topic areas by both count and **share of the total suite**. Mention combined shares when they convey concentration clearly, for example that the two or three largest topic areas account for a majority of instruments. Do not imply that a larger topic is more important; this is a description of the instrument population.
@@ -613,6 +615,8 @@ Suggested Markdown placement:
 ![Policy suite currency profile](screenshots/tbs_policy_hawk_currency_profile_{quarter_start}_to_{quarter_end}.svg)
 
 ### Currency profile synopsis
+
+> **Scope note:** The Policy Suite currency profile includes only true policy instruments in the listed policy hierarchy. It excludes PINs, glossary changes, and anything outside that hierarchy.
 
 {Paragraph 1: suite composition and proportions.}
 

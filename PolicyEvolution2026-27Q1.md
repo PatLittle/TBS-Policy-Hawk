@@ -18,6 +18,8 @@ This quarter-level view tracks the **currency and change profile of the policy s
 <!-- policy-hawk:currency-profile-synopsis:start -->
 ### Currency profile synopsis
 
+> **Scope note:** The Policy Suite currency profile includes only true policy instruments in the listed policy hierarchy. It excludes PINs, glossary changes, and anything outside that hierarchy.
+
 The profile contains **185 current policy instruments** across the ten reporting topics. **Financial management** is the largest area with 59 instruments (31.9% of the suite), followed by **People management** with 41 (22.2%) and **Service and digital** with 24 (13.0%). Together, those three areas account for **67.0%** of current instruments. At the other end of the distribution, **Communications & Federal Identity** contains 4 instruments (2.2%).
 
 The age profile differs sharply across topics. **People management** has the oldest current-version population, averaging **13.8 years**; 63.4% of its instruments are at least five years since their current version, including 48.8% at 10+ years. **Government security** also has a comparatively older profile at **8.0 years** on average, with 75.0% at five years or more. By contrast, **Communications & Federal Identity** averages just **0.4 years**, with 100.0% of instruments revised within the last three years; **Investment Management** is also relatively recent at **2.5 years** on average. These are differences in recency of the current versions, not assessments of policy quality or effectiveness.
