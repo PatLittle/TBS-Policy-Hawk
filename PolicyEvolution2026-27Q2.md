@@ -22,15 +22,15 @@ This quarter-level view tracks the **currency and change profile of the policy s
 
 > **Scope note:** The Policy Suite currency profile includes only true policy instruments in the listed policy hierarchy. It excludes PINs, glossary changes, and anything outside that hierarchy.
 
-The profile contains **186 current policy instruments** across the ten reporting topics. **Financial management** is the largest area with 59 instruments (31.7% of the suite), followed by **People management** with 41 (22.0%) and **Service and digital** with 24 (12.9%). Together, those three areas account for **66.7%** of current instruments. At the other end of the distribution, **Communications & Federal Identity** contains 4 instruments (2.2%).
+The profile contains **188 current policy instruments** across the ten reporting topics. **Financial management** is the largest area with 59 instruments (31.4% of the suite), followed by **People management** with 41 (21.8%) and **Service and digital** with 25 (13.3%). Together, those three areas account for **66.5%** of current instruments. At the other end of the distribution, **Communications & Federal Identity** contains 4 instruments (2.1%).
 
-The age profile differs sharply across topics. **People management** has the oldest current-version population, averaging **14.0 years**; 65.9% of its instruments are at least five years since their current version, including 48.8% at 10+ years. **Government security** also has a comparatively older profile at **8.2 years** on average, with 75.0% at five years or more. By contrast, **Communications & Federal Identity** averages just **0.6 years**, with 100.0% of instruments revised within the last three years; **Investment Management** is also relatively recent at **2.6 years** on average. These are differences in recency of the current versions, not assessments of policy quality or effectiveness.
+The age profile differs sharply across topics. **People management** has the oldest current-version population, averaging **14.0 years**; 65.9% of its instruments are at least five years since their current version, including 48.8% at 10+ years. **Government security** also has a comparatively older profile at **8.3 years** on average, with 75.0% at five years or more. By contrast, **Communications & Federal Identity** averages just **0.6 years**, with 100.0% of instruments revised within the last three years; **Investment Management** is also relatively recent at **2.5 years** on average. These are differences in recency of the current versions, not assessments of policy quality or effectiveness.
 
-So far in 2026-27Q2, the profile records **7 distinct instrument changes**. The changes are concentrated in **Investment Management** 4 (57.1%), **Official languages** 1 (14.3%), **Service and digital** 1 (14.3%), and **Transfer payments** 1 (14.3%). **Investment Management** accounts for **57.1% of all recorded changes** while containing only 9.7% of current instruments (4 modified), indicating substantially higher change activity than its share of the suite would suggest. **Financial management**, despite representing 31.7% of the suite, recorded no distinct instrument changes in this period.
+So far in 2026-27Q2, the profile records **9 distinct instrument changes**. The changes are concentrated in **Investment Management** 5 (55.6%), **Service and digital** 2 (22.2%), **Official languages** 1 (11.1%), and **Transfer payments** 1 (11.1%). **Investment Management** accounts for **55.6% of all recorded changes** while containing only 10.1% of current instruments (1 added and 4 modified), indicating substantially higher change activity than its share of the suite would suggest. **Financial management**, despite representing 31.4% of the suite, recorded no distinct instrument changes in this period. The two newly represented instruments in Service and digital and Investment Management have version dates preceding the quarter; their additions reflect capture/population coverage relative to the preserved opening snapshot, rather than evidence that two new instruments were issued this quarter. The Real Property directive remains one distinct modified instrument despite its July and September amendments.
 <!-- policy-hawk:currency-profile-synopsis:end -->
 
 - **Muted upper rows** show the start-of-quarter baseline (2026-07-01).
-- **Saturated lower rows** show the current snapshot (2026-09-17).
+- **Saturated lower rows** show the current snapshot (2026-09-29).
 - Quarter-to-date changes are shown as **added** (green), **modified** (yellow), and **deleted** (red) instruments.
 - The lollipop chart compares average current-version age at the baseline and current snapshot.
 - The distribution strips group current-version ages into `<12 months`, `1–3 years`, `3–5 years`, `5–10 years`, and `10+ years`.
@@ -571,3 +571,57 @@ Monitor for an archived copy, redirect, express rescission statement, or replace
 `pin-update`, `scope-change`, `reference-update`
 
 <!-- policy-hawk:issue-519:end -->
+
+---
+
+<!-- policy-hawk:issue-520:start -->
+## 2026-09-29 — Management of Real Property, Directive on the
+
+**Issue:** [#520](https://github.com/PatLittle/TBS-Policy-Hawk/issues/520)  
+**Document ID:** 32691  
+**Category:** Directive  
+**GUID:** `32691_2026-09-29`  
+**Change type:** policy_update
+
+### Policy change analysis
+
+Compared the current captured version for `32691_2026-09-29` with the closest earlier repository copy:
+
+- Current capture: [Current Version (Markdown), issue #520](https://github.com/PatLittle/TBS-Policy-Hawk/issues/520#issuecomment-5898127044). No corresponding September 29 Markdown file was present under `data/Directive/` at analysis time.
+- Prior version: [`data/Directive/32691_2026-07-24/20260725T014912Z.md`](https://github.com/PatLittle/TBS-Policy-Hawk/blob/main/data/Directive/32691_2026-07-24/20260725T014912Z.md).
+- Source: https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=32691
+- **Amendment effective date:** September 21, 2026, stated in the captured note to reader. **Detection/GUID date:** September 29, 2026.
+- Live-source check on September 29, 2026: the fetch returned a “Request Rejected” page. Direct availability is **indeterminate**; this analysis relies on the automation's captured text, not independent live-page confirmation.
+
+#### Summary
+
+This is a targeted amendment to **Appendix F.2.2**, allowing sequential as well as simultaneous collection of public-purpose interests in surplus real property. When collection is sequential and disposal is for public purpose to a higher-priority group, collection from lower-priority groups is no longer required. The captured note states that the amendment is intended to accelerate some disposals.
+
+#### Substantive changes identified
+
+| Section | Prior version | New/current version | Interpretation |
+|---|---|---|---|
+| **F.2.2 — Collection method** | Required simultaneous collection of expressions of public-purpose interest from federal departments, agent Crown corporations, provinces, municipalities and Indigenous groups. | Allows simultaneous or sequential collection from the same groups. | Adds flexibility to the collection process under Appendix F, whose scope is disposals not intended to support housing development. |
+| **F.2.2 — Lower-priority groups** | Contained no express exemption from collecting interests from lower-priority groups. | For sequential collection, permits omission of lower-priority groups when disposing for public purpose to a higher-priority group. | Permits an earlier end to collection where that condition is met; it does not generally waive collection or change recipient eligibility. |
+| **Note to reader** | Identified the July 24 housing-related amendments. | Adds a September 21 amendment notice explaining the F.2.2 change. | Establishes the amendment's effective date; September 29 is the detected update date. |
+
+#### Practical effect
+
+1. **Choose the collection method:** Practitioners can use sequential outreach under Appendix F and stop collecting lower-priority interests when the specified disposal condition is satisfied. Reduced outreach and faster processing are expected implications, not measured outcomes.
+2. **Keep acquisition priorities:** F.2.3 remains unchanged: housing development may be prioritized in any order; other public purposes follow federal departments, agent Crown corporations, provinces, then municipalities and Indigenous groups. The new flexibility in F.2.2 should be read with that existing rule.
+3. **Keep the other disposal safeguards:** The comparison finds no changes to due diligence, legal/Indigenous consultation, official-language community notification and consultation, business cases, valuation, contamination-risk mitigation or reporting. The F.2.2 collection exception does not itself remove those separate requirements.
+4. **Apply the correct disposal route:** The July 24 housing-suitability assessment and Appendix E housing procedures are unchanged. Appendix E.2.2.6 continues to route suitable-for-housing property to Appendix F when it will be disposed of without the intention of supporting housing development.
+
+#### Non-substantive changes
+
+Some section 7 references acquire underline markup. Their titles and destination URLs are unchanged. After ignoring that presentation markup, the full captured-text comparison identifies only the added amendment notice and revised F.2.2; the July 24 appraisal thresholds and housing reforms are not new changes in this September update.
+
+#### Watch item
+
+For sequential disposals, retain a clear record of the applicable acquisition priority and the basis for stopping collection from lower-priority groups. This is an implementation recommendation, not a new documentation obligation in the amended clause. In particular, distinguish the F.2.2 collection exception from any separate duty to consult Indigenous rights holders or official-language minority communities.
+
+#### Classification
+
+`scope-change` — limited to the collection obligation in F.2.2.
+
+<!-- policy-hawk:issue-520:end -->

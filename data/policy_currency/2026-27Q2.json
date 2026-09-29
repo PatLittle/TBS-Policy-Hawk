@@ -3,10 +3,10 @@
   "view_label": "Fiscal Q2 change view",
   "quarter": "2026-27Q2",
   "baseline_date": "2026-07-01",
-  "current_date": "2026-09-17",
+  "current_date": "2026-09-29",
   "baseline_commit": "43bfafdaa27bf3d76a25da6c766fb413f63c1f6f",
-  "current_commit": "523b352d47cf0c850134bf1d8b689571eb6649b8",
-  "population_basis": "canonical 10-topic instrument universe; version state rolled back from data/items.csv",
+  "current_commit": "8deba034d18f0358191ae46796718557e36cd0e5",
+  "population_basis": "canonical 10-topic instrument universe; immutable published quarter-start baseline; current version state from data/items.csv; additions measured against instruments present in baseline-commit items.csv",
   "max_age_years": 15,
   "width": 1500,
   "topic_order": [
@@ -103,7 +103,7 @@
       },
       "current": {
         "count": 41,
-        "avg_age": 13.988,
+        "avg_age": 14.021,
         "bins": [
           5,
           5,
@@ -133,7 +133,7 @@
       },
       "current": {
         "count": 8,
-        "avg_age": 8.234,
+        "avg_age": 8.267,
         "bins": [
           0,
           2,
@@ -163,7 +163,7 @@
       },
       "current": {
         "count": 12,
-        "avg_age": 7.358,
+        "avg_age": 7.391,
         "bins": [
           2,
           4,
@@ -193,7 +193,7 @@
       },
       "current": {
         "count": 6,
-        "avg_age": 5.916,
+        "avg_age": 5.949,
         "bins": [
           1,
           2,
@@ -223,7 +223,7 @@
       },
       "current": {
         "count": 59,
-        "avg_age": 5.143,
+        "avg_age": 5.176,
         "bins": [
           0,
           21,
@@ -236,7 +236,7 @@
     {
       "name": "Service and digital",
       "changes": {
-        "added": 0,
+        "added": 1,
         "modified": 1,
         "deleted": 0
       },
@@ -252,10 +252,10 @@
         ]
       },
       "current": {
-        "count": 24,
-        "avg_age": 5.022,
+        "count": 25,
+        "avg_age": 4.876,
         "bins": [
-          2,
+          3,
           7,
           10,
           0,
@@ -283,7 +283,7 @@
       },
       "current": {
         "count": 7,
-        "avg_age": 3.683,
+        "avg_age": 3.716,
         "bins": [
           1,
           5,
@@ -313,7 +313,7 @@
       },
       "current": {
         "count": 7,
-        "avg_age": 2.891,
+        "avg_age": 2.924,
         "bins": [
           0,
           3,
@@ -326,7 +326,7 @@
     {
       "name": "Investment Management",
       "changes": {
-        "added": 0,
+        "added": 1,
         "modified": 4,
         "deleted": 0
       },
@@ -342,10 +342,10 @@
         ]
       },
       "current": {
-        "count": 18,
-        "avg_age": 2.574,
+        "count": 19,
+        "avg_age": 2.497,
         "bins": [
-          5,
+          6,
           5,
           7,
           0,
@@ -373,7 +373,7 @@
       },
       "current": {
         "count": 4,
-        "avg_age": 0.6,
+        "avg_age": 0.633,
         "bins": [
           4,
           0,
