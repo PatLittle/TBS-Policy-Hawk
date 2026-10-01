@@ -1,0 +1,16 @@
+{
+  "guid": "pin_spin_ba14ee010f22_added_c118382e9adc_2026-10-01",
+  "change_type": "pin",
+  "pin_change": "added",
+  "detected_date": "2026-10-01",
+  "family": "SPIN",
+  "source_key": "security_policy_implementation_notice",
+  "source_title": "Security Policy Implementation Notice",
+  "notice_identifier": "2026-01",
+  "title": "Direction on Government of Canada Cyber Security Readiness in the Frontier Artificial Intelligence Era: Security Policy Implementation Notice",
+  "url": "https://www.canada.ca/en/government/system/digital-government/policies-standards/spin/direction-government-canada-cyber-security-readiness-frontier-artificial-intelligence-era.html",
+  "stable_path": "data/PINs/SPIN/Direction_on_Government_of_Canada_Cyber_Security_Readiness_in_the_Frontier_Artificial_Intelligence_Era_Security_Policy_Implementation_Notice.md",
+  "previous_path": "data/PINs/changes/pin_spin_ba14ee010f22_added_c118382e9adc_2026-10-01/previous.md",
+  "current_path": "data/PINs/changes/pin_spin_ba14ee010f22_added_c118382e9adc_2026-10-01/current.md",
+  "metadata_path": "data/PINs/changes/pin_spin_ba14ee010f22_added_c118382e9adc_2026-10-01/change.json"
+}

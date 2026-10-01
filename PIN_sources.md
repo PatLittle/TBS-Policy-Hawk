@@ -561,9 +561,9 @@ Generated from the live source pages listed below.
 
 ## [Security Policy Implementation Notice (SPIN)](https://www.canada.ca/en/government/system/digital-government/policies-standards/spin.html)
 
-> Date modified: 2025-10-09
+> Date modified: 2026-10-01
 
-> Notices: 5
+> Notices: 6
 
 <details>
 <summary>Notice table</summary>
@@ -575,6 +575,7 @@ Generated from the live source pages listed below.
 |2023-06-12|2023-01|Direction on the Security Categorization of Personal Information in the Aggregate|https://www.canada.ca/en/government/system/digital-government/policies-standards/spin/security-policy-implementation-notice-direction-security-categorization-personal-information-aggregate.html|
 |2021-08-12|2021-01|Direction on the Use of Voice and Audio Communication Technology|https://www.canada.ca/en/government/system/digital-government/policies-standards/spin/direction-use-voice-audio-communication-technology.html|
 |2017-11-01|2017-01|Direction on the Secure Use of Commercial Cloud Services|https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/cloud-services/direction-secure-use-commercial-cloud-services-spin.html|
+|2026-10-01|2026-01|Direction on Government of Canada Cyber Security Readiness in the Frontier Artificial Intelligence Era: Security Policy Implementation Notice|https://www.canada.ca/en/government/system/digital-government/policies-standards/spin/direction-government-canada-cyber-security-readiness-frontier-artificial-intelligence-era.html|
 
 </details>
 

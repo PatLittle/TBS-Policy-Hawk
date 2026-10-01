@@ -20,7 +20,7 @@ The result is a working evidence trail: machine-readable datasets under `data/`,
 [![Open in Flatdata Viewer](https://img.shields.io/badge/Open%20in%20Flatdata%20Viewer-FF00E8?style=for-the-badge&logo=github&logoColor=black)](https://flatgithub.com/PatLittle/TBS-Policy-Hawk/data/items.csv?filename=data%2Fitems.csv)
 
 <!-- policy-hawk:latest-heatmap -->
-![TBS Policy Hawk activity heatmap for 2026-07-01 to 2026-09-30](screenshots/tbs_policy_hawk_heatmap_2026-07-01_to_2026-09-30.png)
+![TBS Policy Hawk activity heatmap for 2026-10-01 to 2026-12-31](screenshots/tbs_policy_hawk_heatmap_2026-10-01_to_2026-12-31.png)
 
 ## Main Datasets
 

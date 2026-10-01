@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "generated_at_utc": "2026-09-25T02:33:25Z",
+  "generated_at_utc": "2026-10-01T20:44:16Z",
   "pending_removals": {},
   "sources": [
     {
@@ -6065,8 +6065,8 @@
       "short_name": "SPIN",
       "url": "https://www.canada.ca/en/government/system/digital-government/policies-standards/spin.html",
       "folder": "SPIN",
-      "source_modified": "2025-10-09",
-      "notice_count": 5,
+      "source_modified": "2026-10-01",
+      "notice_count": 6,
       "notices": [
         {
           "title": "Migrating the Government of Canada to Post-Quantum Cryptography: Security Policy Implementation Notice",
@@ -6127,6 +6127,18 @@
           "fetch_error": "",
           "filename": "Direction_on_the_Secure_Use_of_Commercial_Cloud_Services.md",
           "path": "data/PINs/SPIN/Direction_on_the_Secure_Use_of_Commercial_Cloud_Services.md"
+        },
+        {
+          "title": "Direction on Government of Canada Cyber Security Readiness in the Frontier Artificial Intelligence Era: Security Policy Implementation Notice",
+          "url": "https://www.canada.ca/en/government/system/digital-government/policies-standards/spin/direction-government-canada-cyber-security-readiness-frontier-artificial-intelligence-era.html",
+          "listing_date": "2026-10-01",
+          "table_date": "2026-10-01",
+          "notice_code": "2026-01",
+          "group": "",
+          "detail_modified": "2026-10-01",
+          "fetch_error": "",
+          "filename": "Direction_on_Government_of_Canada_Cyber_Security_Readiness_in_the_Frontier_Artificial_Intelligence_Era_Security_Policy_Implementation_Notice.md",
+          "path": "data/PINs/SPIN/Direction_on_Government_of_Canada_Cyber_Security_Readiness_in_the_Frontier_Artificial_Intelligence_Era_Security_Policy_Implementation_Notice.md"
         }
       ]
     },
