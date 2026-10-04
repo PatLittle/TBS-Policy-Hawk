@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import argparse
+import base64
 import json
 import subprocess
 from collections import Counter
@@ -122,14 +123,23 @@ def esc(value: str) -> str:
     )
 
 
+def load_logo_data_uri(path: str = "assets/tbs-policy-hawk-logo-100px-transparent.png") -> str:
+    logo_path = Path(path)
+    if not logo_path.exists():
+        return ""
+    encoded = base64.b64encode(logo_path.read_bytes()).decode("ascii")
+    return f"data:image/png;base64,{encoded}"
+
+
 def render_svg(payload: dict) -> str:
     W, H = 1500, 720
-    left_x, left_y, left_w, left_h = 55, 155, 620, 500
-    right_x, right_y, right_w, right_h = 725, 155, 720, 500
+    left_x, left_y, left_w, left_h = 45, 155, 655, 500
+    right_x, right_y, right_w, right_h = 725, 155, 730, 500
     current = payload["snapshots"][-1]
     cats = payload["category_order"]
     max_count = max(current["categories"].values()) or 1
     max_total = max(row["total"] for row in payload["snapshots"]) or 1
+    logo_uri = load_logo_data_uri()
 
     out = [
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img">',
@@ -139,61 +149,81 @@ def render_svg(payload: dict) -> str:
         '<text x="45" y="62" class="title">Policy suite instrument composition</text>',
         f'<text x="45" y="91" class="sub">Unique active instruments in force · snapshot {esc(payload["snapshot_date"])} · canonical Policy Hawk instrument universe</text>',
         f'<text x="45" y="124" class="sub">Current total: {current["total"]} instruments</text>',
+    ]
+
+    if logo_uri:
+        out.append(f'<image href="{logo_uri}" x="{W-160}" y="28" width="100" height="100" preserveAspectRatio="xMidYMid meet"/>')
+
+    out += [
         f'<rect x="{left_x}" y="{left_y}" width="{left_w}" height="{left_h}" rx="12" fill="#FBFCFE" stroke="#DCE3EA"/>',
         f'<rect x="{right_x}" y="{right_y}" width="{right_w}" height="{right_h}" rx="12" fill="#FBFCFE" stroke="#DCE3EA"/>',
         f'<text x="{left_x+22}" y="{left_y+34}" class="h">Current category distribution</text>',
         f'<text x="{right_x+22}" y="{right_y+34}" class="h">Composition over time</text>',
     ]
 
-    bar_x = left_x + 190
-    bar_w = left_w - 250
-    y = left_y + 82
+    bar_x = left_x + 200
+    bar_w = left_w - 275
+    y = left_y + 92
     for cat in cats:
         val = current["categories"].get(cat, 0)
         width = bar_w * val / max_count
         out += [
-            f'<text x="{left_x+22}" y="{y+16}" class="label">{esc(cat)}</text>',
-            f'<rect x="{bar_x}" y="{y}" width="{width:.1f}" height="24" rx="4" fill="{COLORS[cat]}"/>',
-            f'<text x="{bar_x+width+10:.1f}" y="{y+17}" class="num">{val}</text>',
+            f'<text x="{left_x+30}" y="{y+16}" class="label">{esc(cat)}</text>',
+            f'<rect x="{bar_x}" y="{y}" width="{width:.1f}" height="28" rx="4" fill="{COLORS[cat]}"/>',
+            f'<text x="{bar_x+width+12:.1f}" y="{y+19}" class="num">{val}</text>',
         ]
-        y += 61
+        y += 62
 
-    chart_x0 = right_x + 60
-    chart_y0 = right_y + 78
-    chart_h = right_h - 145
-    chart_w = right_w - 105
-    for tick in range(0, max_total + 1, 50):
-        yy = chart_y0 + chart_h - (tick / max_total * chart_h)
+    chart_x0 = right_x + 85
+    chart_y0 = right_y + 105
+    chart_h = 305
+    chart_w = right_w - 125
+    axis_max = max(200, ((max_total + 49) // 50) * 50)
+    for tick in range(0, axis_max + 1, 50):
+        yy = chart_y0 + chart_h - (tick / axis_max * chart_h)
         out += [
             f'<line x1="{chart_x0}" y1="{yy:.1f}" x2="{chart_x0+chart_w}" y2="{yy:.1f}" stroke="#E4E7EC"/>',
             f'<text x="{chart_x0-12}" y="{yy+4:.1f}" class="axis" text-anchor="end">{tick}</text>',
         ]
 
+    out.append(
+        f'<text x="{chart_x0-52}" y="{chart_y0 + chart_h/2:.1f}" class="label" '
+        f'transform="rotate(-90 {chart_x0-52},{chart_y0 + chart_h/2:.1f})" text-anchor="middle">Number of instruments</text>'
+    )
+
     snaps = payload["snapshots"]
     slot = chart_w / max(1, len(snaps))
-    bw = min(120, slot * 0.58)
+    bw = min(105, slot * 0.64)
     for i, row in enumerate(snaps):
         x = chart_x0 + slot * i + (slot - bw) / 2
         ybottom = chart_y0 + chart_h
         for cat in reversed(cats):
             val = row["categories"].get(cat, 0)
-            h = chart_h * val / max_total
+            h = chart_h * val / axis_max
             ybottom -= h
             out.append(f'<rect x="{x:.1f}" y="{ybottom:.1f}" width="{bw:.1f}" height="{h:.1f}" fill="{COLORS[cat]}"/>')
         out += [
-            f'<text x="{x+bw/2:.1f}" y="{chart_y0+chart_h+24}" class="label" text-anchor="middle">{esc(row["quarter"])}</text>',
-            f'<text x="{x+bw/2:.1f}" y="{chart_y0+chart_h+43}" class="small" text-anchor="middle">{esc(row["snapshot_date"])}</text>',
-            f'<text x="{x+bw/2:.1f}" y="{ybottom-8:.1f}" class="num" text-anchor="middle">{row["total"]}</text>',
+            f'<text x="{x+bw/2:.1f}" y="{ybottom-10:.1f}" class="num" text-anchor="middle">{row["total"]}</text>',
+            f'<text x="{x+bw/2:.1f}" y="{chart_y0+chart_h+25}" class="label" text-anchor="middle">{esc(row["quarter"])}</text>',
+            f'<text x="{x+bw/2:.1f}" y="{chart_y0+chart_h+46}" class="small" text-anchor="middle">{esc(row["snapshot_date"])}</text>',
         ]
 
-    lx = right_x + 20
-    ly = right_y + right_h - 25
+    legend_y = right_y + right_h - 26
+    legend_x = right_x + 18
+    legend_widths = {
+        "Guidelines": 120,
+        "Directive": 110,
+        "Standard": 112,
+        "Policy": 88,
+        "Guide": 82,
+        "Policy framework": 0,
+    }
     for cat in cats:
         out += [
-            f'<rect x="{lx}" y="{ly-11}" width="12" height="12" rx="2" fill="{COLORS[cat]}"/>',
-            f'<text x="{lx+18}" y="{ly}" class="small">{esc(cat)}</text>',
+            f'<rect x="{legend_x}" y="{legend_y-12}" width="12" height="12" rx="2" fill="{COLORS[cat]}"/>',
+            f'<text x="{legend_x+18}" y="{legend_y}" class="small">{esc(cat)}</text>',
         ]
-        lx += 106 if cat != "Policy framework" else 0
+        legend_x += legend_widths[cat]
 
     out += [
         '<text x="45" y="690" class="small">Source: PatLittle/TBS-Policy-Hawk · data/items.csv · data/tbs_policy_hierarchy_full.csv · repository history</text>',
