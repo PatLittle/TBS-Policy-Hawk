@@ -24,6 +24,49 @@ COLORS = {
     "Guide": "#E39B00",
     "Policy framework": "#E22900",
 }
+
+INSTRUMENT_CONTEXT = {
+    "Policy framework": {
+        "purpose": "Explains why Treasury Board sets policy in an area and provides the strategic architecture for related instruments.",
+        "audience": "ministers_deputy_heads",
+        "alignment": "architectural",
+    },
+    "Policy": {
+        "purpose": "Sets what deputy heads and officials are expected to achieve.",
+        "audience": "ministers_deputy_heads",
+        "alignment": "mandatory",
+    },
+    "Directive": {
+        "purpose": "Sets how officials must meet a policy objective through specific required actions or constraints.",
+        "audience": "managers_functional_specialists",
+        "alignment": "mandatory",
+    },
+    "Standard": {
+        "purpose": "Sets required operational or technical measures, procedures, or practices for government-wide use.",
+        "audience": "managers_functional_specialists",
+        "alignment": "mandatory",
+    },
+    "Guidelines": {
+        "purpose": "Provides guidance, advice, or explanation for implementation.",
+        "audience": "managers_functional_specialists",
+        "alignment": "voluntary",
+    },
+    "Guideline": {
+        "purpose": "Provides guidance, advice, or explanation for implementation.",
+        "audience": "managers_functional_specialists",
+        "alignment": "voluntary",
+    },
+    "Guide": {
+        "purpose": "Provides implementation guidance, advice, or explanatory material.",
+        "audience": "managers_functional_specialists",
+        "alignment": "voluntary",
+    },
+    "Tools": {
+        "purpose": "Provides practical implementation aids such as best practices, handbooks, communications products, or audit products.",
+        "audience": "managers_functional_specialists",
+        "alignment": "voluntary",
+    },
+}
 START_MARKER = "<!-- policy-hawk:category-history:start -->"
 END_MARKER = "<!-- policy-hawk:category-history:end -->"
 
@@ -88,6 +131,28 @@ def snapshot_counts(snapshot: date, *, working_tree: bool = False):
     return ref, instruments, counts
 
 
+def structural_profile(counts: Counter) -> dict:
+    alignment = Counter()
+    audience = Counter()
+    for category, count in counts.items():
+        context = INSTRUMENT_CONTEXT.get(category)
+        if not context:
+            continue
+        alignment[context["alignment"]] += count
+        audience[context["audience"]] += count
+    return {
+        "alignment": {
+            "mandatory": alignment.get("mandatory", 0),
+            "voluntary": alignment.get("voluntary", 0),
+            "architectural": alignment.get("architectural", 0),
+        },
+        "audience": {
+            "ministers_deputy_heads": audience.get("ministers_deputy_heads", 0),
+            "managers_functional_specialists": audience.get("managers_functional_specialists", 0),
+        },
+    }
+
+
 def build_payload(target_label: str, snapshot: date, current: bool):
     rows = []
     for label, snap in quarter_sequence(target_label, snapshot):
@@ -95,6 +160,7 @@ def build_payload(target_label: str, snapshot: date, current: bool):
         ref, instruments, counts = snapshot_counts(
             snap, working_tree=(current and is_target)
         )
+        profile = structural_profile(counts)
         rows.append(
             {
                 "quarter": label,
@@ -102,6 +168,7 @@ def build_payload(target_label: str, snapshot: date, current: bool):
                 "commit": ref,
                 "total": len(instruments),
                 "categories": {name: counts.get(name, 0) for name in CATEGORY_ORDER},
+                **profile,
             }
         )
     return {
@@ -109,6 +176,13 @@ def build_payload(target_label: str, snapshot: date, current: bool):
         "quarter": target_label,
         "snapshot_date": snapshot.isoformat(),
         "population_basis": "canonical policy-instrument universe; unique document ID; active snapshot reconstructed from Policy Hawk history",
+        "classification_basis": {
+            "mandatory": ["Policy", "Directive", "Standard"],
+            "voluntary": ["Guidelines", "Guideline", "Guide", "Tools"],
+            "architectural": ["Policy framework"],
+            "ministers_deputy_heads": ["Policy framework", "Policy"],
+            "managers_functional_specialists": ["Directive", "Standard", "Guidelines", "Guideline", "Guide", "Tools"],
+        },
         "category_order": CATEGORY_ORDER,
         "snapshots": rows,
     }
@@ -232,19 +306,97 @@ def render_svg(payload: dict) -> str:
     return "\n".join(out) + "\n"
 
 
+def pct(value: int, total: int) -> str:
+    return "0.0%" if not total else f"{value / total * 100:.1f}%"
+
+
+def signed_delta(value: int) -> str:
+    return f"+{value}" if value > 0 else str(value)
+
+
 def section(payload: dict, image_path: str) -> str:
     current = payload["snapshots"][-1]
-    bits = ", ".join(f"**{cat} {current['categories'][cat]}**" for cat in payload["category_order"])
-    return f"""{START_MARKER}
+    previous = payload["snapshots"][-2] if len(payload["snapshots"]) > 1 else None
+    bits = ", ".join(
+        f"**{cat} {current['categories'][cat]}**"
+        for cat in payload["category_order"]
+    )
+
+    alignment = current["alignment"]
+    audience = current["audience"]
+    structural = (
+        f"Of the **{current['total']}** instruments, "
+        f"**{alignment['mandatory']} ({pct(alignment['mandatory'], current['total'])}) are mandatory** "
+        f"Policies, Directives or Standards; "
+        f"**{alignment['voluntary']} ({pct(alignment['voluntary'], current['total'])}) are voluntary** "
+        f"Guidelines or Guides; and "
+        f"**{alignment['architectural']} ({pct(alignment['architectural'], current['total'])}) are architectural Policy Frameworks**. "
+        f"By usual audience, **{audience['ministers_deputy_heads']} "
+        f"({pct(audience['ministers_deputy_heads'], current['total'])})** are primarily executive/accountability-facing "
+        f"for Ministers and Deputy Heads, while **{audience['managers_functional_specialists']} "
+        f"({pct(audience['managers_functional_specialists'], current['total'])})** are primarily implementation-facing "
+        f"for managers and functional specialists."
+    )
+
+    if previous:
+        da = {
+            key: current["alignment"][key] - previous["alignment"][key]
+            for key in ("mandatory", "voluntary", "architectural")
+        }
+        du = {
+            key: current["audience"][key] - previous["audience"][key]
+            for key in ("ministers_deputy_heads", "managers_functional_specialists")
+        }
+        if all(v == 0 for v in (*da.values(), *du.values())):
+            shift = (
+                f"**Structural shift since {previous['quarter']}:** none so far. "
+                "The mandatory/voluntary balance and usual-audience mix are unchanged from the prior quarter-end snapshot."
+            )
+        else:
+            shift = (
+                f"**Structural shift since {previous['quarter']}:** "
+                f"mandatory {signed_delta(da['mandatory'])}, "
+                f"voluntary {signed_delta(da['voluntary'])}, "
+                f"architectural {signed_delta(da['architectural'])}; "
+                f"Ministers/Deputy Heads {signed_delta(du['ministers_deputy_heads'])}, "
+                f"managers/functional specialists {signed_delta(du['managers_functional_specialists'])}. "
+            )
+            if du["managers_functional_specialists"] > 0 and du["ministers_deputy_heads"] == 0:
+                shift += (
+                    "The net expansion is therefore concentrated in implementation-facing instruments rather than "
+                    "executive/accountability-facing Policy or Policy Framework instruments."
+                )
+            elif du["ministers_deputy_heads"] > 0 and du["managers_functional_specialists"] == 0:
+                shift += (
+                    "The net expansion is concentrated in executive/accountability-facing instruments."
+                )
+            elif du["ministers_deputy_heads"] or du["managers_functional_specialists"]:
+                shift += "The audience mix changed across both executive/accountability and implementation-facing instruments."
+            else:
+                shift += "The audience mix is unchanged even though the mandatory/voluntary composition shifted."
+    else:
+        shift = ""
+
+    return f"""{{START_MARKER}}
 ## Policy suite instrument composition
 
 This view counts each **unique active policy instrument in force once**, using document ID as the identity key and the instrument's `category` at each reconstructed snapshot. It uses the same canonical Policy Hawk policy-instrument universe as the currency profile and excludes PINs, glossary changes, and non-instrument hierarchy nodes.
 
-![Policy suite instrument composition]({image_path})
+![Policy suite instrument composition]({{image_path}})
 
-As of **{payload['snapshot_date']}**, the suite contains **{current['total']} instruments**: {bits}. The stacked bars show the composition at each quarter-end snapshot available in Policy Hawk; the current quarter uses the latest available snapshot.
+As of **{{payload['snapshot_date']}}**, the suite contains **{{current['total']}} instruments**: {{bits}}.
 
-{END_MARKER}
+### Instrument purpose, alignment and audience
+
+{{structural}}
+
+{{shift}}
+
+> **Interpretation:** Policy Frameworks provide the strategic architecture and explain **why** Treasury Board sets policy in an area; Policies define **what** is expected and are mandatory; Directives and Standards provide mandatory **how** / operational requirements; Guidelines, Guides and Tools provide voluntary implementation guidance. Audience classifications describe the **usual primary audience**, not an exclusive readership.
+
+The stacked bars show the category composition at each quarter-end snapshot available in Policy Hawk; the current quarter uses the latest available snapshot.
+
+{{END_MARKER}}
 """
 
 
