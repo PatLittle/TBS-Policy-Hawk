@@ -44,9 +44,10 @@ This view counts each **unique active policy instrument in force once**, using d
 
 ![Policy suite instrument composition](screenshots/tbs_policy_hawk_category_history_2026-27Q3.svg)
 
-As of **2026-10-03**, the suite contains **188 instruments**: **Guidelines 58**, **Directive 47**, **Standard 37**, **Policy 27**, **Guide 15**, **Policy framework 4**. The stacked bars show the composition at each quarter-end snapshot available in Policy Hawk; the current quarter uses the latest available snapshot.
+As of **2026-10-04**, the suite contains **188 instruments**: **Guidelines 58**, **Directive 47**, **Standard 37**, **Policy 27**, **Guide 15**, **Policy framework 4**. The stacked bars show the composition at each quarter-end snapshot available in Policy Hawk; the current quarter uses the latest available snapshot.
 
 <!-- policy-hawk:category-history:end -->
+
 
 
 ---
