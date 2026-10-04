@@ -377,26 +377,26 @@ def section(payload: dict, image_path: str) -> str:
     else:
         shift = ""
 
-    return f"""{{START_MARKER}}
+    return f"""{START_MARKER}
 ## Policy suite instrument composition
 
 This view counts each **unique active policy instrument in force once**, using document ID as the identity key and the instrument's `category` at each reconstructed snapshot. It uses the same canonical Policy Hawk policy-instrument universe as the currency profile and excludes PINs, glossary changes, and non-instrument hierarchy nodes.
 
-![Policy suite instrument composition]({{image_path}})
+![Policy suite instrument composition]({image_path})
 
-As of **{{payload['snapshot_date']}}**, the suite contains **{{current['total']}} instruments**: {{bits}}.
+As of **{payload['snapshot_date']}**, the suite contains **{current['total']} instruments**: {bits}.
 
 ### Instrument purpose, alignment and audience
 
-{{structural}}
+{structural}
 
-{{shift}}
+{shift}
 
 > **Interpretation:** Policy Frameworks provide the strategic architecture and explain **why** Treasury Board sets policy in an area; Policies define **what** is expected and are mandatory; Directives and Standards provide mandatory **how** / operational requirements; Guidelines, Guides and Tools provide voluntary implementation guidance. Audience classifications describe the **usual primary audience**, not an exclusive readership.
 
 The stacked bars show the category composition at each quarter-end snapshot available in Policy Hawk; the current quarter uses the latest available snapshot.
 
-{{END_MARKER}}
+{END_MARKER}
 """
 
 
