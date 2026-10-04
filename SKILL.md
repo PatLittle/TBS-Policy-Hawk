@@ -253,6 +253,27 @@ Useful comparison units:
 
 ### 5. Analyze the change
 
+Before interpreting the diff, classify the **policy instrument type** and use that context to calibrate the analysis. Instrument type affects the instrument's purpose, usual audience, and whether its requirements are mandatory, voluntary, or architectural.
+
+| Instrument | Policy purpose | Usual / primary audience | Required alignment |
+|---|---|---|---|
+| **Policy Framework** | Provides strategic context and supporting architecture; explains **why** Treasury Board sets policy in an area. | Ministers, Deputy Heads | Architectural |
+| **Policy** | Sets formal direction and explains **what** deputy heads and officials are expected to achieve. | Ministers, Deputy Heads | Mandatory |
+| **Directive** | Sets specific required actions or constraints and explains **how** officials must meet a policy objective. | Managers and functional specialists | Mandatory |
+| **Standard** | Sets operational or technical measures, procedures, or practices for government-wide use. | Managers and functional specialists | Mandatory |
+| **Guideline / Guidelines / Guide** | Provides guidance, advice, explanation, and recommended implementation practice. | Managers and functional specialists | Voluntary |
+| **Tools** | Provides practical implementation aids such as recognized best practices, handbooks, communications products, or audit products. | Managers and functional specialists | Voluntary |
+
+Use this instrument context when writing the **Summary**, **Interpretation**, and **Practical effect**:
+
+- For **Policy Frameworks**, emphasize strategic architecture, policy-suite structure, and changes to the rationale or organizing model. Do not describe architectural language as a new operational obligation unless the text explicitly creates one.
+- For **Policies**, emphasize changes to required outcomes, accountability, scope, authorities, and what deputy heads or institutions must achieve.
+- For **Directives**, emphasize changes to mandatory implementation steps, responsibilities, approvals, controls, or prohibitions.
+- For **Standards**, emphasize changes to mandatory operational or technical conformance, procedures, measures, or government-wide practices.
+- For **Guidelines, Guides, and Tools**, distinguish recommendations and implementation support from binding requirements. Do **not** convert voluntary language into a mandatory obligation in the analysis.
+- Treat the audience classification as the **usual primary audience**, not an exclusive readership. Ministers and deputy heads may need awareness of implementation instruments, and managers may need to implement Policies.
+- When an amendment changes an instrument's category, hierarchy role, or relationship to another instrument, explicitly discuss whether responsibility or emphasis has shifted between executive/accountability-facing instruments and implementation-facing instruments, or between mandatory and voluntary instruments.
+
 Focus on substantive changes:
 
 - authority or delegation changes
@@ -488,9 +509,78 @@ Recommended heading normalization when inserting an issue comment:
 After insertion, sort sections chronologically by update date. For multiple issues on the same date, sort by category then title or by issue number.
 
 
+<!-- policy-hawk:instrument-composition-skill:start -->
+
+### 10. Maintain the quarterly policy suite instrument composition analysis
+
+Every quarterly `PolicyEvolution{YYYY-YYQ#}.md` report must include a deterministic **Policy suite instrument composition** section in addition to the currency profile.
+
+The deterministic generator is:
+
+```text
+scripts/generate_policy_category_history.py
+```
+
+Quarter data is stored at:
+
+```text
+data/policy_categories/{YYYY-YYQ#}.json
+```
+
+The stable quarter image path is:
+
+```text
+screenshots/tbs_policy_hawk_category_history_{YYYY-YYQ#}.svg
+```
+
+The composition section must count each **unique active policy instrument in force once**, using document ID as the identity key and the instrument category at the reconstructed snapshot. Use the same canonical policy-instrument universe as the currency profile. Exclude PINs, glossary changes, and non-instrument hierarchy nodes.
+
+For every snapshot, derive and preserve these structural classifications:
+
+- **Mandatory:** Policy + Directive + Standard
+- **Voluntary:** Guideline / Guidelines + Guide + Tools
+- **Architectural:** Policy Framework
+- **Ministers / Deputy Heads:** Policy Framework + Policy
+- **Managers / functional specialists:** Directive + Standard + Guideline / Guidelines + Guide + Tools
+
+The quarterly narrative must go beyond category counts. Under an **Instrument purpose, alignment and audience** heading:
+
+1. State the current count and percentage of mandatory, voluntary, and architectural instruments.
+2. State the current count and percentage primarily directed to Ministers / Deputy Heads versus managers / functional specialists.
+3. Compare the current snapshot with the prior quarter-end snapshot.
+4. Explain whether net change shifted the suite toward:
+   - mandatory or voluntary instruments;
+   - executive/accountability-facing or implementation-facing instruments; or
+   - no structural shift.
+5. If the quarter is still in progress, explicitly say when no shift has occurred **so far**.
+6. Keep the interpretation descriptive. Do not imply that a higher share of mandatory instruments is inherently better, or that voluntary instruments are less important.
+7. Treat audience as a usual/primary audience classification, not an exclusive readership.
+
+Use instrument purpose in the narrative when useful:
+
+- Policy Framework = **why / strategic architecture**
+- Policy = **what / required outcomes and accountability**
+- Directive = **how / required implementation**
+- Standard = **mandatory operational or technical conformance**
+- Guideline / Guide / Tools = **voluntary implementation guidance and support**
+
+Example analytical wording:
+
+```markdown
+### Instrument purpose, alignment and audience
+
+Of the **188** instruments, **111 (59.0%) are mandatory** Policies, Directives or Standards, **73 (38.8%) are voluntary** Guidelines or Guides, and **4 (2.1%) are architectural Policy Frameworks**. By usual audience, **31 (16.5%)** are primarily executive/accountability-facing for Ministers and Deputy Heads, while **157 (83.5%)** are primarily implementation-facing for managers and functional specialists.
+
+**Structural shift since 2026-27Q1:** mandatory +1, voluntary +2, architectural 0; Ministers/Deputy Heads 0, managers/functional specialists +3. The net expansion is therefore concentrated in implementation-facing instruments rather than executive/accountability-facing Policy or Policy Framework instruments.
+```
+
+Do not hand-edit derived totals when the generator can produce them. Refresh the JSON and report section through the deterministic script so future quarters remain reproducible and diffable.
+
+<!-- policy-hawk:instrument-composition-skill:end -->
+
 <!-- policy-hawk:currency-profile-skill:start -->
 
-### 10. Maintain the quarterly policy suite currency profile
+### 11. Maintain the quarterly policy suite currency profile
 
 Keep a **separate quarter-level currency profile** in every `PolicyEvolution{YYYY-YYQ#}.md` report. This overview must remain separate from the dated instrument-by-instrument analysis sections.
 
@@ -667,6 +757,9 @@ For each open issue:
 [ ] Determine fiscal year/quarter
 [ ] Add the matching quarter heatmap to PolicyEvolution{YYYY-YYQ#}.md
 [ ] Create or update PolicyEvolution{YYYY-YYQ#}.md
+[ ] Create or refresh the quarter instrument-composition JSON and SVG
+[ ] Analyze mandatory vs voluntary vs architectural shifts
+[ ] Analyze usual-audience shifts between Ministers / Deputy Heads and managers / functional specialists
 [ ] Create or refresh the quarter currency-profile JSON and SVG
 [ ] Rewrite the currency profile synopsis from the current quarter data
 [ ] Keep the synopsis immediately below the currency-profile visual
