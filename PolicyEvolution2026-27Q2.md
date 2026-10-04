@@ -38,6 +38,18 @@ So far in 2026-27Q2, the profile records **9 distinct instrument changes**. The 
 
 <!-- policy-hawk:currency-profile:end -->
 
+<!-- policy-hawk:category-history:start -->
+## Policy suite instrument composition
+
+This view counts each **unique active policy instrument in force once**, using document ID as the identity key and the instrument's `category` at each reconstructed snapshot. It uses the same canonical Policy Hawk policy-instrument universe as the currency profile and excludes PINs, glossary changes, and non-instrument hierarchy nodes.
+
+![Policy suite instrument composition](screenshots/tbs_policy_hawk_category_history_2026-27Q2.svg)
+
+As of **2026-09-30**, the suite contains **188 instruments**: **Guidelines 58**, **Directive 47**, **Standard 37**, **Policy 27**, **Guide 15**, **Policy framework 4**. The stacked bars show the composition at each quarter-end snapshot available in Policy Hawk; the current quarter uses the latest available snapshot.
+
+<!-- policy-hawk:category-history:end -->
+
+
 ---
 
 ## 2026-07-06 — Digital Talent, Directive on

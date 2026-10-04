@@ -1,0 +1,72 @@
+{
+  "title": "Policy suite instrument composition",
+  "quarter": "2026-27Q3",
+  "snapshot_date": "2026-10-03",
+  "population_basis": "canonical policy-instrument universe; unique document ID; active snapshot reconstructed from Policy Hawk history",
+  "category_order": [
+    "Guidelines",
+    "Directive",
+    "Standard",
+    "Policy",
+    "Guide",
+    "Policy framework"
+  ],
+  "snapshots": [
+    {
+      "quarter": "2025-26Q4",
+      "snapshot_date": "2026-03-31",
+      "commit": "38928a91a4803a2d185a8a53b80d8662f3e6833c",
+      "total": 184,
+      "categories": {
+        "Guidelines": 56,
+        "Directive": 47,
+        "Standard": 36,
+        "Policy": 27,
+        "Guide": 14,
+        "Policy framework": 4
+      }
+    },
+    {
+      "quarter": "2026-27Q1",
+      "snapshot_date": "2026-06-30",
+      "commit": "43bfafdaa27bf3d76a25da6c766fb413f63c1f6f",
+      "total": 185,
+      "categories": {
+        "Guidelines": 57,
+        "Directive": 47,
+        "Standard": 36,
+        "Policy": 27,
+        "Guide": 14,
+        "Policy framework": 4
+      }
+    },
+    {
+      "quarter": "2026-27Q2",
+      "snapshot_date": "2026-09-30",
+      "commit": "8d5f979adfd86e4e969647b59ef9dd91bdbfe9cc",
+      "total": 188,
+      "categories": {
+        "Guidelines": 58,
+        "Directive": 47,
+        "Standard": 37,
+        "Policy": 27,
+        "Guide": 15,
+        "Policy framework": 4
+      }
+    },
+    {
+      "quarter": "2026-27Q3",
+      "snapshot_date": "2026-10-03",
+      "commit": "8bfe99d71ea1aad59e773aa925f56b2323462b88",
+      "total": 188,
+      "categories": {
+        "Guidelines": 58,
+        "Directive": 47,
+        "Standard": 37,
+        "Policy": 27,
+        "Guide": 15,
+        "Policy framework": 4
+      }
+    }
+  ]
+}
