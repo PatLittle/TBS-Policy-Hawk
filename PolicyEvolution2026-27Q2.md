@@ -59,32 +59,6 @@ The stacked bars show the category composition at each quarter-end snapshot avai
 
 <!-- policy-hawk:category-history:end -->
 
-
-<!-- policy-hawk:category-history:start -->
-## Policy suite instrument composition
-
-This view counts each **unique active policy instrument in force once**, using document ID as the identity key and the instrument's `category` at each reconstructed snapshot. It uses the same canonical Policy Hawk policy-instrument universe as the currency profile and excludes PINs, glossary changes, and non-instrument hierarchy nodes.
-
-![Policy suite instrument composition](screenshots/tbs_policy_hawk_category_history_2026-27Q2.svg)
-
-As of **2026-09-30**, the suite contains **188 instruments**: **Guidelines 58**, **Directive 47**, **Standard 37**, **Policy 27**, **Guide 15**, **Policy framework 4**.
-
-### Instrument purpose, alignment and audience
-
-Of the **188** instruments, **111 (59.0%) are mandatory** Policies, Directives or Standards; **73 (38.8%) are voluntary** Guidelines or Guides; and **4 (2.1%) are architectural Policy Frameworks**. By usual audience, **31 (16.5%)** are primarily executive/accountability-facing for Ministers and Deputy Heads, while **157 (83.5%)** are primarily implementation-facing for managers and functional specialists.
-
-**Structural shift since 2026-27Q1:** mandatory +1, voluntary +2, architectural 0; Ministers/Deputy Heads 0, managers/functional specialists +3. The net expansion is therefore concentrated in implementation-facing instruments rather than executive/accountability-facing Policy or Policy Framework instruments.
-
-> **Interpretation:** Policy Frameworks provide the strategic architecture and explain **why** Treasury Board sets policy in an area; Policies define **what** is expected and are mandatory; Directives and Standards provide mandatory **how** / operational requirements; Guidelines, Guides and Tools provide voluntary implementation guidance. Audience classifications describe the **usual primary audience**, not an exclusive readership.
-
-The stacked bars show the category composition at each quarter-end snapshot available in Policy Hawk; the current quarter uses the latest available snapshot.
-
-<!-- policy-hawk:category-history:end -->
-
-
-
-
-
 ---
 
 ## 2026-07-06 — Digital Talent, Directive on
