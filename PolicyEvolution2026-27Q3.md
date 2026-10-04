@@ -37,16 +37,27 @@ The age profile differs sharply across topics. **People management** has the old
 
 <!-- policy-hawk:currency-profile:end -->
 
-<!-- policy-hawk:category-history:start -->
+{START_MARKER}
 ## Policy suite instrument composition
 
 This view counts each **unique active policy instrument in force once**, using document ID as the identity key and the instrument's `category` at each reconstructed snapshot. It uses the same canonical Policy Hawk policy-instrument universe as the currency profile and excludes PINs, glossary changes, and non-instrument hierarchy nodes.
 
-![Policy suite instrument composition](screenshots/tbs_policy_hawk_category_history_2026-27Q3.svg)
+![Policy suite instrument composition]({image_path})
 
-As of **2026-10-04**, the suite contains **188 instruments**: **Guidelines 58**, **Directive 47**, **Standard 37**, **Policy 27**, **Guide 15**, **Policy framework 4**. The stacked bars show the composition at each quarter-end snapshot available in Policy Hawk; the current quarter uses the latest available snapshot.
+As of **{payload['snapshot_date']}**, the suite contains **{current['total']} instruments**: {bits}.
 
-<!-- policy-hawk:category-history:end -->
+### Instrument purpose, alignment and audience
+
+{structural}
+
+{shift}
+
+> **Interpretation:** Policy Frameworks provide the strategic architecture and explain **why** Treasury Board sets policy in an area; Policies define **what** is expected and are mandatory; Directives and Standards provide mandatory **how** / operational requirements; Guidelines, Guides and Tools provide voluntary implementation guidance. Audience classifications describe the **usual primary audience**, not an exclusive readership.
+
+The stacked bars show the category composition at each quarter-end snapshot available in Policy Hawk; the current quarter uses the latest available snapshot.
+
+{END_MARKER}
+
 
 
 

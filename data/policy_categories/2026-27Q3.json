@@ -3,6 +3,34 @@
   "quarter": "2026-27Q3",
   "snapshot_date": "2026-10-04",
   "population_basis": "canonical policy-instrument universe; unique document ID; active snapshot reconstructed from Policy Hawk history",
+  "classification_basis": {
+    "mandatory": [
+      "Policy",
+      "Directive",
+      "Standard"
+    ],
+    "voluntary": [
+      "Guidelines",
+      "Guideline",
+      "Guide",
+      "Tools"
+    ],
+    "architectural": [
+      "Policy framework"
+    ],
+    "ministers_deputy_heads": [
+      "Policy framework",
+      "Policy"
+    ],
+    "managers_functional_specialists": [
+      "Directive",
+      "Standard",
+      "Guidelines",
+      "Guideline",
+      "Guide",
+      "Tools"
+    ]
+  },
   "category_order": [
     "Guidelines",
     "Directive",
@@ -24,6 +52,15 @@
         "Policy": 27,
         "Guide": 14,
         "Policy framework": 4
+      },
+      "alignment": {
+        "mandatory": 110,
+        "voluntary": 70,
+        "architectural": 4
+      },
+      "audience": {
+        "ministers_deputy_heads": 31,
+        "managers_functional_specialists": 153
       }
     },
     {
@@ -38,6 +75,15 @@
         "Policy": 27,
         "Guide": 14,
         "Policy framework": 4
+      },
+      "alignment": {
+        "mandatory": 110,
+        "voluntary": 71,
+        "architectural": 4
+      },
+      "audience": {
+        "ministers_deputy_heads": 31,
+        "managers_functional_specialists": 154
       }
     },
     {
@@ -52,12 +98,21 @@
         "Policy": 27,
         "Guide": 15,
         "Policy framework": 4
+      },
+      "alignment": {
+        "mandatory": 111,
+        "voluntary": 73,
+        "architectural": 4
+      },
+      "audience": {
+        "ministers_deputy_heads": 31,
+        "managers_functional_specialists": 157
       }
     },
     {
       "quarter": "2026-27Q3",
       "snapshot_date": "2026-10-04",
-      "commit": "df517a80958fe51c155b32fd6979d118bf190d7a",
+      "commit": "75c9a66fd229138062c06d838bfcbcfeb6fed5fd",
       "total": 188,
       "categories": {
         "Guidelines": 58,
@@ -66,6 +121,15 @@
         "Policy": 27,
         "Guide": 15,
         "Policy framework": 4
+      },
+      "alignment": {
+        "mandatory": 111,
+        "voluntary": 73,
+        "architectural": 4
+      },
+      "audience": {
+        "ministers_deputy_heads": 31,
+        "managers_functional_specialists": 157
       }
     }
   ]
