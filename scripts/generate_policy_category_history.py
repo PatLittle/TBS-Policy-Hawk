@@ -402,16 +402,22 @@ The stacked bars show the category composition at each quarter-end snapshot avai
 
 def update_report(report: Path, block: str) -> None:
     text = report.read_text(encoding="utf-8")
-    if START_MARKER in text and END_MARKER in text:
-        before = text.split(START_MARKER, 1)[0]
-        after = text.split(END_MARKER, 1)[1]
-        text = before + block + after
+    anchor = "<!-- policy-hawk:currency-profile:end -->"
+
+    # Remove every existing generated composition block first. This keeps the
+    # operation idempotent even if an earlier workflow run accidentally wrote
+    # the section more than once.
+    while START_MARKER in text and END_MARKER in text:
+        start = text.index(START_MARKER)
+        end = text.index(END_MARKER, start) + len(END_MARKER)
+        text = text[:start] + text[end:]
+
+    text = text.replace("\n\n\n", "\n\n")
+    if anchor in text:
+        text = text.replace(anchor, anchor + "\n\n" + block, 1)
     else:
-        anchor = "<!-- policy-hawk:currency-profile:end -->"
-        if anchor in text:
-            text = text.replace(anchor, anchor + "\n\n" + block, 1)
-        else:
-            text += "\n\n" + block
+        text = text.rstrip() + "\n\n" + block + "\n"
+
     report.write_text(text, encoding="utf-8")
 
 
