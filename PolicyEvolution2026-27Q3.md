@@ -37,6 +37,18 @@ The age profile differs sharply across topics. **People management** has the old
 
 <!-- policy-hawk:currency-profile:end -->
 
+<!-- policy-hawk:category-history:start -->
+## Policy suite instrument composition
+
+This view counts each **unique active policy instrument in force once**, using document ID as the identity key and the instrument's `category` at each reconstructed snapshot. It uses the same canonical Policy Hawk policy-instrument universe as the currency profile and excludes PINs, glossary changes, and non-instrument hierarchy nodes.
+
+![Policy suite instrument composition](screenshots/tbs_policy_hawk_category_history_2026-27Q3.svg)
+
+As of **2026-10-03**, the suite contains **188 instruments**: **Guidelines 58**, **Directive 47**, **Standard 37**, **Policy 27**, **Guide 15**, **Policy framework 4**. The stacked bars show the composition at each quarter-end snapshot available in Policy Hawk; the current quarter uses the latest available snapshot.
+
+<!-- policy-hawk:category-history:end -->
+
+
 ---
 
 ## 2026-10-01 — Direction on Government of Canada Cyber Security Readiness in the Frontier Artificial Intelligence Era: Security Policy Implementation Notice
