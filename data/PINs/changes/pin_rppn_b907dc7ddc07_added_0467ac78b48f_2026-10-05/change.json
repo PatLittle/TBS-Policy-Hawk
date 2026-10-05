@@ -1,0 +1,16 @@
+{
+  "guid": "pin_rppn_b907dc7ddc07_added_0467ac78b48f_2026-10-05",
+  "change_type": "pin",
+  "pin_change": "added",
+  "detected_date": "2026-10-05",
+  "family": "RPPN",
+  "source_key": "real_property_policy_notices",
+  "source_title": "Real Property Policy Notices",
+  "notice_identifier": "2026-3",
+  "title": "Amendments to the Directive on the Management of Real Property – Collection of Public Purpose Interests",
+  "url": "https://www.canada.ca/en/treasury-board-secretariat/services/federal-real-property-management/real-property-policy-notices/2026-3.html",
+  "stable_path": "data/PINs/RPPN/Amendments_to_the_Directive_on_the_Management_of_Real_Property_Collection_of_Public_Purpose_Interests.md",
+  "previous_path": "data/PINs/changes/pin_rppn_b907dc7ddc07_added_0467ac78b48f_2026-10-05/previous.md",
+  "current_path": "data/PINs/changes/pin_rppn_b907dc7ddc07_added_0467ac78b48f_2026-10-05/current.md",
+  "metadata_path": "data/PINs/changes/pin_rppn_b907dc7ddc07_added_0467ac78b48f_2026-10-05/change.json"
+}

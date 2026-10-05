@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "generated_at_utc": "2026-10-01T20:44:16Z",
+  "generated_at_utc": "2026-10-05T16:39:36Z",
   "pending_removals": {},
   "sources": [
     {
@@ -6148,8 +6148,8 @@
       "short_name": "RPPN",
       "url": "https://www.canada.ca/en/treasury-board-secretariat/services/federal-real-property-management/real-property-policy-notices.html",
       "folder": "RPPN",
-      "source_modified": "2026-08-20",
-      "notice_count": 5,
+      "source_modified": "2026-10-05",
+      "notice_count": 6,
       "notices": [
         {
           "title": "Amendments to Appendix B: Mandatory Procedures for Appraisals and Estimates of the Directive on the Management of Real Property",
@@ -6210,6 +6210,18 @@
           "fetch_error": "",
           "filename": "Updates_to_the_Treasury_Board_Real_Property_Policy_Instruments.md",
           "path": "data/PINs/RPPN/Updates_to_the_Treasury_Board_Real_Property_Policy_Instruments.md"
+        },
+        {
+          "title": "Amendments to the Directive on the Management of Real Property – Collection of Public Purpose Interests",
+          "url": "https://www.canada.ca/en/treasury-board-secretariat/services/federal-real-property-management/real-property-policy-notices/2026-3.html",
+          "listing_date": "",
+          "table_date": "2026-10-05",
+          "notice_code": "2026-3",
+          "group": "",
+          "detail_modified": "2026-10-05",
+          "fetch_error": "",
+          "filename": "Amendments_to_the_Directive_on_the_Management_of_Real_Property_Collection_of_Public_Purpose_Interests.md",
+          "path": "data/PINs/RPPN/Amendments_to_the_Directive_on_the_Management_of_Real_Property_Collection_of_Public_Purpose_Interests.md"
         }
       ]
     }
