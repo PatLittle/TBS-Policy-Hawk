@@ -3,9 +3,9 @@
   "view_label": "Fiscal Q3 change view",
   "quarter": "2026-27Q3",
   "baseline_date": "2026-10-01",
-  "current_date": "2026-10-01",
+  "current_date": "2026-10-05",
   "baseline_commit": "41a31f556b5d89ea0486678d5b2cda59467c2788",
-  "current_commit": "41a31f556b5d89ea0486678d5b2cda59467c2788",
+  "current_commit": "07f9942d17c40686d82f9f2463be74fcf7a63557",
   "population_basis": "canonical 10-topic instrument universe; version state rolled back from data/items.csv",
   "max_age_years": 15,
   "width": 1500,
@@ -103,7 +103,7 @@
       },
       "current": {
         "count": 41,
-        "avg_age": 14.026,
+        "avg_age": 14.037,
         "bins": [
           5,
           5,
@@ -133,7 +133,7 @@
       },
       "current": {
         "count": 8,
-        "avg_age": 8.272,
+        "avg_age": 8.283,
         "bins": [
           0,
           2,
@@ -163,7 +163,7 @@
       },
       "current": {
         "count": 12,
-        "avg_age": 7.396,
+        "avg_age": 7.407,
         "bins": [
           2,
           4,
@@ -193,7 +193,7 @@
       },
       "current": {
         "count": 6,
-        "avg_age": 5.954,
+        "avg_age": 5.965,
         "bins": [
           1,
           2,
@@ -223,7 +223,7 @@
       },
       "current": {
         "count": 59,
-        "avg_age": 5.181,
+        "avg_age": 5.192,
         "bins": [
           0,
           21,
@@ -253,7 +253,7 @@
       },
       "current": {
         "count": 25,
-        "avg_age": 4.882,
+        "avg_age": 4.893,
         "bins": [
           3,
           7,
@@ -283,7 +283,7 @@
       },
       "current": {
         "count": 7,
-        "avg_age": 3.722,
+        "avg_age": 3.732,
         "bins": [
           1,
           5,
@@ -313,7 +313,7 @@
       },
       "current": {
         "count": 7,
-        "avg_age": 2.93,
+        "avg_age": 2.94,
         "bins": [
           0,
           3,
@@ -343,7 +343,7 @@
       },
       "current": {
         "count": 19,
-        "avg_age": 2.503,
+        "avg_age": 2.514,
         "bins": [
           6,
           5,
@@ -373,7 +373,7 @@
       },
       "current": {
         "count": 4,
-        "avg_age": 0.639,
+        "avg_age": 0.65,
         "bins": [
           4,
           0,
