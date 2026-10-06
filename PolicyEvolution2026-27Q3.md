@@ -61,6 +61,7 @@ The stacked bars show the category composition at each quarter-end snapshot avai
 
 
 
+
 ---
 
 ## 2026-10-01 — Direction on Government of Canada Cyber Security Readiness in the Frontier Artificial Intelligence Era: Security Policy Implementation Notice
