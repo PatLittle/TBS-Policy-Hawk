@@ -4,6 +4,7 @@ from __future__ import annotations
 import argparse
 import base64
 import json
+import re
 import subprocess
 from collections import Counter
 from datetime import date
@@ -69,6 +70,14 @@ INSTRUMENT_CONTEXT = {
 }
 START_MARKER = "<!-- policy-hawk:category-history:start -->"
 END_MARKER = "<!-- policy-hawk:category-history:end -->"
+PIN_FAMILIES = (
+    ("Policy on Service and Digital Announcements", "PSDA"),
+    ("Contracting policy notices", "CPN"),
+    ("Access to Information and Privacy Notices", "ATIPN"),
+    ("Human Resources Information Notices", "HRIN"),
+    ("Security Policy Implementation Notice", "SPIN"),
+    ("Real Property Policy Notices", "RPPN"),
+)
 
 
 def run_git(*args: str) -> str:
@@ -84,6 +93,35 @@ def commit_at_or_before(snapshot: date) -> str:
 
 def read_at(ref: str, path: str) -> str:
     return subprocess.check_output(["git", "show", f"{ref}:{path}"], text=True)
+
+
+def pin_counts(snapshot: date, current: bool) -> tuple[dict[str, int], str]:
+    if current:
+        source = Path("PIN_sources.md").read_text(encoding="utf-8")
+        source_ref = "[current PIN_sources.md](PIN_sources.md)"
+    else:
+        ref = run_git(
+            "rev-list", "-1", f"--before={snapshot.isoformat()}T23:59:59Z", "HEAD", "--", "PIN_sources.md"
+        )
+        if not ref:
+            raise RuntimeError(f"No PIN_sources.md version on or before {snapshot}")
+        source = read_at(ref, "PIN_sources.md")
+        source_ref = (
+            f"[PIN_sources.md at {ref[:10]}]"
+            f"(https://github.com/PatLittle/TBS-Policy-Hawk/blob/{ref}/PIN_sources.md)"
+        )
+
+    counts = {}
+    for name, acronym in PIN_FAMILIES:
+        pattern = (
+            rf"^## \[{re.escape(name)} \({acronym}\)\]\([^\n]+\)"
+            rf"(?:(?!^## ).)*?^> Notices: (\d+)[ \t]*$"
+        )
+        match = re.search(pattern, source, re.DOTALL | re.MULTILINE)
+        if not match:
+            raise ValueError(f"Missing notice count for {name} in {source_ref}")
+        counts[name] = int(match.group(1))
+    return counts, source_ref
 
 
 def fiscal_quarter(day: date) -> tuple[str, date, date]:
@@ -314,13 +352,18 @@ def signed_delta(value: int) -> str:
     return f"+{value}" if value > 0 else str(value)
 
 
-def section(payload: dict, image_path: str) -> str:
+def section(payload: dict, image_path: str, notices: dict[str, int], notice_source: str) -> str:
     current = payload["snapshots"][-1]
     previous = payload["snapshots"][-2] if len(payload["snapshots"]) > 1 else None
     bits = ", ".join(
         f"**{cat} {current['categories'][cat]}**"
         for cat in payload["category_order"]
     )
+    notice_breakdown = "\n".join(
+        f"- {name} ({acronym}): **{notices[name]}**"
+        for name, acronym in PIN_FAMILIES
+    )
+    notice_total = sum(notices.values())
 
     alignment = current["alignment"]
     audience = current["audience"]
@@ -396,6 +439,10 @@ As of **{payload['snapshot_date']}**, the suite contains **{current['total']} in
 
 The stacked bars show the category composition at each quarter-end snapshot available in Policy Hawk; the current quarter uses the latest available snapshot.
 
+Although these are not official instruments in the Policy Suite, Policy Hawk also tracks **{notice_total} notices** in its PIN source collections as of **{payload['snapshot_date']}** ({notice_source}):
+
+{notice_breakdown}
+
 {END_MARKER}
 """
 
@@ -418,6 +465,7 @@ def update_report(report: Path, block: str) -> None:
     else:
         text = text.rstrip() + "\n\n" + block + "\n"
 
+    text = re.sub(rf"({re.escape(END_MARKER)})\n+(?=---)", r"\1\n\n", text)
     report.write_text(text, encoding="utf-8")
 
 
@@ -451,7 +499,8 @@ def main() -> None:
     data_output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(render_svg(payload), encoding="utf-8")
     data_output.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
-    update_report(report, section(payload, output.as_posix()))
+    notices, notice_source = pin_counts(snapshot, current=current)
+    update_report(report, section(payload, output.as_posix(), notices, notice_source))
     print(f"Wrote {output}, {data_output}, and updated {report}")
 
 

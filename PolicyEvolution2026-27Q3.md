@@ -55,12 +55,16 @@ Of the **188** instruments, **111 (59.0%) are mandatory** Policies, Directives o
 
 The stacked bars show the category composition at each quarter-end snapshot available in Policy Hawk; the current quarter uses the latest available snapshot.
 
+Although these are not official instruments in the Policy Suite, Policy Hawk also tracks **513 notices** in its PIN source collections as of **2026-10-06** ([PIN_sources.md at 5122c95ad9](https://github.com/PatLittle/TBS-Policy-Hawk/blob/5122c95ad9b32f451e63b7899f2aa5a7e67326d6/PIN_sources.md)):
+
+- Policy on Service and Digital Announcements (PSDA): **18**
+- Contracting policy notices (CPN): **47**
+- Access to Information and Privacy Notices (ATIPN): **24**
+- Human Resources Information Notices (HRIN): **412**
+- Security Policy Implementation Notice (SPIN): **6**
+- Real Property Policy Notices (RPPN): **6**
+
 <!-- policy-hawk:category-history:end -->
-
-
-
-
-
 
 ---
 

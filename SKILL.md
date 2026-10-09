@@ -576,6 +576,8 @@ Of the **188** instruments, **111 (59.0%) are mandatory** Policies, Directives o
 
 Do not hand-edit derived totals when the generator can produce them. Refresh the JSON and report section through the deterministic script so future quarters remain reproducible and diffable.
 
+At the end of the **Policy suite instrument composition** section, add a separate count and breakdown of the PIN source collections. Introduce them as notices Policy Hawk tracks that are **not official Policy Suite instruments**; do not include them in the instrument total, chart, currency profile, or mandatory/voluntary classifications. Read the six `> Notices:` counts from `PIN_sources.md` and state their sum. For the current quarter, use the latest source file. When backfilling a previous quarter, use the last `PIN_sources.md` version committed on or before that quarter's snapshot date, and identify that source revision. List all six source families using their full titles: Policy on Service and Digital Announcements, Contracting policy notices, Access to Information and Privacy Notices, Human Resources Information Notices, Security Policy Implementation Notice, and Real Property Policy Notices. Written abbreviations may follow the full titles in parentheses. When speaking, use each full title instead of its abbreviation, except pronounce `SPIN` as **“S PIN”** ("ess pin"). The composition generator renders this notice breakdown from the appropriate source version.
+
 <!-- policy-hawk:instrument-composition-skill:end -->
 
 <!-- policy-hawk:currency-profile-skill:start -->
