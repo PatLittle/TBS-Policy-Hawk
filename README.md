@@ -13,7 +13,9 @@ The repository tracks five related change surfaces:
 4. TBS policy glossary changes.
 5. Substantive policy implementation notice (PIN) additions, changes, and removals.
 
-The result is a working evidence trail: machine-readable datasets under `data/`, screenshots under `screenshots/`, GitHub issues for analyst triage, and quarterly `PolicyEvolution{YYYY-YYQ#}.md` reports for completed analysis.
+The result is a working evidence trail: machine-readable datasets under `data/`, screenshots under `screenshots/`, GitHub issues for analyst triage, and quarterly `PolicyEvolution{YYYY-YYQ#}.md` reports for completed analysis.  
+
+🚨 Issue Summaries and PolicyEvolution Reports are not official guidance, these analysis products use a mix of deterministic and generative techniques to indicate areas of change - ***A Place to Start Not The End of Understanding Policy Evolution***  
 
 
 
