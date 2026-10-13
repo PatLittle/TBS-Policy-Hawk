@@ -1,4 +1,4 @@
-[![Policy Watch](https://github.com/PatLittle/TBS-Policy-Hawk/actions/workflows/policy_watch.yml/badge.svg?branch=main)](https://github.com/PatLittle/TBS-Policy-Hawk/actions/workflows/policy_watch.yml) ![GitHub repo size](https://img.shields.io/github/repo-size/PatLittle/TBS-Policy-Hawk?logo=github)
+[![Policy Watch](https://github.com/PatLittle/TBS-Policy-Hawk/actions/workflows/policy_watch.yml/badge.svg?branch=main)](https://github.com/PatLittle/TBS-Policy-Hawk/actions/workflows/policy_watch.yml) ![GitHub repo size](https://img.shields.io/github/repo-size/PatLittle/TBS-Policy-Hawk?logo=github) ![personal](https://img.shields.io/badge/%E2%9A%A0%EF%B8%8FPersonal%20Project%20/%20Not%20Official%20Government%20of%20Canada%20Guidance%20-FF0000)
 
 # TBS Policy Hawk - Watching Like a Hawk for Every Policy Suite Update.
 <img src="assets/PolicyHawkLogo.png" width="300" height="300">
