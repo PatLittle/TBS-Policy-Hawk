@@ -460,12 +460,15 @@ PolicyEvolution2025-26Q4.md
 If the file does not exist, create it with this header:
 
 ```markdown
+![personal](https://img.shields.io/badge/%E2%9A%A0%EF%B8%8FPersonal%20Project%20/%20Not%20Official%20Government%20of%20Canada%20Guidance%20-FF0000)
 # Policy Evolution {YYYY-YY} Q{#}
 
 **Period covered:** {YYYY-MM-DD} to {YYYY-MM-DD}  
 **Source:** Auto-analysis comments added to TBS-Policy-Hawk issues.
 
-This file compiles policy-change analysis comments for updates detected during the quarter. Entries are organized chronologically by the effective/update date in the issue GUID.
+This file compiles policy-change analysis comments for updates detected during the quarter. Entries are organized chronologically by the effective/update date in the issue GUID. 
+
+🚨 Issue Summaries and PolicyEvolution Reports are not official guidance, these analysis products use a mix of deterministic and generative techniques to indicate areas of change - ***A Place to Start Not The End of Understanding Policy Evolution***
 
 ![TBS Policy Hawk activity heatmap for {quarter_start} to {quarter_end}](https://raw.githubusercontent.com/PatLittle/TBS-Policy-Hawk/refs/heads/main/screenshots/tbs_policy_hawk_heatmap_{quarter_start}_to_{quarter_end}.png)
 
