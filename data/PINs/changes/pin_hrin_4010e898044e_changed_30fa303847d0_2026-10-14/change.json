@@ -1,0 +1,16 @@
+{
+  "guid": "pin_hrin_4010e898044e_changed_30fa303847d0_2026-10-14",
+  "change_type": "pin",
+  "pin_change": "changed",
+  "detected_date": "2026-10-14",
+  "family": "HRIN",
+  "source_key": "human_resources_information_notices",
+  "source_title": "Human Resources Information Notices",
+  "notice_identifier": "",
+  "title": "Temporary change in process: Group insurance benefit plans administration",
+  "url": "https://www.canada.ca/en/treasury-board-secretariat/services/information-notice/group-insurance-benefit-plans-administration-public-service-pay-centre-2016.html",
+  "stable_path": "data/PINs/HRIN/Temporary_change_in_process_Group_insurance_benefit_plans_administration.md",
+  "previous_path": "data/PINs/changes/pin_hrin_4010e898044e_changed_30fa303847d0_2026-10-14/previous.md",
+  "current_path": "data/PINs/changes/pin_hrin_4010e898044e_changed_30fa303847d0_2026-10-14/current.md",
+  "metadata_path": "data/PINs/changes/pin_hrin_4010e898044e_changed_30fa303847d0_2026-10-14/change.json"
+}

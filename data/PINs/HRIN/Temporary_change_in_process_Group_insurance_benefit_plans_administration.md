@@ -4,10 +4,10 @@
 - Source page URL: https://www.canada.ca/en/treasury-board-secretariat/services/information-notice.html
 - Source page modified: 2026-07-13
 - Notice URL: https://www.canada.ca/en/treasury-board-secretariat/services/information-notice/group-insurance-benefit-plans-administration-public-service-pay-centre-2016.html
-- Notice modified: 2020-09-09
+- Notice modified: 2026-10-14
 - Notice group: Active notices
 - Listed date: 2018-06-22
-- Captured at (UTC): 2026-08-26T09:00:24Z
+- Captured at (UTC): 2026-10-15T02:24:54Z
 - Page title: (Update) Temporary change in process: Group insurance benefit plans administration
 
 ---
@@ -30,7 +30,7 @@ The temporary changes in effect are detailed below:
 
 1. All waiting periods are waived
 1. Unless retroactivity is requested, the effective date of all PSHCP applications or request for coverage changes will take effect the first of the month, following receipt by the Pay Centre or designated compensation office of a completed [self-service electronic application in Phoenix](https://www.canada.ca/en/treasury-board-secretariat/services/pension-plan/pension-tools/secure-pension-tools-compensation-web-applications.html) or [Employee application form (PDF document – 94.65 KB)](http://www.pshcp.ca/media/1688/emp-applic-adhes-006491.pdf) (TBS-006491).
-2. Applicants should first apply to the PSHCP or make changes to their coverage using the [self-service electronic application in Phoenix](http://www.tbs-sct.gc.ca/psm-fpfm/pensions/tools-outils/cwa-awr-eng.asp). If this is not possible, employees should contact the Pay Centre by submitting a [Phoenix feedback form](https://www.tpsgc-pwgsc.gc.ca/remuneration-compensation/services-paye-pay-services/systeme-paye-employes-pay-system-employees/retroaction-phenix-phoenix-feedback-eng.html) or by [phone](https://www.tpsgc-pwgsc.gc.ca/remuneration-compensation/services-paye-pay-services/paye-centre-pay/cn-cu-eng.html). For those paid by Phoenix but not serviced by the Pay Centre, the [Employee application form (PDF document – 94.65 KB)](http://www.pshcp.ca/media/1688/emp-applic-adhes-006491.pdf) (TBS-006491) should be sent to their compensation office.
+2. Applicants should first apply to the PSHCP or make changes to their coverage using the [phone](https://www.canada.ca/en/public-services-procurement/services/pay-pension/pay-administration/pay-centre-resources/contact.html). For those paid by Phoenix but not serviced by the Pay Centre, the [Employee application form (PDF document – 94.65 KB)](http://www.pshcp.ca/media/1688/emp-applic-adhes-006491.pdf) (TBS-006491) should be sent to their compensation office.
 
 2. Retroactivity
 1. A member can request a retroactive amendment to their coverage start date. Such requests must be provided in writing to the Pay Centre or their compensation office, and will be effective the first of the month following the date that an employee first became eligible for the change in coverage requested;

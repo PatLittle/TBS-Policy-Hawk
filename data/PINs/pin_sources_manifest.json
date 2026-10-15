@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "generated_at_utc": "2026-10-05T16:39:36Z",
+  "generated_at_utc": "2026-10-15T02:24:54Z",
   "pending_removals": {},
   "sources": [
     {
@@ -1936,7 +1936,7 @@
           "table_date": "2021-08-23",
           "notice_code": "",
           "group": "Active notices",
-          "detail_modified": "2024-07-17",
+          "detail_modified": "2026-10-14",
           "fetch_error": "",
           "filename": "Leave_without_pay_LWOP_for_compassionate_caregiving_Temporary_changes_to_approval_process.md",
           "path": "data/PINs/HRIN/Leave_without_pay_LWOP_for_compassionate_caregiving_Temporary_changes_to_approval_process.md"
@@ -2512,7 +2512,7 @@
           "table_date": "2018-06-22",
           "notice_code": "",
           "group": "Active notices",
-          "detail_modified": "2020-09-09",
+          "detail_modified": "2026-10-14",
           "fetch_error": "",
           "filename": "Temporary_change_in_process_Group_insurance_benefit_plans_administration.md",
           "path": "data/PINs/HRIN/Temporary_change_in_process_Group_insurance_benefit_plans_administration.md"
