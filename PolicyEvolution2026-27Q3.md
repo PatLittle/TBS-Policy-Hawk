@@ -159,3 +159,66 @@ Update disposal procedures and decision-record templates to reflect the notice�
 <!-- policy-hawk:issue-524:end -->
 
 ---
+
+<!-- policy-hawk:issue-525:start -->
+## 2026-10-14 — Leave without pay (LWOP) for compassionate caregiving – Temporary changes to approval process
+
+**Issue:** [#525](https://github.com/PatLittle/TBS-Policy-Hawk/issues/525)<br>
+**Category:** PIN / HRIN<br>
+**GUID:** `pin_hrin_67aec9a3b5fc_changed_c97215a58d52_2026-10-14`<br>
+**Change type:** pin changed
+
+### Policy change analysis
+
+Compared the October 14 HRIN capture with the closest prior repository copy (captured August 26):
+
+- Current: `data/PINs/changes/pin_hrin_67aec9a3b5fc_changed_c97215a58d52_2026-10-14/current.md`
+- Previous: `data/PINs/changes/pin_hrin_67aec9a3b5fc_changed_c97215a58d52_2026-10-14/previous.md`
+- [Live Canada.ca notice](https://www.canada.ca/en/treasury-board-secretariat/services/information-notice/leave-without-pay-compassionate-caregiving-temporary-changes-approval-process.html) checked October 15, 2026; its Pay Centre links match the current capture.
+
+#### Summary
+
+The notice's two Pay Centre links now point to the current Canada.ca contact page. The 2021 compassionate-caregiving leave direction and the steps for managers and compensation advisors are unchanged. The notice's page-modified metadata moved from July 17, 2024 to October 14, 2026; that date change alone does not create a new policy requirement.
+
+| Area | Previous capture | Current capture | Interpretation |
+|---|---|---|---|
+| **Manager step 2 and Additional information** | Pay Centre links used the older PSPC contact URL. | Both links use the Canada.ca Pay Centre contact URL. | Contact/navigation update only; managers still submit GC-178 to the Pay Centre or departmental compensation advisor through the regular process. |
+| **Approval and pension process** | Manager records the applicable collective-agreement reference on GC-178; compensation advisor sends the form to the Pension Centre. | Same wording and responsibilities. | No change to eligibility, contributions, approval route, deadline, or form handling. |
+
+**Practical effect:** Update any local bookmarks to the Pay Centre contact page. Continue to follow the notice's existing GC-178 process. **Classification:** `reference-update`, `administrative-cleanup`; no substantive policy impact found.
+
+<!-- policy-hawk:issue-525:end -->
+
+---
+
+<!-- policy-hawk:issue-526:start -->
+## 2026-10-14 — Temporary change in process: Group insurance benefit plans administration
+
+**Issue:** [#526](https://github.com/PatLittle/TBS-Policy-Hawk/issues/526)<br>
+**Category:** PIN / HRIN<br>
+**GUID:** `pin_hrin_4010e898044e_changed_30fa303847d0_2026-10-14`<br>
+**Change type:** pin changed
+
+### Policy change analysis
+
+Compared the October 14 HRIN capture with the closest prior repository copy (captured August 26):
+
+- Current: `data/PINs/changes/pin_hrin_4010e898044e_changed_30fa303847d0_2026-10-14/current.md`
+- Previous: `data/PINs/changes/pin_hrin_4010e898044e_changed_30fa303847d0_2026-10-14/previous.md`
+- [Live Canada.ca notice](https://www.canada.ca/en/treasury-board-secretariat/services/information-notice/group-insurance-benefit-plans-administration-public-service-pay-centre-2016.html) checked October 15, 2026; it contains the same changed sentence as the current capture.
+
+#### Summary
+
+The Public Service Health Care Plan application instruction has been shortened from “use Phoenix self service first; if unavailable, contact the Pay Centre by feedback form or phone” to “use the phone.” The page still says, immediately above, that a completed Phoenix self-service application or employee form can establish coverage timing. The conflict makes the new sentence a **possible publication regression**, not reliable evidence that Phoenix self service has been withdrawn. Other temporary group-insurance measures are unchanged.
+
+| Area | Previous capture | Current capture | Interpretation |
+|---|---|---|---|
+| **PSHCP, application route (item 1.b)** | Apply or change coverage first through Phoenix self service; if unavailable, contact the Pay Centre using its Phoenix feedback form or phone. | “Applicants should first apply to the PSHCP or make changes to their coverage using the phone.” The phone link now points to the Canada.ca Pay Centre contact page. | Removes the explicit first-choice self-service instruction and feedback-form option from this sentence. “Using the phone” is awkward and conflicts with item 1.a; seek source-owner clarification before changing procedures. |
+| **PSHCP, coverage timing (item 1.a)** | Completed Phoenix self-service application or TBS-006491 form determines the effective date, subject to the retroactivity rule. | Same wording. | The notice still recognizes Phoenix self-service applications; no supported change to the effective-date rule. |
+| **Other plan measures** | PSHCP waiting-period and retroactivity provisions, LWOP coverage, dental reinstatement and basic-life insurance provisions. | Same wording. | No detected change to eligibility, contribution recovery, thresholds, or deadlines. |
+
+**Practical effect:** Flag item 1.b to the notice owner for correction or clarification. Until clarified, do not infer from this one inconsistent sentence that Phoenix self service is unavailable or that phone contact alone constitutes a completed application. **Classification:** `pin-update`, `possible-regression`, `reference-update`. The page-modified date changed from September 9, 2020 to October 14, 2026; that metadata change has no separate policy effect.
+
+<!-- policy-hawk:issue-526:end -->
+
+---
