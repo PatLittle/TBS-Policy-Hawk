@@ -1,0 +1,1 @@
+Policy Hawk is a personal project. It is not official guidance from, or endorsed by, the Government of Canada. Its analysis uses traditional change capture and deterministic and generative AI techniques to identify what changed and where further review may be needed. Summaries do not replace the original notice or applicable policy instrument.

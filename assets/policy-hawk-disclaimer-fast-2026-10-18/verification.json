@@ -1,0 +1,16 @@
+{
+  "ok": true,
+  "fullDecodePassed": [
+    "wav",
+    "mp3"
+  ],
+  "durationSeconds": 9.658,
+  "approxWordsPerMinute": 329,
+  "sampleRate": 48000,
+  "channels": 1,
+  "encoding": "PCM_24",
+  "integratedLUFS": "-16.14",
+  "truePeakDbTP": "-1.00",
+  "exactTranscriptPreserved": true,
+  "pitchPreservingTimeCompression": true
+}

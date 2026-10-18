@@ -1,0 +1,50 @@
+{
+  "title": "Policy Hawk disclaimer \u2014 deliberately too-fast fine print",
+  "createdDate": "2026-10-18",
+  "text": "Policy Hawk is a personal project. It is not official guidance from, or endorsed by, the Government of Canada. Its analysis uses traditional change capture and deterministic and generative AI techniques to identify what changed and where further review may be needed. Summaries do not replace the original notice or applicable policy instrument.",
+  "wordCount": 53,
+  "voice": {
+    "engine": "Kokoro ONNX",
+    "model": "kokoro-v1.0.onnx",
+    "voice": "am_adam",
+    "language": "en-us",
+    "synthesisSpeed": 1.18,
+    "sentencePause": 0.025,
+    "clausePause": 0.015
+  },
+  "treatment": {
+    "ffmpegFilter": "atempo=1.40840246,atempo=1.40840246,highpass=f=90,lowpass=f=11500,acompressor=threshold=0.12:ratio=2.5:attack=4:release=60,loudnorm=I=-16:TP=-1:LRA=4,afade=t=in:st=0:d=0.008",
+    "pitchPreserved": true,
+    "postSynthesisTempo": 1.983597,
+    "targetWordsPerMinute": 330,
+    "direction": "Generic, dry, deliberately over-fast commercial disclaimer announcer; no music or effects"
+  },
+  "durationSeconds": 9.658,
+  "approxWordsPerMinute": 329,
+  "master": {
+    "path": "policy-hawk-disclaimer-fast.wav",
+    "sampleRate": 48000,
+    "channels": 1,
+    "encoding": "PCM_24"
+  },
+  "preview": "policy-hawk-disclaimer-fast.mp3",
+  "drySource": "policy-hawk-disclaimer-dry-source.wav",
+  "textSha256": "07d073e8e921e7de655a1449ea6ad17ca276540b11eb94abe00d48ea72af7700",
+  "files": [
+    {
+      "name": "policy-hawk-disclaimer-fast.wav",
+      "bytes": 1390920,
+      "sha256": "06f86e76f5d49f1f8cb3386d74969bea1e6d78f3f670be385def98c95cd70218"
+    },
+    {
+      "name": "policy-hawk-disclaimer-fast.mp3",
+      "bytes": 233324,
+      "sha256": "084a40b4304065964974c27748b6ea26256f2d06ca4be6f782e780baa56375d4"
+    },
+    {
+      "name": "policy-hawk-disclaimer-dry-source.wav",
+      "bytes": 917548,
+      "sha256": "bd97e29db46053e057b5a7ea0dbb92638a78380b985757e6816eb0792b9f1f2e"
+    }
+  ]
+}
