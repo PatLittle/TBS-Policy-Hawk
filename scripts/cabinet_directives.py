@@ -28,10 +28,9 @@ MANIFEST = ROOT / "manifest.json"
 LABEL = "🍁CabinetDir🏛️"
 STATUSES = {"Announced", "In Force", "Superseded", "Retired"}
 FIELDS = ("Status", "Date Published", "Date of effect", "Date last modified")
-BROWSER_HEADERS = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
-    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-    "Accept-Language": "en-CA,en;q=0.9",
+SOURCE_HEADERS = {
+    "User-Agent": "TBS-Policy-Hawk/1.0 (+https://github.com/PatLittle/TBS-Policy-Hawk)",
+    "Referer": "https://www.canada.ca/",
 }
 HEADING = re.compile(r"^## \[([^\n]+)\]\((https://[^\s)]+)\)\s*$", re.MULTILINE)
 
@@ -105,7 +104,8 @@ def fetch_source(url: str) -> str:
         for attempt in range(3):
             try:
                 print(f"Fetching Cabinet source (attempt {attempt + 1}/3): {url}", flush=True)
-                response = requests.get(url, timeout=(10, 30), allow_redirects=False, headers=BROWSER_HEADERS)
+                headers = SOURCE_HEADERS if attempt == 0 else {"Referer": "https://www.canada.ca/"}
+                response = requests.get(url, timeout=(10, 30), allow_redirects=False, headers=headers)
                 response.raise_for_status()
                 break
             except requests.RequestException as exc:

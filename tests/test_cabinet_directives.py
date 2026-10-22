@@ -75,13 +75,14 @@ class CabinetTests(unittest.TestCase):
                 cabinet.fetch_source(URL)
         self.assertEqual(get.call_count, 1)
 
-    def test_source_fetch_retries_transient_timeout_with_browser_headers(self):
+    def test_source_fetch_retries_timeout_with_alternate_headers(self):
         response = SimpleNamespace(is_redirect=False, headers={"Content-Type": "text/html"},
                                    text=html(), encoding=None, raise_for_status=lambda: None)
         with mock.patch.object(cabinet.requests, "get", side_effect=[cabinet.requests.ReadTimeout(), response]) as get, mock.patch.object(cabinet.time, "sleep"):
             self.assertEqual(cabinet.fetch_source(URL), html())
         self.assertEqual(get.call_count, 2)
-        self.assertIn("Mozilla", get.call_args.kwargs["headers"]["User-Agent"])
+        self.assertNotIn("User-Agent", get.call_args.kwargs["headers"])
+        self.assertEqual(get.call_args.kwargs["headers"]["Referer"], "https://www.canada.ca/")
         self.assertFalse(get.call_args.kwargs["allow_redirects"])
 
     def test_persistent_timeout_preserves_baseline_and_stops_after_three_attempts(self):
