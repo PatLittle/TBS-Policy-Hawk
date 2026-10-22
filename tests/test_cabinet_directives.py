@@ -202,6 +202,16 @@ class CabinetTests(unittest.TestCase):
         self.assertEqual(entries[URL]["Status"], "In Force")
         self.assertTrue(Path(event["previous"]).is_file())
 
+    def test_replacement_can_be_shorter_than_predecessor_without_weakening_amendment_guard(self):
+        self.capture("An extensive predecessor with many detailed obligations. " * 10)
+        body = (f"- [x] replaces:\nLink to published html: {OLD_URL}\n"
+                f"Link to supercede Cab Dir (if applicable): {URL}\n"
+                "- Status: Announced\n- Date of effect: 2026-12-31\n")
+        with mock.patch.object(cabinet, "fetch_source", return_value=html()):
+            event = enrichment.prepare_manual_issue(FakeIssue(), body)
+        self.assertEqual(event["change_type"], "replacement")
+        self.assertLess(Path(event['current']).stat().st_size, Path(event['previous']).stat().st_size / 2)
+
     def test_manual_replacement_needs_checkbox_and_predecessor(self):
         for body in [f"- [x] replaces:\nLink to published html: {URL}",
                      f"Link to published html: {URL}\nLink to supercede Cab Dir (if applicable): {OLD_URL}"]:

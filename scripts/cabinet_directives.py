@@ -176,7 +176,7 @@ def capture(entry: dict, source: dict, manifest: dict, *, detected: str, previou
     key = identity(entry["url"])
     previous = manifest["sources"].get(identity(previous_url) if previous_url else key)
     previous_text = confined_path(previous["current"]).read_text(encoding="utf-8") if previous else ""
-    if previous_text and len(source["markdown"]) < len(previous_text) * 0.5:
+    if previous_text and not previous_url and len(source["markdown"]) < len(previous_text) * 0.5:
         raise ValueError(f"Suspicious content shrink for {entry['url']}; last good capture retained")
     metadata = {field: entry[field] for field in FIELDS if field != "Date last modified"}
     fingerprint = hashlib.sha256((source["markdown"] + json.dumps(metadata, sort_keys=True)).encode()).hexdigest()
