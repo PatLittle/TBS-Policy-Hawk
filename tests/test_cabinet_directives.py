@@ -39,9 +39,6 @@ class CabinetMonitoringTests(unittest.TestCase):
         os.chdir(self.temp.name)
         cabinet.REGISTER.write_text('# Cabinet Directives\n')
         cabinet.update_register(entry())
-        # update_register preserves existing metadata; the archive name is optional when adding.
-        with cabinet.REGISTER.open('a') as handle:
-            handle.write('\n- Archive: CD_Test20180628\n')
 
     def tearDown(self):
         os.chdir(self.original)
@@ -60,6 +57,7 @@ class CabinetMonitoringTests(unittest.TestCase):
         manifest=cabinet.read_manifest()
         event=next(iter(manifest['events'].values()))
         self.assertEqual(event['change_type'], 'baseline')
+        self.assertEqual(cabinet.read_register()[0]['Archive'],'CD_Test20180628')
         self.assertTrue(event['complete'])
         self.assertIn('CD_Test20180628/captures/20261022/current.md',event['current'])
         self.assertEqual(self.rows(),[])

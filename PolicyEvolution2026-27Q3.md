@@ -223,14 +223,6 @@ The Public Service Health Care Plan application instruction has been shortened f
 
 ---
 
----
-
----
----
-
----
----
-
 <!-- policy-hawk:issue-527:start -->
 ## 2026-10-21 — Cabinet Directive on Regulatory Competitiveness and Red Tape Reduction
 

@@ -85,17 +85,20 @@ def update_register(entry: dict, path: Path = REGISTER) -> None:
     """Update just the source's metadata, preserving prose and other entries."""
     text = path.read_text(encoding="utf-8")
     headings = list(HEADING.finditer(text))
+    fields = FIELDS + (("Archive",) if entry.get("Archive") else ())
     for i, heading in enumerate(headings):
         if heading[2] != entry["url"]:
             continue
         end = headings[i + 1].start() if i + 1 < len(headings) else len(text)
         block = text[heading.end():end]
-        for field in FIELDS:
-            block = re.sub(rf"^- {re.escape(field)}: .+$", lambda m: f"- {field}: {entry[field]}", block, flags=re.MULTILINE)
+        for field in fields:
+            block, count = re.subn(rf"^- {re.escape(field)}: .+$", lambda m: f"- {field}: {entry[field]}", block, flags=re.MULTILINE)
+            if not count:
+                block = block.rstrip() + f"\n\n- {field}: {entry[field]}\n\n"
         path.write_text(text[:heading.end()] + block + text[end:], encoding="utf-8")
         return
-    fields = "\n".join(f"- {field}: {entry[field]}" for field in FIELDS)
-    path.write_text(text.rstrip() + f"\n\n## [{entry['title']}]({entry['url']})\n\n{fields}\n", encoding="utf-8")
+    metadata = "\n".join(f"- {field}: {entry[field]}" for field in fields)
+    path.write_text(text.rstrip() + f"\n\n## [{entry['title']}]({entry['url']})\n\n{metadata}\n", encoding="utf-8")
 
 
 class SourceUnavailable(ValueError):
@@ -212,6 +215,7 @@ def capture(entry: dict, source: dict | None, manifest: dict, *, detected: str,
     redirected = previous and source and previous.get("fingerprint") == fingerprint and previous.get("resolved_url", entry["url"]) != resolved
     kind = change or ("replacement" if previous_url else "redirected" if redirected else "changed" if previous else "baseline")
     folder = archive_name(entry, manifest)
+    entry["Archive"] = folder
     directory = ROOT / folder / "captures" / detected.replace("-", "")
     sequence = 1
     while directory.exists():
