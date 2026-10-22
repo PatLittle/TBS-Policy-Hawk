@@ -276,6 +276,17 @@ def issue_body_for_row(row, screenshot_success, screenshot_url, glossary_changes
             f"**Current evidence:** {current_path}\n\n"
             f"{screenshot_section}"
         )
+    elif change_type == "cabinet":
+        body = (
+            "A monitored Cabinet Directive source changed. This is an ordinary change review, not a new-instrument deep dive.\n\n"
+            f"**Title:** {row['title']}\n**Link:** {row['link']}\n"
+            f"**Category:** Cabinet Directive\n**GUID:** {row['guid']}\n"
+            f"**Detected date:** {row.get('updated_date', '')}\n"
+            f"**Cabinet metadata:** {row['filename']}\n"
+            f"**Observed change:** {row.get('change_summary', 'changed')}\n\n"
+            "Use `skills/cabinet-directives/SKILL.md` for agent analysis. A missing page does not prove retirement.\n\n"
+            f"{screenshot_section}"
+        )
     elif change_type == "hierarchy_added":
         body = (
             "A policy instrument has been added to the TBS policy hierarchy tree.\n\n"
@@ -432,6 +443,8 @@ def main():
         elif change_type == "pin":
             pin_change = load_pin_change(row.get("filename", ""))["change_type"]
             title_prefix = f"PIN {pin_change.title()}"
+        elif change_type == "cabinet":
+            title_prefix = f"Cabinet source {row.get('change_summary', 'changed')}"
 
         try:
             labels = [row.get('category'), "policy-update"]
@@ -440,6 +453,12 @@ def main():
             elif change_type == "pin":
                 ensure_pin_update_label(repo)
                 labels.append("pin-update")
+            elif change_type == "cabinet":
+                labels = ["policy-update", "🍁CabinetDir🏛️"]
+                try:
+                    repo.get_label("🍁CabinetDir🏛️")
+                except Exception:
+                    repo.create_label(name="🍁CabinetDir🏛️", color="f72e33")
             fallback_labels = ["policy-update", "pin-update"] if change_type == "pin" else None
             issue = create_issue_with_fallback(
                 repo,

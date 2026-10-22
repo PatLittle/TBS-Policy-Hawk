@@ -9,21 +9,18 @@ from scripts import enrich_issue
 
 
 class GeminiRequestTests(unittest.TestCase):
-    def test_model_defaults_preserve_images_without_forcing_a_thinking_budget(self):
+    def test_text_summary_uses_model_defaults_without_forcing_a_thinking_budget(self):
         fake_types = mock.Mock()
         fake_client = mock.Mock()
         fake_client.models.generate_content_stream.return_value = [SimpleNamespace(text="Analysis")]
         fake_genai = mock.Mock()
         fake_genai.Client.return_value = fake_client
-        with tempfile.TemporaryDirectory() as directory:
-            image = Path(directory) / "required.png"
-            image.write_bytes(b"required screenshot")
-            with mock.patch.object(enrich_issue, "genai", fake_genai), mock.patch.object(enrich_issue, "types", fake_types):
-                result = enrich_issue.generate_gemini_summary("test", "Skill", "Evidence", "gemini-flash-lite-latest", [image])
+        with mock.patch.object(enrich_issue, "genai", fake_genai), mock.patch.object(enrich_issue, "types", fake_types):
+            result = enrich_issue.generate_gemini_summary("test", "Skill", "Evidence", "gemini-flash-lite-latest")
         self.assertEqual(result, "Analysis")
         self.assertNotIn("thinking_config", fake_types.GenerateContentConfig.call_args.kwargs)
         fake_types.ThinkingConfig.assert_not_called()
-        fake_types.Part.from_bytes.assert_called_once_with(data=b"required screenshot", mime_type="image/png")
+        fake_types.Part.from_bytes.assert_not_called()
         self.assertEqual(fake_client.models.generate_content_stream.call_args.kwargs["model"], "gemini-flash-lite-latest")
 
 

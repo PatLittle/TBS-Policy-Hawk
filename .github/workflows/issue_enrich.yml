@@ -68,21 +68,8 @@ jobs:
             git push
           fi
 
-      - name: Preserve Cabinet evidence for an analysis retry
-        if: failure() && steps.enrich.outputs.cabinet_issue == 'true'
-        run: |
-          git config user.name 'github-actions[bot]'
-          git config user.email 'github-actions[bot]@users.noreply.github.com'
-          if test -f data/CabinetDirectives/manifest.json; then
-            git add CabinetDirectives.md data/CabinetDirectives/ screenshots/
-            if ! git diff --staged --quiet; then
-              git commit -m 'chore: retain Cabinet evidence for analysis retry'
-              git push
-            fi
-          fi
-
       - name: Mark analysis complete
-        if: steps.enrich.outputs.pin_autoanalyzed == 'true' || steps.enrich.outputs.cabinet_autoanalyzed == 'true'
+        if: steps.enrich.outputs.pin_autoanalyzed == 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE_NUMBER: ${{ inputs.issue_number || github.event.issue.number }}

@@ -7,7 +7,7 @@
 **Period covered:** 2026-10-01 to 2026-12-31<br>
 **Source:** Auto-analysis comments added to TBS-Policy-Hawk issues.
 
-This file compiles policy-change analysis comments for updates detected during the quarter. Entries are organized chronologically by the effective/update date in the issue GUID.
+This file compiles policy-change analysis comments for updates detected during the quarter. Entries are organized chronologically by the supported change or publication date. New collection baselines are not quarterly policy events.
 
 🚨 Issue Summaries and PolicyEvolution Reports are not official guidance, these analysis products use a mix of deterministic and generative techniques to indicate areas of change - ***A Place to Start Not The End of Understanding Policy Evolution***
 
@@ -223,300 +223,32 @@ The Public Service Health Care Plan application instruction has been shortened f
 
 ---
 
-<!-- policy-hawk:issue-528:start -->
-## 2026-10-22 — Cabinet Directive on Getting Projects Built in Canada (2026)
-
-**Issue:** [#528](https://github.com/PatLittle/TBS-Policy-Hawk/issues/528)  
-**Category:** Cabinet Directive  
-**GUID:** `cabdir_433c77569dfcc13b_2026-10-22_b83c88395fe5af7c`  
-**Change type:** cabinet_newly_captured
-
-### Policy change analysis
-
-<!-- cabinet:evidence -->
-Compared the Cabinet Directive evidence for `cabdir_433c77569dfcc13b_2026-10-22_b83c88395fe5af7c`:
-
-- Current capture: `data/CabinetDirectives/changes/cabdir_433c77569dfcc13b_2026-10-22_b83c88395fe5af7c/current.md`
-- Prior capture: No prior local copy; this is a baseline capture, not a verified amendment comparison.
-- Required screenshot: `screenshots/cabdir_433c77569dfcc13b_2026-10-22_b83c88395fe5af7c_current.png`
-
-#### Summary
-
-The directive, dated September 21, 2026, is newly captured by Policy Hawk on October 22. It sets a one-year federal project-decision expectation, coordinated permitting and consultation arrangements, and reporting responsibilities. It expressly replaces the 2024 clean-growth directive, but the earlier text is not captured here, so the extent of changes from that predecessor cannot be established from this evidence alone.
-
-#### Substantive changes identified
-
-| Section | Prior evidence | Current direction | Interpretation |
-|---|---|---|---|
-| Context | No prior local copy | Names the 2024 Cabinet Directive on Regulatory and Permitting Efficiency for Clean Growth Projects as its predecessor. | Replacement is expressly stated; a detailed amendment comparison requires the 2024 text. |
-| Section 3: review targets | No prior local copy | Departments are expected to structure reviews for decisions within one year after receipt of a comprehensive application and required information/studies. Existing projects are assessed case by case. | An operational policy expectation with prerequisites and transitional treatment; this does not itself create or amend a statutory deadline. |
-| Section 2: application | No prior local copy | Excludes independent/arm's-length decision functions, offshore regulators and modern treaty co-management boards from the stated application. Timeliness/process provisions do not apply to Indian Act authorizations; statutory powers and treaty obligations are preserved. | The one-year expectation must be read with these limits, rather than applied to every federal decision. |
-| Sections 4–6: coordination | No prior local copy | Defines MPO coordination, the IAAC President's Federal Review Coordinator role, a Crown Consultation Hub, and deputy-minister oversight. Section 5.3 provides separate coordination arrangements for specified CER/CNSC and transportation cases. | Identifies who coordinates reviews and consultations, subject to the distinct roles and authorities in the directive. |
-| Section 7: reporting | No prior local copy | Departments and IAAC report through regular Parliamentary reporting; IAAC indicators cover coordinated permit decisions and consultations. | Existing direction in this baseline provides concrete measures to monitor; its novelty against 2024 is unverified. |
-
-#### Practical effect
-
-1. Plan review and permit work around a complete application and required studies, concurrent processes where applicable, and the one-year decision expectation.
-2. Coordinate proponents, departments and Indigenous consultation through the applicable structures while preserving statutory discretion, modern treaty obligations and application exclusions.
-3. Track decision and consultation results through the reporting arrangements. Treat application to projects already under review as case specific.
-
-#### Non-substantive changes
-
-This is the first local capture. No intervening text amendment is demonstrated. Publication, capture, effective and page-modified dates are separate; the source does not separately establish an effective date in this capture.
-
-#### Watch item
-
-Obtain the 2024 predecessor before claiming specific additions or removals. Monitor implementation guidance and evidence on how application completeness, exceptions, case-specific transitions and reporting are handled.
-
-<!-- policy-hawk:issue-528:end -->
+---
 
 ---
 ---
 
-<!-- policy-hawk:issue-529:start -->
-## 2026-10-22 — Cabinet Directive on Regulation (CDR)
-
-**Issue:** [#529](https://github.com/PatLittle/TBS-Policy-Hawk/issues/529)  
-**Category:** Cabinet Directive  
-**GUID:** `cabdir_ce73825af5be429b_2026-10-22_2e29778f9ee75942`  
-**Change type:** cabinet_newly_captured
-
-### Policy change analysis
-
-<!-- cabinet:evidence -->
-Compared the Cabinet Directive evidence for `cabdir_ce73825af5be429b_2026-10-22_2e29778f9ee75942`:
-
-- Current capture: `data/CabinetDirectives/changes/cabdir_ce73825af5be429b_2026-10-22_2e29778f9ee75942/current.md`
-- Prior capture: No prior local copy; baseline capture.
-- Required screenshot: `screenshots/cabdir_ce73825af5be429b_2026-10-22_2e29778f9ee75942_current.png`
-
-#### Summary
-
-This is the first repository capture of the Cabinet Directive on Regulation, published June 28, 2018 and effective September 1, 2018. No comparative amendment can be established without a prior local version. The page announces its replacement on December 31, 2026; that future transition does not make CDR superseded on the October 22 capture date or itself repeal any regulation.
-
-#### Substantive changes identified
-
-| Section | Prior evidence | Existing direction in the capture | Interpretation |
-|---|---|---|---|
-| Notice and section 9.0 | No prior local copy | Identifies the 2018 commencement and an announced December 31, 2026 replacement. | Keep publication, effective and capture dates separate. Analyze the forthcoming replacement under #527. |
-| Sections 2.0–4.0 | No prior local copy | Applies to regulations registered under section 6 of the Statutory Instruments Act, made by or with the specified authorities; covers development, management and review, consultation and coordination. | Establishes the directive's regulatory scope and life-cycle expectations; the directive is distinct from the regulations made under legislation. |
-| Sections 5.2–5.3 | No prior local copy | Requires Regulatory Impact Analysis, proportionate analysis of impacts and costs/benefits, GBA+, modern treaty assessment, burden analysis and a Regulatory Impact Analysis Statement. | Documents the analytical baseline. The One-for-One Rule references the Red Tape Reduction Act and Regulations; it must not be confused with the separately announced replacement directive's $2-for-$1 policy direction. |
-| Section 5.4 | No prior local copy | Sets a standard 30-day pre-publication comment period, with a possible minimum of 70 days for specified international-trade circumstances; provides exemption arrangements and final publication requirements. | Consultation periods and exemptions must be read with legislative requirements and international obligations. |
-| Sections 6.0–8.0 and appendix | No prior local copy | Addresses service standards, compliance, regular regulatory-stock reviews, scrutiny-committee responses, supporting policies and central-agency roles. | Provides concrete management and oversight expectations. No new fixed stock-review interval is established by this baseline capture alone. |
-
-#### Practical effect
-
-1. Continue applying CDR's existing analytical, consultation, publication and management requirements while preparing for the announced December transition.
-2. Preserve legal obligations and scope limits when interpreting the directive. A Cabinet policy instrument does not itself amend enabling legislation or existing regulations.
-3. Use this capture as the before-state for the replacement comparison in #527, rather than treating this first capture as a new amendment.
-
-#### Non-substantive changes
-
-This is initial archival capture and conversion to Markdown. Navigation and collection metadata are excluded from semantic comparison. No intervening text amendment has been demonstrated.
-
-#### Watch item
-
-Track the replacement and supporting TBS policies, including how the new burden-offset direction and review intervals will be implemented. CDR section 6.3 still references the 2024 clean-growth directive, while the separately captured 2026 projects directive expressly replaces it; verify cross-reference maintenance rather than inferring that the 2024 instrument remains operative from that link alone.
-
-<!-- policy-hawk:issue-529:end -->
-
 ---
+---
+
 <!-- policy-hawk:issue-527:start -->
-## 2026-10-22 — Cabinet Directive on Regulatory Competitiveness and Red Tape Reduction
+## 2026-10-21 — Cabinet Directive on Regulatory Competitiveness and Red Tape Reduction
 
 **Issue:** [#527](https://github.com/PatLittle/TBS-Policy-Hawk/issues/527)  
 **Category:** Cabinet Directive  
 **GUID:** `cabdir_5100844d79f6319c_2026-10-22_0528dd23f0c7a711`  
 **Change type:** cabinet_replacement
 
-### Policy change analysis
+### Cabinet direction synopsis
 
-<!-- cabinet:evidence -->
-Compared the announced Cabinet Directive replacement for `cabdir_5100844d79f6319c_2026-10-22_0528dd23f0c7a711`:
+Published **2026-10-21**; takes effect **2026-12-31**. This is an **announced replacement**: the Cabinet Directive on Regulation remains In Force until the transition.
 
-- Current capture: `data/CabinetDirectives/changes/cabdir_5100844d79f6319c_2026-10-22_0528dd23f0c7a711/current.md`
-- Prior capture: `data/CabinetDirectives/changes/cabdir_5100844d79f6319c_2026-10-22_0528dd23f0c7a711/previous.md`
-- Required screenshots: `screenshots/cabdir_5100844d79f6319c_2026-10-22_0528dd23f0c7a711_previous.png` and `screenshots/cabdir_5100844d79f6319c_2026-10-22_0528dd23f0c7a711_current.png`
+Cabinet makes competitiveness and avoidable regulatory burden more explicit system-management priorities through dedicated competitiveness assessment, the $2-for-$1 burden-offset direction over three years, specified regulatory review cycles, and qualified preference for recognized standards. The shift is toward managing regulatory outcomes and a portfolio of burdens, rather than simply shortening a procedural document. Public protection, Indigenous obligations and other legal constraints remain part of the framework.
 
-#### Summary
+Regulators need to prepare assessment, burden and stock-review arrangements; TBS's definitions and supporting instruments will shape execution. The October 21 announcement says key good-regulatory-practice obligations continue, so omitted procedural detail is not by itself evidence of rescission. The relationship to recent property-disposal flexibility (#520/#524), stronger cost-range evidence (#269), and cyber-readiness direction (#521) is analyzed as thematic alignment or tension, not as proven causation.
 
-This is an announced replacement, published October 21, 2026, which will take effect on December 31, 2026. The Cabinet Directive on Regulation remains In Force at the October 22 capture date. Compared with the archived CDR text, the successor adds explicit competitiveness-assessment and burden-offset direction, specified regulatory-stock review intervals, and revised standards and Indigenous-policy references, while presenting a shorter framework. It does not itself amend statutes or existing regulations.
-
-#### Substantive changes identified
-
-| Area | CDR before-state | Announced successor | Interpretation |
-|---|---|---|---|
-| Commencement | Section 9.0 gives September 1, 2018 as CDR's effective date. Its notice announces future replacement. | Section 6 establishes December 31, 2026 commencement and replacement of the 2018 CDR. | Record the successor as Announced, not yet In Force; do not mark CDR Superseded prematurely. |
-| Competitiveness | Principles and impact analysis already address a competitive economy, benefits/costs and regulatory cooperation. | Section 3.2 specifies a dedicated competitiveness-impact assessment and communication of its results. | Adds an explicit assessment-and-communication priority; competitiveness was not absent from CDR. |
-| Burden offsets | Section 5.2.4 refers to the statutory One-for-One Rule and administrative-burden estimates. | Section 3.3 specifies a $2 offset per $1 increase in regulatory burden on business over three years, as defined by TBS. | Distinguish the policy direction's measures and time period from the existing statutory rule; the directive alone does not rewrite the Act or Regulations. |
-| Regulatory review | Section 7.2 requires regular stock review and departmental review timelines without the successor's specified intervals. | Section 3.5 calls for significant-impact measures, as defined by TBS, to be reviewed within five years of coming into force and other regulations at least every ten years. | Provides explicit review intervals; implementation depends on the stated definitions and supporting direction. |
-| Standards | Sections 4.2, 5.2.5 and 5.2.6 address cooperation, possible alignment and incorporation by reference. | Section 3.4 calls for considering and, where appropriate, adopting recognized standards by default, with evidence-based adaptation for Canada when warranted in the public interest. | Changes the stated policy approach while retaining qualifications and statutory constraints. |
-| Procedure and roles | CDR contains detailed analytical/publication provisions, 30-day and possible 70-day consultation periods, explicit GBA+ direction, and a multi-institution appendix. | The shorter text retains proportionate impact analysis, significant-impact pre-publication or exemption, and regulator/TBS roles; section 5.2.3 authorizes supporting TBS policies, guidance, tools and processes. | Some detail is absent from the successor's body. Do not infer that GBA+, consultation periods or statutory institutional responsibilities have been withdrawn without checking the continuing legal and policy framework. |
-| Indigenous obligations | CDR addresses consultation/accommodation, modern treaty implications and relevant rights. | Section 4.5 expressly references distinctions among First Nations, Inuit and Métis, the UN Declaration Act, treaties/self-government agreements and the Inuit Nunangat Policy directive; section 2.3 preserves authorities and obligations. | Expands the text's explicit references; this wording does not itself establish new underlying legal rights or authorities. |
-
-#### Practical effect
-
-1. Prepare for the December transition by aligning assessment, communication, burden measurement and stock-review planning with forthcoming TBS definitions and guidance.
-2. Continue applying currently operative requirements. Treat the announced framework as policy direction that remains subject to legislation, international obligations and other applicable instruments.
-3. Check supporting policies before interpreting the shorter text as removing a detailed analytical, consultation or institutional requirement.
-
-#### Non-substantive changes
-
-Headings, numbering and organization are substantially condensed. Renumbering alone is not substantive, but shorter text and omitted detail cannot automatically be classified as mere formatting or confirmed rescission.
-
-#### Watch item
-
-Verify the TBS definitions and implementation rules for competitiveness assessment, regulatory burden offsets and significant-impact measures. Check the continuity or revision of GBA+, consultation periods and other detailed requirements. Confirm the replacement has taken effect before changing the register's statuses.
+**Full agent-authored report:** [What it says, its impacts and strategic signal](data/CabinetDirectives/CD_RegCompRedTape20261021/DeepDive.md), including national, strategic, operational and tactical implications; responsibility/action mapping; Q2/Q3 context; evidence and watch items. No raw textual diff is the analytical deliverable.
 
 <!-- policy-hawk:issue-527:end -->
 
----
----
-<!-- policy-hawk:issue-530:start -->
-## 2026-10-22 — Cabinet Directive on Strategic Environmental and Economic Assessment (SEEA)
-
-**Issue:** [#530](https://github.com/PatLittle/TBS-Policy-Hawk/issues/530)  
-**Category:** Cabinet Directive  
-**GUID:** `cabdir_cc6dea83d9724ab6_2026-10-22_cc21f42de7d4ccf8`  
-**Change type:** cabinet_newly_captured
-
-### Policy change analysis
-
-<!-- cabinet:evidence -->
-Compared the Cabinet Directive evidence for `cabdir_cc6dea83d9724ab6_2026-10-22_cc21f42de7d4ccf8`:
-
-- Current capture: `data/CabinetDirectives/changes/cabdir_cc6dea83d9724ab6_2026-10-22_cc21f42de7d4ccf8/current.md`
-- Prior capture: No prior local copy; baseline capture.
-- Required screenshot: `screenshots/cabdir_cc6dea83d9724ab6_2026-10-22_cc21f42de7d4ccf8_current.png`
-
-#### Summary
-
-The SEEA directive was published April 2, 2024 and is newly captured on October 22, 2026. With no prior local version, no intervening amendment is established. Its existing direction integrates environmental and economic considerations into specified Cabinet, regulatory and funding proposals, with assessment triggers, exemptions, central-agency checks and public reporting.
-
-#### Substantive changes identified
-
-| Section | Prior evidence | Existing direction in the capture | Interpretation |
-|---|---|---|---|
-| Sections 2.1–2.2 | No prior local copy | Applies to Memoranda to Cabinet, Treasury Board submissions, regulatory proposals subject to CDR, and funding requests to the Prime Minister and Minister of Finance. Allows whole-directive exemptions for immediate emergencies, qualifying routine/administrative proposals and specified federal assessment processes. | Identify the proposal route and applicable exemption before determining assessment work. This is separate from project-level impact assessment. |
-| Sections 2.3–2.4 | No prior local copy | Exempts CDR regulatory proposals from economic-analysis elements; also permits economic-only exemptions for proposals already assessed by Finance pursuant to a ministerial request or another process. | An economic-analysis exemption does not automatically remove environmental-analysis obligations. |
-| Sections 4.1–4.3 | No prior local copy | Screens environmental and economic effects. Important environmental effects trigger strategic environmental analysis under 4.2; important economic effects trigger analysis under 4.3, with proportionate detail. | Explains the existing triggers and required analytical coverage, rather than assuming every proposal requires the same detailed assessment. |
-| Sections 3.5–3.6 and 4.4–4.6 | No prior local copy | Requires records of assessments/exemptions, integration during proposal development and reflection of findings/trade-offs in proposals; central agencies confirm completion and appropriate reflection of findings. | Establishes an auditable assessment-to-decision trail in this baseline. |
-| Sections 5.1–5.4 | No prior local copy | Requires public statements after announcement or implementation for proposals with detailed analysis under 4.2 or 4.3; reporting on practices uses departmental sustainable-development reporting. | Public-statement requirements follow the detailed-assessment trigger; they are not automatically imposed on every screened proposal. |
-
-#### Practical effect
-
-1. Screen the proposal, record any applicable exemption, and conduct detailed environmental or economic analysis when the relevant important-effects trigger is met.
-2. Integrate findings and trade-offs into the decision proposal and retain records for departmental and central-agency checks.
-3. Plan public statements and departmental reporting where required. The capture date does not restart assessment or reporting timelines.
-
-#### Non-substantive changes
-
-This first local capture records existing published direction. There is no before-state establishing a new obligation or amendment. The April 2 publication date and May 10 page-modified date do not independently establish an effective date.
-
-#### Watch item
-
-Monitor supporting assessment guidance and the distinction between whole-directive and economic-only exemptions. Obtain an earlier version before characterizing changes from the former Strategic Environmental Assessment directive.
-
-<!-- policy-hawk:issue-530:end -->
-
----
----
-
-<!-- policy-hawk:issue-532:start -->
-## 2026-10-22 — Cabinet Directive on the Coordinated Response to Threats to Elections (CRTE)
-
-**Issue:** [#532](https://github.com/PatLittle/TBS-Policy-Hawk/issues/532)  
-**Category:** Cabinet Directive  
-**GUID:** `cabdir_6017e4e2aec1da6e_2026-10-22_c37f62a9eccac764`  
-**Change type:** cabinet_newly_captured
-
-### Policy change analysis
-
-<!-- cabinet:evidence -->
-Compared the Cabinet Directive evidence for `cabdir_6017e4e2aec1da6e_2026-10-22_c37f62a9eccac764`:
-
-- Current capture: `data/CabinetDirectives/changes/cabdir_6017e4e2aec1da6e_2026-10-22_c37f62a9eccac764/current.md`
-- Prior capture: No prior local copy; baseline capture.
-- Required screenshot: `screenshots/cabdir_6017e4e2aec1da6e_2026-10-22_c37f62a9eccac764_current.png`
-
-#### Summary
-
-The CRTE directive, published March 26, 2026, is newly captured on October 22. No comparative amendment can be established without an earlier local copy. It describes a non-partisan panel's coordinated response to threats to free and fair federal general elections during caretaker periods, with preparatory work outside those periods and specific communication and reporting requirements.
-
-#### Substantive changes identified
-
-| Section | Prior evidence | Existing direction in the capture | Interpretation |
-|---|---|---|---|
-| Sections 1–3: purpose and scope | No prior local copy | Limits the incident-response mandate to caretaker-period incidents outside Elections Canada's election-administration responsibilities. The directive is not in effect for by-elections; it also specifies outside-period preparation and communication activities. | Preserve the general-election/caretaker boundaries without overlooking the express preparatory functions. |
-| Sections 4.1–4.3: panel | No prior local copy | Names five senior officials and an external member, with reasonable efforts to appoint the external member; the panel can operate without that appointment. Requires non-partisanship and consensus. | An external vacancy does not by itself suspend panel operations. These are baseline governance provisions, not verified 2026 amendments. |
-| Section 5: response | No prior local copy | Coordinates briefings, incident reporting and potential responses using existing government tools and authorities. | Coordination does not itself confer new enforcement powers. |
-| Section 6: communications | No prior local copy | Specifies a statement within a week of the writs; public intervention requires careful consideration and a high threshold. Before a public announcement, designated leaders and Elections Canada are informed and party leaders receive the same briefing information. | Distinguish routine election-period communication from the higher-threshold incident announcement process. |
-| Sections 8–9: authorities and reporting | No prior local copy | Preserves existing mandates and RCMP independence. Requires a post-election report to the Prime Minister and NSICOP, with a public version. | The source provides explicit authority limits and accountability requirements. |
-
-#### Practical effect
-
-1. Maintain panel readiness and incident-reporting channels while applying the caretaker-period and mandate boundaries.
-2. Assess response and public-communication options using the directive's consensus, threshold and advance-notification arrangements.
-3. Prepare the post-election report and public version. First repository capture does not establish whether any particular election's duties have been completed.
-
-#### Non-substantive changes
-
-This is an initial repository baseline, not an evidenced amendment. Publication and page-modified dates are separate from capture; no independent effective date is established in the archived text.
-
-#### Watch item
-
-Monitor the external-member appointment, published post-election reports and any changes to communication thresholds or scope. Do not infer new enforcement authority, apply the caretaker incident mechanism to by-elections, or treat a panel vacancy as ending the directive's application.
-
-<!-- policy-hawk:issue-532:end -->
-
----
----
-<!-- policy-hawk:issue-531:start -->
-## 2026-10-22 — Cabinet Directive on the Federal Approach to Modern Treaty Implementation
-
-**Issue:** [#531](https://github.com/PatLittle/TBS-Policy-Hawk/issues/531)  
-**Category:** Cabinet Directive  
-**GUID:** `cabdir_41f70790033ad712_2026-10-22_8919ff389563ecb7`  
-**Change type:** cabinet_newly_captured
-
-### Policy change analysis
-
-<!-- cabinet:evidence -->
-Compared the Cabinet Directive evidence for `cabdir_41f70790033ad712_2026-10-22_8919ff389563ecb7`:
-
-- Current capture: `data/CabinetDirectives/changes/cabdir_41f70790033ad712_2026-10-22_8919ff389563ecb7/current.md`
-- Prior capture: No prior local copy; baseline capture.
-- Required screenshot: `screenshots/cabdir_41f70790033ad712_2026-10-22_8919ff389563ecb7_current.png`
-
-#### Summary
-
-This first repository capture records the federal operational framework for modern treaty implementation, published July 9, 2015. No intervening amendment is demonstrated. The source assigns departmental responsibilities, modern treaty implication assessments, coordination, monitoring and reporting roles, using the historical institutional name Aboriginal Affairs and Northern Development Canada (AANDC).
-
-#### Substantive changes identified
-
-| Section | Prior evidence | Existing direction in the capture | Interpretation |
-|---|---|---|---|
-| Section 1: departments and agencies | No prior local copy | Requires awareness and fulfilment of treaty obligations, treaty-compliant activities, annual reporting contributions and participation in relevant governance structures. | The directive operationalizes existing treaty responsibilities; this capture does not create the underlying treaty rights. |
-| Section 1: Assessment of Modern Treaty Implications | No prior local copy | Calls for consideration of treaty implications on Cabinet proposals and specifies an assessment where the proposal goes to Cabinet and implementation may affect modern treaties and the rights they contain. | Preserve the stated conditions and distinguish consideration/screening from the specified assessment requirement. |
-| Section 1: central agencies, Justice and AANDC | No prior local copy | Assigns central-agency confirmation before Cabinet referral, Justice legal advice, AANDC coordination and administration of the Treaty Obligation Monitoring System. | Records allocated functions in the published text; historical naming alone does not establish today's institutional allocation or system operation. |
-| Sections 2–3 | No prior local copy | Provides for a deputy-minister oversight committee and a Modern Treaty Implementation Office, including performance measurement, annual reports and issue coordination. | Describes the source's governance framework; first capture does not prove these bodies were newly created in 2026. |
-| Section 4 | No prior local copy | Specifies evaluation within five years of implementation. | This is a historical, implementation-relative requirement. The October 2026 capture does not start a fresh five-year period, and the capture alone does not show whether the evaluation occurred. |
-
-#### Practical effect
-
-1. Identify applicable modern treaty obligations when developing proposals and complete the specified implications assessment where the source's conditions apply.
-2. Document compliance, coordinate across responsible departments and contribute to monitoring and annual reporting under the published framework.
-3. Confirm current institutional contacts and implementation guidance when using the text's historical departmental names.
-
-#### Non-substantive changes
-
-The repository has newly archived the published text; there is no earlier local capture establishing an amendment. The source's July 2015 publication date and February 2023 page-modified date are distinct from capture and do not independently establish commencement.
-
-#### Watch item
-
-Verify current responsibility for the functions named under AANDC, the status of the monitoring and governance arrangements, and any published evaluation. Avoid interpreting unchanged historical wording as evidence of a new office or a future five-year deadline.
-
-<!-- policy-hawk:issue-531:end -->
-
----
 ---

@@ -183,17 +183,14 @@ def compute_diff(old_text: str, new_text: str) -> str:
     return "\n".join(diff)
 
 
-def generate_gemini_summary(api_key: str, system_prompt: str, user_prompt: str, model: str, image_paths=()) -> str:
+def generate_gemini_summary(api_key: str, system_prompt: str, user_prompt: str, model: str) -> str:
     if genai is None or types is None:
         raise RuntimeError("google-genai is not installed. Install it with pip.")
     client = genai.Client(api_key=api_key)
     contents = [
         types.Content(
             role="user",
-            parts=[types.Part.from_text(text=user_prompt)] + [
-                types.Part.from_bytes(data=Path(path).read_bytes(), mime_type="image/png")
-                for path in image_paths
-            ],
+            parts=[types.Part.from_text(text=user_prompt)],
         )
     ]
     generate_content_config = types.GenerateContentConfig(
@@ -443,12 +440,15 @@ def main() -> None:
 
     if (_pin_field(issue_body, "Cabinet metadata") or
             any(label.name == "🍁CabinetDir🏛️" for label in issue.labels)):
-        _write_step_output("cabinet_issue", "true")
-        try:
-            from scripts.enrich_cabinet_directive import enrich_cabinet_issue
-        except ModuleNotFoundError:
-            from enrich_cabinet_directive import enrich_cabinet_issue
-        enrich_cabinet_issue(issue, issue_body, repo_full_name)
+        post_comment_parts(
+            issue,
+            "Cabinet Directive analysis is handled by the agent using "
+            "[the Cabinet Directive skill](https://github.com/" + repo_full_name + "/blob/main/skills/cabinet-directives/SKILL.md). "
+            "For a new or replacement instrument, prepare a strategic deep dive and a publication-quarter synopsis. "
+            "For a change to an existing source, use the normal change-review format. "
+            "This workflow does not call Gemini, generate a Cabinet analysis, or add a quarterly entry.",
+            "<!-- policy-hawk:cabinet-agent-review -->",
+        )
         return
 
     if _pin_field(issue_body, "PIN metadata"):

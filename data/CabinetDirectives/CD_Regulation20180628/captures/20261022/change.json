@@ -3,9 +3,9 @@
   "title": "Cabinet Directive on Regulation (CDR)",
   "url": "https://www.canada.ca/en/government/system/laws/developing-improving-federal-regulations/requirements-developing-managing-reviewing-regulations/cabinet-directive-regulation.html",
   "detected_date": "2026-10-22",
-  "change_type": "newly_captured",
+  "change_type": "baseline",
   "previous_url": "",
-  "current": "data/CabinetDirectives/changes/cabdir_ce73825af5be429b_2026-10-22_2e29778f9ee75942/current.md",
+  "current": "data/CabinetDirectives/CD_Regulation20180628/captures/20261022/current.md",
   "previous": "",
   "metadata": {
     "Status": "In Force",
@@ -13,6 +13,8 @@
     "Date of effect": "2018-09-01"
   },
   "previous_metadata": {},
-  "issue_number": null,
-  "complete": false
+  "issue_number": 529,
+  "complete": true,
+  "archive": "CD_Regulation20180628",
+  "report_eligible": false
 }

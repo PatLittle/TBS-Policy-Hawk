@@ -70,15 +70,13 @@ The manifest at `data/PINs/pin_sources_manifest.json` records stable source iden
 
 ### `CabinetDirectives.md` and `data/CabinetDirectives/`
 
-[Cabinet Directives](CabinetDirectives.md) is a small register with linked titles, status, publication date, effective date, and last-modified date. It monitors full directive pages, including the full SEEA directive rather than its overview. Unknown dates are explicit; future replacement announcements do not automatically retire an existing directive.
+[Cabinet Directives](CabinetDirectives.md) is a curated register of a small, slowly changing collection of Cabinet-endorsed instruments. Each has a readable archive folder, for example `data/CabinetDirectives/CD_RegCompRedTape20261021/`, with dated HTML, Markdown and screenshot evidence. Collection baselines are not new policy events and do not enter quarterly reports or official TBS suite/PIN totals.
 
-`scripts/cabinet_directives.py sync` checks the registered links, validates the complete source batch, and preserves immutable HTML, Markdown, and before/after metadata for new captures or semantic changes. Navigation and page-modified-only changes do not create analysis issues. Failed or implausibly short sources preserve the last good baseline. Captures and issue state remain byte-identical when nothing changes. Cabinet Directives remain outside TBS suite counts and PIN totals.
+The existing **Policy Watch** workflow calls `scripts/cabinet_directives.py` to check registered URLs for content changes, redirects, disappearance and recovery. Two consecutive explicit HTTP 404/410 or soft-404 responses trigger an unavailability event; timeouts and access blocks preserve the last good capture and issue a workflow warning. Confirmed events use the same `data/new_items.csv`, issue map, screenshots and issue workflow as other observed changes. There is no Cabinet-specific Action or automated Cabinet analysis. A missing web page does not prove legal retirement.
 
-The **Cabinet Directive Watch** workflow (`.github/workflows/cabinet_directives.yml`) runs three times daily or on manual dispatch. It commits evidence before opening `🍁CabinetDir🏛️` / `policy-update` issues and explicitly dispatches Issue Enrichment. A durable outbox recovers existing issues by marker and retries unfinished analysis until the completion label is visible, even when the source is unchanged.
+Tell the agent **“cab directive change” with the published URL**, or use the Cabinet issue template. [The Cabinet Directive skill](skills/cabinet-directives/SKILL.md) guides the agent to decide whether it is new, replaces an earlier instrument, or amends an existing one. New/replacement instruments receive a dedicated **DeepDive.md** explaining what they say, their impacts and strategic signal from national scope to operational/tactical action. The agent reads the active and previous fiscal-quarter reports and relates specific changes without inventing causation. [The October 21, 2026 deep dive](data/CabinetDirectives/CD_RegCompRedTape20261021/DeepDive.md) is the first example.
 
-The **New or Supercede Cabinet Directive** template also starts enrichment. The agent captures both the new directive and any predecessor, adds the source to the register, and requires screenshots of the archived HTML. Those images and the repository `SKILL.md` are supplied to automated analysis using the existing `GEMINI_API_KEY`. Missing screenshots or a missing key leave analysis pending. The finding goes into the fiscal quarter in progress using the detection date, with source publication/effective dates kept separate. The workflow applies `🪄📝AutoAnalyzed` only after pushing the report and evidence.
-
-Local source capture: `python3 scripts/cabinet_directives.py sync`. Issue publication: `GITHUB_REPOSITORY=PatLittle/TBS-Policy-Hawk GITHUB_TOKEN=... python3 scripts/cabinet_directives.py publish`. Initial captures are labelled newly captured; they do not claim that older directives were newly issued this quarter.
+Routine amendments and source availability events receive ordinary change analysis; they do not generate a new strategic report. New/replacement quarterly synopses use publication dates and link to the deep dive. Existing-source changes use the supported amendment/observation date. The agent performs the thinking; the issue workflow only points to the skill and does not send Cabinet material to Gemini.
 
 ### `data/pin_events.csv`
 
@@ -158,7 +156,7 @@ It:
 
 - installs Python dependencies and Playwright;
 - runs `scripts/fetch_feed.py`;
-- runs `scripts/sync_pin_sources.py`;
+- runs `scripts/sync_pin_sources.py` and checks registered Cabinet Directive sources;
 - separates repository-data changes, activity-ledger changes, reviewable `new_items` rows, and pending enrichment retries;
 - regenerates the current fiscal-quarter activity heatmap when `data/items.csv` or `data/pin_events.csv` changes;
 - commits dataset, policy capture, glossary, hierarchy, and PIN updates;

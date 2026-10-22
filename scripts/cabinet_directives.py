@@ -1,12 +1,10 @@
 #!/usr/bin/env python3
-"""Curated Cabinet Directive register, validated snapshots and durable issue outbox."""
+"""Monitor registered Cabinet Directive URLs; share the normal issue handoff. Analysis belongs to the agent skill."""
 
 from __future__ import annotations
 
-import argparse
 import hashlib
 import json
-import os
 import re
 import time
 from datetime import datetime
@@ -18,9 +16,9 @@ import requests
 from bs4 import BeautifulSoup
 
 try:
-    from scripts.sync_pin_sources import html_to_markdown, extract_modified_date
+    from scripts.sync_pin_sources import html_to_markdown, extract_modified_date, _append_csv_rows, NEW_ITEM_HEADERS
 except ModuleNotFoundError:
-    from sync_pin_sources import html_to_markdown, extract_modified_date
+    from sync_pin_sources import html_to_markdown, extract_modified_date, _append_csv_rows, NEW_ITEM_HEADERS
 
 REGISTER = Path("CabinetDirectives.md")
 ROOT = Path("data/CabinetDirectives")
@@ -74,6 +72,9 @@ def read_register(path: Path = REGISTER) -> list[dict]:
                     raise ValueError(f"Invalid {field}: {value}")
                 datetime.strptime(value, "%Y-%m-%d")
             entry[field] = value
+        archive = re.search(r"^- Archive: ([A-Za-z0-9_-]+)$", block, re.MULTILINE)
+        if archive:
+            entry["Archive"] = archive[1]
         entries.append(entry)
     if not entries or len({item['url'] for item in entries}) != len(entries):
         raise ValueError("Cabinet Directive register is empty or has duplicate URLs")
@@ -97,7 +98,11 @@ def update_register(entry: dict, path: Path = REGISTER) -> None:
     path.write_text(text.rstrip() + f"\n\n## [{entry['title']}]({entry['url']})\n\n{fields}\n", encoding="utf-8")
 
 
-def fetch_source(url: str) -> str:
+class SourceUnavailable(ValueError):
+    """A successful HTTP response explicitly says the page was not found."""
+
+
+def fetch_source(url: str) -> dict:
     validate_url(url)
     # Validate each redirect before following it, including URLs from manual issues.
     for _ in range(6):
@@ -121,7 +126,12 @@ def fetch_source(url: str) -> str:
         if "text/html" not in response.headers.get("Content-Type", "").lower():
             raise ValueError(f"Cabinet source is not HTML: {url}")
         response.encoding = "utf-8"
-        return response.text
+        heading = BeautifulSoup(response.text, "lxml").select_one("main h1, h1")
+        if heading and re.search(r"page not found|couldn.t find|404", heading.get_text(" "), re.I):
+            raise SourceUnavailable(f"Soft 404: {url}")
+        source = parse_source(response.text, url)
+        source["resolved_url"] = url
+        return source
     raise ValueError("Too many Cabinet Directive redirects")
 
 
@@ -149,7 +159,7 @@ def parse_source(html: str, url: str) -> dict:
 
 def read_manifest() -> dict:
     if not MANIFEST.exists():
-        if any(ROOT.glob("changes/*/change.json")):
+        if any(ROOT.rglob("change.json")):
             raise ValueError("Cabinet manifest is missing but captures exist; restore the last good manifest")
         return {"version": 1, "sources": {}, "events": {}}
     manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
@@ -172,109 +182,117 @@ def confined_path(value: str) -> Path:
     return path
 
 
-def capture(entry: dict, source: dict, manifest: dict, *, detected: str, previous_url: str = "", manual_issue: int | None = None) -> dict | None:
+def archive_name(entry: dict, manifest: dict) -> str:
+    previous = manifest["sources"].get(identity(entry["url"]), {})
+    name = entry.get("Archive") or previous.get("archive")
+    if not name:
+        title = re.sub(r"^Cabinet Directive (?:on )?(?:the )?", "", entry["title"], flags=re.I)
+        title = re.sub(r"[^A-Za-z0-9]+", "", title)[:70]
+        published = entry["Date Published"] if entry["Date Published"] != "Unknown" else today()
+        name = f"CD_{title}{published.replace('-', '')}"
+    if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9_-]{0,100}", name):
+        raise ValueError("Archive must be a readable folder name without path separators")
+    return name
+
+
+def capture(entry: dict, source: dict | None, manifest: dict, *, detected: str,
+            previous_url: str = "", manual_issue: int | None = None, change: str = "") -> dict | None:
+    """Archive evidence; first captures are quiet baselines, not policy-change events."""
     key = identity(entry["url"])
     previous = manifest["sources"].get(identity(previous_url) if previous_url else key)
-    previous_text = confined_path(previous["current"]).read_text(encoding="utf-8") if previous else ""
-    if previous_text and not previous_url and len(source["markdown"]) < len(previous_text) * 0.5:
-        raise ValueError(f"Suspicious content shrink for {entry['url']}; last good capture retained")
+    old_text = confined_path(previous["current"]).read_text(encoding="utf-8") if previous else ""
+    if source and old_text and not previous_url and len(source["markdown"]) < len(old_text) * 0.5:
+        raise ValueError(f"Suspicious content shrink: {entry['url']}; baseline retained")
     metadata = {field: entry[field] for field in FIELDS if field != "Date last modified"}
-    fingerprint = hashlib.sha256((source["markdown"] + json.dumps(metadata, sort_keys=True)).encode()).hexdigest()
-    if previous and previous.get("fingerprint") == fingerprint and not previous_url and manual_issue is None:
+    fingerprint = hashlib.sha256((source["markdown"] + json.dumps(metadata, sort_keys=True)).encode()).hexdigest() if source else ""
+    resolved = source.get("resolved_url", entry["url"]) if source else ""
+    if (source and previous and previous.get("fingerprint") == fingerprint and not previous_url
+            and previous.get("resolved_url", entry["url"]) == resolved and not change):
         return None
-    transition = hashlib.sha256(f"{previous.get('event', '') if previous else ''}:{fingerprint}:{manual_issue or ''}".encode()).hexdigest()[:16]
-    guid = f"cabdir_{key}_{detected}_{transition}"
-    directory = ROOT / "changes" / guid
-    directory.mkdir(parents=True, exist_ok=True)
-    current = directory / "current.md"
-    current.write_text(source["markdown"], encoding="utf-8")
-    (directory / "current.html").write_text(source["html"], encoding="utf-8")
-    prior = ""
+    redirected = previous and source and previous.get("fingerprint") == fingerprint and previous.get("resolved_url", entry["url"]) != resolved
+    kind = change or ("replacement" if previous_url else "redirected" if redirected else "changed" if previous else "baseline")
+    folder = archive_name(entry, manifest)
+    directory = ROOT / folder / "captures" / detected.replace("-", "")
+    sequence = 1
+    while directory.exists():
+        sequence += 1
+        directory = directory.with_name(detected.replace("-", "") + f"_{sequence:02d}")
+    directory.mkdir(parents=True)
+    guid = f"{folder}_{kind}_{directory.name}"
+    current, prior = "", ""
+    if source:
+        current = (directory / "current.md").as_posix()
+        Path(current).write_text(source["markdown"], encoding="utf-8")
+        (directory / "current.html").write_text(source["html"], encoding="utf-8")
     if previous:
         prior = (directory / "previous.md").as_posix()
-        Path(prior).write_text(previous_text, encoding="utf-8")
+        Path(prior).write_text(old_text, encoding="utf-8")
         old_html = confined_path(previous["current"]).with_suffix(".html")
         if old_html.exists():
             (directory / "previous.html").write_bytes(old_html.read_bytes())
-    event = {"guid": guid, "title": entry["title"], "url": entry["url"], "detected_date": detected,
-             "change_type": "replacement" if previous_url else "changed" if previous else "newly_captured",
-             "previous_url": previous_url, "current": current.as_posix(), "previous": prior,
-             "metadata": metadata, "previous_metadata": previous.get("metadata", {}) if previous else {},
-             "issue_number": manual_issue, "complete": False}
+    event = {"guid": guid, "title": entry["title"], "url": entry["url"],
+             "detected_date": detected, "change_type": kind, "previous_url": previous_url,
+             "current": current, "previous": prior, "resolved_url": resolved,
+             "previous_resolved_url": previous.get("resolved_url", previous["url"]) if previous else "",
+             "metadata": metadata, "issue_number": manual_issue, "complete": kind == "baseline"}
     (directory / "change.json").write_text(json.dumps(event, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     manifest["events"][guid] = event
-    manifest["sources"][key] = {"url": entry["url"], "current": current.as_posix(), "fingerprint": fingerprint,
-                                "event": guid, "metadata": metadata}
+    if source:
+        manifest["sources"][key] = {"url": entry["url"], "archive": folder, "current": current,
+                                    "fingerprint": fingerprint, "resolved_url": resolved,
+                                    "event": guid, "metadata": metadata}
     return event
 
 
 def sync_sources() -> None:
-    entries = read_register()
+    """Watch known URLs only; do not discover or auto-analyze new instruments."""
     manifest = read_manifest()
-    # Validate the entire batch before writing any source or register changes.
-    sources = [(entry, parse_source(fetch_source(entry["url"]), entry["url"])) for entry in entries]
-    for entry, source in sources:
-        previous = manifest["sources"].get(identity(entry["url"]))
-        if previous and len(source["markdown"]) < len(confined_path(previous["current"]).read_text(encoding="utf-8")) * 0.5:
-            raise ValueError(f"Suspicious content shrink: {entry['url']}")
-    for entry, source in sources:
-        entry["Date last modified"] = source["modified"]
-        if entry["Date Published"] == "Unknown":
-            entry["Date Published"] = source["published"]
-        capture(entry, source, manifest, detected=today())
-        update_register(entry)
+    issue_map_path = Path("data/issue_map.json")
+    issue_map = json.loads(issue_map_path.read_text(encoding="utf-8")) if issue_map_path.exists() else {}
+    if not isinstance(issue_map, dict):
+        raise ValueError("Issue map must be an object; refusing to modify source tracking")
+    for entry in read_register():
+        key = identity(entry["url"])
+        previous = manifest["sources"].get(key)
+        try:
+            source = fetch_source(entry["url"])
+            if entry["Date Published"] == "Unknown":
+                entry["Date Published"] = source["published"]
+            status = previous.get("availability", "available") if previous else "available"
+            kind = "restored" if status == "unavailable" else ""
+            capture(entry, source, manifest, detected=today(), change=kind)
+            current = manifest["sources"][key]
+            current.pop("missing_checks", None)
+            current.pop("availability", None)
+            entry["Date last modified"] = source["modified"]
+            update_register(entry)
+        except (requests.RequestException, ValueError) as exc:
+            code = getattr(getattr(exc, "response", None), "status_code", None)
+            missing = code in {404, 410} or isinstance(exc, SourceUnavailable)
+            if missing and previous:
+                previous["missing_checks"] = min(2, previous.get("missing_checks", 0) + 1)
+                if previous["missing_checks"] == 2 and previous.get("availability") != "unavailable":
+                    capture(entry, None, manifest, detected=today(), change="unavailable")
+                    previous["availability"] = "unavailable"
+            elif previous and previous.get("availability") != "unavailable":
+                previous.pop("missing_checks", None)
+            # Timeouts, access blocks, parser failures and shrinkage do not prove withdrawal.
+            print(f"::warning::Cabinet source retained for {entry['url']}: {exc}", flush=True)
     save_manifest(manifest)
-
-
-def publish_issues() -> None:
-    from github import Auth, Github
-    try:
-        from scripts.create_issues_with_screenshots import dispatch_enrichment
-    except ModuleNotFoundError:
-        from create_issues_with_screenshots import dispatch_enrichment
-    token = os.environ["GITHUB_TOKEN"]
-    repo_name = os.environ["GITHUB_REPOSITORY"]
-    repo = Github(auth=Auth.Token(token)).get_repo(repo_name)
-    manifest = read_manifest()
-    existing_labels = {label.name for label in repo.get_labels()}
-    for name, color in [(LABEL, "b60205"), ("policy-update", "0366d6"), ("🪄📝AutoAnalyzed", "7057ff")]:
-        if name not in existing_labels:
-            repo.create_label(name=name, color=color)
-    issues = None
-    failures = []
+    rows = []
     for event in manifest["events"].values():
-        if event["complete"]:
+        if event.get("complete") or event.get("issue_number") or event["guid"] in issue_map:
             continue
-        marker = f"<!-- policy-hawk:cabdir:{event['guid']} -->"
-        if event["issue_number"]:
-            issue = repo.get_issue(number=int(event["issue_number"]))
-        else:
-            # Recover an issue created before a runner stopped or a state push failed.
-            if issues is None:
-                issues = list(repo.get_issues(state="all", labels=[LABEL]))
-            issue = next((item for item in issues if marker in (item.body or "")), None)
-            if issue is None:
-                body = (f"{marker}\n**Title:** {event['title']}\n**Link:** {event['url']}\n"
-                        f"**Category:** Cabinet Directive\n**GUID:** {event['guid']}\n"
-                        f"**Detected date:** {event['detected_date']}\n"
-                        f"**Cabinet metadata:** {ROOT}/changes/{event['guid']}/change.json\n\n"
-                        f"Change: {event['change_type']}. Required screenshots, source comparison, and quarterly synopsis are captured during enrichment. "
-                        "A first repository capture is not evidence that the directive was newly issued.")
-                issue = repo.create_issue(title=f"CABDir {event['change_type']}: {event['title']}", body=body, labels=[LABEL, "policy-update"])
-                issues.append(issue)
-            event["issue_number"] = issue.number
-            save_manifest(manifest)
-        if any(label.name == "🪄📝AutoAnalyzed" for label in issue.labels):
-            event["complete"] = True
-        elif not dispatch_enrichment(repo_name, issue.number, token, ref=repo.default_branch):
-            failures.append(issue.number)
-        save_manifest(manifest)
-    if failures:
-        raise RuntimeError(f"Cabinet enrichment dispatch failed; retained for retry: {failures}")
+        if event["change_type"] not in {"changed", "unavailable", "restored", "redirected"}:
+            continue
+        evidence = event["current"] or event["previous"]
+        metadata_path = Path(evidence).with_name("change.json")
+        rows.append({"guid": event["guid"], "title": event["title"], "link": event["url"],
+                     "category": "Cabinet Directive", "filename": metadata_path.as_posix(),
+                     "updated_date": event["detected_date"], "change_type": "cabinet",
+                     "change_summary": event["change_type"], "source_id": "Cabinet Directive"})
+    _append_csv_rows(Path("data/new_items.csv"), NEW_ITEM_HEADERS, rows)
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("command", choices=["sync", "publish"])
-    arguments = parser.parse_args()
-    sync_sources() if arguments.command == "sync" else publish_issues()
+    sync_sources()

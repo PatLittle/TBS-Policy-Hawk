@@ -24,6 +24,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v6
         with:
+          ref: ${{ github.event.repository.default_branch || 'main' }}
           fetch-depth: 0
           persist-credentials: true
 
@@ -41,13 +42,14 @@ jobs:
       - name: Ensure data directories exist
         run: mkdir -p data data/PINs screenshots
 
-      - name: Fetch policy and PIN sources
+      - name: Fetch policy, PIN and registered Cabinet sources
         id: fetch
         run: |
           python scripts/fetch_feed.py
           python scripts/sync_pin_sources.py
+          python scripts/cabinet_directives.py
 
-          if [[ -n "$(git status --porcelain -- data/ PIN_sources.md)" ]]; then
+          if [[ -n "$(git status --porcelain -- data/ PIN_sources.md CabinetDirectives.md)" ]]; then
             echo "changes_detected=true" >> "$GITHUB_OUTPUT"
           else
             echo "changes_detected=false" >> "$GITHUB_OUTPUT"
@@ -97,7 +99,7 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
-          git add data/ PIN_sources.md README.md \
+          git add data/ PIN_sources.md CabinetDirectives.md README.md \
             screenshots/tbs_policy_hawk_heatmap_*.png \
             screenshots/tbs_policy_hawk_category_history_*.svg \
             PolicyEvolution*.md
@@ -129,4 +131,4 @@ jobs:
         if: >-
           steps.fetch.outputs.changes_detected == 'false' &&
           steps.fetch.outputs.enrichment_pending == 'false'
-        run: echo "No new policy or PIN activity detected."
+        run: echo "No new monitored policy-source activity detected."

@@ -44,7 +44,7 @@ def _header(period: dict) -> str:
         f"**Period covered:** {start} to {end}  \n"
         "**Source:** Auto-analysis comments added to TBS-Policy-Hawk issues.\n\n"
         "This file compiles policy-change analysis comments for updates detected during the quarter. "
-        "Entries are organized chronologically by the effective/update date in the issue GUID.\n\n"
+        "Entries are organized chronologically by the supported change or publication date.\n\n"
         "🚨 Issue Summaries and PolicyEvolution Reports are not official guidance, these analysis products use a mix of deterministic and generative techniques to indicate areas of change - ***A Place to Start Not The End of Understanding Policy Evolution***\n\n"
         f"![Policy activity heatmap](https://raw.githubusercontent.com/PatLittle/TBS-Policy-Hawk/refs/heads/main/screenshots/tbs_policy_hawk_heatmap_{start}_to_{end}.png)\n\n"
         "---\n"

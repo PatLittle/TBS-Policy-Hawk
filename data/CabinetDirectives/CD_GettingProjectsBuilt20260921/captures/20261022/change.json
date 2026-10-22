@@ -3,9 +3,9 @@
   "title": "Cabinet Directive on Getting Projects Built in Canada (2026)",
   "url": "https://www.canada.ca/en/one-canadian-economy/services/simplifying-canada-process/cabinet.html",
   "detected_date": "2026-10-22",
-  "change_type": "newly_captured",
+  "change_type": "baseline",
   "previous_url": "",
-  "current": "data/CabinetDirectives/changes/cabdir_433c77569dfcc13b_2026-10-22_b83c88395fe5af7c/current.md",
+  "current": "data/CabinetDirectives/CD_GettingProjectsBuilt20260921/captures/20261022/current.md",
   "previous": "",
   "metadata": {
     "Status": "In Force",
@@ -13,6 +13,8 @@
     "Date of effect": "Unknown"
   },
   "previous_metadata": {},
-  "issue_number": null,
-  "complete": false
+  "issue_number": 528,
+  "complete": true,
+  "archive": "CD_GettingProjectsBuilt20260921",
+  "report_eligible": false
 }

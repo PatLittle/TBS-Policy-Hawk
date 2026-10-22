@@ -5,8 +5,8 @@
   "detected_date": "2026-10-22",
   "change_type": "replacement",
   "previous_url": "https://www.canada.ca/en/government/system/laws/developing-improving-federal-regulations/requirements-developing-managing-reviewing-regulations/cabinet-directive-regulation.html",
-  "current": "data/CabinetDirectives/changes/cabdir_5100844d79f6319c_2026-10-22_0528dd23f0c7a711/current.md",
-  "previous": "data/CabinetDirectives/changes/cabdir_5100844d79f6319c_2026-10-22_0528dd23f0c7a711/previous.md",
+  "current": "data/CabinetDirectives/CD_RegCompRedTape20261021/captures/20261022/current.md",
+  "previous": "data/CabinetDirectives/CD_RegCompRedTape20261021/captures/20261022/previous.md",
   "metadata": {
     "Status": "Announced",
     "Date Published": "2026-10-21",
@@ -18,7 +18,10 @@
     "Date of effect": "2018-09-01"
   },
   "issue_number": 527,
-  "complete": false,
+  "complete": true,
   "replacement_status": "announced",
-  "previous_evidence_basis": "prior repository capture"
+  "previous_evidence_basis": "prior repository capture",
+  "archive": "CD_RegCompRedTape20261021",
+  "report_date": "2026-10-21",
+  "deep_dive": "data/CabinetDirectives/CD_RegCompRedTape20261021/DeepDive.md"
 }

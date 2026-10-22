@@ -3,9 +3,9 @@
   "title": "Cabinet Directive on Strategic Environmental and Economic Assessment (SEEA)",
   "url": "https://www.canada.ca/en/services/environment/conservation/sustainability/strategic-environmental-economic-assessment/cabinet-directive.html",
   "detected_date": "2026-10-22",
-  "change_type": "newly_captured",
+  "change_type": "baseline",
   "previous_url": "",
-  "current": "data/CabinetDirectives/changes/cabdir_cc6dea83d9724ab6_2026-10-22_cc21f42de7d4ccf8/current.md",
+  "current": "data/CabinetDirectives/CD_SEEA20240402/captures/20261022/current.md",
   "previous": "",
   "metadata": {
     "Status": "In Force",
@@ -13,6 +13,8 @@
     "Date of effect": "Unknown"
   },
   "previous_metadata": {},
-  "issue_number": null,
-  "complete": false
+  "issue_number": 530,
+  "complete": true,
+  "archive": "CD_SEEA20240402",
+  "report_eligible": false
 }

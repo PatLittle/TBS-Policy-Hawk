@@ -81,7 +81,7 @@ Common PIN families include ATIPN, HRIN, SPIN, and RPPN. Treat these as implemen
 
 ## Fiscal year and quarter naming
 
-Cabinet Directive entries use the **detection/capture date**, in America/Toronto, to select the active quarter. Keep publication and effective dates in the entry; an older directive captured today must not be filed as a new historical amendment.
+For new or replacement Cabinet Directives, use the **publication/announcement date** for the quarterly synopsis and keep the effective date separate. First capture of an older instrument is inventory work, not a quarterly policy event. See the Cabinet Directive skill for routine amendments and indeterminate dates.
 
 Use the Government of Canada fiscal year: **April 1 to March 31**.
 
@@ -327,13 +327,11 @@ hierarchy-change
 
 #### Cabinet Directives
 
-- Use `CabinetDirectives.md` as the curated register and `data/CabinetDirectives/manifest.json` as the capture and issue outbox. Immutable change evidence is under `data/CabinetDirectives/changes/{GUID}/` (`current.html`, `current.md`, optional `previous.html`/`previous.md`, and `change.json`).
-- **Screenshots are required.** Capture and visually inspect the archived current HTML and, for amendments/replacements, the previous HTML. Preserve screenshots under `screenshots/{GUID}_{current,previous}.png` and cite them in the issue analysis and report. Automated analysis must receive the screenshot images, not only their filenames. If any required screenshot fails, do not complete analysis or apply `🪄📝AutoAnalyzed`; preserve the issue for retry.
-- For a manual issue, capture the published HTML and any predecessor, add the new source to the register, and explicitly identify the replacement relationship. Prefer an existing archived predecessor over a newly fetched copy; distinguish a current fetch of an old page from historical before-state evidence.
-- Identify obligations, scope, authorities, coordination, reporting, decision timelines and commencement/transitional provisions. Cabinet policy direction does not itself amend statutes or regulations. This separate collection must not inflate official TBS suite instrument counts or PIN totals.
-- Distinguish **newly captured** from **newly issued**. Keep source publication, effective and last-modified dates separate; use `Unknown` where evidence does not establish a date. Review status against the source: `Announced`, `In Force`, `Superseded`, or `Retired`. Update the predecessor to `Superseded` only when the source proves replacement has taken effect; a future replacement leaves the existing directive in force. A failed fetch or redirect alone does not prove retirement.
-- Use the detection/capture date to insert the synopsis into the quarter in progress, with category `Cabinet Directive`. Include current/prior capture paths, screenshot references, and a before/after table. Comment the issue and commit/push the report and evidence before applying the completion label.
-- `cabinet_directives.yml` checks the registered URLs and archives semantic changes, then opens labelled issues and explicitly dispatches `issue_enrich.yml`. Its durable outbox retries until the post-commit completion label is visible. `scripts/enrich_cabinet_directive.py` uses this repository skill and screenshot images for automated analysis, using the existing `GEMINI_API_KEY`; without that secret, evidence remains pending rather than being marked analyzed.
+Use [the Cabinet Directive skill](skills/cabinet-directives/SKILL.md) for this collection. A user-supplied URL may identify a new instrument, a replacement, or a routine amendment; decide from the content and register rather than requiring the user to classify it.
+
+New and replacement directives receive an agent-authored strategic deep dive, with national, strategic, operational and tactical implications, responsibilities and cross-quarter context. Do not delegate that analysis to Gemini or require a textual diff. Existing-source changes receive ordinary PIN-style change analysis, not a new deep dive.
+
+Use publication/announcement dates for new/replacement quarterly synopses, not the date the project first captured an old document. Quiet inventory baselines never enter quarterly reports. Preserve readable instrument folders, valid HTML/Markdown and screenshots. Automated monitoring observes only the registered URLs through the shared Policy Watch workflow and issue handoff; it does not discover new directives or analyze them.
 
 #### PINs
 

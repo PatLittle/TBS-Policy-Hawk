@@ -3,9 +3,9 @@
   "title": "Cabinet Directive on the Coordinated Response to Threats to Elections (CRTE)",
   "url": "https://www.canada.ca/en/democratic-institutions/services/protecting-democracy/coordinated-response-threats-elections/cabinet.html",
   "detected_date": "2026-10-22",
-  "change_type": "newly_captured",
+  "change_type": "baseline",
   "previous_url": "",
-  "current": "data/CabinetDirectives/changes/cabdir_6017e4e2aec1da6e_2026-10-22_c37f62a9eccac764/current.md",
+  "current": "data/CabinetDirectives/CD_ThreatsToElections20260326/captures/20261022/current.md",
   "previous": "",
   "metadata": {
     "Status": "In Force",
@@ -13,6 +13,8 @@
     "Date of effect": "Unknown"
   },
   "previous_metadata": {},
-  "issue_number": null,
-  "complete": false
+  "issue_number": 532,
+  "complete": true,
+  "archive": "CD_ThreatsToElections20260326",
+  "report_eligible": false
 }

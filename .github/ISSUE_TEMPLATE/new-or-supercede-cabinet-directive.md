@@ -1,29 +1,21 @@
 ---
-name: New or Supercede Cabinet Directive
-about: Manually add a new Cabinet Directive, or Supercede an Existing Cabinet Directive
+name: Cabinet Directive — new, replacement or change
+about: Ask the agent to assess a published Cabinet Directive and determine the appropriate analysis.
 title: CABDir
-labels: "\U0001F341CabinetDir\U0001F3DB️"
+labels: "🍁CabinetDir🏛️"
 assignees: ''
-
 ---
 
-*Cabinet Directives are not like the TBS Policy Suite that lives in predictable location easy to automatically check on a schedule.  The original policy suite had structure and semantics for each Policy Instrument type and pubs that matched the advertised schema, its rotted away overtime - but each policy clause is still addressable* 
+## Published Cabinet Directive
 
-## Capture a new Cabinet Directive, either as net new or replacing an existing.
+Link to published HTML:
 
-- [ ] New:
+## Context, if known
 
-Link to published html:  
+Predecessor or related directive link (optional):
 
-- [ ] replaces:
+Publication/effective dates or context (optional):
 
-Link to supercede Cab Dir (if applicable):
+The agent uses `skills/cabinet-directives/SKILL.md` to determine whether this is a new instrument, a replacement or a routine change. New/replacement directives receive a strategic deep dive and a publication-quarter synopsis. Routine changes receive ordinary change analysis. Screenshots and archived source evidence are required; Cabinet analysis is performed by the agent, not Gemini.
 
-## Optional source metadata
-
-Supply an ISO date only when the published source establishes it. For a future directive, use `Announced`. Allowed statuses: `Announced`, `In Force`, `Superseded`, `Retired`.
-
-- Status: In Force
-- Date of effect: Unknown
-
-The processing agent must capture and inspect screenshots of the current directive and the previous/replaced directive when available, preserve HTML and Markdown evidence, compare the sources using `SKILL.md`, and add its analysis to the fiscal-quarter Policy Evolution report. A failed screenshot leaves the issue pending. A new repository capture is not necessarily a newly issued directive.
+You can also tell the agent “cab directive change” followed by the URL, without creating an issue first.

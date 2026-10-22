@@ -1,3 +1,4 @@
+import csv
 import json
 import os
 import tempfile
@@ -7,329 +8,183 @@ from types import SimpleNamespace
 from unittest import mock
 
 from scripts import cabinet_directives as cabinet
-from scripts import enrich_cabinet_directive as enrichment
 from scripts import enrich_issue
+from scripts import create_issues_with_screenshots as issues
+
+URL = 'https://www.canada.ca/en/test/cabinet.html'
+OTHER = 'https://www.canada.ca/en/test/replacement.html'
 
 
-URL = "https://www.canada.ca/en/test/cabinet.html"
-OLD_URL = "https://www.canada.ca/en/test/previous-cabinet.html"
-
-
-def html(direction="Departments must report annually. ", modified="2026-10-22"):
+def html(text='Departments coordinate implementation and report on results. ', modified='2026-10-22'):
     return (f'<html><head><meta name="dcterms.issued" content="2018-06-28">'
-            f'<meta name="dcterms.modified" content="{modified}"></head><body>'
-            '<nav>Volatile navigation</nav><main><h1>Cabinet Directive on Testing</h1>'
-            '<h2>1. Obligations</h2><p>' + direction * 20 + '</p>'
+            f'<meta name="dcterms.modified" content="{modified}"></head><body><nav>Navigation</nav>'
+            '<main><h1>Cabinet Directive on Testing</h1><h2>1. Direction</h2><p>' + text * 20 + '</p>'
             f'<div class="pagedetails">Date modified: {modified}</div></main></body></html>')
 
 
-def entry(url=URL):
-    return {"title": "Cabinet Directive on Testing", "url": url, "Status": "In Force",
-            "Date Published": "2018-06-28", "Date of effect": "Unknown", "Date last modified": "2026-10-22"}
+def source(text='Departments coordinate implementation and report on results. ', modified='2026-10-22', url=URL):
+    return dict(cabinet.parse_source(html(text, modified), url), resolved_url=url)
 
 
-class FakeIssue:
-    def __init__(self, number=123, body="", labels=()):
-        self.number, self.body, self.title = number, body, "CABDir"
-        self.labels = [SimpleNamespace(name=name) for name in labels]
-        self.comments = []
-
-    def get_comments(self):
-        return self.comments
-
-    def create_comment(self, body):
-        self.comments.append(SimpleNamespace(body=body))
+def entry(url=URL, archive='CD_Test20180628'):
+    return {'title': 'Cabinet Directive on Testing', 'url': url, 'Status': 'In Force',
+            'Date Published': '2018-06-28', 'Date of effect': 'Unknown',
+            'Date last modified': '2026-10-22', 'Archive': archive}
 
 
-class CabinetTests(unittest.TestCase):
+class CabinetMonitoringTests(unittest.TestCase):
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()
         self.original = Path.cwd()
         os.chdir(self.temp.name)
-        Path("CabinetDirectives.md").write_text("# Cabinet Directives\n")
+        cabinet.REGISTER.write_text('# Cabinet Directives\n')
         cabinet.update_register(entry())
-        Path("SKILL.md").write_text("Repository skill: screenshots are required.")
+        # update_register preserves existing metadata; the archive name is optional when adding.
+        with cabinet.REGISTER.open('a') as handle:
+            handle.write('\n- Archive: CD_Test20180628\n')
 
     def tearDown(self):
         os.chdir(self.original)
         self.temp.cleanup()
 
-    def capture(self, direction="Departments must report annually. ", **kwargs):
-        manifest = cabinet.read_manifest()
-        event = cabinet.capture(entry(), cabinet.parse_source(html(direction), URL), manifest,
-                                detected="2026-10-22", **kwargs)
-        cabinet.save_manifest(manifest)
-        return event
-
-    def test_url_validation_rejects_non_government_and_credentials(self):
-        for url in ["http://www.canada.ca/x", "https://canada.ca.evil.test/x", "https://localhost/x",
-                    "https://user:pass@www.canada.ca/x", "https://www.canada.ca:8443/x"]:
-            with self.subTest(url=url), self.assertRaises(ValueError):
-                cabinet.validate_url(url)
-        self.assertEqual(cabinet.validate_url(OLD_URL), OLD_URL)
-
-    def test_redirect_is_validated_before_following(self):
-        response = SimpleNamespace(is_redirect=True, headers={"Location": "https://localhost/private"}, raise_for_status=lambda: None)
-        with mock.patch.object(cabinet.requests, "get", return_value=response) as get:
-            with self.assertRaises(ValueError):
-                cabinet.fetch_source(URL)
-        self.assertEqual(get.call_count, 1)
-
-    def test_source_fetch_retries_timeout_with_alternate_headers(self):
-        response = SimpleNamespace(is_redirect=False, headers={"Content-Type": "text/html"},
-                                   text=html(), encoding=None, raise_for_status=lambda: None)
-        with mock.patch.object(cabinet.requests, "get", side_effect=[cabinet.requests.ReadTimeout(), response]) as get, mock.patch.object(cabinet.time, "sleep"):
-            self.assertEqual(cabinet.fetch_source(URL), html())
-        self.assertEqual(get.call_count, 2)
-        self.assertNotIn("User-Agent", get.call_args.kwargs["headers"])
-        self.assertEqual(get.call_args.kwargs["headers"]["Referer"], "https://www.canada.ca/")
-        self.assertFalse(get.call_args.kwargs["allow_redirects"])
-
-    def test_persistent_timeout_preserves_baseline_and_stops_after_three_attempts(self):
-        self.capture()
-        before = cabinet.MANIFEST.read_bytes()
-        with mock.patch.object(cabinet.requests, "get", side_effect=cabinet.requests.ReadTimeout()) as get, mock.patch.object(cabinet.time, "sleep"):
-            with self.assertRaises(cabinet.requests.ReadTimeout):
-                cabinet.sync_sources()
-        self.assertEqual(get.call_count, 3)
-        self.assertEqual(cabinet.MANIFEST.read_bytes(), before)
-
-    def test_permanent_http_failure_is_not_retried_or_treated_as_retirement(self):
-        self.capture()
-        before = cabinet.MANIFEST.read_bytes()
-        error = cabinet.requests.HTTPError(response=SimpleNamespace(status_code=404))
-        with mock.patch.object(cabinet.requests, "get", side_effect=error) as get:
-            with self.assertRaises(cabinet.requests.HTTPError):
-                cabinet.sync_sources()
-        self.assertEqual(get.call_count, 1)
-        self.assertEqual(cabinet.MANIFEST.read_bytes(), before)
-
-    def test_normalization_ignores_navigation_and_page_date(self):
-        first = cabinet.parse_source(html(), URL)
-        second = cabinet.parse_source(html(modified="2026-10-23").replace("Volatile navigation", "New navigation"), URL)
-        self.assertEqual(first["markdown"], second["markdown"])
-        self.assertNotEqual(first["modified"], second["modified"])
-        self.assertIn("## 1. Obligations", first["markdown"])
-
-    def test_error_or_overview_page_rejected(self):
-        for text in ["<main><h1>Request rejected</h1></main>", "<main><h1>Strategic Environmental Assessment</h1><p>Overview</p></main>",
-                     "<main><h1>Cabinet Directive</h1><p>Access denied</p></main>"]:
-            with self.subTest(text=text), self.assertRaises(ValueError):
-                cabinet.parse_source(text, URL)
-
-    def test_register_roundtrip_preserves_prose_and_validates_status(self):
-        with Path("CabinetDirectives.md").open("a") as handle:
-            handle.write("\nAnalyst notes survive.\n")
-        updated = entry()
-        updated["Status"] = "Announced"
-        cabinet.update_register(updated)
-        self.assertEqual(cabinet.read_register()[0]["Status"], "Announced")
-        self.assertIn("Analyst notes survive.", Path("CabinetDirectives.md").read_text())
-        Path("CabinetDirectives.md").write_text(Path("CabinetDirectives.md").read_text().replace("Announced", "Made up"))
-        with self.assertRaises(ValueError):
-            cabinet.read_register()
-
-    def test_sync_is_byte_stable_and_preserves_pending_events(self):
-        with mock.patch.object(cabinet, "fetch_source", return_value=html()):
+    def sync(self, value=None, failure=None):
+        with mock.patch.object(cabinet, 'fetch_source', side_effect=failure, return_value=value or source()):
             cabinet.sync_sources()
-            before = {p: p.read_bytes() for p in Path(".").rglob("*") if p.is_file()}
-            cabinet.sync_sources()
-        self.assertEqual(before, {p: p.read_bytes() for p in Path(".").rglob("*") if p.is_file()})
-        self.assertEqual(len(cabinet.read_manifest()["events"]), 1)
 
-    def test_sync_page_modified_only_updates_register_without_an_issue(self):
-        self.capture()
-        with mock.patch.object(cabinet, "fetch_source", return_value=html(modified="2026-10-23")):
-            cabinet.sync_sources()
-        self.assertEqual(len(cabinet.read_manifest()["events"]), 1)
-        self.assertEqual(cabinet.read_register()[0]["Date last modified"], "2026-10-23")
+    def rows(self):
+        path=Path('data/new_items.csv')
+        return list(csv.DictReader(path.open())) if path.exists() else []
 
-    def test_changed_capture_has_immutable_before_after_and_reversion(self):
-        first = self.capture()
-        first_bytes = Path(first["current"]).read_bytes()
-        second = self.capture("Departments must report monthly. ")
-        third = self.capture()
-        self.assertEqual(second["change_type"], "changed")
-        self.assertEqual(Path(second["previous"]).read_bytes(), first_bytes)
-        self.assertEqual(Path(first["current"]).read_bytes(), first_bytes)
-        self.assertEqual(Path(third["current"]).read_bytes(), first_bytes)
-        self.assertEqual(len(cabinet.read_manifest()["events"]), 3)
+    def test_first_capture_is_quiet_baseline_and_repeat_is_byte_stable(self):
+        self.sync()
+        manifest=cabinet.read_manifest()
+        event=next(iter(manifest['events'].values()))
+        self.assertEqual(event['change_type'], 'baseline')
+        self.assertTrue(event['complete'])
+        self.assertIn('CD_Test20180628/captures/20261022/current.md',event['current'])
+        self.assertEqual(self.rows(),[])
+        before={str(p):p.read_bytes() for p in Path('.').rglob('*') if p.is_file()}
+        self.sync()
+        self.assertEqual(before,{str(p):p.read_bytes() for p in Path('.').rglob('*') if p.is_file()})
 
-    def test_failed_batch_leaves_baseline_and_register_unchanged(self):
-        self.capture()
-        cabinet.update_register(entry(OLD_URL))
-        before = {p: p.read_bytes() for p in Path(".").rglob("*") if p.is_file()}
-        with mock.patch.object(cabinet, "fetch_source", side_effect=[html("Changed obligations. "), "<main>Error</main>"]):
-            with self.assertRaises(ValueError):
-                cabinet.sync_sources()
-        self.assertEqual(before, {p: p.read_bytes() for p in Path(".").rglob("*") if p.is_file()})
+    def test_content_change_uses_common_handoff_and_survives_handoff_loss(self):
+        self.sync(); self.sync(source('Departments now submit quarterly results. '))
+        row=self.rows()[0]
+        self.assertEqual(row['change_type'],'cabinet')
+        self.assertEqual(row['change_summary'],'changed')
+        event=json.loads(Path(row['filename']).read_text())
+        self.assertTrue(Path(event['previous']).is_file())
+        Path('data/new_items.csv').unlink()
+        self.sync(source('Departments now submit quarterly results. '))
+        self.assertEqual(self.rows()[0]['guid'],row['guid'])
+        Path('data/issue_map.json').write_text(json.dumps({row['guid']:12}))
+        Path('data/new_items.csv').unlink()
+        self.sync(source('Departments now submit quarterly results. '))
+        self.assertEqual(self.rows(),[])
 
-    def test_truncated_page_does_not_replace_baseline(self):
-        self.capture("This is an extensive detailed statutory obligation and reporting clause. " * 5)
-        before = cabinet.MANIFEST.read_bytes()
-        with mock.patch.object(cabinet, "fetch_source", return_value=html()):
-            with self.assertRaisesRegex(ValueError, "shrink"):
-                cabinet.sync_sources()
-        self.assertEqual(cabinet.MANIFEST.read_bytes(), before)
+    def test_modified_only_change_updates_register_without_policy_event(self):
+        self.sync(); self.sync(source(modified='2026-10-23'))
+        self.assertEqual(self.rows(),[])
+        self.assertEqual(len(cabinet.read_manifest()['events']),1)
+        self.assertEqual(cabinet.read_register()[0]['Date last modified'],'2026-10-23')
 
-    def test_loader_rejects_evidence_outside_change_directory(self):
-        event = self.capture()
-        metadata = Path(event["current"]).with_name("change.json")
-        event["current"] = "CabinetDirectives.md"
-        metadata.write_text(json.dumps(event))
-        with self.assertRaises(ValueError):
-            enrichment.load_event(str(metadata))
+    def test_two_explicit_missing_pages_queue_once_preserve_source_and_legal_status(self):
+        self.sync(); baseline=cabinet.read_manifest()['sources'][cabinet.identity(URL)]['current']
+        error=cabinet.requests.HTTPError(response=SimpleNamespace(status_code=404))
+        self.sync(failure=error); self.assertEqual(self.rows(),[])
+        self.sync(failure=error); row=self.rows()[0]
+        self.assertEqual(row['change_summary'],'unavailable')
+        self.assertTrue(Path(baseline).is_file())
+        self.assertEqual(cabinet.read_register()[0]['Status'],'In Force')
+        before=cabinet.MANIFEST.read_bytes(); self.sync(failure=error)
+        self.assertEqual(len(self.rows()),1); self.assertEqual(cabinet.MANIFEST.read_bytes(),before)
 
-    def test_manual_issue_registers_source_and_retry_reuses_capture(self):
-        body = f"- [x] New:\n\nLink to published html:  \n{URL}\n\n- [ ] replaces:\n\nLink to supercede Cab Dir (if applicable):\n"
-        with mock.patch.object(cabinet, "fetch_source", return_value=html()) as fetch:
-            first = enrichment.prepare_manual_issue(FakeIssue(), body)
-            second = enrichment.prepare_manual_issue(FakeIssue(), body)
-        self.assertEqual(first, second)
-        self.assertEqual(fetch.call_count, 1)
-        self.assertEqual(first["issue_number"], 123)
+    def test_soft404_confirmation_and_recovery(self):
+        self.sync()
+        self.sync(failure=cabinet.SourceUnavailable('Soft 404'))
+        self.sync(failure=cabinet.SourceUnavailable('Soft 404'))
+        self.sync()
+        self.assertEqual([r['change_summary'] for r in self.rows()],['unavailable','restored'])
+        self.assertNotIn('availability',cabinet.read_manifest()['sources'][cabinet.identity(URL)])
 
-    def test_manual_future_replacement_retains_in_force_predecessor(self):
-        self.capture()
-        body = (f"- [x] replaces:\nLink to published html: {OLD_URL}\n"
-                f"Link to supercede Cab Dir (if applicable): {URL}\n"
-                "- Status: In Force\n- Date of effect: 2026-12-31\n")
-        with mock.patch.object(cabinet, "fetch_source", return_value=html("Future new directive. ")):
-            event = enrichment.prepare_manual_issue(FakeIssue(), body)
-        entries = {e['url']: e for e in cabinet.read_register()}
-        self.assertEqual(event["change_type"], "replacement")
-        self.assertEqual(entries[OLD_URL]["Status"], "Announced")
-        self.assertEqual(entries[URL]["Status"], "In Force")
-        self.assertTrue(Path(event["previous"]).is_file())
+    def test_timeout_does_not_prove_removal_and_interrupts_pending_confirmation(self):
+        self.sync(); baseline=cabinet.read_manifest()['sources'][cabinet.identity(URL)]['current']
+        error=cabinet.requests.HTTPError(response=SimpleNamespace(status_code=410))
+        self.sync(failure=error)
+        self.sync(failure=cabinet.requests.ReadTimeout('source timeout'))
+        self.sync(failure=error)
+        self.assertEqual(self.rows(),[])
+        self.assertTrue(Path(baseline).is_file())
 
-    def test_replacement_can_be_shorter_than_predecessor_without_weakening_amendment_guard(self):
-        self.capture("An extensive predecessor with many detailed obligations. " * 10)
-        body = (f"- [x] replaces:\nLink to published html: {OLD_URL}\n"
-                f"Link to supercede Cab Dir (if applicable): {URL}\n"
-                "- Status: Announced\n- Date of effect: 2026-12-31\n")
-        with mock.patch.object(cabinet, "fetch_source", return_value=html()):
-            event = enrichment.prepare_manual_issue(FakeIssue(), body)
-        self.assertEqual(event["change_type"], "replacement")
-        self.assertLess(Path(event['current']).stat().st_size, Path(event['previous']).stat().st_size / 2)
+    def test_invalid_or_truncated_source_retains_baseline(self):
+        self.sync(); baseline=cabinet.read_manifest()['sources'][cabinet.identity(URL)]['current']
+        self.sync(failure=ValueError('Request rejected'))
+        shortened=source();shortened['markdown']='# Cabinet Directive\nShort.'
+        self.sync(shortened)
+        self.assertEqual(cabinet.read_manifest()['sources'][cabinet.identity(URL)]['current'],baseline)
+        self.assertEqual(self.rows(),[])
 
-    def test_manual_replacement_needs_checkbox_and_predecessor(self):
-        for body in [f"- [x] replaces:\nLink to published html: {URL}",
-                     f"Link to published html: {URL}\nLink to supercede Cab Dir (if applicable): {OLD_URL}"]:
-            with self.subTest(body=body), self.assertRaises(ValueError):
-                enrichment.prepare_manual_issue(FakeIssue(), body)
+    def test_redirect_is_reviewable_even_when_text_is_unchanged(self):
+        self.sync(); moved=source();moved['resolved_url']=OTHER;self.sync(moved)
+        self.assertEqual(self.rows()[0]['change_summary'],'redirected')
+        self.assertEqual(cabinet.read_register()[0]['url'],URL)
 
-    def test_confirmed_replacement_updates_predecessor_status_and_links(self):
-        self.capture()
-        body = (f"- [x] replaces:\nLink to published html: {OLD_URL}\n"
-                f"Link to supercede Cab Dir (if applicable): {URL}\n")
-        source = html("This Directive replaces the Cabinet Directive on Testing. ")
-        with mock.patch.object(cabinet, "fetch_source", return_value=source):
-            event = enrichment.prepare_manual_issue(FakeIssue(), body)
-        entries = {e['url']: e for e in cabinet.read_register()}
-        self.assertEqual(entries[URL]["Status"], "Superseded")
-        self.assertEqual(event["replacement_status"], "in effect")
-        self.assertIn(f"]({OLD_URL})", cabinet.REGISTER.read_text())
-        self.assertEqual(enrichment.load_event(str(Path(event['current']).with_name('change.json')))["replacement_status"], "in effect")
+    def test_user_led_shorter_replacement_has_readable_evidence_without_diff(self):
+        self.sync(source('An extensive predecessor with many obligations. '*10))
+        manifest=cabinet.read_manifest();new=entry(OTHER,'CD_Replacement20261021')
+        new.update({'Status':'Announced','Date Published':'2026-10-21','Date of effect':'2026-12-31'})
+        event=cabinet.capture(new,source(url=OTHER),manifest,detected='2026-10-22',previous_url=URL,manual_issue=527,change='replacement')
+        self.assertEqual(event['change_type'],'replacement')
+        self.assertIn('CD_Replacement20261021',event['current'])
+        self.assertTrue(Path(event['previous']).with_suffix('.html').exists())
+        self.assertFalse(Path(event['current']).with_name('diff.md').exists())
+        self.assertEqual(new['Status'],'Announced')
 
-    def test_missing_manifest_does_not_rebaseline_existing_captures(self):
-        self.capture()
-        cabinet.MANIFEST.unlink()
-        with self.assertRaisesRegex(ValueError, "manifest is missing"):
-            cabinet.read_manifest()
+    def test_invalid_issue_map_stops_before_mutating_sources(self):
+        self.sync();before=cabinet.MANIFEST.read_bytes()
+        Path('data/issue_map.json').write_text('[]')
+        with self.assertRaises(ValueError):self.sync(source('Changed direction. '))
+        self.assertEqual(cabinet.MANIFEST.read_bytes(),before)
 
-    def test_manual_untracked_predecessor_is_captured_once_without_extra_issue(self):
-        body = (f"- [x] replaces:\nLink to published html: {OLD_URL}\n"
-                f"Link to supercede Cab Dir (if applicable): {URL}\n")
-        with mock.patch.object(cabinet, "fetch_source", return_value=html()) as fetch:
-            event = enrichment.prepare_manual_issue(FakeIssue(), body)
-        self.assertEqual(fetch.call_count, 2)
-        self.assertEqual(len(cabinet.read_manifest()["events"]), 1)
-        self.assertIn("not a historical before-state", event["previous_evidence_basis"])
-        self.assertTrue(Path(event["previous"]).with_suffix('.html').exists())
+    def test_missing_manifest_does_not_rebaseline_existing_archives(self):
+        self.sync();cabinet.MANIFEST.unlink()
+        with self.assertRaises(ValueError):cabinet.read_manifest()
 
-    def test_screenshot_failure_prevents_analysis_comment_report_and_completion(self):
-        event = self.capture()
-        issue = FakeIssue()
-        body = f"**Cabinet metadata:** {Path(event['current']).with_name('change.json')}"
-        with mock.patch.object(enrichment, "capture_screenshots", side_effect=RuntimeError("screenshot failed")), mock.patch.object(enrich_issue, "generate_gemini_summary") as model:
-            with self.assertRaisesRegex(RuntimeError, "screenshot failed"):
-                enrichment.enrich_cabinet_issue(issue, body, "owner/repo")
-        model.assert_not_called()
-        self.assertEqual(issue.comments, [])
-        self.assertEqual(list(Path('.').glob('PolicyEvolution*.md')), [])
+    def test_source_fetch_retries_transient_failure_and_validates_redirect_target(self):
+        response=SimpleNamespace(is_redirect=False,headers={'Content-Type':'text/html'},text=html(),encoding=None,raise_for_status=lambda:None)
+        with mock.patch.object(cabinet.requests,'get',side_effect=[cabinet.requests.ReadTimeout(),response]) as get,mock.patch.object(cabinet.time,'sleep'):
+            fetched=cabinet.fetch_source(URL)
+        self.assertEqual(get.call_count,2);self.assertEqual(fetched['resolved_url'],URL)
+        redirect=SimpleNamespace(is_redirect=True,headers={'Location':'https://localhost/private'},raise_for_status=lambda:None)
+        with mock.patch.object(cabinet.requests,'get',return_value=redirect) as get:
+            with self.assertRaises(ValueError):cabinet.fetch_source(URL)
+        self.assertEqual(get.call_count,1)
 
-    def test_analysis_uses_skill_and_images_and_active_quarter_idempotently(self):
-        event = self.capture()
-        issue = FakeIssue()
-        body = f"**Cabinet metadata:** {Path(event['current']).with_name('change.json')}"
-        image = Path("screenshots/current.png")
-        image.parent.mkdir()
-        image.write_bytes(b"image bytes")
-        output = Path("step-output")
-        analysis = ("## Policy change analysis\n\n### Summary\nFirst capture of an older instrument.\n"
-                    "### Substantive changes identified\n| Before | After |\n|---|---|\n| No prior capture | Direction |\n"
-                    "### Practical effect\nAssess obligations.\n### Non-substantive changes\nNone.\n### Watch item\nNone.")
-        with mock.patch.object(enrichment, "capture_screenshots", return_value=[image]), mock.patch.object(enrich_issue, "generate_gemini_summary", return_value=analysis) as model, mock.patch.dict(os.environ, {"GEMINI_API_KEY": "test-key", "GITHUB_OUTPUT": str(output)}):
-            enrichment.enrich_cabinet_issue(issue, body, "owner/repo")
-            enrichment.enrich_cabinet_issue(issue, body, "owner/repo")
-        model.assert_called_once()
-        self.assertIn("Repository skill", model.call_args.args[1])
-        self.assertEqual(model.call_args.kwargs["image_paths"], [image])
-        report = Path("PolicyEvolution2026-27Q3.md").read_text()
-        self.assertIn("**Category:** Cabinet Directive", report)
-        self.assertIn("screenshots/current.png", report)
-        self.assertEqual(report.count("policy-hawk:issue-123:start"), 1)
-        self.assertEqual(len(issue.comments), 3)
-        self.assertIn("cabinet_autoanalyzed=true", output.read_text())
+    def test_successful_http_soft404_and_error_page_are_not_valid_policy_content(self):
+        soft=SimpleNamespace(is_redirect=False,headers={'Content-Type':'text/html'},text='<main><h1>Page not found</h1></main>',encoding=None,raise_for_status=lambda:None)
+        with mock.patch.object(cabinet.requests,'get',return_value=soft):
+            with self.assertRaises(cabinet.SourceUnavailable):cabinet.fetch_source(URL)
+        with self.assertRaises(ValueError):cabinet.parse_source('<main><h1>Request rejected</h1></main>',URL)
 
-    def test_retry_recovers_complete_posted_analysis_without_another_model_call(self):
-        event = self.capture()
-        issue = FakeIssue()
-        text = ("## Policy change analysis\n\n### Summary\nExisting approved analysis.\n"
-                "### Substantive changes identified\nBaseline.\n### Practical effect\nExisting direction.\n"
-                "### Non-substantive changes\nNone.\n### Watch item\nNone.\n")
-        from scripts.comment_parts import post_comment_parts
-        post_comment_parts(issue, text, "<!-- policy-hawk:cabinet-analysis -->")
-        image = Path('screenshots/current.png')
-        image.parent.mkdir()
-        image.write_bytes(b'image')
-        body = f"**Cabinet metadata:** {Path(event['current']).with_name('change.json')}"
-        with mock.patch.object(enrichment, 'capture_screenshots', return_value=[image]), mock.patch.object(enrich_issue, 'generate_gemini_summary') as model:
-            enrichment.enrich_cabinet_issue(issue, body, 'owner/repo')
-        model.assert_not_called()
-        self.assertIn('Existing approved analysis', Path('PolicyEvolution2026-27Q3.md').read_text())
-        self.assertEqual(sum('<!-- policy-hawk:cabinet-analysis -->' in c.body for c in issue.comments), 1)
+    def test_common_issue_body_is_proportionate_and_points_to_agent(self):
+        self.sync();self.sync(source('Departments now report quarterly. '))
+        row=self.rows()[0];body=issues.issue_body_for_row(row,False,'',{})
+        self.assertIn('ordinary change review',body)
+        self.assertIn('skills/cabinet-directives/SKILL.md',body)
+        self.assertIn(row['filename'],body)
 
-    def test_posted_analysis_recovery_preserves_multipart_content_and_rejects_missing_parts(self):
-        from scripts.comment_parts import post_comment_parts
-        issue = FakeIssue()
-        text = '## Policy change analysis\n\n' + ('A detailed paragraph.\n\n' * 4000)
-        post_comment_parts(issue, text, '<!-- policy-hawk:cabinet-analysis -->')
-        self.assertEqual(enrichment.published_analysis(issue), text.strip())
-        issue.comments.pop()
-        with self.assertRaisesRegex(RuntimeError, 'incomplete'):
-            enrichment.published_analysis(issue)
-
-    def test_outbox_recovers_issue_and_retries_until_completion_label(self):
-        event = self.capture()
-        issue = FakeIssue(body=f"<!-- policy-hawk:cabdir:{event['guid']} -->", labels=[cabinet.LABEL])
-        repo = mock.Mock(default_branch="main")
-        repo.get_labels.return_value = [SimpleNamespace(name=cabinet.LABEL), SimpleNamespace(name="policy-update"), SimpleNamespace(name="🪄📝AutoAnalyzed")]
-        repo.get_issues.return_value = [issue]
-        repo.get_issue.return_value = issue
-        from scripts import create_issues_with_screenshots
-        with mock.patch("github.Github") as client, mock.patch.object(create_issues_with_screenshots, "dispatch_enrichment", return_value=True) as dispatch, mock.patch.dict(os.environ, {"GITHUB_TOKEN": "test", "GITHUB_REPOSITORY": "owner/repo"}):
-            client.return_value.get_repo.return_value = repo
-            cabinet.publish_issues()
-            cabinet.publish_issues()
-            self.assertEqual(dispatch.call_count, 2)
-            self.assertFalse(cabinet.read_manifest()["events"][event["guid"]]["complete"])
-            issue.labels.append(SimpleNamespace(name="🪄📝AutoAnalyzed"))
-            cabinet.publish_issues()
-            self.assertEqual(dispatch.call_count, 2)
-        repo.create_issue.assert_not_called()
-        self.assertTrue(cabinet.read_manifest()["events"][event["guid"]]["complete"])
+    def test_manual_and_automated_cabinet_issues_never_call_gemini_or_write_quarterly_reports(self):
+        for body in ['Link to published HTML: '+OTHER,'**Cabinet metadata:** data/CabinetDirectives/change.json']:
+            issue=mock.Mock(body=body,labels=[SimpleNamespace(name=cabinet.LABEL)],number=527)
+            issue.get_comments.return_value=[]
+            repo=mock.Mock();repo.get_issue.return_value=issue
+            client=mock.Mock();client.get_repo.return_value=repo
+            with mock.patch.dict(os.environ,{'GITHUB_REPOSITORY':'owner/repo','GITHUB_TOKEN':'test','ISSUE_NUMBER':'527'},clear=True),mock.patch.object(enrich_issue,'make_github_client',return_value=client),mock.patch.object(enrich_issue,'generate_gemini_summary') as model:
+                enrich_issue.main()
+            model.assert_not_called()
+            issue.create_comment.assert_called_once()
+            self.assertIn('agent',issue.create_comment.call_args.args[0])
+            self.assertEqual(list(Path('.').glob('PolicyEvolution*.md')),[])
 
 
-if __name__ == "__main__":
-    unittest.main()
+if __name__=='__main__':unittest.main()
