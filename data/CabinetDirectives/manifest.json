@@ -55,6 +55,17 @@
         "Date Published": "2026-03-26",
         "Date of effect": "Unknown"
       }
+    },
+    "5100844d79f6319c": {
+      "url": "https://www.canada.ca/en/government/system/laws/developing-improving-federal-regulations/red-tape-reduction-office/regulatory-reform-reduce-red-tape/cabinet-directive-regulatory-competitiveness-red-tape-reduction.html",
+      "current": "data/CabinetDirectives/changes/cabdir_5100844d79f6319c_2026-10-22_0528dd23f0c7a711/current.md",
+      "fingerprint": "aa11647568055f4eda80a906ac3f235c37927977d14dbfdfc2bd979ff04f9a61",
+      "event": "cabdir_5100844d79f6319c_2026-10-22_0528dd23f0c7a711",
+      "metadata": {
+        "Status": "Announced",
+        "Date Published": "2026-10-21",
+        "Date of effect": "2026-12-31"
+      }
     }
   },
   "events": {
@@ -147,6 +158,30 @@
       "previous_metadata": {},
       "issue_number": 532,
       "complete": false
+    },
+    "cabdir_5100844d79f6319c_2026-10-22_0528dd23f0c7a711": {
+      "guid": "cabdir_5100844d79f6319c_2026-10-22_0528dd23f0c7a711",
+      "title": "Cabinet Directive on Regulatory Competitiveness and Red Tape Reduction",
+      "url": "https://www.canada.ca/en/government/system/laws/developing-improving-federal-regulations/red-tape-reduction-office/regulatory-reform-reduce-red-tape/cabinet-directive-regulatory-competitiveness-red-tape-reduction.html",
+      "detected_date": "2026-10-22",
+      "change_type": "replacement",
+      "previous_url": "https://www.canada.ca/en/government/system/laws/developing-improving-federal-regulations/requirements-developing-managing-reviewing-regulations/cabinet-directive-regulation.html",
+      "current": "data/CabinetDirectives/changes/cabdir_5100844d79f6319c_2026-10-22_0528dd23f0c7a711/current.md",
+      "previous": "data/CabinetDirectives/changes/cabdir_5100844d79f6319c_2026-10-22_0528dd23f0c7a711/previous.md",
+      "metadata": {
+        "Status": "Announced",
+        "Date Published": "2026-10-21",
+        "Date of effect": "2026-12-31"
+      },
+      "previous_metadata": {
+        "Status": "In Force",
+        "Date Published": "2018-06-28",
+        "Date of effect": "2018-09-01"
+      },
+      "issue_number": 527,
+      "complete": false,
+      "replacement_status": "announced",
+      "previous_evidence_basis": "prior repository capture"
     }
   }
 }

@@ -24,6 +24,8 @@ Replaces the 2024 Cabinet Directive on Regulatory and Permitting Efficiency for 
 
 Sets expectations for developing, managing, and reviewing federal regulations. Section 9.0 establishes the effective date. The source announces replacement by the Cabinet Directive on Regulatory Competitiveness and Red Tape Reduction on **2026-12-31**; this is a future replacement, so CDR remains In Force as of 2026-10-22.
 
+Replacement reported: [Cabinet Directive on Regulatory Competitiveness and Red Tape Reduction](https://www.canada.ca/en/government/system/laws/developing-improving-federal-regulations/red-tape-reduction-office/regulatory-reform-reduce-red-tape/cabinet-directive-regulatory-competitiveness-red-tape-reduction.html). Source assessment: announced.
+
 ## [Cabinet Directive on Strategic Environmental and Economic Assessment (SEEA)](https://www.canada.ca/en/services/environment/conservation/sustainability/strategic-environmental-economic-assessment/cabinet-directive.html)
 
 - Status: In Force
@@ -50,3 +52,13 @@ Sets an operational framework for federal modern treaty obligations, including a
 - Date last modified: 2026-03-27
 
 Sets a coordinated response to threats to federal general elections. Its incident-response mandate applies during caretaker periods; the directive also sets preparatory activities outside those periods. That limited application is distinct from the status of the instrument itself.
+
+## [Cabinet Directive on Regulatory Competitiveness and Red Tape Reduction](https://www.canada.ca/en/government/system/laws/developing-improving-federal-regulations/red-tape-reduction-office/regulatory-reform-reduce-red-tape/cabinet-directive-regulatory-competitiveness-red-tape-reduction.html)
+
+- Status: Announced
+- Date Published: 2026-10-21
+- Date of effect: 2026-12-31
+- Date last modified: 2026-10-21
+
+Replacement reported for: [Cabinet Directive on Regulation (CDR)](https://www.canada.ca/en/government/system/laws/developing-improving-federal-regulations/requirements-developing-managing-reviewing-regulations/cabinet-directive-regulation.html). Source assessment: announced.
+
