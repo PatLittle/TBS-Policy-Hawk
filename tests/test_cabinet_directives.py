@@ -282,6 +282,34 @@ class CabinetTests(unittest.TestCase):
         self.assertEqual(len(issue.comments), 3)
         self.assertIn("cabinet_autoanalyzed=true", output.read_text())
 
+    def test_retry_recovers_complete_posted_analysis_without_another_model_call(self):
+        event = self.capture()
+        issue = FakeIssue()
+        text = ("## Policy change analysis\n\n### Summary\nExisting approved analysis.\n"
+                "### Substantive changes identified\nBaseline.\n### Practical effect\nExisting direction.\n"
+                "### Non-substantive changes\nNone.\n### Watch item\nNone.\n")
+        from scripts.comment_parts import post_comment_parts
+        post_comment_parts(issue, text, "<!-- policy-hawk:cabinet-analysis -->")
+        image = Path('screenshots/current.png')
+        image.parent.mkdir()
+        image.write_bytes(b'image')
+        body = f"**Cabinet metadata:** {Path(event['current']).with_name('change.json')}"
+        with mock.patch.object(enrichment, 'capture_screenshots', return_value=[image]), mock.patch.object(enrich_issue, 'generate_gemini_summary') as model:
+            enrichment.enrich_cabinet_issue(issue, body, 'owner/repo')
+        model.assert_not_called()
+        self.assertIn('Existing approved analysis', Path('PolicyEvolution2026-27Q3.md').read_text())
+        self.assertEqual(sum('<!-- policy-hawk:cabinet-analysis -->' in c.body for c in issue.comments), 1)
+
+    def test_posted_analysis_recovery_preserves_multipart_content_and_rejects_missing_parts(self):
+        from scripts.comment_parts import post_comment_parts
+        issue = FakeIssue()
+        text = '## Policy change analysis\n\n' + ('A detailed paragraph.\n\n' * 4000)
+        post_comment_parts(issue, text, '<!-- policy-hawk:cabinet-analysis -->')
+        self.assertEqual(enrichment.published_analysis(issue), text.strip())
+        issue.comments.pop()
+        with self.assertRaisesRegex(RuntimeError, 'incomplete'):
+            enrichment.published_analysis(issue)
+
     def test_outbox_recovers_issue_and_retries_until_completion_label(self):
         event = self.capture()
         issue = FakeIssue(body=f"<!-- policy-hawk:cabdir:{event['guid']} -->", labels=[cabinet.LABEL])

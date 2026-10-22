@@ -4,35 +4,33 @@
 Compared the Cabinet Directive evidence for `cabdir_6017e4e2aec1da6e_2026-10-22_c37f62a9eccac764`:
 
 - Current capture: `data/CabinetDirectives/changes/cabdir_6017e4e2aec1da6e_2026-10-22_c37f62a9eccac764/current.md`
-- Prior capture: `No prior local copy`
+- Prior capture: No prior local copy; baseline capture.
 - Required screenshot: `screenshots/cabdir_6017e4e2aec1da6e_2026-10-22_c37f62a9eccac764_current.png`
-
-
-Compared the newly captured Cabinet Directive for `cabdir_6017e4e2aec1da6e_2026-10-22_c37f62a9eccac764` against prior repository records:
-
-- New/current capture: `data/CabinetDirectives/changes/cabdir_6017e4e2aec1da6e_2026-10-22_c37f62a9eccac764/current.md`
-- Prior version used for comparison: [No prior local capture]
 
 ### Summary
 
-This is a newly captured baseline entry for the *Cabinet Directive on the Coordinated Response to Threats to Elections (CRTE)* published on March 26, 2026. Because there is no prior local capture in the repository, no comparative amendment or before/after shift can be established. The Directive sets out ministers' expectations, guiding principles, and operational mechanisms for a senior public service Panel (supplemented by an external member) to coordinate government actions during federal election caretaker periods against incidents threatening free and fair general elections.
+The CRTE directive, published March 26, 2026, is newly captured on October 22. No comparative amendment can be established without an earlier local copy. It describes a non-partisan panel's coordinated response to threats to free and fair federal general elections during caretaker periods, with preparatory work outside those periods and specific communication and reporting requirements.
 
 ### Substantive changes identified
 
-| Section / Element | Prior version | New/current version | Interpretation |
+| Section | Prior evidence | Existing direction in the capture | Interpretation |
 |---|---|---|---|
-| **Entire Document (Newly Captured Baseline)** | *[No prior local capture exists]* | Sets out the formal mandate, composition, and operating principles of the Panel for the Coordinated Response to Threats to Elections during caretaker periods. | This is an initial repository capture. It outlines existing direction rather than introducing new or changed obligations relative to an earlier local file. |
+| Sections 1–3: purpose and scope | No prior local copy | Limits the incident-response mandate to caretaker-period incidents outside Elections Canada's election-administration responsibilities. The directive is not in effect for by-elections; it also specifies outside-period preparation and communication activities. | Preserve the general-election/caretaker boundaries without overlooking the express preparatory functions. |
+| Sections 4.1–4.3: panel | No prior local copy | Names five senior officials and an external member, with reasonable efforts to appoint the external member; the panel can operate without that appointment. Requires non-partisanship and consensus. | An external vacancy does not by itself suspend panel operations. These are baseline governance provisions, not verified 2026 amendments. |
+| Section 5: response | No prior local copy | Coordinates briefings, incident reporting and potential responses using existing government tools and authorities. | Coordination does not itself confer new enforcement powers. |
+| Section 6: communications | No prior local copy | Specifies a statement within a week of the writs; public intervention requires careful consideration and a high threshold. Before a public announcement, designated leaders and Elections Canada are informed and party leaders receive the same briefing information. | Distinguish routine election-period communication from the higher-threshold incident announcement process. |
+| Sections 8–9: authorities and reporting | No prior local copy | Preserves existing mandates and RCMP independence. Requires a post-election report to the Prime Minister and NSICOP, with a public version. | The source provides explicit authority limits and accountability requirements. |
 
 ### Practical effect
 
-1. **Baseline documentation:** Establishes the authoritative text of the CRTE in the repository archives for future comparison.
-2. **Caretaker period governance:** Sets out the framework under which the Panel coordinates federal responses to election interference during general election caretaker periods.
-3. **Transparency and reporting:** Confirms post-election reporting requirements to the Prime Minister, the National Security and Intelligence Committee of Parliamentarians, and the public.
+1. Maintain panel readiness and incident-reporting channels while applying the caretaker-period and mandate boundaries.
+2. Assess response and public-communication options using the directive's consensus, threshold and advance-notification arrangements.
+3. Prepare the post-election report and public version. First repository capture does not establish whether any particular election's duties have been completed.
 
 ### Non-substantive changes
 
-None (initial capture).
+This is an initial repository baseline, not an evidenced amendment. Publication and page-modified dates are separate from capture; no independent effective date is established in the archived text.
 
 ### Watch item
 
-Future captures of this directive should be monitored for amendments regarding the Panel's composition, external member selection, or caretaker period operating thresholds.
+Monitor the external-member appointment, published post-election reports and any changes to communication thresholds or scope. Do not infer new enforcement authority, apply the caretaker incident mechanism to by-elections, or treat a panel vacancy as ending the directive's application.

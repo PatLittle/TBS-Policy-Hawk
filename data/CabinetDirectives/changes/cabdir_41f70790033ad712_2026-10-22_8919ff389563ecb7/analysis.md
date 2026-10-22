@@ -4,38 +4,33 @@
 Compared the Cabinet Directive evidence for `cabdir_41f70790033ad712_2026-10-22_8919ff389563ecb7`:
 
 - Current capture: `data/CabinetDirectives/changes/cabdir_41f70790033ad712_2026-10-22_8919ff389563ecb7/current.md`
-- Prior capture: `No prior local copy`
+- Prior capture: No prior local copy; baseline capture.
 - Required screenshot: `screenshots/cabdir_41f70790033ad712_2026-10-22_8919ff389563ecb7_current.png`
-
-
-Compared the newly captured baseline version for `cabdir_41f70790033ad712_2026-10-22_8919ff389563ecb7` in the repository. As this is a newly captured baseline with no prior local capture, no comparative amendment can be established.
-
-- New/current capture: `data/CabinetDirectives/changes/cabdir_41f70790033ad712_2026-10-22_8919ff389563ecb7/current.md`
-- Prior version used for comparison: `[No prior local capture]`
 
 ### Summary
 
-This Cabinet Directive establishes an operational framework for managing the Crown's modern treaty obligations across federal departments and agencies. It sets out requirements for assessing treaty implications in proposals to Cabinet, establishing oversight committees, maintaining tracking systems, and coordinating reporting through Aboriginal Affairs and Northern Development Canada (AANDC).
+This first repository capture records the federal operational framework for modern treaty implementation, published July 9, 2015. No intervening amendment is demonstrated. The source assigns departmental responsibilities, modern treaty implication assessments, coordination, monitoring and reporting roles, using the historical institutional name Aboriginal Affairs and Northern Development Canada (AANDC).
 
 ### Substantive changes identified
 
-| Section | Prior version | New/current version | Interpretation |
+| Section | Prior evidence | Existing direction in the capture | Interpretation |
 |---|---|---|---|
-| **1 – Roles and Responsibilities** | N/A (Newly captured baseline) | All federal departments and agencies must understand obligations, conduct Assessments of Modern Treaty Implications (AMTIs) on Cabinet proposals, and report annually. | Establishes core departmental duties regarding modern treaties. |
-| **2 – Deputy Ministers' Oversight Committee** | N/A (Newly captured baseline) | Establishes a Deputy Minister-level Oversight Committee chaired by the DM of AANDC for executive oversight and dispute resolution. | Creates senior executive governance for modern treaty implementation. |
-| **3 – Modern Treaty Implementation Office** | N/A (Newly captured baseline) | Establishes a Modern Treaty Implementation Office within AANDC to provide ongoing coordination, performance measurement, and secretariat support. | Sets up administrative machinery to support interdepartmental coordination. |
-| **4 – Evaluation of the Directive** | N/A (Newly captured baseline) | Requires AANDC to conduct an evaluation within five years of implementation. | Mandates a future review of the Directive's effectiveness. |
+| Section 1: departments and agencies | No prior local copy | Requires awareness and fulfilment of treaty obligations, treaty-compliant activities, annual reporting contributions and participation in relevant governance structures. | The directive operationalizes existing treaty responsibilities; this capture does not create the underlying treaty rights. |
+| Section 1: Assessment of Modern Treaty Implications | No prior local copy | Calls for consideration of treaty implications on Cabinet proposals and specifies an assessment where the proposal goes to Cabinet and implementation may affect modern treaties and the rights they contain. | Preserve the stated conditions and distinguish consideration/screening from the specified assessment requirement. |
+| Section 1: central agencies, Justice and AANDC | No prior local copy | Assigns central-agency confirmation before Cabinet referral, Justice legal advice, AANDC coordination and administration of the Treaty Obligation Monitoring System. | Records allocated functions in the published text; historical naming alone does not establish today's institutional allocation or system operation. |
+| Sections 2–3 | No prior local copy | Provides for a deputy-minister oversight committee and a Modern Treaty Implementation Office, including performance measurement, annual reports and issue coordination. | Describes the source's governance framework; first capture does not prove these bodies were newly created in 2026. |
+| Section 4 | No prior local copy | Specifies evaluation within five years of implementation. | This is a historical, implementation-relative requirement. The October 2026 capture does not start a fresh five-year period, and the capture alone does not show whether the evaluation occurred. |
 
 ### Practical effect
 
-1. **Mandatory treaty impact assessments:** departments and agencies are expected to evaluate modern treaty implications when submitting legislative, policy, plan, or program proposals to Cabinet.
-2. **Centralized monitoring and reporting:** AANDC administers the Treaty Obligation Monitoring System (TOMS) and coordinates annual reporting on treaty obligations.
-3. **Interdepartmental governance:** establishes dedicated oversight structures, including a Deputy Ministers' Oversight Committee and a Modern Treaty Implementation Office.
+1. Identify applicable modern treaty obligations when developing proposals and complete the specified implications assessment where the source's conditions apply.
+2. Document compliance, coordinate across responsible departments and contribute to monitoring and annual reporting under the published framework.
+3. Confirm current institutional contacts and implementation guidance when using the text's historical departmental names.
 
 ### Non-substantive changes
 
-None (new capture).
+The repository has newly archived the published text; there is no earlier local capture establishing an amendment. The source's July 2015 publication date and February 2023 page-modified date are distinct from capture and do not independently establish commencement.
 
 ### Watch item
 
-As this is the initial capture of this Cabinet Directive in the repository, future captures should be monitored for amendments to reporting timelines, oversight responsibilities, or assessment thresholds.
+Verify current responsibility for the functions named under AANDC, the status of the monitoring and governance arrangements, and any published evaluation. Avoid interpreting unchanged historical wording as evidence of a new office or a future five-year deadline.

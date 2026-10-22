@@ -1,46 +1,38 @@
 ## Policy change analysis
 
 <!-- cabinet:evidence -->
-Compared the Cabinet Directive evidence for `cabdir_5100844d79f6319c_2026-10-22_0528dd23f0c7a711`:
+Compared the announced Cabinet Directive replacement for `cabdir_5100844d79f6319c_2026-10-22_0528dd23f0c7a711`:
 
 - Current capture: `data/CabinetDirectives/changes/cabdir_5100844d79f6319c_2026-10-22_0528dd23f0c7a711/current.md`
 - Prior capture: `data/CabinetDirectives/changes/cabdir_5100844d79f6319c_2026-10-22_0528dd23f0c7a711/previous.md`
-- Required screenshot: `screenshots/cabdir_5100844d79f6319c_2026-10-22_0528dd23f0c7a711_previous.png`
-- Required screenshot: `screenshots/cabdir_5100844d79f6319c_2026-10-22_0528dd23f0c7a711_current.png`
-
-
-Compared the newly captured replacement for the Cabinet Directive on Regulatory Competitiveness and Red Tape Reduction (`cabdir_5100844d79f6319c_2026-10-22_0528dd23f0c7a711`) against its predecessor, the Cabinet Directive on Regulation:
-
-- New/current capture: `data/CabinetDirectives/changes/cabdir_5100844d79f6319c_2026-10-22_0528dd23f0c7a711/current.md`
-- Prior version used for comparison: `data/CabinetDirectives/changes/cabdir_5100844d79f6319c_2026-10-22_0528dd23f0c7a711/previous.md`
-- Visual evidence checked: `screenshots/cabdir_5100844d79f6319c_2026-10-22_0528dd23f0c7a711_previous.png`, `screenshots/cabdir_5100844d79f6319c_2026-10-22_0528dd23f0c7a711_current.png`
+- Required screenshots: `screenshots/cabdir_5100844d79f6319c_2026-10-22_0528dd23f0c7a711_previous.png` and `screenshots/cabdir_5100844d79f6319c_2026-10-22_0528dd23f0c7a711_current.png`
 
 ### Summary
 
-This update replaces the 2018 Cabinet Directive on Regulation with a streamlined Cabinet Directive on Regulatory Competitiveness and Red Tape Reduction. The new directive elevates economic competitiveness, red tape reduction, and burden offsetting to core priority actions, while restructuring and consolidating the detailed procedural lifecycle requirements into a more concise framework. It will take effect on December 31, 2026.
+This is an announced replacement, published October 21, 2026, which will take effect on December 31, 2026. The Cabinet Directive on Regulation remains In Force at the October 22 capture date. Compared with the archived CDR text, the successor adds explicit competitiveness-assessment and burden-offset direction, specified regulatory-stock review intervals, and revised standards and Indigenous-policy references, while presenting a shorter framework. It does not itself amend statutes or existing regulations.
 
 ### Substantive changes identified
 
-| Section | Prior version | New/current version | Interpretation |
+| Area | CDR before-state | Announced successor | Interpretation |
 |---|---|---|---|
-| **Title and Objectives** | Cabinet Directive on Regulation (2018); broad focus on good government, transparency, evidence, and public interest. | Cabinet Directive on Regulatory Competitiveness and Red Tape Reduction (2026); explicit focus on investment, innovation, competitiveness, and burden reduction. | Re-centres the directive's overarching policy objective around economic competitiveness alongside public protection. |
-| **Priority Actions for Red Tape Reduction** | Contained dispersed references to burden reduction and review across the regulatory life cycle (Sections 5.2.4 and 7.2). | Establishes a dedicated Section 3 ("Priority actions for red tape reduction") featuring explicit rules including a 2-for-1 burden offset rule (Section 3.3) and specific stock review timelines (Section 3.5). | Formalizes explicit red tape reduction targets and operational requirements as primary directives for regulators. |
-| **Key Regulatory Principles** | Divided into lengthy procedural life cycle sections (Sections 4 through 7) covering consultations, RIA, and management. | Consolidated into Section 4 ("Key regulatory principles") structured around 5 major thematic headings with refined sub-clauses. | Simplifies structural organization while maintaining core expectations regarding risk proportionality, consultation, and GBA+. |
-| **Indigenous Consultations and Rights** | Addressed primarily via specific provisions on the legal duty to consult and modern treaties (Sections 4.1.2 and 5.2.7). | Expanded and consolidated under Section 4.5, explicitly incorporating the United Nations Declaration on the Rights of Indigenous Peoples Act, distinctions-based recognition, and the Inuit Nunangat Policy. | Broadens and modernizes the explicit legal and policy frameworks governing Indigenous rights and Crown obligations in regulatory development. |
-| **Roles and Responsibilities** | Detailed appendix covering responsibilities across Governor in Council, Departments, TBS, PCO, Department of Justice, and PSPC. | Streamlined Section 5 focusing specifically on the collaborative roles of Regulators and the Treasury Board of Canada Secretariat. | Narrows the published text to core executive oversight functions while relying on overarching governance statutes for institutional mechanics. |
-| **Coming into Force and Replacement** | Came into force September 1, 2018, replacing the 2012 Cabinet Directive on Regulatory Management. | Comes into force December 31, 2026, and replaces the 2018 Cabinet Directive on Regulation. | Establishes the commencement date and formal transitional replacement path. |
+| Commencement | Section 9.0 gives September 1, 2018 as CDR's effective date. Its notice announces future replacement. | Section 6 establishes December 31, 2026 commencement and replacement of the 2018 CDR. | Record the successor as Announced, not yet In Force; do not mark CDR Superseded prematurely. |
+| Competitiveness | Principles and impact analysis already address a competitive economy, benefits/costs and regulatory cooperation. | Section 3.2 specifies a dedicated competitiveness-impact assessment and communication of its results. | Adds an explicit assessment-and-communication priority; competitiveness was not absent from CDR. |
+| Burden offsets | Section 5.2.4 refers to the statutory One-for-One Rule and administrative-burden estimates. | Section 3.3 specifies a $2 offset per $1 increase in regulatory burden on business over three years, as defined by TBS. | Distinguish the policy direction's measures and time period from the existing statutory rule; the directive alone does not rewrite the Act or Regulations. |
+| Regulatory review | Section 7.2 requires regular stock review and departmental review timelines without the successor's specified intervals. | Section 3.5 calls for significant-impact measures, as defined by TBS, to be reviewed within five years of coming into force and other regulations at least every ten years. | Provides explicit review intervals; implementation depends on the stated definitions and supporting direction. |
+| Standards | Sections 4.2, 5.2.5 and 5.2.6 address cooperation, possible alignment and incorporation by reference. | Section 3.4 calls for considering and, where appropriate, adopting recognized standards by default, with evidence-based adaptation for Canada when warranted in the public interest. | Changes the stated policy approach while retaining qualifications and statutory constraints. |
+| Procedure and roles | CDR contains detailed analytical/publication provisions, 30-day and possible 70-day consultation periods, explicit GBA+ direction, and a multi-institution appendix. | The shorter text retains proportionate impact analysis, significant-impact pre-publication or exemption, and regulator/TBS roles; section 5.2.3 authorizes supporting TBS policies, guidance, tools and processes. | Some detail is absent from the successor's body. Do not infer that GBA+, consultation periods or statutory institutional responsibilities have been withdrawn without checking the continuing legal and policy framework. |
+| Indigenous obligations | CDR addresses consultation/accommodation, modern treaty implications and relevant rights. | Section 4.5 expressly references distinctions among First Nations, Inuit and Métis, the UN Declaration Act, treaties/self-government agreements and the Inuit Nunangat Policy directive; section 2.3 preserves authorities and obligations. | Expands the text's explicit references; this wording does not itself establish new underlying legal rights or authorities. |
 
 ### Practical effect
 
-1. **Explicit competitiveness mandate:** Regulators must explicitly assess and communicate competitiveness impacts for proposed regulatory measures and focus on reducing cumulative regulatory burden.
-2. **Burden offset rule:** Section 3.3 introduces a specific requirement to offset $2 for every $1 increase in regulatory burden on business over a three-year period.
-3. **Structured review timelines:** Significant impact regulatory measures must be reviewed within 5 years of coming into force, and all other regulations at least once every 10 years.
+1. Prepare for the December transition by aligning assessment, communication, burden measurement and stock-review planning with forthcoming TBS definitions and guidance.
+2. Continue applying currently operative requirements. Treat the announced framework as policy direction that remains subject to legislation, international obligations and other applicable instruments.
+3. Check supporting policies before interpreting the shorter text as removing a detailed analytical, consultation or institutional requirement.
 
 ### Non-substantive changes
 
-- Reorganizes the document structure from nine detailed numerical sections and an appendix into six streamlined sections.
-- Updates formatting, headings, and internal cross-references to match current Treasury Board drafting standards and modernize terminology.
+Headings, numbering and organization are substantially condensed. Renumbering alone is not substantive, but shorter text and omitted detail cannot automatically be classified as mere formatting or confirmed rescission.
 
 ### Watch item
 
-Regulators and departmental regulatory affairs units must prepare for the December 31, 2026 coming-into-force date by aligning upcoming regulatory submissions and stock review plans with the newly codified competitiveness assessment and burden-offset requirements.
+Verify the TBS definitions and implementation rules for competitiveness assessment, regulatory burden offsets and significant-impact measures. Check the continuity or revision of GBA+, consultation periods and other detailed requirements. Confirm the replacement has taken effect before changing the register's statuses.
