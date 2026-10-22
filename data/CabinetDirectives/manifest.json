@@ -3,16 +3,16 @@
   "sources": {
     "433c77569dfcc13b": {
       "url": "https://www.canada.ca/en/one-canadian-economy/services/simplifying-canada-process/cabinet.html",
-      "current": "data/CabinetDirectives/CD_GettingProjectsBuilt20260921/captures/20261022/current.md",
-      "fingerprint": "e89b3c56e1d741f4f9a411e06b97bf8105776190ba15b2aec15df3cec2e0f2a2",
-      "event": "cabdir_433c77569dfcc13b_2026-10-22_b83c88395fe5af7c",
+      "archive": "CD_GettingProjectsBuilt20260921",
+      "current": "data/CabinetDirectives/CD_GettingProjectsBuilt20260921/captures/20261022_02/current.md",
+      "fingerprint": "d66278520fc8c0d32c7b231a79895756982f2153e436faa158dbfb5e02428639",
+      "resolved_url": "https://www.canada.ca/en/one-canadian-economy/services/simplifying-canada-process/cabinet.html",
+      "event": "CD_GettingProjectsBuilt20260921_changed_20261022_02",
       "metadata": {
         "Status": "In Force",
         "Date Published": "2026-09-21",
         "Date of effect": "Unknown"
-      },
-      "archive": "CD_GettingProjectsBuilt20260921",
-      "resolved_url": "https://www.canada.ca/en/one-canadian-economy/services/simplifying-canada-process/cabinet.html"
+      }
     },
     "ce73825af5be429b": {
       "url": "https://www.canada.ca/en/government/system/laws/developing-improving-federal-regulations/requirements-developing-managing-reviewing-regulations/cabinet-directive-regulation.html",
@@ -207,6 +207,25 @@
       "archive": "CD_RegCompRedTape20261021",
       "report_date": "2026-10-21",
       "deep_dive": "data/CabinetDirectives/CD_RegCompRedTape20261021/DeepDive.md"
+    },
+    "CD_GettingProjectsBuilt20260921_changed_20261022_02": {
+      "guid": "CD_GettingProjectsBuilt20260921_changed_20261022_02",
+      "title": "Cabinet Directive on Getting Projects Built in Canada (2026)",
+      "url": "https://www.canada.ca/en/one-canadian-economy/services/simplifying-canada-process/cabinet.html",
+      "detected_date": "2026-10-22",
+      "change_type": "changed",
+      "previous_url": "",
+      "current": "data/CabinetDirectives/CD_GettingProjectsBuilt20260921/captures/20261022_02/current.md",
+      "previous": "data/CabinetDirectives/CD_GettingProjectsBuilt20260921/captures/20261022_02/previous.md",
+      "resolved_url": "https://www.canada.ca/en/one-canadian-economy/services/simplifying-canada-process/cabinet.html",
+      "previous_resolved_url": "https://www.canada.ca/en/one-canadian-economy/services/simplifying-canada-process/cabinet.html",
+      "metadata": {
+        "Status": "In Force",
+        "Date Published": "2026-09-21",
+        "Date of effect": "Unknown"
+      },
+      "issue_number": null,
+      "complete": false
     }
   }
 }

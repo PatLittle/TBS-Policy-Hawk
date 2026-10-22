@@ -11,7 +11,7 @@ This document is the monitoring register. Add a linked level-two heading and the
 - Status: In Force
 - Date Published: 2026-09-21
 - Date of effect: Unknown
-- Date last modified: 2026-09-23
+- Date last modified: 2026-09-21
 
 Replaces the 2024 Cabinet Directive on Regulatory and Permitting Efficiency for Clean Growth Projects. Sets expectations for federal project decisions within one year of a comprehensive application and required information, subject to the directive's scope and exceptions. The page does not separately state an effective date.
 
