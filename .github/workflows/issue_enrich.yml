@@ -67,8 +67,8 @@ jobs:
             git push
           fi
 
-      - name: Preserve Cabinet evidence for a failed manual analysis retry
-        if: failure() && contains(github.event.issue.labels.*.name, '🍁CabinetDir🏛️')
+      - name: Preserve Cabinet evidence for an analysis retry
+        if: failure() && steps.enrich.outputs.cabinet_issue == 'true'
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'

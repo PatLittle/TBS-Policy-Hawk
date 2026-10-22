@@ -197,7 +197,6 @@ def generate_gemini_summary(api_key: str, system_prompt: str, user_prompt: str, 
         )
     ]
     generate_content_config = types.GenerateContentConfig(
-        thinking_config=types.ThinkingConfig(thinking_budget=0),
         system_instruction=[types.Part.from_text(text=system_prompt)],
     )
     chunks = []
@@ -444,6 +443,7 @@ def main() -> None:
 
     if (_pin_field(issue_body, "Cabinet metadata") or
             any(label.name == "🍁CabinetDir🏛️" for label in issue.labels)):
+        _write_step_output("cabinet_issue", "true")
         try:
             from scripts.enrich_cabinet_directive import enrich_cabinet_issue
         except ModuleNotFoundError:

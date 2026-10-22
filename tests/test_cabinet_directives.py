@@ -75,6 +75,34 @@ class CabinetTests(unittest.TestCase):
                 cabinet.fetch_source(URL)
         self.assertEqual(get.call_count, 1)
 
+    def test_source_fetch_retries_transient_timeout_with_browser_headers(self):
+        response = SimpleNamespace(is_redirect=False, headers={"Content-Type": "text/html"},
+                                   text=html(), encoding=None, raise_for_status=lambda: None)
+        with mock.patch.object(cabinet.requests, "get", side_effect=[cabinet.requests.ReadTimeout(), response]) as get, mock.patch.object(cabinet.time, "sleep"):
+            self.assertEqual(cabinet.fetch_source(URL), html())
+        self.assertEqual(get.call_count, 2)
+        self.assertIn("Mozilla", get.call_args.kwargs["headers"]["User-Agent"])
+        self.assertFalse(get.call_args.kwargs["allow_redirects"])
+
+    def test_persistent_timeout_preserves_baseline_and_stops_after_three_attempts(self):
+        self.capture()
+        before = cabinet.MANIFEST.read_bytes()
+        with mock.patch.object(cabinet.requests, "get", side_effect=cabinet.requests.ReadTimeout()) as get, mock.patch.object(cabinet.time, "sleep"):
+            with self.assertRaises(cabinet.requests.ReadTimeout):
+                cabinet.sync_sources()
+        self.assertEqual(get.call_count, 3)
+        self.assertEqual(cabinet.MANIFEST.read_bytes(), before)
+
+    def test_permanent_http_failure_is_not_retried_or_treated_as_retirement(self):
+        self.capture()
+        before = cabinet.MANIFEST.read_bytes()
+        error = cabinet.requests.HTTPError(response=SimpleNamespace(status_code=404))
+        with mock.patch.object(cabinet.requests, "get", side_effect=error) as get:
+            with self.assertRaises(cabinet.requests.HTTPError):
+                cabinet.sync_sources()
+        self.assertEqual(get.call_count, 1)
+        self.assertEqual(cabinet.MANIFEST.read_bytes(), before)
+
     def test_normalization_ignores_navigation_and_page_date(self):
         first = cabinet.parse_source(html(), URL)
         second = cabinet.parse_source(html(modified="2026-10-23").replace("Volatile navigation", "New navigation"), URL)

@@ -8,6 +8,7 @@ import hashlib
 import json
 import os
 import re
+import time
 from datetime import datetime
 from pathlib import Path
 from urllib.parse import urlparse
@@ -27,6 +28,11 @@ MANIFEST = ROOT / "manifest.json"
 LABEL = "🍁CabinetDir🏛️"
 STATUSES = {"Announced", "In Force", "Superseded", "Retired"}
 FIELDS = ("Status", "Date Published", "Date of effect", "Date last modified")
+BROWSER_HEADERS = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+    "Accept-Language": "en-CA,en;q=0.9",
+}
 HEADING = re.compile(r"^## \[([^\n]+)\]\((https://[^\s)]+)\)\s*$", re.MULTILINE)
 
 
@@ -96,9 +102,18 @@ def fetch_source(url: str) -> str:
     validate_url(url)
     # Validate each redirect before following it, including URLs from manual issues.
     for _ in range(6):
-        response = requests.get(url, timeout=(10, 60), allow_redirects=False,
-                                headers={"User-Agent": "TBS-Policy-Hawk/1.0"})
-        response.raise_for_status()
+        for attempt in range(3):
+            try:
+                print(f"Fetching Cabinet source (attempt {attempt + 1}/3): {url}", flush=True)
+                response = requests.get(url, timeout=(10, 30), allow_redirects=False, headers=BROWSER_HEADERS)
+                response.raise_for_status()
+                break
+            except requests.RequestException as exc:
+                status = getattr(getattr(exc, "response", None), "status_code", None)
+                if attempt == 2 or (status and status not in {408, 429, 500, 502, 503, 504}):
+                    raise
+                print(f"Transient Cabinet fetch failure for {url}: {type(exc).__name__}; retrying", flush=True)
+                time.sleep(2 ** attempt)
         if response.is_redirect:
             from urllib.parse import urljoin
             url = validate_url(urljoin(url, response.headers["Location"]))
