@@ -18,6 +18,76 @@ The implied test for regulators becomes more demanding in two directions: explai
 
 The shorter successor also changes where practitioners must look. The directive gives the national policy direction; TBS is to provide policies, guidance, tools and processes across the regulatory life cycle. The [October 21 announcement](https://www.canada.ca/en/treasury-board-secretariat/news/2026/10/government-of-canada-launches-new-directive-to-reduce-red-tape-and-strengthen-competitiveness.html) expressly says supporting resources will follow and key good-regulatory-practice obligations continue. Missing detail in the new document is therefore not sufficient evidence that the underlying obligation disappears.
 
+## Quantitative comparison: a shorter framework, not simpler vocabulary
+
+The successor contains **1,374 words versus 4,822** in the predecessor's directive prose: **3,448 fewer words, a 71.5% reduction**. Yet its estimated Flesch–Kincaid reading grade is **17.5 versus 17.3**. It is much shorter to read, but the vocabulary and sentence structure remain demanding. Both scores are around postsecondary level on the US grade scale; the small difference does not establish a meaningful deterioration in comprehension.
+
+| Measure | Predecessor: Cabinet Directive on Regulation | Successor: Regulatory Competitiveness and Red Tape Reduction | Interpretation |
+|---|---:|---:|---|
+| Words, including institutional appendix | 4,822 | 1,374 | Down 71.5%; supporting resources are outside this comparison. |
+| Clauses, defined as terminal numbered units | 33 | 42 | Up 9; the numbering systems differ, so this is a structural count, not nine additional obligations. |
+| Numbered units at all levels | 41 | 54 | Includes parent section/principle labels; do not add this row to the terminal count. |
+| Flesch–Kincaid grade, estimated | 17.3 | 17.5 | Both use specialist language; shorter does not necessarily mean easier. |
+| Average words per sentence, block-adjusted | 21.2 | 19.9 | Shorter sentence units partly offset the successor's greater syllables per word. |
+| Words in the institutional appendix | 898 | 0 | The predecessor's appendix is 18.6% of its prose. Its absence does not establish removal of those institutions' duties. |
+
+### Four small views of the document change
+
+**Length — words in directive prose.**
+
+```mermaid
+%%{init: {"xyChart": {"width": 360, "height": 240}, "themeVariables": {"xyChart": {"plotColorPalette": "#216e89"}}}}%%
+xychart-beta
+    title "Directive length"
+    x-axis ["Predecessor", "Successor"]
+    y-axis "Words" 0 --> 5000
+    bar [4822, 1374]
+```
+
+**Structure — terminal numbered clauses, not a count of duties.**
+
+```mermaid
+%%{init: {"xyChart": {"width": 360, "height": 240}, "themeVariables": {"xyChart": {"plotColorPalette": "#216e89"}}}}%%
+xychart-beta
+    title "Numbered clause structure"
+    x-axis ["Predecessor", "Successor"]
+    y-axis "Terminal units" 0 --> 50
+    bar [33, 42]
+```
+
+**Reading demand — estimated US grade level.**
+
+```mermaid
+%%{init: {"xyChart": {"width": 360, "height": 240}, "themeVariables": {"xyChart": {"plotColorPalette": "#216e89"}}}}%%
+xychart-beta
+    title "Flesch-Kincaid reading grade"
+    x-axis ["Predecessor", "Successor"]
+    y-axis "US grade" 0 --> 20
+    bar [17.3, 17.5]
+```
+
+**Predecessor composition — where some of the length sat.** This pie partitions the predecessor's words; it does not imply that any words or obligations were retained or repealed. Even excluding its appendix, the predecessor has 3,924 words, versus 1,374 in the successor, a 65.0% reduction.
+
+```mermaid
+%%{init: {"pie": {"useMaxWidth": true}, "themeCSS": "& {max-width: 360px !important; height: auto;}", "themeVariables": {"pie1": "#216e89", "pie2": "#e2a33a", "pieTitleTextSize": "24px", "pieLegendTextSize": "24px", "pieSectionTextSize": "24px"}}}%%
+pie showData
+    title Predecessor word split
+    "Body" : 3924
+    "Appendix" : 898
+```
+
+### Counting method and limits
+
+These calculations use the preserved **English HTML captures of October 22, 2026**, not an assumption that the predecessor is its unamended 2018 issue. The predecessor capture includes later content, such as section 6.3. Its founding year identifies the instrument, not the vintage of every sentence.
+
+**Words:** include prose paragraphs and list items in the numbered body sections, plus the predecessor's institutional appendix. Exclude headings, section/clause labels, page navigation, repeated tables of contents, replacement banners, footnotes, copyright and page details. Link text counts once; URLs do not count. Word tokenization uses `textstat.lexicon_count` with punctuation removal and whitespace-separated tokens, including substantive numbers; hyphenated expressions remain one token. Appendix words are a subset of the predecessor total.
+
+**Clauses:** a terminal numbered unit is a printed section or paragraph label with no more-specific numbered descendant. For example, 4.1 is excluded if 4.1.1 exists; 3.5 is included even though it has locally numbered list items. Chapter labels ending in `.0` are normalized to their chapter number. Unnumbered appendix roles and locally restarting list numbers are excluded. This yields 33 predecessor topic units and 42 successor units, including the un-subdivided commencement section. The predecessor numbers headings, while the successor numbers paragraphs as well as headings. Consequently, neither this count nor its increase measures the number, strength or removal of enforceable duties. The full label lists are in [metrics.json](analysis/metrics.json).
+
+**Readability:** use English `textstat` 0.7.13 with its CMU pronunciation dictionary and hyphenation fallback. Strip clause labels; treat each prose paragraph/list-item boundary as an end of a sentence unit, adding a period where needed, while retaining sentence punctuation within the block. This avoids treating a long sequence of semicolon-ended clauses as one sentence. There are 227 such detected sentence units and an estimated 10,036 syllables in the predecessor; 69 and 2,954 respectively in the successor. The [Flesch–Kincaid formula](https://github.com/textstat/textstat/blob/main/textstat/textstat.py) is `0.39 × words/sentences + 11.8 × syllables/words − 15.59`; displayed grades are rounded to one decimal. This is a block-adjusted English-text estimate, not a tested reader-comprehension result or a French reading score. Abbreviations, legal titles, list segmentation and estimated pronunciations affect it.
+
+The [small reproduction script](analysis/measure.py) and [results with source hashes and package versions](analysis/metrics.json) make the comparison auditable. They are report evidence, not another monitoring pipeline. **The measured compression supports the interpretation of a concise governing framework; it cannot establish how much compliance work or regulatory burden will disappear.**
+
 ## National scope: what Cabinet is addressing
 
 This is a framework for the federal regulatory system, not a sector-specific instruction or a blanket deadline for individual permits. Section 2.1 covers regulations registered, or to be registered, under section 6 of the Statutory Instruments Act and made by or with the specified Governor in Council, Treasury Board or ministerial authority. Other regulation-making authorities are strongly encouraged to apply it. References to alignment across jurisdictions do not turn this Cabinet direction into an instruction binding provincial or territorial governments.
@@ -106,6 +176,58 @@ The preceding quarter is **FY 2026–27 Q2, July–September**; the active quart
 
 The combined reading is **selective friction reduction with visible accountability**, not uniform relaxation. Q2 contains flexibility in property and contracting, but also stronger project-cost evidence. Q3 includes an operational explanation of property discretion and more demanding security preparation. Against that background, the Cabinet directive supplies a system-level regulatory direction that makes competitiveness and burden more explicit while preserving other obligations. This is a synthesis of the recorded pattern, not a claim that all these changes were centrally planned together.
 
+## Open government, open standards and reusable public evidence
+
+The strongest connection to **open.canada.ca** is the combination of public scrutiny and reporting with reusable evidence. The successor addresses communication of competitiveness assessments (3.2), public scrutiny and transparent engagement (4.3–4.3.1), and public reporting, forward plans and digital participation (4.4.4). The predecessor already required openness, consultation and publication, including annual review plans in section 7.2. The change therefore reinforces an existing transparency theme within the competitiveness framework; it does not introduce transparency for the first time. [Successor, sections 3–4](https://www.canada.ca/en/government/system/laws/developing-improving-federal-regulations/red-tape-reduction-office/regulatory-reform-reduce-red-tape/cabinet-directive-regulatory-competitiveness-red-tape-reduction.html); [predecessor, sections 3, 4.1.1, 5.4 and 7.2](https://www.canada.ca/en/government/system/laws/developing-improving-federal-regulations/requirements-developing-managing-reviewing-regulations/cabinet-directive-regulation.html).
+
+### What “open” can mean here
+
+| Theme | Alignment with the directive | Concrete application to consider | Evidence boundary |
+|---|---|---|---|
+| Open information and transparency | Strong, explicit thematic alignment with communicating assessments, engagement and public reporting. | Publish readable assessment findings, assumptions, options, consultation summaries and review rationales, with links from plans to results. | The Cabinet directive does not name open.canada.ca as the publication destination or specify a new universal disclosure schema. |
+| Open data | A practical way to make the evidence and reporting reusable, alongside the separate open-government framework. | Catalogue eligible regulatory-stock inventories, review dates, assessment inputs, service performance and burden estimates with definitions, identifiers and revision history on open.canada.ca. | A public PDF or dashboard alone does not provide structured reusable data. Privacy, confidentiality, security and release authority still determine eligibility. |
+| Open source | An implementation opportunity for consistent analysis and digital tools across regulators. | Share permitted code for burden calculations, validators, schema mappings and reporting tools so assumptions can be examined and software reused. | Neither the directive nor a preference for standards creates a blanket obligation to publish software or share protected source code. |
+| Public-domain data and openly licensed data | Reuse can lower collection and analysis friction when the data is suitable and lawfully reusable. | Reuse existing public data with provenance, quality checks and clear licensing instead of requesting the same information again. | Publicly viewable, openly licensed and public domain describe different conditions. The Cabinet directive does not put government data into the public domain. |
+| Open standards | Strong conceptual alignment with interoperability and qualified adoption of recognized standards in 3.4 and 4.1.2. | Prefer suitable shared definitions, identifiers, schemas, formats and interfaces over incompatible departmental designs, after checking their governance and fitness. | A recognized regulatory standard is not automatically an open digital standard, free to obtain, or licensed for unrestricted implementation. The directive does not list mandatory open-data standards. |
+
+The separate [Directive on Open Government, sections 5–6](https://publications.gc.ca/collections/collection_2018/sct-tbs/BT22-157-2014-eng.pdf) establishes the release and reuse theme; current [Service and Digital guidance, section 4.3.2.8](https://www.canada.ca/en/government/system/digital-government/guideline-service-digital.html) connects eligible departmental data/information to discovery through the designated open-government portal, subject to security, privacy and legal considerations. Together, these provide a policy basis for considering open.canada.ca when implementing regulatory transparency. This is a reading across instruments, not a new portal requirement invented from this Cabinet directive.
+
+For reusable releases, identify the actual licence. The [Open Government Licence – Canada](https://open.canada.ca/en/open-government-licence-canada) permits broad reuse under terms including attribution; it is a licence, not a declaration that copyright has vanished. Do not assume every government webpage, third-party standard or regulatory dataset carries that licence. For software and standards reuse, the [Open Resource Exchange](https://code.open.canada.ca/en/index.html) provides a Canadian cross-government sharing venue; its [open-standards catalogue](https://code.open.canada.ca/en/open-standards.html) describes implementable formats, protocols and interfaces. These are useful implementation resources, not standards newly prescribed by this directive.
+
+### OCDS, IATI and beneficial ownership: where the fit is strongest
+
+**None of OCDS, IATI or BODS is named in the directive.** Their relevance lies in choosing interoperable evidence and disclosure mechanisms in the appropriate domain. Section 3.4 is a reason to assess suitable standards; it does not certify every voluntary data specification as a recognized standard under that provision, or require all regulatory programmes to adopt these three.
+
+| Standard or data domain | What it addresses | Alignment and a useful application | What this analysis does not claim |
+|---|---|---|---|
+| **Open Contracting Data Standard (OCDS)** | Structured disclosure across procurement planning, tender, award, contract and implementation, linked by a contracting-process identifier (OCID). | **Adjacent-domain fit:** procurement of regulatory IT or implementation services could use lifecycle data to examine competition, amendments and delivery. Consistent identifiers and disclosures can support scrutiny while avoiding duplicate bespoke reporting. It also offers a useful model for linking plans to results. | Procurement is a different regime from regulation-making. OCDS is not a format for the regulatory stock, and this directive neither mandates OCDS nor changes contracting disclosure rules. |
+| **International Aid Transparency Initiative (IATI) Standard** | Structured information about development/humanitarian activities, organizations, finances and results. Global Affairs Canada already publishes bilingual IATI data. | **Established reuse example:** common codes and structured releases show how transparency and comparability can share one data-production process. Where an international-assistance activity supports regulatory capacity or reform, its existing IATI record may provide relevant funding/results context. | IATI is not a universal regulatory reporting schema. A domestic regulatory proposal does not become an IATI activity because it concerns competitiveness; existing Canadian publication predates this directive. |
+| **Beneficial ownership data and the Beneficial Ownership Data Standard (BODS)** | Data about the natural persons who ultimately own or control entities; BODS supports consistent collection and exchange. | **Integrity and coordination fit:** accurate ownership information can help eligible users understand who participates in regulated markets or receives public contracts. Shared entity identifiers and well-governed data exchange could reduce repeated collection while supporting verification and accountability. | The directive does not create ownership-disclosure duties, authorize joining restricted personal data, or prove that Canada's registries already conform to BODS. Corporate ownership and a supplier's procurement record are related but distinct data. |
+
+Sources for those domain descriptions are the [OCDS lifecycle primer](https://standard.open-contracting.org/latest/en/primer/how/), [IATI publishing guidance](https://reference.iatistandard.org/en/guidance/publishing-data/how-to-publish-data/creating-files/), [GAC's existing IATI publication](https://www.international.gc.ca/world-monde/issues_development-enjeux_developpement/priorities-priorites/initiative.aspx?lang=eng), and [BODS documentation](https://standard.openownership.org/en/latest/). The applications in the table are this report's recommendations, not commitments made by those organizations or new directive requirements.
+
+A concrete cross-domain example is a **proposed, authorized link between a contract's supplier entity and its public beneficial-ownership record**, with the OCID identifying the contracting process and a jurisdiction-qualified entity identifier identifying the company. This could help examine related bidders or concentration; an apparent relationship is a lead for validation, not proof of collusion. If the work is also part of a reported international-assistance activity, an IATI activity identifier could connect the funding context. The identifiers serve different objects and must not be substituted for one another. Ownership changes over time, name-only matches are unreliable, and publication/lookup coverage is incomplete. Such a design requires an actual use case, a verified mapping and lawful access; it should not collect more personal information merely because a standard can represent it.
+
+**The integrity test for red-tape reduction:** simplify duplicate filing and incompatible formats without weakening the substantive ownership information needed for accountability. Canada's [January 2024 federal registry announcement](https://www.canada.ca/en/innovation-science-economic-development/news/2024/01/minister-champagne-announces-federal-corporations-need-to-begin-filing-their-beneficial-ownership-information.html) tied corporate transparency to business confidence and described reuse of existing intake mechanisms, proportionate public disclosure and work toward pan-Canadian access. That is a concrete precedent for combining less administrative friction with stronger transparency. It is earlier evidence of alignment, not an outcome caused by the October 2026 directive or proof that pan-Canadian integration is now complete.
+
+## Federal–provincial–territorial collaboration: a practical dependency
+
+The successor explicitly connects standards with inter-jurisdictional alignment (3.4), interoperability through regulatory cooperation (4.1.2), and coordination to reduce overlap (4.4.2). This is **continuity with greater emphasis**, not the first federal instruction to cooperate: predecessor sections 4.2, 4.3, 5.2.5 and 6.2 already addressed alignment and coordination. A federal team can streamline its own process, but it cannot eliminate cross-border duplication by changing only its own forms. Where rules, approvals or data responsibilities span jurisdictions, compatible outcomes require participating governments and regulators to work together.
+
+An existing mechanism is the Canadian Free Trade Agreement's **Regulatory Reconciliation and Cooperation Table**, which includes federal, provincial and territorial governments and addresses divergent regulatory frameworks and future cooperation. It is a potential route for relevant alignment work, not a body created by this directive or a mandatory channel specified for every proposal. [TBS description of Canada's regulatory cooperation activities](https://www.canada.ca/en/government/system/laws/developing-improving-federal-regulations/regulatory-cooperation/canada-regulatory-cooperation-activities.html).
+
+| Collaboration need | Practical joint work to consider | Boundary to preserve |
+|---|---|---|
+| Comparable standards and recognition | Map requirements for a shared activity; agree which standards, test results or approvals can be recognized and what evidence justifies differences. | Identical wording is not necessary for compatible outcomes; a federal Cabinet directive does not compel provincial adoption or itself establish mutual recognition. |
+| Reuse of reporting data | Agree common definitions, entity identifiers, validation rules, update schedules and lawful exchange arrangements before proposing “provide once, reuse.” | A common schema does not confer data-sharing authority, make private records public, or prove every jurisdiction collects the same information. |
+| Beneficial-ownership interoperability | Coordinate registries' coverage, identifiers, change history, correction processes and access tiers; assess a suitable exchange model such as BODS. | Federal corporate records do not cover all provincially incorporated entities. Pan-Canadian access requires actual participation and applicable authority, not an assumption of one completed national register. |
+| Public reporting and discovery | Link federal and participating provincial/territorial plans, datasets and results with clear jurisdiction and version metadata; use open.canada.ca where appropriate for federal discovery. | Publishing a federal catalogue record does not transfer ownership or control of another government's data. |
+| Burden and outcome evaluation | Agree baselines and attribution so a single shared improvement is not counted independently as several different savings. | Coordination costs and differences in public-interest protections still need analysis; alignment is not automatic proof of reduced net burden. |
+
+These are recommended implementation tasks, not additional assignments made to provincial officials by Cabinet. Indigenous governments, rights and treaty obligations require their own appropriate engagement and governance; they must not be collapsed into a federal–provincial administrative arrangement. The directive's sections 2.3 and 4.5 remain material constraints.
+
+**Overall assessment:** the strongest alignment is with transparency, evidence reuse, interoperability and coordinated standards choices. Open data and reusable tools can make those aims practical. OCDS, IATI and BODS provide domain-specific options and precedents; each needs a justified use case and appropriate governance. A smaller number of disconnected forms is useful, but a coherent, reusable and publicly understandable evidence system would better serve both accountability and reduced friction.
+
 ## What to watch after publication
 
 The most consequential next evidence will be the supporting TBS instruments and the way departments use them. In particular:
@@ -123,6 +245,7 @@ At December 31, verify commencement and the authoritative state of the instrumen
 1. [Full successor directive](https://www.canada.ca/en/government/system/laws/developing-improving-federal-regulations/red-tape-reduction-office/regulatory-reform-reduce-red-tape/cabinet-directive-regulatory-competitiveness-red-tape-reduction.html): [archived Markdown](captures/20261022/current.md), [HTML](captures/20261022/current.html), [screenshot](captures/20261022/current.png).
 2. [Cabinet Directive on Regulation](https://www.canada.ca/en/government/system/laws/developing-improving-federal-regulations/requirements-developing-managing-reviewing-regulations/cabinet-directive-regulation.html): [comparison source](captures/20261022/previous.md), [HTML](captures/20261022/previous.html), [screenshot](captures/20261022/previous.png). This is the valid repository predecessor capture available for the analysis, not an assertion that no intervening external revision ever occurred.
 3. [October 21 official announcement](https://www.canada.ca/en/treasury-board-secretariat/news/2026/10/government-of-canada-launches-new-directive-to-reduce-red-tape-and-strengthen-competitiveness.html): [archived text](captures/20261022/announcement.md), [HTML](captures/20261022/announcement.html). Its publication and continuity statements inform the transition analysis.
-4. [Q2 Policy Evolution](../../../PolicyEvolution2026-27Q2.md) and [Q3 Policy Evolution](../../../PolicyEvolution2026-27Q3.md), with specific issue references above. These are this project's analyses, not official statements; their evidence limitations remain applicable.
+4. [Quantitative evidence](analysis/metrics.json), [reproduction script](analysis/measure.py), and the primary open-government/standards sources cited in the analytical sections above. Metrics refer to the archived English bodies, not supporting-policy suites.
+5. [Q2 Policy Evolution](../../../PolicyEvolution2026-27Q2.md) and [Q3 Policy Evolution](../../../PolicyEvolution2026-27Q3.md), with specific issue references above. These are this project's analyses, not official statements; their evidence limitations remain applicable.
 
 **Record boundaries:** The deep dive concerns the instrument published on October 21. The September 2018 directive and the other older collection baselines are context/evidence, not new Q3 publications. No raw file diff is required to understand this report, and no claim is made about realized savings, repealed statutes or private political intent.
