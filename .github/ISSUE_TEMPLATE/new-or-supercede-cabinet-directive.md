@@ -18,3 +18,12 @@ Link to published html:
 - [ ] replaces:
 
 Link to supercede Cab Dir (if applicable):
+
+## Optional source metadata
+
+Supply an ISO date only when the published source establishes it. For a future directive, use `Announced`. Allowed statuses: `Announced`, `In Force`, `Superseded`, `Retired`.
+
+- Status: In Force
+- Date of effect: Unknown
+
+The processing agent must capture and inspect screenshots of the current directive and the previous/replaced directive when available, preserve HTML and Markdown evidence, compare the sources using `SKILL.md`, and add its analysis to the fiscal-quarter Policy Evolution report. A failed screenshot leaves the issue pending. A new repository capture is not necessarily a newly issued directive.

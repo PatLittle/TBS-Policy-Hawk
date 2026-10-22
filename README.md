@@ -5,13 +5,14 @@
 
 TBS Policy Hawk monitors the Treasury Board of Canada Secretariat Policy Suite for changes, captures policy-source artifacts, and opens GitHub issues when there is something for a policy analyst to review.
 
-The repository tracks five related change surfaces:
+The repository tracks six related change surfaces:
 
 1. TBS Policy Suite update feed entries.
 2. Policy instrument pages and their archived XML, HTML, Markdown, diff, screenshot, and summary artifacts.
 3. Policy hierarchy tree additions and removals.
 4. TBS policy glossary changes.
 5. Substantive policy implementation notice (PIN) additions, changes, and removals.
+6. A curated collection of Cabinet Directives, monitored separately from the TBS Policy Suite.
 
 The result is a working evidence trail: machine-readable datasets under `data/`, screenshots under `screenshots/`, GitHub issues for analyst triage, and quarterly `PolicyEvolution{YYYY-YYQ#}.md` reports for completed analysis.  
 
@@ -66,6 +67,18 @@ This temporary metadata file is written only when glossary changes are detected.
 `scripts/sync_pin_sources.py` collects policy implementation notice sources, writes a readable index to `PIN_sources.md`, and stores the latest stable notice content under `data/PINs/`. Volatile fetch timestamps and source-page modified dates are excluded from semantic comparisons, so an unchanged notice remains byte-identical and does not create a routine Git commit.
 
 The manifest at `data/PINs/pin_sources_manifest.json` records stable source identity and removal state. A missing notice must be absent from two successful source listings before it is treated as removed; failed detail fetches preserve the last good capture, and suspiciously large inventory drops stop the run for review. Confirmed additions, content changes, and removals receive immutable before/after evidence under `data/PINs/changes/`.
+
+### `CabinetDirectives.md` and `data/CabinetDirectives/`
+
+[Cabinet Directives](CabinetDirectives.md) is a small register with linked titles, status, publication date, effective date, and last-modified date. It monitors full directive pages, including the full SEEA directive rather than its overview. Unknown dates are explicit; future replacement announcements do not automatically retire an existing directive.
+
+`scripts/cabinet_directives.py sync` checks the registered links, validates the complete source batch, and preserves immutable HTML, Markdown, and before/after metadata for new captures or semantic changes. Navigation and page-modified-only changes do not create analysis issues. Failed or implausibly short sources preserve the last good baseline. Captures and issue state remain byte-identical when nothing changes. Cabinet Directives remain outside TBS suite counts and PIN totals.
+
+The **Cabinet Directive Watch** workflow (`.github/workflows/cabinet_directives.yml`) runs three times daily or on manual dispatch. It commits evidence before opening `🍁CabinetDir🏛️` / `policy-update` issues and explicitly dispatches Issue Enrichment. A durable outbox recovers existing issues by marker and retries unfinished analysis until the completion label is visible, even when the source is unchanged.
+
+The **New or Supercede Cabinet Directive** template also starts enrichment. The agent captures both the new directive and any predecessor, adds the source to the register, and requires screenshots of the archived HTML. Those images and the repository `SKILL.md` are supplied to automated analysis using the existing `GEMINI_API_KEY`. Missing screenshots or a missing key leave analysis pending. The finding goes into the fiscal quarter in progress using the detection date, with source publication/effective dates kept separate. The workflow applies `🪄📝AutoAnalyzed` only after pushing the report and evidence.
+
+Local source capture: `python3 scripts/cabinet_directives.py sync`. Issue publication: `GITHUB_REPOSITORY=PatLittle/TBS-Policy-Hawk GITHUB_TOKEN=... python3 scripts/cabinet_directives.py publish`. Initial captures are labelled newly captured; they do not claim that older directives were newly issued this quarter.
 
 ### `data/pin_events.csv`
 

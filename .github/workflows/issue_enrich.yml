@@ -23,7 +23,8 @@ jobs:
   enrich-issue:
     if: >-
       github.event_name == 'workflow_dispatch' ||
-      contains(github.event.issue.labels.*.name, 'policy-update')
+      contains(github.event.issue.labels.*.name, 'policy-update') ||
+      contains(github.event.issue.labels.*.name, '🍁CabinetDir🏛️')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -60,14 +61,30 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
           git add data/ screenshots/ PolicyEvolution*.md
+          if test -f CabinetDirectives.md; then git add CabinetDirectives.md; fi
           if ! git diff --staged --quiet; then
             git commit -m "chore: enrich issue #${ISSUE_NUMBER}"
             git push
           fi
 
-      - name: Mark PIN analysis complete
-        if: steps.enrich.outputs.pin_autoanalyzed == 'true'
+      - name: Preserve Cabinet evidence for a failed manual analysis retry
+        if: failure() && contains(github.event.issue.labels.*.name, '🍁CabinetDir🏛️')
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          if test -f data/CabinetDirectives/manifest.json; then
+            git add CabinetDirectives.md data/CabinetDirectives/ screenshots/
+            if ! git diff --staged --quiet; then
+              git commit -m 'chore: retain Cabinet evidence for analysis retry'
+              git push
+            fi
+          fi
+
+      - name: Mark analysis complete
+        if: steps.enrich.outputs.pin_autoanalyzed == 'true' || steps.enrich.outputs.cabinet_autoanalyzed == 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE_NUMBER: ${{ inputs.issue_number || github.event.issue.number }}
-        run: gh issue edit "$ISSUE_NUMBER" --add-label '🪄📝AutoAnalyzed'
+        run: |
+          gh label create '🪄📝AutoAnalyzed' --color 7057ff --force
+          gh issue edit "$ISSUE_NUMBER" --add-label '🪄📝AutoAnalyzed'

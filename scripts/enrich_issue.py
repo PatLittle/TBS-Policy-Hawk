@@ -183,14 +183,17 @@ def compute_diff(old_text: str, new_text: str) -> str:
     return "\n".join(diff)
 
 
-def generate_gemini_summary(api_key: str, system_prompt: str, user_prompt: str, model: str) -> str:
+def generate_gemini_summary(api_key: str, system_prompt: str, user_prompt: str, model: str, image_paths=()) -> str:
     if genai is None or types is None:
         raise RuntimeError("google-genai is not installed. Install it with pip.")
     client = genai.Client(api_key=api_key)
     contents = [
         types.Content(
             role="user",
-            parts=[types.Part.from_text(text=user_prompt)],
+            parts=[types.Part.from_text(text=user_prompt)] + [
+                types.Part.from_bytes(data=Path(path).read_bytes(), mime_type="image/png")
+                for path in image_paths
+            ],
         )
     ]
     generate_content_config = types.GenerateContentConfig(
@@ -438,6 +441,15 @@ def main() -> None:
 
     if not issue_body:
         issue_body = issue.body or ""
+
+    if (_pin_field(issue_body, "Cabinet metadata") or
+            any(label.name == "🍁CabinetDir🏛️" for label in issue.labels)):
+        try:
+            from scripts.enrich_cabinet_directive import enrich_cabinet_issue
+        except ModuleNotFoundError:
+            from enrich_cabinet_directive import enrich_cabinet_issue
+        enrich_cabinet_issue(issue, issue_body, repo_full_name)
+        return
 
     if _pin_field(issue_body, "PIN metadata"):
         enrich_pin_issue(issue, issue_body, repo_full_name)

@@ -1,0 +1,61 @@
+name: Cabinet Directive Watch
+
+on:
+  schedule:
+    - cron: '30 0,8,16 * * *'
+  workflow_dispatch:
+
+permissions:
+  actions: write
+  contents: write
+  issues: write
+
+concurrency:
+  group: policy-hawk-content-writes
+  cancel-in-progress: false
+  queue: max
+
+jobs:
+  cabinet-directives:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.x'
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Check Cabinet monitoring safeguards
+        run: python -m unittest discover -s tests -p 'test_cabinet_directives.py'
+      - name: Check registered links and capture Cabinet Directives
+        id: capture
+        run: python scripts/cabinet_directives.py sync
+      - name: Commit validated source evidence
+        if: steps.capture.outcome == 'success'
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add CabinetDirectives.md data/CabinetDirectives/
+          if ! git diff --staged --quiet; then
+            git commit -m 'chore: capture Cabinet Directive changes'
+            git push
+          fi
+      - name: Open issues and retry unfinished Cabinet analysis
+        if: success() || steps.capture.outcome == 'failure'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/cabinet_directives.py publish
+      - name: Persist issue numbers and retry state
+        if: always()
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          if test -f data/CabinetDirectives/manifest.json; then
+            git add data/CabinetDirectives/manifest.json
+            if ! git diff --staged --quiet; then
+              git commit -m 'chore: record Cabinet Directive issue processing'
+              git push
+            fi
+          fi

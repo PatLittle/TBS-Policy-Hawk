@@ -1,0 +1,152 @@
+{
+  "version": 1,
+  "sources": {
+    "433c77569dfcc13b": {
+      "url": "https://www.canada.ca/en/one-canadian-economy/services/simplifying-canada-process/cabinet.html",
+      "current": "data/CabinetDirectives/changes/cabdir_433c77569dfcc13b_2026-10-22_b83c88395fe5af7c/current.md",
+      "fingerprint": "e89b3c56e1d741f4f9a411e06b97bf8105776190ba15b2aec15df3cec2e0f2a2",
+      "event": "cabdir_433c77569dfcc13b_2026-10-22_b83c88395fe5af7c",
+      "metadata": {
+        "Status": "In Force",
+        "Date Published": "2026-09-21",
+        "Date of effect": "Unknown"
+      }
+    },
+    "ce73825af5be429b": {
+      "url": "https://www.canada.ca/en/government/system/laws/developing-improving-federal-regulations/requirements-developing-managing-reviewing-regulations/cabinet-directive-regulation.html",
+      "current": "data/CabinetDirectives/changes/cabdir_ce73825af5be429b_2026-10-22_2e29778f9ee75942/current.md",
+      "fingerprint": "fc733f9bb91d9222b236efeeb1bf94dd5eb427c17cb0e8984a3894e587d44e44",
+      "event": "cabdir_ce73825af5be429b_2026-10-22_2e29778f9ee75942",
+      "metadata": {
+        "Status": "In Force",
+        "Date Published": "2018-06-28",
+        "Date of effect": "2018-09-01"
+      }
+    },
+    "cc6dea83d9724ab6": {
+      "url": "https://www.canada.ca/en/services/environment/conservation/sustainability/strategic-environmental-economic-assessment/cabinet-directive.html",
+      "current": "data/CabinetDirectives/changes/cabdir_cc6dea83d9724ab6_2026-10-22_cc21f42de7d4ccf8/current.md",
+      "fingerprint": "c21ffc7c4e5eb934351f5e0bd0e8e198687d6f5a3abe7c6409daccdb1dae4eef",
+      "event": "cabdir_cc6dea83d9724ab6_2026-10-22_cc21f42de7d4ccf8",
+      "metadata": {
+        "Status": "In Force",
+        "Date Published": "2024-04-02",
+        "Date of effect": "Unknown"
+      }
+    },
+    "41f70790033ad712": {
+      "url": "https://www.rcaanc-cirnac.gc.ca/eng/1436450503766/1677261907632",
+      "current": "data/CabinetDirectives/changes/cabdir_41f70790033ad712_2026-10-22_8919ff389563ecb7/current.md",
+      "fingerprint": "8307af43c31863b27e9beb8736d9e46d1a31a2e931b18abe9b7bf4ba978e03f5",
+      "event": "cabdir_41f70790033ad712_2026-10-22_8919ff389563ecb7",
+      "metadata": {
+        "Status": "In Force",
+        "Date Published": "2015-07-09",
+        "Date of effect": "Unknown"
+      }
+    },
+    "6017e4e2aec1da6e": {
+      "url": "https://www.canada.ca/en/democratic-institutions/services/protecting-democracy/coordinated-response-threats-elections/cabinet.html",
+      "current": "data/CabinetDirectives/changes/cabdir_6017e4e2aec1da6e_2026-10-22_c37f62a9eccac764/current.md",
+      "fingerprint": "eb314a2313cd57d9eab95a65a47de7ec956b48b2ae023c49e4c81e82b39fddfe",
+      "event": "cabdir_6017e4e2aec1da6e_2026-10-22_c37f62a9eccac764",
+      "metadata": {
+        "Status": "In Force",
+        "Date Published": "2026-03-26",
+        "Date of effect": "Unknown"
+      }
+    }
+  },
+  "events": {
+    "cabdir_433c77569dfcc13b_2026-10-22_b83c88395fe5af7c": {
+      "guid": "cabdir_433c77569dfcc13b_2026-10-22_b83c88395fe5af7c",
+      "title": "Cabinet Directive on Getting Projects Built in Canada (2026)",
+      "url": "https://www.canada.ca/en/one-canadian-economy/services/simplifying-canada-process/cabinet.html",
+      "detected_date": "2026-10-22",
+      "change_type": "newly_captured",
+      "previous_url": "",
+      "current": "data/CabinetDirectives/changes/cabdir_433c77569dfcc13b_2026-10-22_b83c88395fe5af7c/current.md",
+      "previous": "",
+      "metadata": {
+        "Status": "In Force",
+        "Date Published": "2026-09-21",
+        "Date of effect": "Unknown"
+      },
+      "previous_metadata": {},
+      "issue_number": null,
+      "complete": false
+    },
+    "cabdir_ce73825af5be429b_2026-10-22_2e29778f9ee75942": {
+      "guid": "cabdir_ce73825af5be429b_2026-10-22_2e29778f9ee75942",
+      "title": "Cabinet Directive on Regulation (CDR)",
+      "url": "https://www.canada.ca/en/government/system/laws/developing-improving-federal-regulations/requirements-developing-managing-reviewing-regulations/cabinet-directive-regulation.html",
+      "detected_date": "2026-10-22",
+      "change_type": "newly_captured",
+      "previous_url": "",
+      "current": "data/CabinetDirectives/changes/cabdir_ce73825af5be429b_2026-10-22_2e29778f9ee75942/current.md",
+      "previous": "",
+      "metadata": {
+        "Status": "In Force",
+        "Date Published": "2018-06-28",
+        "Date of effect": "2018-09-01"
+      },
+      "previous_metadata": {},
+      "issue_number": null,
+      "complete": false
+    },
+    "cabdir_cc6dea83d9724ab6_2026-10-22_cc21f42de7d4ccf8": {
+      "guid": "cabdir_cc6dea83d9724ab6_2026-10-22_cc21f42de7d4ccf8",
+      "title": "Cabinet Directive on Strategic Environmental and Economic Assessment (SEEA)",
+      "url": "https://www.canada.ca/en/services/environment/conservation/sustainability/strategic-environmental-economic-assessment/cabinet-directive.html",
+      "detected_date": "2026-10-22",
+      "change_type": "newly_captured",
+      "previous_url": "",
+      "current": "data/CabinetDirectives/changes/cabdir_cc6dea83d9724ab6_2026-10-22_cc21f42de7d4ccf8/current.md",
+      "previous": "",
+      "metadata": {
+        "Status": "In Force",
+        "Date Published": "2024-04-02",
+        "Date of effect": "Unknown"
+      },
+      "previous_metadata": {},
+      "issue_number": null,
+      "complete": false
+    },
+    "cabdir_41f70790033ad712_2026-10-22_8919ff389563ecb7": {
+      "guid": "cabdir_41f70790033ad712_2026-10-22_8919ff389563ecb7",
+      "title": "Cabinet Directive on the Federal Approach to Modern Treaty Implementation",
+      "url": "https://www.rcaanc-cirnac.gc.ca/eng/1436450503766/1677261907632",
+      "detected_date": "2026-10-22",
+      "change_type": "newly_captured",
+      "previous_url": "",
+      "current": "data/CabinetDirectives/changes/cabdir_41f70790033ad712_2026-10-22_8919ff389563ecb7/current.md",
+      "previous": "",
+      "metadata": {
+        "Status": "In Force",
+        "Date Published": "2015-07-09",
+        "Date of effect": "Unknown"
+      },
+      "previous_metadata": {},
+      "issue_number": null,
+      "complete": false
+    },
+    "cabdir_6017e4e2aec1da6e_2026-10-22_c37f62a9eccac764": {
+      "guid": "cabdir_6017e4e2aec1da6e_2026-10-22_c37f62a9eccac764",
+      "title": "Cabinet Directive on the Coordinated Response to Threats to Elections (CRTE)",
+      "url": "https://www.canada.ca/en/democratic-institutions/services/protecting-democracy/coordinated-response-threats-elections/cabinet.html",
+      "detected_date": "2026-10-22",
+      "change_type": "newly_captured",
+      "previous_url": "",
+      "current": "data/CabinetDirectives/changes/cabdir_6017e4e2aec1da6e_2026-10-22_c37f62a9eccac764/current.md",
+      "previous": "",
+      "metadata": {
+        "Status": "In Force",
+        "Date Published": "2026-03-26",
+        "Date of effect": "Unknown"
+      },
+      "previous_metadata": {},
+      "issue_number": null,
+      "complete": false
+    }
+  }
+}

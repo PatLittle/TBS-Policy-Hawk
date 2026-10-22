@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-"""Idempotent quarterly PolicyEvolution entries for automated PIN analysis."""
+"""Idempotent quarterly PolicyEvolution entries for PIN and Cabinet analysis."""
 
 from __future__ import annotations
 
@@ -39,12 +39,14 @@ def _header(period: dict) -> str:
     start = period["start"].isoformat()
     end = period["end"].isoformat()
     return (
+        "![personal](https://img.shields.io/badge/%E2%9A%A0%EF%B8%8FPersonal%20Project%20/%20Not%20Official%20Government%20of%20Canada%20Guidance%20-FF0000)\n"
         f"# Policy Evolution {period['fiscal_label']} Q{period['quarter']}\n\n"
         f"**Period covered:** {start} to {end}  \n"
         "**Source:** Auto-analysis comments added to TBS-Policy-Hawk issues.\n\n"
         "This file compiles policy-change analysis comments for updates detected during the quarter. "
         "Entries are organized chronologically by the effective/update date in the issue GUID.\n\n"
-        f"![Policy activity heatmap](screenshots/tbs_policy_hawk_heatmap_{start}_to_{end}.png)\n\n"
+        "🚨 Issue Summaries and PolicyEvolution Reports are not official guidance, these analysis products use a mix of deterministic and generative techniques to indicate areas of change - ***A Place to Start Not The End of Understanding Policy Evolution***\n\n"
+        f"![Policy activity heatmap](https://raw.githubusercontent.com/PatLittle/TBS-Policy-Hawk/refs/heads/main/screenshots/tbs_policy_hawk_heatmap_{start}_to_{end}.png)\n\n"
         "---\n"
     )
 
@@ -102,6 +104,7 @@ def upsert_pin_analysis(
     identifier: str,
     change_type: str,
     analysis: str,
+    category: str = "",
 ) -> Path:
     day = date.fromisoformat(detected_date)
     period = fiscal_quarter(day)
@@ -111,14 +114,18 @@ def upsert_pin_analysis(
 
     marker_start = f"<!-- policy-hawk:issue-{issue_number}:start -->"
     marker_end = f"<!-- policy-hawk:issue-{issue_number}:end -->"
+    category_fields = (
+        f"**Category:** {category}  \n" if category else
+        f"**Category:** PIN ({family or 'Unknown'})  \n**Notice identifier:** {identifier or 'Not stated'}  \n"
+    )
+    change_prefix = "cabinet_" if category == "Cabinet Directive" else "pin_"
     section = (
         f"{marker_start}\n"
         f"## {detected_date} — {title}\n\n"
         f"**Issue:** [#{issue_number}](https://github.com/{repo_full_name}/issues/{issue_number})  \n"
-        f"**Category:** PIN ({family or 'Unknown'})  \n"
-        f"**Notice identifier:** {identifier or 'Not stated'}  \n"
+        f"{category_fields}"
         f"**GUID:** `{guid}`  \n"
-        f"**Change type:** pin_{change_type}\n\n"
+        f"**Change type:** {change_prefix}{change_type}\n\n"
         f"{_demote_headings(analysis).strip()}\n\n"
         f"{marker_end}\n\n---\n"
     )
