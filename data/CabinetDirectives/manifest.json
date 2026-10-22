@@ -85,7 +85,7 @@
       },
       "previous_metadata": {},
       "issue_number": 528,
-      "complete": false
+      "complete": true
     },
     "cabdir_ce73825af5be429b_2026-10-22_2e29778f9ee75942": {
       "guid": "cabdir_ce73825af5be429b_2026-10-22_2e29778f9ee75942",
@@ -121,7 +121,7 @@
       },
       "previous_metadata": {},
       "issue_number": 530,
-      "complete": false
+      "complete": true
     },
     "cabdir_41f70790033ad712_2026-10-22_8919ff389563ecb7": {
       "guid": "cabdir_41f70790033ad712_2026-10-22_8919ff389563ecb7",
@@ -139,7 +139,7 @@
       },
       "previous_metadata": {},
       "issue_number": 531,
-      "complete": false
+      "complete": true
     },
     "cabdir_6017e4e2aec1da6e_2026-10-22_c37f62a9eccac764": {
       "guid": "cabdir_6017e4e2aec1da6e_2026-10-22_c37f62a9eccac764",
@@ -157,7 +157,7 @@
       },
       "previous_metadata": {},
       "issue_number": 532,
-      "complete": false
+      "complete": true
     },
     "cabdir_5100844d79f6319c_2026-10-22_0528dd23f0c7a711": {
       "guid": "cabdir_5100844d79f6319c_2026-10-22_0528dd23f0c7a711",
@@ -179,7 +179,7 @@
         "Date of effect": "2018-09-01"
       },
       "issue_number": 527,
-      "complete": false,
+      "complete": true,
       "replacement_status": "announced",
       "previous_evidence_basis": "prior repository capture"
     }
