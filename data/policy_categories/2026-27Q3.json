@@ -1,7 +1,7 @@
 {
   "title": "Policy suite instrument composition",
   "quarter": "2026-27Q3",
-  "snapshot_date": "2026-11-10",
+  "snapshot_date": "2026-11-19",
   "population_basis": "canonical policy-instrument universe; unique document ID; active snapshot reconstructed from Policy Hawk history",
   "classification_basis": {
     "mandatory": [
@@ -111,8 +111,8 @@
     },
     {
       "quarter": "2026-27Q3",
-      "snapshot_date": "2026-11-10",
-      "commit": "0d81823f3cd6bee5ae54025fb084da22d0d0b639",
+      "snapshot_date": "2026-11-19",
+      "commit": "82ed0edf58b6848e0348b9c407cf89e2faeda8e1",
       "total": 188,
       "categories": {
         "Guidelines": 58,
