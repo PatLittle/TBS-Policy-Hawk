@@ -28,11 +28,13 @@ This quarter-level view tracks the **currency and change profile of the policy s
 
 The profile contains **188 current policy instruments** across the ten reporting topics. **Financial management** is the largest area with 59 instruments (31.4% of the suite), followed by **People management** with 41 (21.8%) and **Service and digital** with 25 (13.3%). Together, those three areas account for **66.5%** of current instruments. At the other end of the distribution, **Communications & Federal Identity** contains 4 instruments (2.1%).
 
-The age profile differs sharply across topics. **People management** has the oldest current-version population, averaging **14.0 years**; 65.9% of its instruments are at least five years since their current version, including 48.8% at 10+ years. **Government security** also has a comparatively older profile at **8.3 years** on average, with 75.0% at five years or more. By contrast, **Communications & Federal Identity** averages just **0.7 years**, with 100.0% of instruments revised within the last three years; **Investment Management** is also relatively recent at **2.5 years** on average. These are differences in recency of the current versions, not assessments of policy quality or effectiveness.
+The age profile differs sharply across topics. **People management** has the oldest current-version population, averaging **14.2 years**; 68.3% of its instruments are at least five years since their current version, including 48.8% at 10+ years. **Government security** also has a comparatively older profile at **8.4 years** on average, with 75.0% at five years or more. By contrast, **Communications & Federal Identity** averages just **0.8 years**, with 100.0% of instruments revised within the last three years; **Investment Management** is also relatively recent at **2.6 years** on average. These are differences in recency of the current versions, not assessments of policy quality or effectiveness.
+
+In 2026-27Q3, the profile records one instrument modified in **Investment Management**.
 <!-- policy-hawk:currency-profile-synopsis:end -->
 
 - **Muted upper rows** show the start-of-quarter baseline (2026-10-01).
-- **Saturated lower rows** show the current snapshot (2026-10-05).
+- **Saturated lower rows** show the current snapshot (2026-11-19).
 - Quarter-to-date changes are shown as **added** (green), **modified** (yellow), and **deleted** (red) instruments.
 - The lollipop chart compares average current-version age at the baseline and current snapshot.
 - The distribution strips group current-version ages into `<12 months`, `1–3 years`, `3–5 years`, `5–10 years`, and `10+ years`.

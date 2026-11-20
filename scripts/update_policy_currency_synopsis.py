@@ -118,7 +118,13 @@ def build_synopsis(cfg: dict) -> str:
 
     total_changes = sum(change_count(t) for t in topics)
     change_paragraph = ""
-    if total_changes:
+    if total_changes == 1:
+        topic = next(t for t in topics if change_count(t))
+        action = next(action for action in ("added", "modified", "deleted") if topic["changes"].get(action))
+        change_paragraph = (
+            f"In {quarter_label(cfg)}, the profile records one instrument {action} in **{topic['name']}**."
+        )
+    elif total_changes:
         changed = sorted((t for t in topics if change_count(t)), key=lambda t: (-change_count(t), t["name"]))
         leader = changed[0]
         leader_changes = change_count(leader)

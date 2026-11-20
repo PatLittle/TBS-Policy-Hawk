@@ -22,11 +22,11 @@ import json
 import re
 import subprocess
 from collections import defaultdict
-from datetime import date
+from datetime import date, datetime
 from email.utils import parsedate_to_datetime
 from pathlib import Path
 from typing import Dict, Mapping, Optional
-
+from zoneinfo import ZoneInfo
 
 TOPIC_ORDER = [
     "People management",
@@ -154,8 +154,8 @@ def run_git(*args: str) -> str:
     return subprocess.check_output(["git", *args], text=True).strip()
 
 
-def commit_at_or_before(snapshot: date) -> str:
-    ref = run_git("rev-list", "-1", f"--before={snapshot.isoformat()}T23:59:59Z", "HEAD")
+def commit_at_or_before(snapshot: date, *paths: str) -> str:
+    ref = run_git("rev-list", "-1", f"--before={snapshot.isoformat()}T23:59:59Z", "HEAD", "--", *paths)
     if not ref:
         raise RuntimeError(f"No repository commit exists on or before {snapshot}")
     return ref
@@ -288,17 +288,39 @@ def change_counts(baseline: Mapping[str, dict], current: Mapping[str, dict]):
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--quarter", required=True, help="Fiscal quarter label, e.g. 2026-27Q1")
-    parser.add_argument("--start", required=True, type=date.fromisoformat)
-    parser.add_argument("--end", required=True, type=date.fromisoformat)
-    parser.add_argument("--output", required=True, type=Path)
+    parser.add_argument("--quarter", help="Fiscal quarter label, e.g. 2026-27Q1")
+    parser.add_argument("--start", type=date.fromisoformat)
+    parser.add_argument("--end", type=date.fromisoformat)
+    parser.add_argument("--output", type=Path)
+    parser.add_argument(
+        "--current",
+        nargs="?",
+        type=date.fromisoformat,
+        const=datetime.now(ZoneInfo("America/Toronto")).date(),
+        metavar="AS_OF",
+        help="Build the quarter-to-date data, SVG and report for today in Ottawa or for AS_OF.",
+    )
     args = parser.parse_args()
+
+    fixed_options = (args.quarter, args.start, args.end, args.output)
+    if args.current:
+        if any(fixed_options):
+            parser.error("--current cannot be combined with --quarter, --start, --end or --output")
+        from policy_evolution import _header, fiscal_quarter
+
+        period = fiscal_quarter(args.current)
+        args.quarter = f"{period['fiscal_label']}Q{period['quarter']}"
+        args.start, args.end = period["start"], args.current
+        args.output = Path(f"data/policy_currency/{args.quarter}.json")
+    elif not all(fixed_options):
+        parser.error("specify --current or supply --quarter, --start, --end and --output")
 
     if args.end < args.start:
         raise SystemExit("--end must be on or after --start")
 
     start_ref = commit_at_or_before(args.start)
-    end_ref = commit_at_or_before(args.end)
+    source_paths = ("data/items.csv", "data/tbs_policy_hierarchy_full.csv")
+    end_ref = commit_at_or_before(args.end, *source_paths) if args.current else commit_at_or_before(args.end)
     items_csv = Path("data/items.csv").read_text(encoding="utf-8-sig")
     hierarchy_csv = Path("data/tbs_policy_hierarchy_full.csv").read_text(encoding="utf-8-sig")
     topic_by_id = canonical_topics(hierarchy_csv)
@@ -349,6 +371,20 @@ def main() -> None:
 
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+
+    if args.current:
+        from generate_policy_currency_profile import load_logo_data_uri, render_svg, update_quarterly_report
+        from update_policy_currency_synopsis import update_report
+
+        report = Path(f"PolicyEvolution{args.quarter}.md")
+        image = Path(f"screenshots/tbs_policy_hawk_currency_profile_{args.start}_to_{period['end']}.svg")
+        logo = load_logo_data_uri(Path("assets/tbs-policy-hawk-logo-100px-transparent.png"))
+        image.parent.mkdir(parents=True, exist_ok=True)
+        image.write_text(render_svg(payload, logo), encoding="utf-8")
+        if not report.exists():
+            report.write_text(_header(period), encoding="utf-8")
+        update_quarterly_report(report, payload, image.as_posix())
+        update_report(report, payload)
 
     print(f"Baseline reference commit: {start_ref}")
     print(f"End reference commit:      {end_ref}")

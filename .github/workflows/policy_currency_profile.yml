@@ -11,6 +11,9 @@ on:
       - 'scripts/build_policy_currency_quarter.py'
       - 'scripts/update_policy_currency_synopsis.py'
       - 'scripts/generate_policy_category_history.py'
+      - 'scripts/policy_evolution.py'
+      - 'data/items.csv'
+      - 'data/tbs_policy_hierarchy_full.csv'
       - 'data/policy_currency/**'
       - 'data/policy_categories/**'
 
@@ -28,6 +31,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v6
         with:
+          ref: ${{ github.event.repository.default_branch || 'main' }}
           fetch-depth: 0
           persist-credentials: true
 
@@ -63,7 +67,7 @@ jobs:
             --input data/policy_currency/2026-27Q1.json \
             --report PolicyEvolution2026-27Q1.md
 
-      - name: Regenerate current-quarter currency profile
+      - name: Regenerate FY 2026-27 Q2 currency profile
         run: |
           python scripts/generate_policy_currency_profile.py \
             --input data/policy_currency/2026-27Q2.json \
@@ -74,6 +78,9 @@ jobs:
           python scripts/update_policy_currency_synopsis.py \
             --input data/policy_currency/2026-27Q2.json \
             --report PolicyEvolution2026-27Q2.md
+
+      - name: Rebuild current-quarter currency profile
+        run: python scripts/build_policy_currency_quarter.py --current
 
       - name: Generate policy suite instrument composition
         run: |
@@ -98,9 +105,7 @@ jobs:
             data/policy_categories/ \
             screenshots/tbs_policy_hawk_currency_profile_*.svg \
             screenshots/tbs_policy_hawk_category_history_*.svg \
-            PolicyEvolution2026-27Q1.md \
-            PolicyEvolution2026-27Q2.md \
-            PolicyEvolution2026-27Q3.md
+            PolicyEvolution*.md
           if ! git diff --staged --quiet; then
             git commit -m 'docs: add currency profile narratives to quarterly reports'
             git push
