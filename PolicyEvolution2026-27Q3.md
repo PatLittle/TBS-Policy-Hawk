@@ -645,3 +645,47 @@ The apparent "change" in the tracked Treasury Board Human Resources Information 
 <!-- policy-hawk:issue-542:end -->
 
 ---
+
+<!-- policy-hawk:issue-544:start -->
+## 2026-11-19 — Directive on the Management of Projects and Programmes
+
+**Issue:** [#544](https://github.com/PatLittle/TBS-Policy-Hawk/issues/544)<br>
+**Document ID:** 32594<br>
+**Category:** Directive<br>
+**GUID:** `32594_2026-11-19`<br>
+**Change type:** policy_update
+
+### Policy change analysis
+
+Compared the November 19 capture for `32594_2026-11-19` with the September 3 capture, the closest earlier repository version. Both findings were confirmed in the captured HTML.
+
+- Current capture: [`data/Directive/32594_2026-11-19/20261119T170105Z.md`](https://github.com/PatLittle/TBS-Policy-Hawk/blob/20f28af365d383c19398355f38166109b29de862/data/Directive/32594_2026-11-19/20261119T170105Z.md)
+- Prior capture: [`data/Directive/32594_2026-09-03/20260903T153038Z.md`](https://github.com/PatLittle/TBS-Policy-Hawk/blob/20f28af365d383c19398355f38166109b29de862/data/Directive/32594_2026-09-03/20260903T153038Z.md)
+
+#### Summary
+
+The Directive on the Management of Projects and Programmes narrows project reporting to the Office of the Comptroller General and moves it to an annual cycle. It also rewrites Appendix E to make the Project Brief more concise and tailor its content to the decision Treasury Board is being asked to make.
+
+**Classification** · `reporting-change`, `threshold-change`, `approval-change` (submission documentation), `administrative-cleanup` (clause numbering).
+
+#### Substantive changes identified
+
+| Section | Prior version | November 19 version | Interpretation |
+|---|---|---|---|
+| **4.1.6 — Project reporting** | Projects costing $25 million or more reported baseline scope, schedule, cost and risk information following project approval, expenditure authority, amendments to either, and close-out. | Projects costing $150 million or more report the same baseline information annually. | Projects from $25 million up to but below $150 million fall outside this clause. Projects at or above $150 million move from event-triggered to annual reporting. |
+| **Appendix E.1.1–E.1.6 — Core Project Brief** | Fourteen content items covered matters including business-case options, lifecycle costs, procurement, risk, project gates, performance measures and governance. A detailed project cost estimate range was annexed. | Six core topics cover outcomes and benefits, baseline, delivery, risk, governance and readiness. The brief must avoid duplicating the submission. The baseline includes a detailed cost-range table and applicable material changes from previous approvals. Delivery dependencies and capacity to operate and sustain the result are now explicit. | The brief brings delivery and operational readiness into focus. Standalone brief requirements for performance and outcome measures, an assessment strategy and provision for independent evaluation no longer appear in Appendix E. Related performance and assurance duties still appear in sections 4.1.5 and 4.2.21. |
+| **Appendix E — Decision-specific content** | The business-case options and comparative assessment were general Project Brief content. | Initial project approval or a significant amendment calls for an options summary and the rationale for the selected option. Expenditure authority or an amendment calls for a summary of proposed activities and estimated costs. | The brief now varies with the authority sought. Appendix D.2.4 still specifies the supporting cost-range summaries for expenditure-authority requests and amendments. |
+
+#### Practical effect
+
+1. Departmental reporting processes can distinguish the projects covered by the annual OCG submission from other projects subject to departmental monitoring. Appendix C continues to govern project approval limits.
+2. Submission teams can revise Project Brief templates around the six core topics and add the material required for the specific decision. The change affects submission content, while Appendix D continues to govern when approval or expenditure authority must be sought.
+
+#### Watch items
+
+- Section 4.1.6 gives an annual cadence but specifies neither a submission date nor transition treatment for projects already reporting at approval milestones. The capture records November 19 as the page-modified date. Section 1.1 still gives April 11, 2019 as the directive’s original effective date.
+- The captured HTML numbers both decision-specific paragraphs **E.1.7**. The duplicate numbering is a publication issue. Cite the relevant requirement by its subject as well as its clause number.
+
+<!-- policy-hawk:issue-544:end -->
+
+---
