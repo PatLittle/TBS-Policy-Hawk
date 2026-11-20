@@ -28,7 +28,7 @@ class PinSyncTests(unittest.TestCase):
         self.paths.start()
         self.details = {}
         self.fetch_patch = mock.patch.object(sync, "_fetch_details", side_effect=self._detail_results)
-        self.fetch_patch.start()
+        self.fetch_details = self.fetch_patch.start()
         self.defn = sync.SourceDefinition(
             key="test_notices",
             title="Test policy notices",
@@ -227,6 +227,47 @@ class PinSyncTests(unittest.TestCase):
         self.assertEqual(stable.read_bytes(), before)
         urls = [item["url"] for item in self._manifest()["sources"][0]["notices"]]
         self.assertEqual(urls, [existing["url"]])
+
+    def test_saved_snapshot_is_reused_while_live_and_new_urls_are_fetched(self):
+        prefix = "https://webarchiveweb.wayback.bac-lac.canada.ca/web/"
+        archived = self._notice(prefix + "20240617180714/https://example.test/notice")
+        live = self._notice("https://example.test/notice", "Live notice", "2026-02")
+        self._set_success(archived)
+        self._set_success(live)
+        self.assertEqual(self._sync([archived, live]), [])
+        saved_path = Path(self._manifest()["sources"][0]["notices"][0]["path"])
+        saved_text = saved_path.read_bytes()
+
+        new_snapshot = self._notice(
+            prefix + "20250421065300/https://example.test/notice", archived["title"], "2026-03"
+        )
+        self._set_success(new_snapshot)
+        self._set_success(live, body="Updated direction")
+        events = self._sync([live, new_snapshot, archived])
+
+        requested = self.fetch_details.call_args.args[0][0]["notices"]
+        self.assertEqual([notice["url"] for notice in requested], [live["url"], new_snapshot["url"]])
+        self.assertEqual(saved_path.read_bytes(), saved_text)
+        self.assertEqual([event["pin_change"] for event in events], ["changed", "added"])
+        self.assertNotEqual(Path(events[1]["stable_path"]), saved_path)
+
+    def test_rate_limited_snapshot_is_retried_without_creating_recovery_event(self):
+        url = "https://web.archive.org/web/20250421065300/https://example.test/notice"
+        archived = self._notice(url)
+        self._set_success(archived)
+        self._sync([archived])
+        saved_path = Path(self._manifest()["sources"][0]["notices"][0]["path"])
+        valid_text = saved_path.read_text()
+        error_text = valid_text.replace("Original direction", "Rate limit reached")
+        saved_path.write_text(error_text)
+
+        self._set_success(archived, body="Please try again", page_title="Rate limit reached")
+        self.assertEqual(self._sync([archived]), [])
+        self.assertEqual(saved_path.read_text(), error_text)
+
+        self._set_success(archived)
+        self.assertEqual(self._sync([archived]), [])
+        self.assertEqual(saved_path.read_text(), valid_text)
 
     def test_suspicious_twenty_five_percent_inventory_drop_fails_before_fetch(self):
         notices = [self._notice(f"https://example.test/notices/{index}", f"Notice {index}", str(index)) for index in range(8)]

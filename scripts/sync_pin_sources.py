@@ -9,7 +9,7 @@ from datetime import datetime, time, timezone
 from email.utils import format_datetime
 from pathlib import Path
 from typing import Callable
-from urllib.parse import urljoin
+from urllib.parse import urljoin, urlsplit
 from zoneinfo import ZoneInfo
 
 import requests
@@ -31,6 +31,7 @@ CHANGES_ROOT_NAME = "changes"
 LOCAL_TIMEZONE = ZoneInfo("America/Toronto")
 ITEM_HEADERS = ["guid", "title", "link", "pubDate", "category", "filename", "updated_date"]
 NEW_ITEM_HEADERS = ITEM_HEADERS + ["change_type", "change_summary", "related_guid", "source_id"]
+WAYBACK_HOSTS = {"webarchiveweb.wayback.bac-lac.canada.ca", "web.archive.org"}
 
 
 @dataclass(frozen=True)
@@ -494,13 +495,14 @@ def parse_source(defn: SourceDefinition, html: str) -> dict:
 def build_unique_filenames(notices: list[dict], previous_by_url: dict[str, dict] | None = None) -> None:
     """Assign filenames while retaining the URL's established repository identity."""
     previous_by_url = previous_by_url or {}
-    used = set()
+    used = {Path(notice.get("filename", "")).name for notice in previous_by_url.values()}
+    claimed = set()
     for notice in notices:
         previous = previous_by_url.get(notice["url"], {})
         previous_filename = Path(previous.get("filename", "")).name
-        if previous_filename and previous_filename not in used:
+        if previous_filename and previous_filename not in claimed:
             notice["filename"] = previous_filename
-            used.add(previous_filename)
+            claimed.add(previous_filename)
             continue
         base = sanitize_filename(notice["title"])
         candidate = base
@@ -757,6 +759,25 @@ def _path_text(path_value: str) -> str | None:
     return path.read_text(encoding="utf-8")
 
 
+def _is_archive_snapshot(url: str) -> bool:
+    parsed = urlsplit(url)
+    return (
+        parsed.hostname in WAYBACK_HOSTS
+        and re.match(r"^/web/[0-9]{14}(?:id_)?/https?://", parsed.path, re.IGNORECASE) is not None
+    )
+
+
+def _usable_archive_capture(markdown: str | None) -> bool:
+    metadata, _, body = (markdown or "").partition("\n---\n")
+    return (
+        bool(body.strip())
+        and "- Fetch error:" not in metadata
+        and "rate limit reached" not in metadata.casefold()
+        and "aitratelimit@archive.org" not in body.casefold()
+        and not re.search(r"^(?:#+ )?rate limit reached[.!]?\s*$", body, re.IGNORECASE | re.MULTILINE)
+    )
+
+
 def _display_path(path: Path) -> str:
     try:
         return path.resolve().relative_to(Path.cwd().resolve()).as_posix()
@@ -1004,7 +1025,24 @@ def sync_source_records(
                 f"Suspicious PIN inventory drop for {defn.short_name}: {prior_count} to {current_count}; refusing to modify tracking state"
             )
 
-    detail_results = _fetch_details(source_records, session)
+    prior_by_source = {
+        key: {notice["url"]: notice for notice in source.get("notices", []) if notice.get("url")}
+        for key, source in previous_sources.items()
+    }
+    cached_snapshots = set()
+    records_to_fetch = []
+    for record in source_records:
+        key = record["definition"].key
+        notices_to_fetch = []
+        for notice in record["notices"]:
+            url = notice["url"]
+            prior = prior_by_source.get(key, {}).get(url, {})
+            if _is_archive_snapshot(url) and _usable_archive_capture(_path_text(prior.get("path", ""))):
+                cached_snapshots.add((key, url))
+            else:
+                notices_to_fetch.append(notice)
+        records_to_fetch.append({**record, "notices": notices_to_fetch})
+    detail_results = _fetch_details(records_to_fetch, session)
     now_utc = (now or datetime.now(timezone.utc)).astimezone(timezone.utc).replace(microsecond=0)
     now_local = now_utc.astimezone(LOCAL_TIMEZONE)
     captured_at = now_utc.isoformat().replace("+00:00", "Z")
@@ -1019,7 +1057,7 @@ def sync_source_records(
         defn = record["definition"]
         previous_source = previous_sources.get(defn.key, {})
         previous_notices = previous_source.get("notices", [])
-        previous_by_url = {notice.get("url", ""): notice for notice in previous_notices if notice.get("url")}
+        previous_by_url = prior_by_source.get(defn.key, {})
         current_notices = [dict(notice) for notice in record["notices"]]
         table_schema = _table_schema_for(defn, current_notices)
         build_unique_filenames(current_notices, previous_by_url)
@@ -1028,33 +1066,42 @@ def sync_source_records(
         processed: dict[str, dict] = {}
 
         for notice in current_notices:
-            previous_notice = previous_by_url.get(notice["url"])
-            previous_text = _path_text(previous_notice.get("path", "")) if previous_notice else None
-            detail = detail_results[notice["url"]]
-            if detail["html"] is None:
-                if previous_notice and previous_text is not None:
-                    # A transient detail failure must not replace the last good capture.
-                    preserved = dict(previous_notice)
-                    preserved["table_schema"] = table_schema
-                    processed[notice["url"]] = preserved
-                else:
-                    print(f"Deferred uncaptured PIN after fetch failure: {notice['url']} ({detail['error']})")
+            url = notice["url"]
+            previous_notice = previous_by_url.get(url)
+            if (defn.key, url) in cached_snapshots:
+                processed[url] = {**previous_notice, "table_schema": table_schema}
                 continue
 
-            markdown = build_notice_markdown(
-                defn,
-                record["source_modified"],
-                notice,
-                detail["html"],
-                "",
-                captured_at,
-            )
+            previous_text = _path_text(previous_notice.get("path", "")) if previous_notice else None
+            detail = detail_results[url]
+            archived = _is_archive_snapshot(url)
+            markdown = None
+            error = detail["error"]
+            if detail["html"]:
+                markdown = build_notice_markdown(
+                    defn, record["source_modified"], notice, detail["html"], "", captured_at
+                )
+                if archived and not _usable_archive_capture(markdown):
+                    markdown = None
+                    error = "archive returned a rate-limit page or an empty capture"
+            if markdown is None:
+                if previous_notice and previous_text is not None:
+                    preserved = dict(previous_notice)
+                    preserved["table_schema"] = table_schema
+                    processed[url] = preserved
+                else:
+                    print(f"Deferred uncaptured PIN after fetch failure: {url} ({error})")
+                continue
+
             stable_path = source_dir / notice["filename"]
             notice["path"] = _display_path(stable_path)
             if previous_text is None:
                 stable_writes.append((stable_path, markdown))
                 if not baseline:
                     events.append(_write_change_evidence(defn, notice, "added", "", markdown, detected_date, stable_path))
+            elif archived:
+                # A valid snapshot replacing a failed capture is a retrieval recovery.
+                stable_writes.append((stable_path, markdown))
             elif canonical_notice_text(previous_text) != canonical_notice_text(markdown):
                 stable_writes.append((stable_path, markdown))
                 events.append(_write_change_evidence(defn, notice, "changed", previous_text, markdown, detected_date, stable_path))
