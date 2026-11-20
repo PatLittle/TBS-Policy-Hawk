@@ -8,10 +8,11 @@ For open `policy-update` issues:
 
 1. Find the current policy document identified by the issue.
 2. Locate the closest previous captured version in the repository.
-3. Compare the current and previous versions for substantive policy changes.
-4. Add an analysis comment to the issue.
-5. Add the label `🪄📝AutoAnalyzed` to the issue.
-6. Add the same analysis to the fiscal-quarter `PolicyEvolution{YYYY-YYQ#}.md` file in chronological order.
+3. Post the Markdown capture diff and before-and-after counts on the open issue when a comparable pair exists.
+4. Compare the current and previous versions for substantive policy changes.
+5. Add an analysis comment to the issue.
+6. Add the label `🪄📝AutoAnalyzed` to the issue.
+7. Add the same analysis to the fiscal-quarter `PolicyEvolution{YYYY-YYQ#}.md` file in chronological order.
 
 Also analyze related source changes raised by the repository automation:
 
@@ -231,7 +232,26 @@ For hierarchy changes, compare by document ID first, then by normalized title an
 
 ---
 
-### 4. Normalize text before diffing
+### 4. Post the Markdown capture diff and normalize for analysis
+
+When both selected captures are comparable repository `.md` files, post a **Markdown capture diff** comment on the same open issue as soon as the pair is verified, before drafting the substantive analysis. Link to the before and after files at their source commits. Include a unified diff of the original files in a fenced `diff` block. Use the same files for the diff and the counts, before any normalization.
+
+Generate the diff with `git diff --no-index --no-ext-diff --no-textconv --no-color -- "$before" "$after"`. Exit code 1 means the files differ. Exit code 0 means the files are identical. In that case, report that the captures match and include their counts. Investigate any other exit status before posting.
+
+Decode each original file as UTF-8 and count its Unicode characters, including whitespace and line endings. Count LF-delimited lines, including a final unterminated line. An empty file has zero lines. For example, after reading a capture with `path.read_bytes().decode("utf-8")` into `text`, use `len(text)` for characters and `text.count("\n") + int(bool(text) and not text.endswith("\n"))` for lines.
+
+Use a table in the comment:
+
+| Metric | Before | After |
+|---|---:|---:|
+| Lines | {before lines} | {after lines} |
+| Characters | {before characters} | {after characters} |
+
+Identify the two capture revisions in the comment so a retry can reuse the existing comparison. Use a fence longer than any matching run of fence characters in the diff. For a body over 60,000 characters, use numbered comments with a complete fenced diff block in each part. Split between hunks where possible, then between lines, and split within a single line only if it exceeds the available space. Count the Markdown wrappers toward the limit. Resume with the first missing part on retry.
+
+When a Markdown capture is missing, invalid, or incomparable, record the limitation in the analysis comment and follow the available evidence. The evidence comment is posted separately from the final analysis. Use the final analysis for the quarterly report and apply the completed label only after the analysis is posted.
+
+#### Normalize the captures for substantive analysis
 
 Normalize both current and previous versions before analysis:
 
@@ -329,7 +349,7 @@ hierarchy-change
 
 Use [the Cabinet Directive skill](skills/cabinet-directives/SKILL.md) for this collection. A user-supplied URL may identify a new instrument, a replacement, or a routine amendment; decide from the content and register rather than requiring the user to classify it.
 
-New and replacement directives receive an agent-authored strategic deep dive, with national, strategic, operational and tactical implications, responsibilities and cross-quarter context. Do not delegate that analysis to Gemini or require a textual diff. Existing-source changes receive ordinary PIN-style change analysis, not a new deep dive.
+New and replacement directives receive an agent-authored strategic deep dive, with national, strategic, operational and tactical implications, responsibilities and cross-quarter context. Do not delegate that analysis to Gemini. When comparable Markdown captures exist, post the step 4 diff as supporting issue evidence and use the deep dive for the substantive analysis. Existing-source changes receive ordinary PIN-style change analysis, not a new deep dive.
 
 Use publication/announcement dates for new/replacement quarterly synopses, not the date the project first captured an old document. Quiet inventory baselines never enter quarterly reports. Preserve readable instrument folders, valid HTML/Markdown and screenshots. Automated monitoring observes only the registered URLs through the shared Policy Watch workflow and issue handoff; it does not discover new directives or analyze them.
 
@@ -765,6 +785,7 @@ For each open issue:
 [ ] Verify direct source URL status for removals/delistings (live, redirect, 404/410, soft 404, or indeterminate)
 [ ] Inspect data/policy_glossary.* and glossary_changes.json when glossary evidence is relevant
 [ ] Inspect data/tbs_policy_hierarchy_full.csv and hierarchy screenshots when hierarchy evidence is relevant
+[ ] Post unified Markdown diff and before/after line and character counts when comparable captures exist
 [ ] Normalize current and previous content
 [ ] Compare by clauses/sections
 [ ] Compare PIN direction, glossary terms, and hierarchy paths when applicable
@@ -842,5 +863,5 @@ When running with Codex, provide:
 Repository: PatLittle/TBS-Policy-Hawk
 Issue search: open policy-update issues without 🪄📝AutoAnalyzed
 Quarter file naming: PolicyEvolution{YYYY-YYQ#}.md using GC fiscal year
-Output actions: comment issues, label issues, create/update quarterly markdown report
+Output actions: post Markdown diff evidence and analysis comments, label issues, create/update quarterly markdown report
 ```
