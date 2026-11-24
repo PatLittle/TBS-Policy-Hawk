@@ -49,7 +49,7 @@ This view counts each **unique active policy instrument in force once**, using d
 
 ![Policy suite instrument composition](screenshots/tbs_policy_hawk_category_history_2026-27Q3.svg)
 
-As of **2026-11-20**, the suite contains **188 instruments**: **Guidelines 58**, **Directive 47**, **Standard 37**, **Policy 27**, **Guide 15**, **Policy framework 4**.
+As of **2026-11-24**, the suite contains **188 instruments**: **Guidelines 58**, **Directive 47**, **Standard 37**, **Policy 27**, **Guide 15**, **Policy framework 4**.
 
 ### Instrument purpose, alignment and audience
 
@@ -61,11 +61,11 @@ Of the **188** instruments, **111 (59.0%) are mandatory** Policies, Directives o
 
 The stacked bars show the category composition at each quarter-end snapshot available in Policy Hawk; the current quarter uses the latest available snapshot.
 
-Although these are not official instruments in the Policy Suite, Policy Hawk also tracks **513 notices** in its PIN source collections as of **2026-11-20** ([current PIN_sources.md](PIN_sources.md)):
+Although these are not official instruments in the Policy Suite, Policy Hawk also tracks **514 notices** in its PIN source collections as of **2026-11-24** ([current PIN_sources.md](PIN_sources.md)):
 
 - Policy on Service and Digital Announcements (PSDA): **18**
 - Contracting policy notices (CPN): **47**
-- Access to Information and Privacy Notices (ATIPN): **24**
+- Access to Information and Privacy Notices (ATIPN): **25**
 - Human Resources Information Notices (HRIN): **412**
 - Security Policy Implementation Notice (SPIN): **6**
 - Real Property Policy Notices (RPPN): **6**

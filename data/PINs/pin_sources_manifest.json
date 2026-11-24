@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "generated_at_utc": "2026-11-05T04:17:30Z",
+  "generated_at_utc": "2026-11-24T19:15:53Z",
   "pending_removals": {},
   "sources": [
     {
@@ -811,8 +811,8 @@
       "short_name": "ATIPN",
       "url": "https://www.canada.ca/en/treasury-board-secretariat/services/access-information-privacy/access-information-privacy-notices.html",
       "folder": "ATIPN",
-      "source_modified": "2026-09-24",
-      "notice_count": 24,
+      "source_modified": "2026-11-24",
+      "notice_count": 25,
       "notices": [
         {
           "title": "Disclosing personal information of deceased individuals on compassionate grounds",
@@ -1101,6 +1101,18 @@
           "fetch_error": "",
           "filename": "Definition_of_Personal_Information_-_Ministerial_Staff.md",
           "path": "data/PINs/ATIPN/Definition_of_Personal_Information_-_Ministerial_Staff.md"
+        },
+        {
+          "title": "Managing Records in Digital Collaboration Environments",
+          "url": "https://www.canada.ca/en/treasury-board-secretariat/services/access-information-privacy/access-information-privacy-notices/2026-01-managing-records-digital-collaboration-environments.html",
+          "listing_date": "",
+          "table_date": "2026-11-24",
+          "notice_code": "2026-01",
+          "group": "Access to Information and Privacy implementation notices",
+          "detail_modified": "2026-11-24",
+          "fetch_error": "",
+          "filename": "Managing_Records_in_Digital_Collaboration_Environments.md",
+          "path": "data/PINs/ATIPN/Managing_Records_in_Digital_Collaboration_Environments.md"
         }
       ]
     },
