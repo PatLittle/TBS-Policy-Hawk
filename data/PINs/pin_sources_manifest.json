@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "generated_at_utc": "2026-11-24T19:15:53Z",
+  "generated_at_utc": "2026-11-25T06:07:13Z",
   "pending_removals": {},
   "sources": [
     {
@@ -1108,7 +1108,7 @@
           "listing_date": "",
           "table_date": "2026-11-24",
           "notice_code": "2026-01",
-          "group": "Access to Information and Privacy implementation notices",
+          "group": "Access to Information implementation notices",
           "detail_modified": "2026-11-24",
           "fetch_error": "",
           "filename": "Managing_Records_in_Digital_Collaboration_Environments.md",

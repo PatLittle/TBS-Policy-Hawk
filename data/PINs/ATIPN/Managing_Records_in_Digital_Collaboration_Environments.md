@@ -6,9 +6,9 @@
 - Notice URL: https://www.canada.ca/en/treasury-board-secretariat/services/access-information-privacy/access-information-privacy-notices/2026-01-managing-records-digital-collaboration-environments.html
 - Notice modified: 2026-11-24
 - Notice identifier: 2026-01
-- Notice group: Access to Information and Privacy implementation notices
+- Notice group: Access to Information implementation notices
 - Listed date: 
-- Captured at (UTC): 2026-11-24T19:15:53Z
+- Captured at (UTC): 2026-11-25T06:07:13Z
 - Page title: Access to Information Implementation Notice 2026-01: Managing Records in Digital Collaboration Environments
 
 ---
