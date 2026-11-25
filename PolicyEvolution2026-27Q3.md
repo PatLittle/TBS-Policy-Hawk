@@ -34,7 +34,7 @@ In 2026-27Q3, the profile records one instrument modified in **Investment Manage
 <!-- policy-hawk:currency-profile-synopsis:end -->
 
 - **Muted upper rows** show the start-of-quarter baseline (2026-10-01).
-- **Saturated lower rows** show the current snapshot (2026-11-19).
+- **Saturated lower rows** show the current snapshot (2026-11-24).
 - Quarter-to-date changes are shown as **added** (green), **modified** (yellow), and **deleted** (red) instruments.
 - The lollipop chart compares average current-version age at the baseline and current snapshot.
 - The distribution strips group current-version ages into `<12 months`, `1–3 years`, `3–5 years`, `5–10 years`, and `10+ years`.
@@ -285,5 +285,44 @@ The mandatory Directive on the Management of Projects and Programmes raises the 
 - The captured HTML assigns **E.1.7** to both decision-specific paragraphs. Cite the type of authority sought alongside the clause number when referring to either paragraph.
 
 <!-- policy-hawk:issue-544:end -->
+
+---
+
+<!-- policy-hawk:issue-545:start -->
+## 2026-11-24 — Managing Records in Digital Collaboration Environments
+
+**Issue:** [#545](https://github.com/PatLittle/TBS-Policy-Hawk/issues/545)  
+**Category:** PIN (ATIPN)  
+**Notice identifier:** 2026-01  
+**GUID:** `pin_atipn_6c44afc834df_added_89882545712e_2026-11-24`  
+**Change type:** pin_added
+
+### Policy change analysis
+
+#### Summary
+
+Access to Information Implementation Notice 2026-01 applies existing recordkeeping, disposition, access and preservation rules to digital collaboration, with Microsoft Teams and Microsoft 365 (M365) as the main examples. It took effect **November 2, 2026**. The archive and notice index record **November 24, 2026** as the page-modified and detection date. The capture was made at 19:15:53 UTC that day. The notice cites paragraphs 70(1)(a) and (c) of the *Access to Information Act*. It refers to existing instruments and identifies no guidance it supersedes. [Treasury Board implementation notice](https://www.canada.ca/en/treasury-board-secretariat/services/access-information-privacy/access-information-privacy-notices/2026-01-managing-records-digital-collaboration-environments.html)
+
+The [current capture](https://github.com/PatLittle/TBS-Policy-Hawk/blob/206b448657d410701dd9fe9bb8f6bfc089010387/data/PINs/changes/pin_atipn_6c44afc834df_added_89882545712e_2026-11-24/current.md) is the first archived version. The [previous evidence](https://github.com/PatLittle/TBS-Policy-Hawk/blob/206b448657d410701dd9fe9bb8f6bfc089010387/data/PINs/changes/pin_atipn_6c44afc834df_added_89882545712e_2026-11-24/previous.md) is an absence marker, so the normalized diff already on this issue shows a first capture. The archived notice and index supply the source evidence for this analysis. Classification `pin-update`.
+
+#### Substantive direction
+
+| Area | Direction in the notice | Practical interpretation |
+|---|---|---|
+| **Business-value records (§§4.1, 5.1–5.2)** | If a collaboration exchange documents a decision, approval, advice or commitment of business value, employees must ensure the record is saved in a designated corporate repository. The original can be treated as transitory once the business-value record is captured and the original has no independent business value, subject to preservation requirements. | The substance and context of the exchange determine its value. Employees need a defined way to carry across the context needed to document the decision or commitment. |
+| **Retention and disposition (§§4.2, 5.2–5.3)** | Departments determine and document retention within their governing requirements and disposition authorizations. The notice recommends configuring tools such as Purview and considering shorter defaults for informal messages. It specifies no government-wide chat retention period. | A tenant-wide cleanup has to account for applicable institutional schedules, statutory retention and preservation exceptions. Library and Archives Canada disposition authorization 2016/001 applies within its terms and subject to any contrary institution-specific authorization. |
+| **Search scope and control (§§4.4, 5.4)** | Offices of primary interest identify and retrieve responsive records. A reasonable search may extend into M365 compliance or preservation repositories where the request scope and evidence warrant it. Delegated officials decide disputed questions of institutional control. | Document which repositories, custodians, dates and terms were considered and why. Purely personal records fall outside institutional control, while responsive records mixing departmental and personal material go through ATIP processing. A custom audit or metadata report can engage the electronic record-production duty under subsection 4(3), subject to the applicable regulatory limit. |
+| **Preservation and holds (§§4.3, 5.5)** | Preserve potentially responsive records when an access request arrives or a legal hold applies, including relevant transitory chats. Target holds by custodian, date and subject where feasible and manage their release following formal notice. | A message can disappear from the user interface while remaining preserved. ATIP, legal, IM and IT need an agreed process for applying, verifying and lifting preservation measures. |
+| **Application and training (§§5.6, 6)** | The notice covers institutions under section 3 of the Act, including parent Crown corporations and wholly owned subsidiaries, with an express exception for the Bank of Canada. Institutions outside the scope of the *Directive on Service and Digital* look to their own IM instruments. The notice encourages incorporating collaboration examples into required ATI training. | This is implementation guidance for employees, managers and ATIP, IM, legal and IT specialists. Its recommendations on tools and practices sit alongside the existing binding requirements it cites. |
+
+#### Practical effect
+
+1. Give staff examples of which chat exchanges to save, where to save them and what context to keep. Align routine disposal with approved schedules and preservation triggers.
+2. Make the handoff from ATIP or legal to business owners and M365 administrators explicit. Record who can pause disposition, how preservation is verified, and how the search or hold decision is documented.
+3. Add collaboration repositories to ATI search procedures where the scope warrants it. A missing item in the visible Teams interface is a reason to assess whether a search of compliance copies is reasonable.
+
+**Authorities** · [Access to Information Act](https://laws-lois.justice.gc.ca/eng/acts/a-1/FullText.html) · [Directive on Access to Information Requests](https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=18310) · [Directive on Service and Digital](https://www.tbs-sct.canada.ca/pol/doc-eng.aspx?id=32601) · [LAC disposition authorization 2016/001](https://www.canada.ca/en/library-archives/services/government/information-disposition/records/multi-institution-disposition-authorizations/2016-001-da-transitory-records.html) · [Privacy Regulations](https://laws-lois.justice.gc.ca/eng/regulations/sor-83-508/FullText.html)
+
+<!-- policy-hawk:issue-545:end -->
 
 ---
